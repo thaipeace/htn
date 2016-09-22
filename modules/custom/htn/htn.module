@@ -21,7 +21,6 @@ function htn_menu() {
  * Implement hook_form_after
  */
 function htn_form_alter(&$form, &$form_state, $form_id) {
-  //dsm($form_id);
   if ($form_id == 'gaming_node_form') {
     
     drupal_add_js(drupal_get_path('module', 'htn') . '/js/gaming.js');
@@ -129,6 +128,15 @@ function htn_form_alter(&$form, &$form_state, $form_id) {
     }
     
   }
-  dsm($form);
-  dsm($form_state);
+}
+
+/*
+ * Implement hook_preprocess_page
+ */
+function htn_preprocess_page(&$vars) {
+  if ($vars['directory'] == 'sites/default/themes/STARTERKIT') {
+    drupal_add_js(drupal_get_path('module', 'htn') . '/js/nghia.js');
+    drupal_add_css(drupal_get_path('module', 'htn') . '/css/nghia.css');
+  }
+  
 }
