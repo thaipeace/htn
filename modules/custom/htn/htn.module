@@ -1,0 +1,134 @@
+<?php
+
+/*
+ * Hook menu
+ */
+function htn_menu() {
+  $items['play-game'] = array(
+    'title' => '',
+    'description' => 'Game',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('htn_multistep_game_form'),
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+  );
+  
+  return $items;
+}
+
+
+/*
+ * Implement hook_form_after
+ */
+function htn_form_alter(&$form, &$form_state, $form_id) {
+  //dsm($form_id);
+  if ($form_id == 'gaming_node_form') {
+    
+    drupal_add_js(drupal_get_path('module', 'htn') . '/js/gaming.js');
+    drupal_add_css(drupal_get_path('module', 'htn') . '/css/gaming.css');
+    
+    global $base_url;
+    $data = [];
+    $request = drupal_http_request($base_url . '/' . drupal_get_path('module', 'htn') . '/data.json');
+    $data = drupal_json_decode($request->data);
+    $alter_steps = ['step_select_case_1','step_select_case_2','step_select_case_3'];
+    $state = isset($form_state['values']['field_situation']) ? $form_state['values']['field_situation']['und'][0]['value'] : '';
+    $gender = isset($form_state['values']['field_gender']) ? $form_state['values']['field_gender']['und'][0]['value'] : '';
+    $name = isset($form_state['values']['field_name']) ? '<span class="name">' . $form_state['values']['field_name']['und'][0]['value'] . '</span>' : '';
+    
+    if (isset($form_state['values']['field_gender'])) {
+      // Add gender class to form
+      $form['#attributes']['class'][] = $gender;
+    }
+    
+    if ($form_state['storage']['step'] === 'step_fill_name') {
+      $face = file_create_url(file_load($form_state['values']['field_gaming_image']['und'][0]['fid'])->uri);
+      $body = file_create_url('public://model') . '/' . $gender . '.png';
+      $form['field_name']['#prefix'] = '<div class="actor"><img class="face" src="' . $face . '" /><img class="body" src="' . $body . '" /></div>';
+    }
+    
+    if ($form_state['storage']['step'] === 'step_select_situation') {
+      $form['field_situation']['#prefix'] = '<div class="situa"><div class="fresh"></div><div class="hot"></div></div>';
+    }
+    
+    
+    if (isset($form_state['storage']) && in_array($form_state['storage']['step'], $alter_steps)) {
+      //dsm($data);
+      // Build class 1st
+      if ($state == 'fresh') {
+        $class_1st = [];
+        foreach($data['fresh'] as $key => $value) {
+          $class_1st[$key] = str_replace('$name', $name, $value['title']);
+        }
+        $form['field_case1'] = [
+          '#type' => 'radios',
+          '#title' => t('Case 1'),
+          '#options' => $class_1st,
+          '#description' => t(''),
+          '#access' => TRUE,
+          '#default_value' => $form_state['values']['field_case1_selected']['und'][0]['value'],
+          '#prefix' => str_replace('$name', $name, '<div class="intro"><div class="hello">Xin chào $name </div>'
+            . '<div class="desc">Khi $name được thanh lọc bên trong, $name sẽ tươi trẻ bên ngoài.'
+            . '<br/>Khi $name tươi trẻ bên ngoài, $name sẽ:</div></div>')
+        ];
+        $form['#steps']['step_select_case_1']->children[] = 'field_case1';
+        $form['#step_children']['field_case1'] = 'step_select_case_1';
+      }
+      
+      // Build class 2nd
+      if (!empty($form_state['values']['field_case1_selected']['und'][0]['value'])) {
+        $class_2nd = [];
+        $chose_class_2nd = $form_state['values']['field_case1_selected']['und'][0]['value'];
+
+        foreach($data['fresh'][$chose_class_2nd]['sub'] as $key => $value) {
+          $class_2nd[$key] = str_replace('$name', $name, $value['title']);
+        }
+        $form['field_case2'] = [
+          '#type' => 'radios',
+          '#title' => t('Case 2'),
+          '#options' => $class_2nd,
+          '#description' => t(''),
+          '#access' => TRUE,
+          '#default_value' => $form_state['values']['field_case2_selected']['und'][0]['value'],
+          '#prefix' => str_replace('$name', $name, '<div class="intro"><div class="hello">Xin chào $name </div>'
+            . '<div class="desc">Khi $name được thanh lọc bên trong, $name sẽ tươi trẻ bên ngoài.'
+            . '<br/>Khi $name tươi trẻ bên ngoài, $name sẽ:</div></div>')
+        ];
+        $form['#steps']['step_select_case_2']->children[] = 'field_case2';
+        $form['#step_children']['field_case2'] = 'step_select_case_2';
+      }
+      
+      // Build class 3rd
+      if (!empty($form_state['values']['field_case2_selected']['und'][0]['value'])) {
+        $class_3rd = [];
+        $chose_class_3rd = $form_state['values']['field_case2_selected']['und'][0]['value'];
+
+        foreach($data['fresh'][$chose_class_2nd]['sub'][$chose_class_3rd]['sub'] as $key => $value) {
+          $class_3rd[$key] = str_replace('$name', $name, $value['title']);
+        }
+        $form['field_case3'] = [
+          '#type' => 'radios',
+          '#title' => t('Case 3'),
+          '#options' => $class_3rd,
+          '#description' => t(''),
+          '#access' => TRUE,
+          '#default_value' => $form_state['values']['field_case3_selected']['und'][0]['value'],
+          '#prefix' => str_replace('$name', $name, '<div class="intro"><div class="hello">Xin chào $name </div>'
+            . '<div class="desc">Khi $name được thanh lọc bên trong, $name sẽ tươi trẻ bên ngoài.'
+            . '<br/>Khi $name tươi trẻ bên ngoài, $name sẽ:</div></div>')
+        ];
+        $form['#steps']['step_select_case_3']->children[] = 'field_case3';
+        $form['#step_children']['field_case3'] = 'step_select_case_3';
+      }
+    }
+    
+    if ($form_state['storage']['step'] === 'step_complete') {
+      if (empty($form_state['values']['title'])) {
+        $form['title']['#default_value'] = $form_state['values']['field_name']['und'][0]['value'] . '-' . time();
+      }
+    }
+    
+  }
+  dsm($form);
+  dsm($form_state);
+}

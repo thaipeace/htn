@@ -1,0 +1,173 @@
+{
+	"fresh": {
+		"a": {
+      "title": "$name sẽ được đóng quảng cáo xuất hiện trên tivi",
+      "sub": {
+        "aa": {
+          "title": "$name ra đường sẽ được chủ hàng mỳ cay nhận ra",
+          "sub": {
+            "aaa": {
+              "title": "$name sẽ được ăn mỳ cay miễn phí",
+              "video": ""
+            },
+            "aab": {
+              "title": "Món mỳ cay đặc biệt sẽ được đặt tên là mỳ $name cay",
+              "video": ""
+            },
+            "aac": {
+              "title": "$name sẽ được công ty mỳ mời làm đại sứ thương hiệu",
+              "video": ""
+            }
+          }
+        },
+        "ab": {
+          "title": "Bố mẹ $name sẽ rối rít khoe hàng xóm",
+          "sub": {
+            "aba": {
+              "title": "$name sẽ được mai mối, $name hết ế",
+              "video": ""
+            },
+            "abb": {
+              "title": "$name sẽ được đề cử đi thi siêu mẫu quốc tế",
+              "video": ""
+            },
+            "abc": {
+              "title": "Tranh chân dung $name sẽ là mặt hàng bán chạy nhất khu phố",
+              "video": ""
+            }
+          }
+        },
+        "ac": {
+          "title": "$name sẽ được mời làm người mẫu tranh chân dung",
+          "sub": {
+            "aca": {
+              "title": "Các họa sĩ sẽ lấy $name làm chân dung hội họa kiểu mẫu",
+              "video": ""
+            },
+            "acb": {
+              "title": "Chân dung $name sẽ được in trong sách mỹ thuật",
+              "video": ""
+            },
+            "acc": {
+              "title": "Gương mặt $name sẽ trở thành đề thi môn mỹ thuật",
+              "video": ""
+            }
+          }
+        }
+      }
+		},
+		"b": {
+      "title": "$name sẽ được đóng phim bom tấn đình đám",
+      "sub": {
+        "ba": {
+          "title": "Mọi người phát cuồng vì $name",
+          "sub": {
+            "baa": {
+              "title": "Người người sẽ bắt chước mọi hành động của $name",
+              "video": ""
+            },
+            "bab": {
+              "title": "Áo thun in hình $name được bán chạy nhất thế giới",
+              "video": ""
+            },
+            "bac": {
+              "title": "Mọi người trên thế giới cùng tổ chức sinh nhật cho $name",
+              "video": ""
+            }
+          }
+        },
+        "bb": {
+          "title": "$name mở trường điện ảnh riêng",
+          "sub": {
+            "bba": {
+              "title": "Thế giới tổ chức liên hoan phim mang tên $name",
+              "video": ""
+            },
+            "bbb": {
+              "title": "Các ngôi sao đua nhau theo học $name",
+              "video": ""
+            },
+            "bbc": {
+              "title": "Chân dung $name được tạc vào núi",
+              "video": ""
+            }
+          }
+        },
+        "bc": {
+          "title": "$name sẽ đoạt giải Oscar",
+          "sub": {
+            "bca": {
+              "title": "Các đạo diễn nổi tiếng thế giới sẽ làm phim về cuộc đời $name",
+              "video": ""
+            },
+            "bcb": {
+              "title": "Mọi người sẽ tạc tượng $name",
+              "video": ""
+            },
+            "bcc": {
+              "title": "Brad Pitt sẽ mời $name đi ăn tối",
+              "video": ""
+            }
+          }
+        }
+      }
+		},
+    "c": {
+      "title": "Facebook $name có hàng tỷ người theo dõi",
+      "sub": {
+        "ca": {
+          "title": "Bà con hàng xóm láng giềng gần xa sẽ coi $name thay vì coi bóng đá",
+          "sub": {
+            "caa": {
+              "title": "$name sẽ có chương trình truyền hình thực tế ăn khách nhất",
+              "video": ""
+            },
+            "cab": {
+              "title": "Các cầu thủ bóng đá sẽ đua nhau mời $name tham gia show truyền hình thực tế",
+              "video": ""
+            },
+            "cac": {
+              "title": "Các giải bóng đá đều xin sử dụng hình ảnh $name để tăng view",
+              "video": ""
+            }
+          }
+        },
+        "cb": {
+          "title": "Các ngôi sao quốc tế sẽ mơ ước được selfie với $name",
+          "sub": {
+            "cba": {
+              "title": "$name sẽ tổ chức cuộc thi selfie quốc tế",
+              "video": ""
+            },
+            "cbb": {
+              "title": "Các ngôi sao quốc tế sẽ treo chân dung $name trong phòng ngủ của họ",
+              "video": ""
+            },
+            "cbc": {
+              "title": "Mọi người trên thế giới bắt chước xì tai của $name",
+              "video": ""
+            }
+          }
+        },
+        "cc": {
+          "title": "Mặt của $name sẽ được khắc trên mặt trăng",
+          "sub": {
+            "cca": {
+              "title": "Người ngoài hành tinh sẽ tỏ tình với $name",
+              "video": ""
+            },
+            "ccb": {
+              "title": "Mọi người đua nhau mua vé du lịch lên mặt trăng để được chụp hình điêu khắc của $name",
+              "video": ""
+            },
+            "ccc": {
+              "title": "Người Trái Đất di cư lên mặt trăng để ngắm chân dung của $name",
+              "video": ""
+            }
+          }
+        }
+      }
+		}
+	},
+	"hot": {}
+}
