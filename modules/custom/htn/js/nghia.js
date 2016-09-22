@@ -13,6 +13,7 @@
   Drupal.behaviors.nghia = {
     attach: function (context, settings) {
       // Code here
+			$('.field-name-field-material .field-items .field-item').html('<video width="560" height="310" controls><source src="http://localhost/htn/sites/default/files/samplevideo_1280x720_1mb.mp4" type="video/mp4"></video>');
     }
   };  
 })(jQuery, Drupal, this, this.document);
