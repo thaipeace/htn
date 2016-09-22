@@ -13,6 +13,7 @@
   Drupal.behaviors.nghia = {
     attach: function (context, settings) {
       // Code here
+	  
     }
   };  
 })(jQuery, Drupal, this, this.document);
