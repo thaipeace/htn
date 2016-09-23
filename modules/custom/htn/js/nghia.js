@@ -15,21 +15,15 @@
       // Code here
 			
 			//Set video
-			$('.field-name-field-material .field-items .field-item').html('<video width="560" height="310" controls><source src="http://localhost/htn/sites/default/files/samplevideo_1280x720_1mb.mp4" type="video/mp4"></video>');
+			$('.front .field-name-field-material .field-items .field-item').html('<video width="560" height="310" controls><source src="http://localhost/htn/sites/default/files/samplevideo_1280x720_1mb.mp4" type="video/mp4"></video>');
 			
 			//Click window to close video
 			$(window).click(function(e) {
-				$('.field-name-field-material').fadeOut();
+				$('.front .field-name-field-material').fadeOut();
 			});
 			
 			//Append image arrow to header
 			$('#block-block-1').append('<div class="wrap-img-arrowheader"><div class="img-arrowheader"></div></div>');
-			
-			//Append image logo to header
-			$('#block-block-1').append('<div class="img-logo"></div>');
-			
-			//Append text to bottom
-			$('.field-name-body .field-items .field-item').append('<div id="text-bottom">© bản quyền 2016 thuộc về tân hiệp phát</div>');
 			
 			//Click arrow
 			$('.img-arrowheader').click(function(e){
