@@ -39,7 +39,7 @@
 			
 			//Click button play
 			$('#play-now').click(function(e){
-				$('body').animate({backgroundColor: "red";backgroundImage: "none"});
+				
 			});
 		}
   };  
