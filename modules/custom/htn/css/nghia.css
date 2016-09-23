@@ -1,14 +1,26 @@
-.node-type-page {
+.front {
 	background:url(../images/homebg.jpg) no-repeat center center fixed;
 	background-size: cover;
 }
 
-.page-node-add-gaming {
+.not-front {
 	background:red;
 }
 
 .front .layout-center {
 	background:url(../images/homeslogan.png) no-repeat center 0 fixed;
+	background-size: 1155px;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+}
+
+.not-front .layout-center {
+	background:url(../images/centergame.png) no-repeat center 0 fixed;
 	background-size: 1155px;
 	position: fixed;
 	z-index: 1;
@@ -178,7 +190,57 @@
 	to {top:40px}
 }
 
+#edit-actions {
+	text-align:center;
+	margin-top: 309px;
+}
 
+#edit-next {
+	background-image:url(../images/buttonplay.png);
+	background-repeat:no-repeat;
+	background-size:185px 50px;
+	width:185px;
+	height:50px;
+	border:none;
+	background-color: transparent;
+	color:yellow;
+	font-size: 16px;
+	text-transform: uppercase;
+	font-weight:bold;
+}
+
+#edit-field-gender .form-item label {
+	text-align:center;
+	text-transform: uppercase;
+	font-size:20px;
+	margin-top: 115px;
+}
+
+#edit-field-gender-und .form-item {
+	position: absolute;
+  top: 170px;
+}
+
+#edit-field-gender-und .form-item:nth-child(2) {
+	left:160px;
+}
+
+#edit-field-gender-und .form-item input[type=radio]{
+	position: absolute;
+	visibility: hidden;
+}
+
+
+
+#edit-field-gender-und {
+	width: 190px;
+  margin: 0 auto;
+	position: relative;
+}
+
+#edit-field-gender-und .form-item label {
+	
+}
 
 
 
