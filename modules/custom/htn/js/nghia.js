@@ -14,6 +14,9 @@
     attach: function (context, settings) {
       // Code here
 			
+			//boolean menuba
+			var checkmenu = true;
+			
 			//Set video
 			$('.front .field-name-field-material .field-items .field-item').html('<video width="560" height="310" controls><source src="http://localhost/htn/sites/default/files/samplevideo_1280x720_1mb.mp4" type="video/mp4"></video>');
 			
@@ -27,9 +30,27 @@
 			
 			//Click arrow
 			$('.img-arrowheader').click(function(e){
+				//Check status menu
+				if(checkmenu){
+					openmenu();
+				}else{
+					closemenu();
+				}
+			});
+			
+			//Open menu
+			function openmenu(){
 				$('#block-block-1 .block-wrapper').css('top','0');
 				$('.wrap-img-arrowheader').css('top','46px');
-			});
+				checkmenu = false;
+			}
+			
+			//Close menu
+			function closemenu(){
+				$('#block-block-1 .block-wrapper').css('top','-46px');
+				$('.wrap-img-arrowheader').css('top','0');
+				checkmenu = true;
+			}
 			
 			//Click button play
 			$('#play-now').click(function(e){
