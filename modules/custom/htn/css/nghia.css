@@ -15,11 +15,13 @@ body {
 	overflow: auto;
 }
 
-#block-block-1 {
-	background: #BB0000;
-	border-bottom: 1px solid;
+#block-block-1 .block-wrapper {
+	background: #e02323;
+	border-bottom: 1px solid #b11919;
 	margin: 0 0 30px;
 	height:46px;
+	position:relative;
+	top:-46px;
 }
 
 #block-block-1 ul {
@@ -42,7 +44,7 @@ body {
 	text-decoration: none;
 	margin-left: -2px;
 	font-weight: bold;
-	border-right: 1px solid #000;
+	border-right: 1px solid #b11919;
 	text-transform: uppercase;
 	color:white;
 	font-size:14px;
@@ -54,16 +56,56 @@ body {
 	border-right: none;
 }
 
-.field-item {
+.wrap-img-arrowheader {
+	width:100%;
+	height:30px;
+	position: absolute;
+  top: 0;
+}
+
+.img-arrowheader {
+	background:url(../images/arrowtop.png) no-repeat center center;
+	width: 120px;
+  height: 30px;
+  margin: 0 auto;
+}
+
+.img-arrowheader:hover {
+	animation-name: animatearrowtop;
+	animation-duration: 1s;
+}
+
+.img-logo {
+	background-image:url(../images/logodrthanh.png);
+	background-repeat:no-repeat;
+	background-size:cover;
+	width:80px;
+	height:80px;
+	position: fixed;
+  left: 70px;
+  top: 10px;
+}
+
+.field-name-body .field-items .field-item {
 	margin:auto;
 	width:408px;
+	position:relative;
+}
+
+#text-bottom{
+	text-transform: uppercase;
+	position:absolute;
+	top: 469px;
+  font-weight: bold;
+	font-size: 10px;
+  color: white;
+  width:100%;
+	text-align:center;
 }
 
 .home-bnt {
-	float:left;
 	width:50%;
 	height:50px;
-	text-align:center;
 }
 
 .home-bnt a {
@@ -75,22 +117,33 @@ body {
 	text-transform: uppercase;
 	font-weight: bold;
 	width:185px;
-	margin-top: 425px;
 	border-radius:10px;
 }
 
 #story-now a {
-	border: 3px solid yellow;
 	color: white;
+	background-image:url(../images/buttonstory.png);
+	background-repeat:no-repeat;
+	background-size:185px 50px;
+}
+
+#story-now {
+	position: absolute;
+  top: 415px;
+	right: -11px;
 }
 
 #play-now a {
-	border: 3px solid #BB0000;
 	color: yellow;
+	background-image:url(../images/buttonplay.png);
+	background-repeat:no-repeat;
+	background-size:185px 50px;
 }
 
-.home-btn a:hover {
-	color:white;
+#play-now {
+	position: absolute;
+  top: 415px;
+  left: 15px;
 }
 
 .field-name-field-material {
@@ -102,10 +155,10 @@ body {
 	height: 100%;
 	overflow: auto;
 	background-color: rgb(0,0,0);
-	background-color: rgba(0,0,0,0.4);
+	background-color: rgba(0,0,0,0.8);
 }
 
-.field-name-field-material .field-items .field-item{
+.field-name-field-material .field-items .field-item {
 	position: relative;
 	background-color: #fefefe;
 	margin: auto;
@@ -115,17 +168,24 @@ body {
 	width: 600px;
 	height:350px;
 	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-	animation-name: animateTop;
+	animation-name: animatetop;
 	animation-duration: 3s;
 	border-radius:15px;
 	text-align:center;
 	padding-top:20px;
 }
 
-@keyframes animateTop{
+@keyframes animatetop {
 	from {top:-300px; opacity:0}
 	to {top:170px; opacity:1}
 }
+
+@keyframes animatearrowtop {
+	from {top:0px}
+	to {top:40px}
+}
+
+
 
 
 
