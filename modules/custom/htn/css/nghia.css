@@ -1,9 +1,13 @@
-body {
+.node-type-page {
 	background:url(../images/homebg.jpg) no-repeat center center fixed;
 	background-size: cover;
 }
 
-.layout-center {
+.page-node-add-gaming {
+	background:red;
+}
+
+.front .layout-center {
 	background:url(../images/homeslogan.png) no-repeat center 0 fixed;
 	background-size: 1155px;
 	position: fixed;
@@ -58,7 +62,7 @@ body {
 
 .wrap-img-arrowheader {
 	width:100%;
-	height:30px;
+	height:33px;
 	position: absolute;
   top: 0;
 }
@@ -66,7 +70,7 @@ body {
 .img-arrowheader {
 	background:url(../images/arrowtop.png) no-repeat center center;
 	width: 120px;
-  height: 30px;
+  height: 33px;
   margin: 0 auto;
 }
 
@@ -75,18 +79,7 @@ body {
 	animation-duration: 1s;
 }
 
-.img-logo {
-	background-image:url(../images/logodrthanh.png);
-	background-repeat:no-repeat;
-	background-size:cover;
-	width:80px;
-	height:80px;
-	position: fixed;
-  left: 70px;
-  top: 10px;
-}
-
-.field-name-body .field-items .field-item {
+.front .field-name-body .field-items .field-item {
 	margin:auto;
 	width:408px;
 	position:relative;
@@ -158,7 +151,7 @@ body {
 	background-color: rgba(0,0,0,0.8);
 }
 
-.field-name-field-material .field-items .field-item {
+.front .field-name-field-material .field-items .field-item {
 	position: relative;
 	background-color: #fefefe;
 	margin: auto;
