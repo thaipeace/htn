@@ -26,6 +26,8 @@ function htn_form_alter(&$form, &$form_state, $form_id) {
     drupal_add_js(drupal_get_path('module', 'htn') . '/js/gaming.js');
     drupal_add_css(drupal_get_path('module', 'htn') . '/css/gaming.css');
     
+    $form_state['rebuild'] = TRUE;
+    
     global $base_url;
     $data = [];
     $request = drupal_http_request($base_url . '/' . drupal_get_path('module', 'htn') . '/data.json');
@@ -34,6 +36,10 @@ function htn_form_alter(&$form, &$form_state, $form_id) {
     $state = isset($form_state['values']['field_situation']) ? $form_state['values']['field_situation']['und'][0]['value'] : '';
     $gender = isset($form_state['values']['field_gender']) ? $form_state['values']['field_gender']['und'][0]['value'] : '';
     $name = isset($form_state['values']['field_name']) ? '<span class="name">' . $form_state['values']['field_name']['und'][0]['value'] . '</span>' : '';
+    $class_2nd = [];
+    $chose_class_2nd = isset($form_state['values']['field_case1_selected']) ? $form_state['values']['field_case1_selected']['und'][0]['value'] : [];
+    $class_3rd = [];
+    $chose_class_3rd = isset($form_state['values']['field_case2_selected']) ? $form_state['values']['field_case2_selected']['und'][0]['value'] : [];
     
     if (isset($form_state['values']['field_gender'])) {
       // Add gender class to form
@@ -76,8 +82,8 @@ function htn_form_alter(&$form, &$form_state, $form_id) {
       
       // Build class 2nd
       if (!empty($form_state['values']['field_case1_selected']['und'][0]['value'])) {
-        $class_2nd = [];
-        $chose_class_2nd = $form_state['values']['field_case1_selected']['und'][0]['value'];
+        //$class_2nd = [];
+        
 
         foreach($data['fresh'][$chose_class_2nd]['sub'] as $key => $value) {
           $class_2nd[$key] = str_replace('$name', $name, $value['title']);
@@ -99,8 +105,8 @@ function htn_form_alter(&$form, &$form_state, $form_id) {
       
       // Build class 3rd
       if (!empty($form_state['values']['field_case2_selected']['und'][0]['value'])) {
-        $class_3rd = [];
-        $chose_class_3rd = $form_state['values']['field_case2_selected']['und'][0]['value'];
+//        $class_3rd = [];
+//        $chose_class_3rd = $form_state['values']['field_case2_selected']['und'][0]['value'];
 
         foreach($data['fresh'][$chose_class_2nd]['sub'][$chose_class_3rd]['sub'] as $key => $value) {
           $class_3rd[$key] = str_replace('$name', $name, $value['title']);
@@ -125,8 +131,14 @@ function htn_form_alter(&$form, &$form_state, $form_id) {
       if (empty($form_state['values']['title'])) {
         $form['title']['#default_value'] = $form_state['values']['field_name']['und'][0]['value'] . '-' . time();
       }
+      
+      $video_url = file_create_url('public://bgvideo') . '/' . $data['fresh'][$chose_class_2nd]['sub'][$chose_class_3rd]['sub'][$form_state['values']['field_case3_selected']['und'][0]['value']]['video'];
+      $form['field_background_video']['und'][0]['value']['#default_value'] = $video_url;
+
     }
     
+    dsm($form);
+    dsm($form_state);
   }
 }
 
