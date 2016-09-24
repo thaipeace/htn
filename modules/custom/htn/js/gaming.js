@@ -10,7 +10,7 @@
   'use strict';
 
   // To understand behaviors, see https://drupal.org/node/756722#behaviors
-  Drupal.behaviors.gmaing = {
+  Drupal.behaviors.gaming = {
     attach: function (context, settings) {
       
       if ($('#gaming-node-form').length > 0) {

@@ -33,8 +33,8 @@ function htn_form_alter(&$form, &$form_state, $form_id) {
     $request = drupal_http_request($base_url . '/' . drupal_get_path('module', 'htn') . '/data.json');
     $data = drupal_json_decode($request->data);
     $alter_steps = ['step_select_case_1','step_select_case_2','step_select_case_3'];
-    $state = isset($form_state['values']['field_situation']) ? $form_state['values']['field_situation']['und'][0]['value'] : '';
-    $gender = isset($form_state['values']['field_gender']) ? $form_state['values']['field_gender']['und'][0]['value'] : '';
+    $state = isset($form_state['values']['field_situation']['und'][0]['value']) ? $form_state['values']['field_situation']['und'][0]['value'] : '';
+    $gender = isset($form_state['values']['field_gender']['und'][0]['value']) ? $form_state['values']['field_gender']['und'][0]['value'] : '';
     $name = isset($form_state['values']['field_name']) ? '<span class="name">' . $form_state['values']['field_name']['und'][0]['value'] . '</span>' : '';
     $class_2nd = [];
     $chose_class_2nd = isset($form_state['values']['field_case1_selected']) ? $form_state['values']['field_case1_selected']['und'][0]['value'] : [];
@@ -149,6 +149,43 @@ function htn_preprocess_page(&$vars) {
   if ($vars['directory'] == 'sites/default/themes/STARTERKIT') {
     drupal_add_js(drupal_get_path('module', 'htn') . '/js/nghia.js');
     drupal_add_css(drupal_get_path('module', 'htn') . '/css/nghia.css');
+    
+    if (isset($vars['node']->type)) {
+      $vars['theme_hook_suggestions'][] = 'page__' . $vars['node']->type;
+    }
   }
-  
+}
+
+/**
+ * Implements hook_theme_registry_alter().
+ */
+function htn_theme_registry_alter(&$theme_registry) {
+	// Defined path to the current module.
+	$module_path = drupal_get_path('module', 'htn');
+	// Find all .tpl.php files in this module's folder recursively.
+	$template_file_objects = drupal_find_theme_templates($theme_registry, '.tpl.php', $module_path);
+	// Iterate through all found template file objects.
+	foreach ($template_file_objects as $key => $template_file_object) {
+		// If the template has not already been overridden by a theme.
+		if (!isset($theme_registry[$key]['theme path']) || !preg_match('#/themes/#', $theme_registry[$key]['theme path'])) {
+			// Alter the theme path and template elements.
+			$theme_registry[$key]['theme path'] = $module_path;
+			$theme_registry[$key] = array_merge($theme_registry[$key], $template_file_object);
+			$theme_registry[$key]['type'] = 'module';
+		}
+	}
+}
+
+/**
+ * Implements hook_theme().
+ */
+function htn_theme($existing, $type, $theme, $path) {
+ $theme = array();
+ $theme['node__gaming'] = array(
+   'render element' => 'content',
+   'base hook' => 'node',
+   'template' => 'node--gaming',
+   'path' => drupal_get_path('module', 'htn') . '/templates',
+  );
+ return $theme;
 }
