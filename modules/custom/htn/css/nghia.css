@@ -329,14 +329,27 @@
 	height:110px;
 }
 
-#edit-field-gaming-image #edit-field-gaming-image-und-0-ajax-wrapper .form-item #edit-field-gaming-image-und-0-upload {
+.female #edit-field-gaming-image #edit-field-gaming-image-und-0-ajax-wrapper .form-item #edit-field-gaming-image-und-0-upload {
 	width: 54px;
 	height: 54px;
 	background-image: url(../images/addimage.png);
   background-repeat: no-repeat;
   background-size: 54px 54px;
 	margin: 0 auto;
-	top: 180px !important;
+	top: 180px;
+  left: 9px;
+	position:relative;
+	border: none;
+}
+
+.male #edit-field-gaming-image #edit-field-gaming-image-und-0-ajax-wrapper .form-item #edit-field-gaming-image-und-0-upload {
+	width: 54px;
+	height: 54px;
+	background-image: url(../images/addimage.png);
+  background-repeat: no-repeat;
+  background-size: 54px 54px;
+	margin: 0 auto;
+	top: 225px;
   left: 9px;
 	position:relative;
 	border: none;
@@ -354,18 +367,6 @@
 	position: relative;
 	top: 380px;
 	font-weight: bold;
-}
-
-.male #img-upload-file {
-	width: 54px;
-	height: 54px;
-	background-image: url(../images/addimage.png);
-  background-repeat: no-repeat;
-  background-size: 54px 54px;
-	margin: 0 auto;
-	top: 210px !important;
-  left: 9px;
-	position:relative;
 }
 
 #edit-field-gaming-image-und-0-upload-button {
