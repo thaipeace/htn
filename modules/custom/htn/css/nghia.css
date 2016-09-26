@@ -31,8 +31,20 @@
 	overflow: auto;
 }
 
-.page-node-add-gaming .layout-center .layout-3col .layout-3col__full .node-form .step-up-picture{
+.page-node-add-gaming .layout-center .layout-3col .layout-3col__full .female .step-up-picture{
 	background:url(../images/avatargirl.png) no-repeat center 0 fixed;
+	background-size: 1155px;
+	position: fixed;
+	z-index: -1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+}
+
+.page-node-add-gaming .layout-center .layout-3col .layout-3col__full .male .step-up-picture{
+	background:url(../images/avatarboy.png) no-repeat center 0 fixed;
 	background-size: 1155px;
 	position: fixed;
 	z-index: -1;
@@ -335,7 +347,7 @@
 	font-weight: bold;
 }
 
-#img-upload-file {
+.female #img-upload-file {
 	width: 54px;
 	height: 54px;
 	background-image: url(../images/addimage.png);
@@ -343,6 +355,18 @@
   background-size: 54px 54px;
 	margin: 0 auto;
 	top: 162px !important;
+  left: 9px;
+	position:relative;
+}
+
+.male #img-upload-file {
+	width: 54px;
+	height: 54px;
+	background-image: url(../images/addimage.png);
+  background-repeat: no-repeat;
+  background-size: 54px 54px;
+	margin: 0 auto;
+	top: 210px !important;
   left: 9px;
 	position:relative;
 }

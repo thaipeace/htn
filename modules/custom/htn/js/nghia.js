@@ -72,8 +72,7 @@
 			//Upload image
 			$('#edit-field-gaming-image-und-0-upload').change(function() {
 					//Submit upload
-					//$('#edit-field-gaming-image-und-0-upload-button').trigger("click");
-					//$('#edit-field-gaming-image-und-0-upload-button').click();
+					//$('#edit-field-gaming-image-und-0-upload-button').trigger("submit");
 					
 					//Show button next
 					$('.page-node-add-gaming .layout-center .layout-3col .layout-3col__full .node-form .step-up-picture ~ #edit-actions #edit-next').css('display','inline-block');
