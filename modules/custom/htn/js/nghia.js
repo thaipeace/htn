@@ -52,10 +52,11 @@
 				checkmenu = true;
 			}
 			
-			//Click button play
-			$('#play-now').click(function(e){
-				
-			});
+			//Append mask of radio
+			$('.page-node-add-gaming #edit-field-gender-und .form-item').append('<div id="check-radio"></div>');
+		
+			//Append button back
+			$('.page-node-add-gaming #edit-actions').append('<input id="button-back" type="button" >');
 		}
   };  
 })(jQuery, Drupal, this, this.document);
