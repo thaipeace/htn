@@ -53,10 +53,33 @@
 			}
 			
 			//Append mask of radio
-			$('.page-node-add-gaming #edit-field-gender-und .form-item').append('<div id="check-radio"></div>');
+			//$('.page-node-add-gaming #edit-field-gender-und .form-item').append('<label for="edit-field-gender-und-female" id="check-radio"></label>');
+			$('.page-node-add-gaming #edit-field-gender-und .form-item:nth-child(1)').append('<label for="edit-field-gender-und-female" id="check-radio"></label>');
+			$('.page-node-add-gaming #edit-field-gender-und .form-item:nth-child(2)').append('<label for="edit-field-gender-und-male" id="check-radio"></label>');
 		
 			//Append button back
 			$('.page-node-add-gaming #edit-actions').append('<input id="button-back" type="button" >');
+			
+			//Back 
+			$('#button-back').click(function(e){
+				window.history.back();
+			});
+			
+			//Append image add avatar
+			$('#edit-field-gaming-image #edit-field-gaming-image-und-0-ajax-wrapper .form-item').append('<label id="img-upload-file" for="edit-field-gaming-image-und-0-upload"></label>');
+			
+			console.log(context);
+			//Upload image
+			$('#edit-field-gaming-image-und-0-upload').change(function() {
+					//Submit upload
+					//$('#edit-field-gaming-image-und-0-upload-button').trigger("click");
+					//$('#edit-field-gaming-image-und-0-upload-button').click();
+					
+					//Show button next
+					$('.page-node-add-gaming .layout-center .layout-3col .layout-3col__full .node-form .step-up-picture ~ #edit-actions #edit-next').css('display','inline-block');
+			});
+			
+			
 		}
   };  
 })(jQuery, Drupal, this, this.document);
