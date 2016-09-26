@@ -330,13 +330,22 @@
 }
 
 #edit-field-gaming-image #edit-field-gaming-image-und-0-ajax-wrapper .form-item #edit-field-gaming-image-und-0-upload {
-	display:none;
+	width: 54px;
+	height: 54px;
+	background-image: url(../images/addimage.png);
+  background-repeat: no-repeat;
+  background-size: 54px 54px;
+	margin: 0 auto;
+	top: 180px !important;
+  left: 9px;
+	position:relative;
+	border: none;
 }
 
 #edit-field-gaming-image #edit-field-gaming-image-und-0-ajax-wrapper .form-item .description {
   text-transform: uppercase;
 	position: relative;
-	top: 50px;
+	top: 0px;
 	font-weight: bold;
 }
 
@@ -345,18 +354,6 @@
 	position: relative;
 	top: 380px;
 	font-weight: bold;
-}
-
-.female #img-upload-file {
-	width: 54px;
-	height: 54px;
-	background-image: url(../images/addimage.png);
-  background-repeat: no-repeat;
-  background-size: 54px 54px;
-	margin: 0 auto;
-	top: 162px !important;
-  left: 9px;
-	position:relative;
 }
 
 .male #img-upload-file {

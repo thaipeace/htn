@@ -65,14 +65,13 @@
 				window.history.back();
 			});
 			
-			//Append image add avatar
-			$('#edit-field-gaming-image #edit-field-gaming-image-und-0-ajax-wrapper .form-item').append('<label id="img-upload-file" for="edit-field-gaming-image-und-0-upload"></label>');
+			//$('#edit-field-gaming-image-und-0-upload').attr("title","");
 			
 			console.log(context);
 			//Upload image
 			$('#edit-field-gaming-image-und-0-upload').change(function() {
 					//Submit upload
-					//$('#edit-field-gaming-image-und-0-upload-button').trigger("submit");
+					//$('#edit-field-gaming-image-und-0-upload-button').trigger("click");
 					
 					//Show button next
 					$('.page-node-add-gaming .layout-center .layout-3col .layout-3col__full .node-form .step-up-picture ~ #edit-actions #edit-next').css('display','inline-block');
