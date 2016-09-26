@@ -40,15 +40,31 @@
 			
 			//Open menu
 			function openmenu(){
-				$('#block-block-1 .block-wrapper').css('top','0');
-				$('.wrap-img-arrowheader').css('top','46px');
+				$('#block-block-1 .block-wrapper').animate({
+					top:0
+				},1000,function(){
+					
+				});
+				$('.wrap-img-arrowheader').animate({
+					top:'46px'
+				},1000,function(){
+					
+				});
 				checkmenu = false;
 			}
 			
 			//Close menu
 			function closemenu(){
-				$('#block-block-1 .block-wrapper').css('top','-46px');
-				$('.wrap-img-arrowheader').css('top','0');
+				$('#block-block-1 .block-wrapper').animate({
+					top:'-46px'
+				},1000,function(){
+					
+				});
+				$('.wrap-img-arrowheader').animate({
+					top:0
+				},1000,function(){
+					
+				});
 				checkmenu = true;
 			}
 			
@@ -65,16 +81,19 @@
 				window.history.back();
 			});
 			
-			//$('#edit-field-gaming-image-und-0-upload').attr("title","");
-			
 			console.log(context);
 			//Upload image
 			$('#edit-field-gaming-image-und-0-upload').change(function() {
-					//Submit upload
-					//$('#edit-field-gaming-image-und-0-upload-button').trigger("click");
-					
+					//Upload image
+					event.preventDefault();
+					$(this).next('input[type="submit"]').mousedown();
+				
 					//Show button next
-					$('.page-node-add-gaming .layout-center .layout-3col .layout-3col__full .node-form .step-up-picture ~ #edit-actions #edit-next').css('display','inline-block');
+					$('.page-node-add-gaming .node-form .step-up-picture ~ #edit-actions #edit-next').css('display','inline-block');
+			
+					//Set style when upload
+					$('.page-node-add-gaming .node-form .step-up-picture ~ #edit-actions').css('margin-top','333px','important');
+					$('.description').css('top','-50px','!important');
 			});
 			
 			

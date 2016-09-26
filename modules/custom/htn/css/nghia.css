@@ -1,3 +1,7 @@
+html{
+	overflow-x: hidden;
+}
+
 .node-type-page {
 	background:url(../images/homebg.jpg) no-repeat center center fixed;
 	background-size: cover;
@@ -19,7 +23,7 @@
 	overflow: auto;
 }
 
-.page-node-add-gaming .layout-center .layout-3col .layout-3col__full .node-form .step-choose-gender{
+.page-node-add-gaming .layout-center .layout-3col .layout-3col__full .node-form .step-choose-gender {
 	background:url(../images/centergame.png) no-repeat center 0 fixed;
 	background-size: 1155px;
 	position: fixed;
@@ -31,20 +35,8 @@
 	overflow: auto;
 }
 
-.page-node-add-gaming .layout-center .layout-3col .layout-3col__full .female .step-up-picture{
-	background:url(../images/avatargirl.png) no-repeat center 0 fixed;
-	background-size: 1155px;
-	position: fixed;
-	z-index: -1;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	overflow: auto;
-}
-
-.page-node-add-gaming .layout-center .layout-3col .layout-3col__full .male .step-up-picture{
-	background:url(../images/avatarboy.png) no-repeat center 0 fixed;
+.page-node-add-gaming .layout-center .layout-3col .layout-3col__full .female .step-fill-name,.page-node-add-gaming .layout-center .layout-3col .layout-3col__full .male .step-fill-name,.page-node-add-gaming .layout-center .layout-3col .layout-3col__full .male .step-up-picture,.page-node-add-gaming .layout-center .layout-3col .layout-3col__full .female .step-up-picture {
+	background:url(../images/centeravatar.png) no-repeat center 0 fixed;
 	background-size: 1155px;
 	position: fixed;
 	z-index: -1;
@@ -111,8 +103,7 @@
 }
 
 .img-arrowheader:hover {
-	animation-name: animatearrowtop;
-	animation-duration: 1s;
+	cursor:pointer;
 }
 
 .front .field-name-body .field-items .field-item {
@@ -321,7 +312,7 @@
 	width:100%;
 }
 
-#edit-field-gaming-image #edit-field-gaming-image-und-0-ajax-wrapper {
+#edit-field-gaming-image div:nth-child(1) {
 	width: 700px;
   margin: auto;
   text-align: center;
@@ -329,47 +320,49 @@
 	height:110px;
 }
 
-.female #edit-field-gaming-image #edit-field-gaming-image-und-0-ajax-wrapper .form-item #edit-field-gaming-image-und-0-upload {
+.female #edit-field-gaming-image div:nth-child(1) .form-item input[type=file] {
 	width: 54px;
 	height: 54px;
 	background-image: url(../images/addimage.png);
   background-repeat: no-repeat;
   background-size: 54px 54px;
 	margin: 0 auto;
-	top: 180px;
+	top: 210px;
   left: 9px;
 	position:relative;
 	border: none;
+	text-indent:2000px;
 }
 
-.male #edit-field-gaming-image #edit-field-gaming-image-und-0-ajax-wrapper .form-item #edit-field-gaming-image-und-0-upload {
+.male #edit-field-gaming-image div:nth-child(1) .form-item input[type=file] {
 	width: 54px;
 	height: 54px;
 	background-image: url(../images/addimage.png);
   background-repeat: no-repeat;
   background-size: 54px 54px;
 	margin: 0 auto;
-	top: 225px;
+	top: 250px;
   left: 9px;
 	position:relative;
 	border: none;
+	text-indent:2000px;
 }
 
-#edit-field-gaming-image #edit-field-gaming-image-und-0-ajax-wrapper .form-item .description {
+#edit-field-gaming-image div:nth-child(1) .form-item .description {
   text-transform: uppercase;
 	position: relative;
-	top: 0px;
+	top: 25px;
 	font-weight: bold;
 }
 
-#edit-field-gaming-image #edit-field-gaming-image-und-0-ajax-wrapper .form-item label {
+#edit-field-gaming-image div:nth-child(1) .form-item label {
 	text-transform: uppercase;
 	position: relative;
-	top: 380px;
+	top: 415px;
 	font-weight: bold;
 }
 
-#edit-field-gaming-image-und-0-upload-button {
+#edit-field-gaming-image div:nth-child(1) .form-item input[type=submit] {
 	display:none;
 }
 
@@ -381,6 +374,58 @@
 	display:none;
 }
 
+.actor {
+	width: 600px;
+  margin: 0 auto;
+	margin-top: 105px;
+}
 
+.actor .body {
+	width:190px;
+}
 
+.step-fill-name ~ #edit-actions {
+	margin-top:-42px;
+}
 
+.step-fill-name ~ #edit-field-name #field-name-add-more-wrapper {
+	width: 400px;
+  margin: 0 auto;
+	position: relative;
+}
+
+.step-fill-name ~ #edit-field-name #field-name-add-more-wrapper .form-item {
+	top: -360px;
+	position:absolute;
+	left: 105px;
+	text-align:center;
+}
+
+.step-fill-name ~ #edit-field-name #field-name-add-more-wrapper .form-item label {
+	text-transform: uppercase;
+  color: red;
+  font-size: 60px;
+	margin-bottom: 95px;
+}
+
+.step-fill-name ~ #edit-field-name #field-name-add-more-wrapper .form-item input {
+	background-color: transparent;
+  border: none;
+	border-bottom:3px dashed white;
+	width: 355px;
+	text-align:center;
+	margin-bottom: 15px;
+}
+
+.step-fill-name ~ #edit-field-name #field-name-add-more-wrapper .form-item .description {
+	text-transform: uppercase;
+  font-weight: bold;
+}
+
+.jcrop-holder {
+	display:none;
+}
+
+.jcrop-preview-wrapper {
+	margin-top: 155px !important;
+}
