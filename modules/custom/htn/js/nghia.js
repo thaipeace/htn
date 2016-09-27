@@ -81,22 +81,60 @@
 				window.history.back();
 			});
 			
+			//Append image head 
+			$('.male div:nth-child(1) #edit-field-gaming-image div:nth-child(1) .form-item').append('<div id="img-head"></div>');
+			$('.female div:nth-child(1) #edit-field-gaming-image div:nth-child(1) .form-item').append('<div id="img-head"></div>');
+			
 			console.log(context);
 			//Upload image
 			$('#edit-field-gaming-image-und-0-upload').change(function() {
 					//Upload image
 					event.preventDefault();
 					$(this).next('input[type="submit"]').mousedown();
+					
+					//Hide button add
+					$(this).css('display','none');
 				
 					//Show button next
 					$('.page-node-add-gaming .node-form .step-up-picture ~ #edit-actions #edit-next').css('display','inline-block');
 			
 					//Set style when upload
 					$('.page-node-add-gaming .node-form .step-up-picture ~ #edit-actions').css('margin-top','333px','important');
-					$('.description').css('top','-50px','!important');
+					
 			});
 			
+			//Append button
+			$('.step-select-situation ~ .situa .fresh').append('<input type="button" id="fresh-play" name="play" value="CHƠI NGAY">');
+			$('.step-select-situation ~ .situa .hot').append('<input type="button" id="hot-play" name="play" value="CHƠI NGAY">');
+		
+			//Click button play
+			$('#fresh-play').click(function(e){
+				//Select item option
+				$('#edit-field-situation-und').val('fresh').change();
+				//alert($('#edit-field-situation-und option:selected').text());
+				
+				//Auto next when click
+				$('#edit-next').click();
+			});
 			
+			$('#hot-play').click(function(e){
+				$('#edit-field-situation-und').val('hot').change();
+				
+				//Auto next when click
+				$('#edit-next').click();
+			});
+			
+			//Mask auto fadeout
+			$('.step-select-situation ~ #edit-field-situation').fadeOut(3000);
+			
+			//Hide another item
+			$('.step-select-case-1 ~ .form-item-field-case1 label:nth-child(1)').css('display','none');
+			$('.step-select-case-1 ~ #edit-field-case1-selected').css('display','none');
+		
+			//Append mask radio question
+			$('.step-select-case-1 ~ .form-item-field-case1 #edit-field-case1 div:nth-child(1)').append('<label for="edit-field-case1-a" id="question-radio"></label>');
+			$('.step-select-case-1 ~ .form-item-field-case1 #edit-field-case1 div:nth-child(2)').append('<label for="edit-field-case1-b" id="question-radio"></label>');
+			$('.step-select-case-1 ~ .form-item-field-case1 #edit-field-case1 div:nth-child(3)').append('<label for="edit-field-case1-c" id="question-radio"></label>');
 		}
   };  
 })(jQuery, Drupal, this, this.document);
