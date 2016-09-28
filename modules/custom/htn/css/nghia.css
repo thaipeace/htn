@@ -552,8 +552,8 @@ html{
 	background-color: rgba(0,0,0,0.8);
 }
 
-.female .step-select-case-1 {
-	background:url(../images/centerselect.png) no-repeat center 0 fixed;
+.step-select-case-1 {
+	background:url(../images/centerselectone.png) no-repeat center 0 fixed;
 	background-size: 1155px;
 	position: fixed;
 	z-index: -1;
@@ -565,51 +565,295 @@ html{
 	overflow-x: hidden;
 }
 
-.step-select-case-1 ~ #edit-actions {
-	margin-top:101px;
+.step-select-case-2 {
+	background:url(../images/centerselecttwo.png) no-repeat center 0 fixed;
+	background-size: 1155px;
+	position: fixed;
+	z-index: -1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	overflow-x: hidden;
 }
 
-.step-select-case-1 ~ .intro {
+.step-select-case-3 {
+	background:url(../images/centerselectthree.png) no-repeat center 0 fixed;
+	background-size: 1155px;
+	position: fixed;
+	z-index: -1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	overflow-x: hidden;
+}
+
+.step-select-case-1 ~ #edit-actions,.step-select-case-3 ~ #edit-actions {
+	margin-top:-17px;
+}
+
+.step-select-case-1 ~ .intro,.step-select-case-2 ~ .intro,.step-select-case-3 ~ .intro {
 	text-align:center;
 	margin-top: 100px;
 }
 
-.step-select-case-1 ~ .intro .hello {
+.step-select-case-1 ~ .intro .hello,.step-select-case-2 ~ .intro .hello,.step-select-case-3 ~ .intro .hello {
 	font-size: 40px;
 	text-transform: uppercase;
 	font-weight: bold;
 	margin-bottom: 10px;
 }
 
-.step-select-case-1 ~ .intro .hello .name {
+.step-select-case-1 ~ .intro .hello .name,.step-select-case-2 ~ .intro .hello .name,.step-select-case-3 ~ .intro .hello .name {
 	color:red;
 }
 
-.step-select-case-1 ~ .intro .desc {
+.step-select-case-1 ~ .intro .desc,.step-select-case-2 ~ .intro .desc,.step-select-case-3 ~ .intro .desc {
 	font-family: time-new-roman;
   font-size: 16px;
 }
 
-.step-select-case-1 ~ .form-item-field-case1 #edit-field-case1 {
-	width:285px;
+.step-select-case-1 ~ .form-item-field-case1 #edit-field-case1,.step-select-case-2 ~ .form-item-field-case2 #edit-field-case2,.step-select-case-3 ~ .form-item-field-case3 #edit-field-case3 {
+	width:205px;
 	margin:0 auto;
-	margin-top: 55px;
+	margin-top: 45px;
 }
 
-.step-select-case-1 ~ .form-item-field-case1 label:nth-child(1) {
+.step-select-case-1 ~ .form-item-field-case1 label:nth-child(1),.step-select-case-1 ~ .form-item-field-case1 label:nth-child(1),.step-select-case-3 ~ .form-item-field-case3 label:nth-child(1) {
 	font-size:20px;
 }
 
 #question-radio {
 	display: block;
 	position: relative;
-	border: 5px solid #AAAAAA;
 	border-radius: 100%;
-	height: 25px;
-	width: 25px;
-	top: 30px;
-	left: 20px;
+	height: 35px;
+	width: 35px;
+	top: -38px;
+	left: -55px;
 	z-index: 5;
 	transition: border .25s linear;
 	-webkit-transition: border .25s linear;
+	background-image: url(../images/radioselectcustom.png);
+	background-repeat: no-repeat;
+	background-size:35px 35px;
+	cursor:pointer;
+}
+
+.step-select-case-1 ~ .form-item-field-case1 #edit-field-case1 div:nth-child(3) #question-radio,.step-select-case-3 ~ .form-item-field-case3 #edit-field-case3 div:nth-child(3) #question-radio {
+	top: -36px;
+}
+
+#question-radio::before {
+	display: block;
+	position: absolute;
+	content: '';
+	border-radius: 100%;
+	height: 19px;
+	width: 19px;
+	top: 7px;
+	left: 8px;
+	margin: auto;
+	transition: all 0.175s linear;
+	-webkit-transition: all 0.175s linear;
+	transform: scale(0);
+}
+
+.step-select-case-1 ~ .form-item-field-case1 #edit-field-case1 .form-item input[type=radio]:checked ~ #question-radio::before,.step-select-case-2 ~ .form-item-field-case2 #edit-field-case2 .form-item input[type=radio]:checked ~ #question-radio::before,.step-select-case-3 ~ .form-item-field-case3 #edit-field-case3 .form-item input[type=radio]:checked ~ #question-radio::before {
+	background-image: url(../images/insideradio.png);
+	background-repeat: no-repeat;
+	background-size:19px 19px;
+	transform: scale(1);
+}
+
+.step-select-case-1 ~ .form-item-field-case1 #edit-field-case1 .form-item input[type=radio],.step-select-case-2 ~ .form-item-field-case2 #edit-field-case2 .form-item input[type=radio],.step-select-case-3 ~ .form-item-field-case3 #edit-field-case3 .form-item input[type=radio] {
+	position: absolute;
+	visibility: hidden;
+}
+
+.step-select-case-1 ~ .form-item-field-case1 #edit-field-case1 .form-item .option,.step-select-case-2 ~ .form-item-field-case2 #edit-field-case2 .form-item .option,.step-select-case-3 ~ .form-item-field-case3 #edit-field-case3 .form-item .option {
+	position: relative;
+	left: 20px;
+}
+
+.step-select-case-1 ~ .form-item-field-case1 #edit-field-case1 div:nth-child(3) .option,.step-select-case-3 ~ .form-item-field-case3 #edit-field-case3 div:nth-child(3) .option {
+	top: 6px;
+}
+
+.step-complete {
+	background:url(../images/centercomplete.png) no-repeat center 0 fixed;
+	background-size: 1155px;
+	position: fixed;
+	z-index: -1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	overflow-x: hidden;
+}
+
+.step-complete ~ #edit-actions {
+	margin-top:85px;
+}
+
+.step-complete ~ #edit-actions #edit-submit {
+	width:244px;
+	height:81px;
+	background-image:url(../images/buttonsee.png);
+	background-repeat:no-repeat;
+	background-size:244px 81px;
+	border:none;
+	background-color: transparent;
+}
+
+.step-select-case-1 ~ .form-item-field-case1 #edit-field-case1 .form-item,.step-select-case-2 ~ .form-item-field-case2 #edit-field-case2 .form-item,.step-select-case-3 ~ .form-item-field-case3 #edit-field-case3 .form-item {
+	position:relative;
+}
+
+.female .step-select-case-3 ~ .form-item-field-case3 #edit-field-case3 .form-item {
+	top:21px;
+}
+
+.female .step-select-case-3 ~ #edit-actions {
+	margin-top:26px;
+}
+
+.female #edit-field-case3-aaa ~ .option,.female #edit-field-case3-aba ~ .option {
+	top: -10px;
+}
+
+#edit-field-case2-ba ~ .option {
+	top:10px;
+}
+
+#edit-field-case2-bb ~ .option {
+	top:14px;
+}
+
+#edit-field-case2-bc ~ .option {
+	top:13px;
+}
+
+#edit-field-case2-ca ~ .option {
+	top:-12px;
+}
+
+#edit-field-case2-cb ~ .option {
+	top:-19px;
+}
+
+#edit-field-case2-cc ~ .option {
+	top:-18px;
+}
+
+#edit-field-case2-bc ~ #question-radio {
+	margin-bottom:42px !important;
+}
+
+.step-select-case-2 ~ #edit-actions {
+	margin-top:-17px;
+}
+
+#edit-field-case2 #question-radio {
+	top:-15px;
+	margin-bottom: 20px;
+}
+
+#edit-field-case2-aa ~ #question-radio,#edit-field-case2-ab ~ #question-radio,#edit-field-case2-ac ~ #question-radio {
+	top:-38px;
+	margin-bottom:0px;
+}
+
+#edit-field-case2-ca ~ #question-radio,#edit-field-case2-cb ~ #question-radio {
+	top:-57px;
+	margin-bottom:0px;
+}
+
+#edit-field-case2-cc ~ #question-radio {
+	top:-57px;
+	margin-bottom:-37px;
+}
+
+.female #edit-field-case3-bba ~ .option,#edit-field-case3-bbb ~ .option {
+	top:-20px;
+}
+
+.female #edit-field-case3-bbc ~ .option {
+	top:-10px !important;
+}
+
+.female #edit-field-case3-bba ~ #question-radio,#edit-field-case3-bbb ~ #question-radio {
+	top:-58px;
+}
+
+.female #edit-field-case3-bcc ~ #question-radio {
+	top:-38px;
+}
+
+.female #edit-field-case3-bca ~ #question-radio,#edit-field-case3-bcb ~ #question-radio {
+	margin-bottom:22px;
+}
+
+.female #edit-field-case3-bcb ~ .option {
+	top:-11px;
+}
+
+.female #edit-field-case3-bcc ~ .option {
+	top:-9px !important;
+}
+
+.female #edit-field-case3-cab ~ .option {
+	top:8px;
+}
+
+.female #edit-field-case3-cac ~ .option,.female #edit-field-case3-cbc ~ .option {
+	top:3px !important;
+}
+
+.female #edit-field-case3-cbb ~ #question-radio {
+	top:-46px;
+}
+
+.female #edit-field-case3-ccb ~ #question-radio {
+	top:-45px;
+}
+
+.female #edit-field-case3-ccc ~ #question-radio {
+	top:-41px;
+}
+
+.male #edit-field-case3-aac ~ .option,.male #edit-field-case3-abc ~ .option,.male #edit-field-case3-acc ~ .option,.male #edit-field-case3-bbc ~ .option {
+	top:2px !important;
+}
+
+.male #edit-field-case3-bac ~ .option {
+	top:3px !important;
+}
+
+.male #edit-field-case3-bcb ~ #question-radio {
+	top:-29px;
+}
+
+.male #edit-field-case3-bcc ~ #question-radio {
+	top:-21px !important;
+}
+
+.male #edit-field-case1-c ~ .option {
+	top:3px !important;
+}
+
+.male #edit-field-case3-cab ~ #question-radio,.male #edit-field-case3-cbb ~ #question-radio,.male #edit-field-case3-ccb ~ #question-radio {
+	top:-47px;
+}
+
+.male #edit-field-case3-cac ~ #question-radio,.male #edit-field-case3-ccc ~ #question-radio {
+	top:-42px !important;
+}
+
+.male #edit-field-case3-cbc ~ #question-radio {
+	top:-31px !important;
 }
