@@ -49,3 +49,9 @@ main.layout-3col__full {
   padding: 0 !important;
   margin: 0 !important;
 }
+
+.fconnect a {
+  width: 150px;
+  height: 50px;
+  display: block;
+}

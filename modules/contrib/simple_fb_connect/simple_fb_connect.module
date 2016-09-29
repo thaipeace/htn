@@ -148,6 +148,8 @@ function simple_fb_connect_return_from_fb() {
 
   // FB SDK can start FacebookSession from the page where FB returned the user
   $return_url = simple_fb_connect_get_return_url();
+//  var_dump($return_url);
+//  exit();
   $login_helper = new FacebookRedirectLoginHelper($return_url);
   if (!simple_fb_connect_save_session($login_helper)) {
     drupal_set_message(t("Facebook login failed."), "error");
@@ -785,8 +787,12 @@ function simple_fb_connect_get_post_login_url() {
  */
 function simple_fb_connect_go_to_redirect_url($post_login_url) {
   // Extract url parts and use it to redirect to the post login url.
+//  kpr($post_login_url);
   $url_parts = drupal_parse_url($post_login_url);
-  drupal_goto($url_parts['path'], array('query' => $url_parts['query']));
+//  kpr($url_parts);
+//  exit();
+  //drupal_goto($url_parts['path'], array('query' => $url_parts['query']));
+  drupal_goto('node/' . $url_parts['query']['node']);
 }
 
 /**
@@ -798,6 +804,7 @@ function simple_fb_connect_go_to_redirect_url($post_login_url) {
 function simple_fb_connect_get_return_url() {
   // Generate the URL where FB will return the user after authentication
   $return_url = url('user/simple-fb-connect/return', array('absolute' => TRUE));
+  //$return_url = url('node/8', array('absolute' => TRUE));
 
   // If clean URLs is disabled, we need to encode slashes in the query string
   $query_pos = strpos($return_url, '?');

@@ -1,22 +1,4 @@
 <?php
-
-/*
- * Hook menu
- */
-function htn_menu() {
-  $items['play-game'] = array(
-    'title' => '',
-    'description' => 'Game',
-    'page callback' => 'drupal_get_form',
-    'page arguments' => array('htn_multistep_game_form'),
-    'access callback' => TRUE,
-    'type' => MENU_CALLBACK,
-  );
-  
-  return $items;
-}
-
-
 /*
  * Implement hook_form_after
  */
@@ -149,6 +131,8 @@ function htn_preprocess_page(&$vars) {
   if ($vars['directory'] == 'sites/default/themes/STARTERKIT') {
     drupal_add_js(drupal_get_path('module', 'htn') . '/js/nghia.js');
     drupal_add_css(drupal_get_path('module', 'htn') . '/css/nghia.css');
+    drupal_add_js(drupal_get_path('module', 'htn') . '/js/htn.js');
+    drupal_add_css(drupal_get_path('module', 'htn') . '/css/htn.css');
     
     if (isset($vars['node']->type)) {
       $vars['theme_hook_suggestions'][] = 'page__' . $vars['node']->type;
@@ -172,6 +156,7 @@ function htn_theme_registry_alter(&$theme_registry) {
 			$theme_registry[$key]['theme path'] = $module_path;
 			$theme_registry[$key] = array_merge($theme_registry[$key], $template_file_object);
 			$theme_registry[$key]['type'] = 'module';
+      //kpr($theme_registry);
 		}
 	}
 }
@@ -188,4 +173,49 @@ function htn_theme($existing, $type, $theme, $path) {
    'path' => drupal_get_path('module', 'htn') . '/templates',
   );
  return $theme;
+}
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function htn_preprocess_node(&$vars) {
+  if ($vars['type'] == 'gaming') {
+    $vars['classes_array'][] = $vars['field_gender']['und'][0]['value'];
+    $vars['classes_array'][] = $vars['field_situation']['und'][0]['value'];
+  }
+}
+
+/**
+* Preprocesses the wrapping HTML.
+*
+* @param array &$variables
+*   Template variables.
+*/
+function htn_preprocess_html(&$vars) {
+  $node = menu_get_object();
+  if (isset($node) && $node->type == 'gaming') {
+    // Setup Sharing Meta Tag
+    $fb_proes = array(
+      'og:url' => current_path(),
+      'og:type' => 'website',
+      'og:title' => 'HTN',
+      'og:description' => 'Come and see my video',
+      'og:image' => file_create_url('public://model') . '/' . $node->field_gender['und'][0]['value'] . '-' . $node->field_situation['und'][0]['value'] . '.png',
+    );
+
+    foreach ($fb_proes as $key => $fb_pro) {
+      // Setup Sharing Meta Tag
+      $fb_meta_sharing = array(
+        '#type' => 'html_tag',
+        '#tag' => 'meta',
+        '#attributes' => array(
+          'property' => $key,
+          'content' => $fb_pro,
+        )
+      );
+
+      // Add FB sharing Meta Tag to head
+      drupal_add_html_head($fb_meta_sharing, $key);
+    }
+  }
 }
