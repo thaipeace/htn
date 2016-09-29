@@ -85,7 +85,6 @@
 			$('.male div:nth-child(1) #edit-field-gaming-image div:nth-child(1) .form-item').append('<div id="img-head"></div>');
 			$('.female div:nth-child(1) #edit-field-gaming-image div:nth-child(1) .form-item').append('<div id="img-head"></div>');
 			
-			console.log(context);
 			//Upload image
 			$('#edit-field-gaming-image-und-0-upload').change(function() {
 					//Upload image
@@ -188,14 +187,17 @@
 			$('.female #edit-field-case3-aca').parents('#edit-field-case3').css('margin-top','26px');
 			$('.female #edit-field-case3-baa').parents('#edit-field-case3').css('margin-top','26px');
 			$('.female #edit-field-case3-bca').parents('#edit-field-case3').css('margin-top','0px');
-			$('.female #edit-field-case3-caa').parents('#edit-field-case3').css('margin-top','-16px');
+			$('.female #edit-field-case3-caa').parents('#edit-field-case3').css('margin-top','-18px');
 			$('.female #edit-field-case3-cba').parents('#edit-field-case3').css('margin-top','-17px');
 			$('.female #edit-field-case3-cca').parents('#edit-field-case3').css('margin-top','-37px');
+			$('.male #edit-field-case3-aba').parents('#edit-field-case3').css('margin-top','65px');
+			$('.male #edit-field-case3-aaa').parents('#edit-field-case3').css('margin-top','64px');
 			$('.male #edit-field-case3-bca').parents('#edit-field-case3').css('margin-top','64px');
 			$('.male #edit-field-case3-caa').parents('#edit-field-case3').css('margin-top','-18px');
 			$('.male #edit-field-case3-cba').parents('#edit-field-case3').css('margin-top','27px');
 			$('.male #edit-field-case3-cca').parents('#edit-field-case3').css('margin-top','-17px');
-			$('.female #edit-field-case3-caa').parent().css('top','32px');
+			$('.female #edit-field-case2-bc').parent().css('top','20px');
+			$('.female #edit-field-case3-caa').parent().css('top','40px');
 			$('.female #edit-field-case3-cba').parent().css('top','37px');
 			$('.female #edit-field-case3-cbb').parent().css('top','30px');
 			$('.female #edit-field-case3-cca').parent().css('top','57px');
@@ -214,6 +216,52 @@
 			$('.male #edit-field-case3-cca').parent().css('top','38px');
 			$('.male #edit-field-case3-ccb').parent().css('top','30px');
 			$('.male #edit-field-case3-ccc').parent().css('top','3px');
+			
+			
+			//Case of video
+			var nameclass = $('article.node-gaming').attr('class');
+			
+			if(nameclass){
+				var arraynameclass = [];
+			
+				arraynameclass = nameclass.split(" ");
+				
+				if(arraynameclass[2] == "male" && arraynameclass[3] == "fresh"){
+					$('article.node-gaming .field-name-field-gaming-image .field-items .field-item').append('<div class="male-fresh-img" id="img-bodyvideo"></div>');
+				}else{
+					if(arraynameclass[2] == "male" && arraynameclass[3] == "hot"){
+						$('article.node-gaming .field-name-field-gaming-image .field-items .field-item').append('<div class="male-hot-img" id="img-bodyvideo"></div>');
+					}else{
+						if(arraynameclass[2] == "female" && arraynameclass[3] == "fresh"){
+							$('article.node-gaming .field-name-field-gaming-image .field-items .field-item').append('<div class="female-fresh-img" id="img-bodyvideo"></div>');
+						}else{
+							if(arraynameclass[2] == "female" && arraynameclass[3] == "hot"){
+								$('article.node-gaming .field-name-field-gaming-image .field-items .field-item').append('<div class="female-hot-img" id="img-bodyvideo"></div>');
+							}
+						}
+					}
+				}
+			}
+			
+			$('.fconnect a').text('');
+			
+			//Append video
+			var srcvideo = $('article.node-gaming .field-name-field-background-video .field-items .field-item').text();
+			
+			$('article.node-gaming .field-name-field-background-video .field-items .field-item').html('<video id="video-complete" width="100%" height="100%" ><source src="'+srcvideo+'" type="video/mp4"></video>');
+			
+			$('article.node-gaming .field-name-field-gaming-image .field-items .field-item').append('<div id="button-playvideo"></div>');
+			
+			//Click button play video
+			$('#button-playvideo').click(function(e){
+				$('#video-complete').get(0).play();
+				
+				$(this).fadeOut(500);
+				
+				$('#img-bodyvideo').css('z-index','-1');
+				
+				$('article.node-gaming .field-name-field-gaming-image .field-items .field-item img').css('z-index','-1');
+			});
 		}
   };  
 })(jQuery, Drupal, this, this.document);
