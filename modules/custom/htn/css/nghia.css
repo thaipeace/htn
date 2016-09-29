@@ -1,10 +1,15 @@
+html{
+	overflow-x: hidden;
+}
+
 .node-type-page {
 	background:url(../images/homebg.jpg) no-repeat center center fixed;
 	background-size: cover;
 }
 
 .page-node-add-gaming {
-	background:red;
+	background:url(../images/background.png) no-repeat center center fixed;
+	background-size: cover;
 }
 
 .node-type-page .layout-center {
@@ -17,9 +22,10 @@
 	width: 100%;
 	height: 100%;
 	overflow: auto;
+	overflow-x: hidden;
 }
 
-.page-node-add-gaming .layout-center .layout-3col .layout-3col__full .node-form .step-choose-gender{
+.page-node-add-gaming .layout-center .layout-3col .layout-3col__full .node-form .step-choose-gender {
 	background:url(../images/centergame.png) no-repeat center 0 fixed;
 	background-size: 1155px;
 	position: fixed;
@@ -31,20 +37,8 @@
 	overflow: auto;
 }
 
-.page-node-add-gaming .layout-center .layout-3col .layout-3col__full .female .step-up-picture{
-	background:url(../images/avatargirl.png) no-repeat center 0 fixed;
-	background-size: 1155px;
-	position: fixed;
-	z-index: -1;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	overflow: auto;
-}
-
-.page-node-add-gaming .layout-center .layout-3col .layout-3col__full .male .step-up-picture{
-	background:url(../images/avatarboy.png) no-repeat center 0 fixed;
+.page-node-add-gaming .layout-center .layout-3col .layout-3col__full .female .step-fill-name,.page-node-add-gaming .layout-center .layout-3col .layout-3col__full .male .step-fill-name,.page-node-add-gaming .layout-center .layout-3col .layout-3col__full .male .step-up-picture,.page-node-add-gaming .layout-center .layout-3col .layout-3col__full .female .step-up-picture {
+	background:url(../images/centeravatar.png) no-repeat center 0 fixed;
 	background-size: 1155px;
 	position: fixed;
 	z-index: -1;
@@ -111,8 +105,7 @@
 }
 
 .img-arrowheader:hover {
-	animation-name: animatearrowtop;
-	animation-duration: 1s;
+	cursor:pointer;
 }
 
 .front .field-name-body .field-items .field-item {
@@ -219,7 +212,7 @@
 	margin-top: 309px;
 }
 
-.page-node-add-gaming #edit-next {
+.page-node-add-gaming #edit-next,#fresh-play,#hot-play {
 	background-image:url(../images/buttonplay.png);
 	background-repeat:no-repeat;
 	background-size:185px 50px;
@@ -231,6 +224,8 @@
 	font-size: 16px;
 	text-transform: uppercase;
 	font-weight:bold;
+	z-index: 300;
+  position: relative;
 }
 
 .page-node-add-gaming #edit-field-gender .form-item label {
@@ -321,55 +316,61 @@
 	width:100%;
 }
 
-#edit-field-gaming-image #edit-field-gaming-image-und-0-ajax-wrapper {
+#edit-field-gaming-image div:nth-child(1) {
 	width: 700px;
   margin: auto;
   text-align: center;
 	position:relative;
 	height:110px;
+
 }
 
-.female #edit-field-gaming-image #edit-field-gaming-image-und-0-ajax-wrapper .form-item #edit-field-gaming-image-und-0-upload {
+.female #edit-field-gaming-image div:nth-child(1) .form-item input[type=file] {
 	width: 54px;
 	height: 54px;
 	background-image: url(../images/addimage.png);
   background-repeat: no-repeat;
   background-size: 54px 54px;
 	margin: 0 auto;
-	top: 180px;
-  left: 9px;
+	top: 210px;
+  left: 0px;
 	position:relative;
 	border: none;
+	text-indent:2000px;
+	z-index:3;
 }
 
-.male #edit-field-gaming-image #edit-field-gaming-image-und-0-ajax-wrapper .form-item #edit-field-gaming-image-und-0-upload {
+.male #edit-field-gaming-image div:nth-child(1) .form-item input[type=file] {
 	width: 54px;
 	height: 54px;
 	background-image: url(../images/addimage.png);
   background-repeat: no-repeat;
   background-size: 54px 54px;
 	margin: 0 auto;
-	top: 225px;
-  left: 9px;
+	top: 250px;
+  left: 2px;
 	position:relative;
 	border: none;
+	text-indent:2000px;
+	z-index:3;
 }
 
-#edit-field-gaming-image #edit-field-gaming-image-und-0-ajax-wrapper .form-item .description {
+#edit-field-gaming-image div:nth-child(1) .form-item .description {
   text-transform: uppercase;
-	position: relative;
-	top: 0px;
+	position: absolute;
+	top: 100px;
 	font-weight: bold;
+	left: 23%;
 }
 
-#edit-field-gaming-image #edit-field-gaming-image-und-0-ajax-wrapper .form-item label {
+#edit-field-gaming-image div:nth-child(1) .form-item label {
 	text-transform: uppercase;
 	position: relative;
-	top: 380px;
+	top: 415px;
 	font-weight: bold;
 }
 
-#edit-field-gaming-image-und-0-upload-button {
+#edit-field-gaming-image div:nth-child(1) .form-item input[type=submit] {
 	display:none;
 }
 
@@ -377,10 +378,482 @@
 	display:none;
 }
 
+#edit-field-gaming-image div:nth-child(1) .form-item .file {
+	display:none;
+}
+
 .page-node-add-gaming .layout-center .layout-3col .layout-3col__full .node-form .step-up-picture ~ #edit-actions #edit-next {
 	display:none;
 }
 
+.actor {
+	width: 600px;
+  margin: 0 auto;
+	margin-top: 105px;
+	position:relative;
+}
 
+.actor .body {
+	width:190px;
+}
 
+.step-fill-name ~ #edit-actions {
+	margin-top:-42px;
+}
 
+.step-fill-name ~ #edit-field-name #field-name-add-more-wrapper {
+	width: 616px;
+  margin: 0 auto;
+	position: relative;
+}
+
+.step-fill-name ~ #edit-field-name #field-name-add-more-wrapper .form-item {
+	top: -360px;
+	position:absolute;
+	left: 190px;
+	text-align:center;
+}
+
+.step-fill-name ~ #edit-field-name #field-name-add-more-wrapper .form-item label {
+	text-transform: uppercase;
+  color: red;
+  font-size: 60px;
+	margin-bottom: 15px;
+}
+
+.step-fill-name ~ #edit-field-name #field-name-add-more-wrapper .form-item input {
+	background-color: transparent;
+  border: none;
+	border-bottom:3px dashed white;
+	width: 355px;
+	text-align:center;
+	margin-bottom: 15px;
+	text-transform: uppercase;
+  color: red;
+	font-weight: bold;
+	font-size: 77px;
+}
+
+.step-fill-name ~ #edit-field-name #field-name-add-more-wrapper .form-item .description {
+	text-transform: uppercase;
+  font-weight: bold;
+}
+
+.jcrop-holder {
+	right: -475px;
+}
+
+.male .step-up-picture ~ #edit-field-gaming-image .jcrop-preview-wrapper {
+	margin-top: 198px !important;
+	border-radius: 0 0 49px 47px;
+}
+
+.female .step-up-picture ~ #edit-field-gaming-image .jcrop-preview-wrapper {
+	margin-top: 155px !important;
+	border-radius: 0 25px 38px 9px;
+}
+
+.male .actor .face {
+	position: absolute;
+	top: 46px;
+	left: 48px;
+	width: 76px;
+	height: 80px;
+	border-radius: 0 0 110px 110px;
+	z-index: -1;
+}
+
+.female .actor .face {
+	position: absolute;
+	top: 41px;
+	left: 47px;
+	width: 76px;
+	height: 85px;
+	border-radius: 0 0 110px 110px;
+	z-index: -1;
+}
+
+.male #img-head {
+	background-image: url(../images/boy.png);
+	background-repeat: no-repeat;
+	background-size: 130px 187px;
+	width: 130px;
+	height: 187px;
+	position: absolute;
+	left: 279px;
+	top: 169px;
+	z-index: 0;
+}
+
+.female #img-head {
+	background-image: url(../images/girl.png);
+	background-repeat: no-repeat;
+	background-size: 130px 187px;
+	width: 130px;
+	height: 187px;
+	position: absolute;
+	left: 279px;
+	top: 169px;
+	z-index: 0;
+}
+
+.imagefield-crop-cropbox {
+	margin-top: -42px;
+}
+
+.ajax-progress {
+	position:relative;
+}
+
+.throbber {
+	position:absolute;
+	top:250px;
+	left:49%;
+}
+
+.step-select-situation ~ #edit-actions #button-back {
+	display:none;
+}
+
+.step-select-situation ~ #edit-actions #edit-next {
+	display:none;
+}
+
+.step-select-situation ~ .situa {
+	width:100%;
+	height: 5px;
+	text-align:center;
+}
+
+.step-select-situation ~ .situa .fresh {
+	width: 300px;
+  float: left;
+}
+
+.step-select-situation ~ .situa .hot {
+	width: 300px;
+  float: right;
+	margin-top: 350px;
+}
+
+.step-select-situation ~ #edit-field-situation .form-item label, .step-select-situation ~ #edit-field-situation .form-item select {
+	display:none;
+}
+
+.step-select-situation ~ #edit-field-situation {
+	position: fixed;
+	z-index: 301;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgb(0,0,0);
+	background-color: rgba(0,0,0,0.8);
+}
+
+.step-select-case-1 {
+	background:url(../images/centerselectone.png) no-repeat center 0 fixed;
+	background-size: 1155px;
+	position: fixed;
+	z-index: -1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	overflow-x: hidden;
+}
+
+.step-select-case-2 {
+	background:url(../images/centerselecttwo.png) no-repeat center 0 fixed;
+	background-size: 1155px;
+	position: fixed;
+	z-index: -1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	overflow-x: hidden;
+}
+
+.step-select-case-3 {
+	background:url(../images/centerselectthree.png) no-repeat center 0 fixed;
+	background-size: 1155px;
+	position: fixed;
+	z-index: -1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	overflow-x: hidden;
+}
+
+.step-select-case-1 ~ #edit-actions,.step-select-case-3 ~ #edit-actions {
+	margin-top:-17px;
+}
+
+.step-select-case-1 ~ .intro,.step-select-case-2 ~ .intro,.step-select-case-3 ~ .intro {
+	text-align:center;
+	margin-top: 100px;
+}
+
+.step-select-case-1 ~ .intro .hello,.step-select-case-2 ~ .intro .hello,.step-select-case-3 ~ .intro .hello {
+	font-size: 40px;
+	text-transform: uppercase;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+.step-select-case-1 ~ .intro .hello .name,.step-select-case-2 ~ .intro .hello .name,.step-select-case-3 ~ .intro .hello .name {
+	color:red;
+}
+
+.step-select-case-1 ~ .intro .desc,.step-select-case-2 ~ .intro .desc,.step-select-case-3 ~ .intro .desc {
+	font-family: time-new-roman;
+  font-size: 16px;
+}
+
+.step-select-case-1 ~ .form-item-field-case1 #edit-field-case1,.step-select-case-2 ~ .form-item-field-case2 #edit-field-case2,.step-select-case-3 ~ .form-item-field-case3 #edit-field-case3 {
+	width:205px;
+	margin:0 auto;
+	margin-top: 45px;
+}
+
+.step-select-case-1 ~ .form-item-field-case1 label:nth-child(1),.step-select-case-1 ~ .form-item-field-case1 label:nth-child(1),.step-select-case-3 ~ .form-item-field-case3 label:nth-child(1) {
+	font-size:20px;
+}
+
+#question-radio {
+	display: block;
+	position: relative;
+	border-radius: 100%;
+	height: 35px;
+	width: 35px;
+	top: -38px;
+	left: -55px;
+	z-index: 5;
+	transition: border .25s linear;
+	-webkit-transition: border .25s linear;
+	background-image: url(../images/radioselectcustom.png);
+	background-repeat: no-repeat;
+	background-size:35px 35px;
+	cursor:pointer;
+}
+
+.step-select-case-1 ~ .form-item-field-case1 #edit-field-case1 div:nth-child(3) #question-radio,.step-select-case-3 ~ .form-item-field-case3 #edit-field-case3 div:nth-child(3) #question-radio {
+	top: -36px;
+}
+
+#question-radio::before {
+	display: block;
+	position: absolute;
+	content: '';
+	border-radius: 100%;
+	height: 19px;
+	width: 19px;
+	top: 7px;
+	left: 8px;
+	margin: auto;
+	transition: all 0.175s linear;
+	-webkit-transition: all 0.175s linear;
+	transform: scale(0);
+}
+
+.step-select-case-1 ~ .form-item-field-case1 #edit-field-case1 .form-item input[type=radio]:checked ~ #question-radio::before,.step-select-case-2 ~ .form-item-field-case2 #edit-field-case2 .form-item input[type=radio]:checked ~ #question-radio::before,.step-select-case-3 ~ .form-item-field-case3 #edit-field-case3 .form-item input[type=radio]:checked ~ #question-radio::before {
+	background-image: url(../images/insideradio.png);
+	background-repeat: no-repeat;
+	background-size:19px 19px;
+	transform: scale(1);
+}
+
+.step-select-case-1 ~ .form-item-field-case1 #edit-field-case1 .form-item input[type=radio],.step-select-case-2 ~ .form-item-field-case2 #edit-field-case2 .form-item input[type=radio],.step-select-case-3 ~ .form-item-field-case3 #edit-field-case3 .form-item input[type=radio] {
+	position: absolute;
+	visibility: hidden;
+}
+
+.step-select-case-1 ~ .form-item-field-case1 #edit-field-case1 .form-item .option,.step-select-case-2 ~ .form-item-field-case2 #edit-field-case2 .form-item .option,.step-select-case-3 ~ .form-item-field-case3 #edit-field-case3 .form-item .option {
+	position: relative;
+	left: 20px;
+}
+
+.step-select-case-1 ~ .form-item-field-case1 #edit-field-case1 div:nth-child(3) .option,.step-select-case-3 ~ .form-item-field-case3 #edit-field-case3 div:nth-child(3) .option {
+	top: 6px;
+}
+
+.step-complete {
+	background:url(../images/centercomplete.png) no-repeat center 0 fixed;
+	background-size: 1155px;
+	position: fixed;
+	z-index: -1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	overflow-x: hidden;
+}
+
+.step-complete ~ #edit-actions {
+	margin-top:85px;
+}
+
+.step-complete ~ #edit-actions #edit-submit {
+	width:244px;
+	height:81px;
+	background-image:url(../images/buttonsee.png);
+	background-repeat:no-repeat;
+	background-size:244px 81px;
+	border:none;
+	background-color: transparent;
+}
+
+.step-select-case-1 ~ .form-item-field-case1 #edit-field-case1 .form-item,.step-select-case-2 ~ .form-item-field-case2 #edit-field-case2 .form-item,.step-select-case-3 ~ .form-item-field-case3 #edit-field-case3 .form-item {
+	position:relative;
+}
+
+.female .step-select-case-3 ~ .form-item-field-case3 #edit-field-case3 .form-item {
+	top:21px;
+}
+
+.female .step-select-case-3 ~ #edit-actions {
+	margin-top:26px;
+}
+
+.female #edit-field-case3-aaa ~ .option,.female #edit-field-case3-aba ~ .option {
+	top: -10px;
+}
+
+#edit-field-case2-ba ~ .option {
+	top:10px;
+}
+
+#edit-field-case2-bb ~ .option {
+	top:14px;
+}
+
+#edit-field-case2-bc ~ .option {
+	top:13px;
+}
+
+#edit-field-case2-ca ~ .option {
+	top:-12px;
+}
+
+#edit-field-case2-cb ~ .option {
+	top:-19px;
+}
+
+#edit-field-case2-cc ~ .option {
+	top:-18px;
+}
+
+#edit-field-case2-bc ~ #question-radio {
+	margin-bottom:42px !important;
+}
+
+.step-select-case-2 ~ #edit-actions {
+	margin-top:-17px;
+}
+
+#edit-field-case2 #question-radio {
+	top:-15px;
+	margin-bottom: 20px;
+}
+
+#edit-field-case2-aa ~ #question-radio,#edit-field-case2-ab ~ #question-radio,#edit-field-case2-ac ~ #question-radio {
+	top:-38px;
+	margin-bottom:0px;
+}
+
+#edit-field-case2-ca ~ #question-radio,#edit-field-case2-cb ~ #question-radio {
+	top:-57px;
+	margin-bottom:0px;
+}
+
+#edit-field-case2-cc ~ #question-radio {
+	top:-57px;
+	margin-bottom:-37px;
+}
+
+.female #edit-field-case3-bba ~ .option,#edit-field-case3-bbb ~ .option {
+	top:-20px;
+}
+
+.female #edit-field-case3-bbc ~ .option {
+	top:-10px !important;
+}
+
+.female #edit-field-case3-bba ~ #question-radio,#edit-field-case3-bbb ~ #question-radio {
+	top:-58px;
+}
+
+.female #edit-field-case3-bcc ~ #question-radio {
+	top:-38px;
+}
+
+.female #edit-field-case3-bca ~ #question-radio,#edit-field-case3-bcb ~ #question-radio {
+	margin-bottom:22px;
+}
+
+.female #edit-field-case3-bcb ~ .option {
+	top:-11px;
+}
+
+.female #edit-field-case3-bcc ~ .option {
+	top:-9px !important;
+}
+
+.female #edit-field-case3-cab ~ .option {
+	top:8px;
+}
+
+.female #edit-field-case3-cac ~ .option,.female #edit-field-case3-cbc ~ .option {
+	top:3px !important;
+}
+
+.female #edit-field-case3-cbb ~ #question-radio {
+	top:-46px;
+}
+
+.female #edit-field-case3-ccb ~ #question-radio {
+	top:-45px;
+}
+
+.female #edit-field-case3-ccc ~ #question-radio {
+	top:-41px;
+}
+
+.male #edit-field-case3-aac ~ .option,.male #edit-field-case3-abc ~ .option,.male #edit-field-case3-acc ~ .option,.male #edit-field-case3-bbc ~ .option {
+	top:2px !important;
+}
+
+.male #edit-field-case3-bac ~ .option {
+	top:3px !important;
+}
+
+.male #edit-field-case3-bcb ~ #question-radio {
+	top:-29px;
+}
+
+.male #edit-field-case3-bcc ~ #question-radio {
+	top:-21px !important;
+}
+
+.male #edit-field-case1-c ~ .option {
+	top:3px !important;
+}
+
+.male #edit-field-case3-cab ~ #question-radio,.male #edit-field-case3-cbb ~ #question-radio,.male #edit-field-case3-ccb ~ #question-radio {
+	top:-47px;
+}
+
+.male #edit-field-case3-cac ~ #question-radio,.male #edit-field-case3-ccc ~ #question-radio {
+	top:-42px !important;
+}
+
+.male #edit-field-case3-cbc ~ #question-radio {
+	top:-31px !important;
+}
