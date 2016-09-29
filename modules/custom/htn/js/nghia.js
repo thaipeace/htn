@@ -42,12 +42,12 @@
 			function openmenu(){
 				$('#block-block-1 .block-wrapper').animate({
 					top:0
-				},1000,function(){
+				},250,function(){
 					
 				});
 				$('.wrap-img-arrowheader').animate({
 					top:'46px'
-				},1000,function(){
+				},250,function(){
 					
 				});
 				checkmenu = false;
@@ -57,12 +57,12 @@
 			function closemenu(){
 				$('#block-block-1 .block-wrapper').animate({
 					top:'-46px'
-				},1000,function(){
+				},250,function(){
 					
 				});
 				$('.wrap-img-arrowheader').animate({
 					top:0
-				},1000,function(){
+				},250,function(){
 					
 				});
 				checkmenu = true;

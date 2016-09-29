@@ -49,6 +49,30 @@ html{
 	overflow: auto;
 }
 
+.male .step-select-situation {
+	background:url(../images/backgroundsituation.png) no-repeat center center fixed;
+	background-size: cover;
+	position: fixed;
+	z-index: -1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+}
+
+.female .step-select-situation {
+	background:url(../images/backgroundsituationgirl.png) no-repeat center center fixed;
+	background-size: cover;
+	position: fixed;
+	z-index: -1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+}
+
 #block-block-1 .block-wrapper {
 	background: #e02323;
 	border-bottom: 1px solid #b11919;
@@ -100,7 +124,7 @@ html{
 .img-arrowheader {
 	background:url(../images/arrowtop.png) no-repeat center center;
 	width: 120px;
-  height: 33px;
+  height: 35px;
   margin: 0 auto;
 }
 
@@ -526,14 +550,15 @@ html{
 }
 
 .step-select-situation ~ .situa .fresh {
-	width: 300px;
+	width: 500px;
   float: left;
+	margin-top:215px;
 }
 
 .step-select-situation ~ .situa .hot {
-	width: 300px;
-  float: right;
-	margin-top: 350px;
+	width: 675px;
+	float: right;
+	margin-top: 465px;
 }
 
 .step-select-situation ~ #edit-field-situation .form-item label, .step-select-situation ~ #edit-field-situation .form-item select {
