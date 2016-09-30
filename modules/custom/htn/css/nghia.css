@@ -37,7 +37,7 @@ html{
 	overflow: auto;
 }
 
-.page-node-add-gaming .layout-center .layout-3col .layout-3col__full .female .step-fill-name,.page-node-add-gaming .layout-center .layout-3col .layout-3col__full .male .step-fill-name,.page-node-add-gaming .layout-center .layout-3col .layout-3col__full .male .step-up-picture,.page-node-add-gaming .layout-center .layout-3col .layout-3col__full .female .step-up-picture {
+.page-node-add-gaming .layout-center .layout-3col .layout-3col__full .female .step-fill-name,.page-node-add-gaming .layout-center .layout-3col .layout-3col__full .male .step-fill-name,.page-node-add-gaming .layout-center .layout-3col .layout-3col__full .male .step-up-picture,.page-node-add-gaming .layout-center .layout-3col .layout-3col__full .female .step-up-picture,.page-node-add-story .female .step-story-up-picture,.page-node-add-story .male .step-story-up-picture {
 	background:url(../images/centeravatar.png) no-repeat center 0 fixed;
 	background-size: 1155px;
 	position: fixed;
@@ -1231,7 +1231,7 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	cursor:pointer;
 }
 
-.page-node-add-story .step-story-fill-case-1,.page-node-add-story .step-story-fill-case-2 {
+.page-node-add-story .step-story-fill-case-1,.page-node-add-story .step-story-fill-case-2,.page-node-add-story .step-story-fill-case-3,.page-node-add-story .step-story-summary {
 	background:url(../images/centerinputstory.png) no-repeat center 0 fixed;
 	background-size: 1155px;
 	position: fixed;
@@ -1244,7 +1244,7 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	overflow-x: hidden;
 }
 
-.page-node-add-story .step-story-fill-case-1 ~ #edit-field-case1-selected #field-case1-selected-add-more-wrapper .form-item label,.page-node-add-story .step-story-fill-case-1 ~ #edit-field-case2-selected #field-case2-selected-add-more-wrapper .form-item label {
+.page-node-add-story .step-story-fill-case-1 ~ #edit-field-case1-selected #field-case1-selected-add-more-wrapper .form-item label,.page-node-add-story .step-story-fill-case-2 ~ #edit-field-case2-selected #field-case2-selected-add-more-wrapper .form-item label,.page-node-add-story .step-story-fill-case-3 ~ #edit-field-case3-selected #field-case3-selected-add-more-wrapper .form-item label {
 	display:none;
 }
 
@@ -1322,14 +1322,14 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	height:300px;
 }
 
-.step-story-fill-case-1 ~ #edit-actions,.step-story-fill-case-2 ~ #edit-actions {
+.step-story-fill-case-1 ~ #edit-actions,.step-story-fill-case-2 ~ #edit-actions,.step-story-fill-case-3 ~ #edit-actions,.step-story-summary ~ #edit-actions {
 	margin: 0 auto;
 	position: relative;
 	width: 300px;
 	height: 50px;
 }
 
-.step-story-fill-case-1 ~ #edit-actions #edit-next,.step-story-fill-case-2 ~ #edit-actions #edit-next {
+.step-story-fill-case-1 ~ #edit-actions #edit-next,.step-story-fill-case-2 ~ #edit-actions #edit-next,.step-story-fill-case-3 ~ #edit-actions #edit-next,.step-story-summary ~ #edit-actions #edit-next {
 	background-image: url(../images/buttonplay.png);
 	background-repeat: no-repeat;
 	background-size: 185px 50px;
@@ -1347,7 +1347,7 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	top: 117px;
 }
 
-#field-case1-selected-add-more-wrapper,#field-case2-selected-add-more-wrapper {
+#field-case1-selected-add-more-wrapper,#field-case2-selected-add-more-wrapper,#field-case3-selected-add-more-wrapper {
 	text-align: center;
 	width: 540px;
 	margin: 0 auto;
@@ -1361,17 +1361,34 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	font-size: 0;
 }
 
-#field-case1-selected-add-more-wrapper #button-back,#field-case2-selected-add-more-wrapper #button-back {
+#wrapper-center-summary {
+	text-align: center;
+	width: 540px;
+	margin: 0 auto;
+	position: relative;
+	background-color: white;
+	height: 225px;
+  padding-top: 45px;
+  top: 160px;
+	border-radius:10px;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+#field-case3-selected-add-more-wrapper {
+	height:190px !important;
+}
+
+#field-case1-selected-add-more-wrapper #button-back,#field-case2-selected-add-more-wrapper #button-back,#field-case3-selected-add-more-wrapper #button-back {
 	left:-58px;
 	top: -150px;
 }
 
-#field-case1-selected-add-more-wrapper .form-item,#field-case2-selected-add-more-wrapper .form-item {
+#field-case1-selected-add-more-wrapper .form-item,#field-case2-selected-add-more-wrapper .form-item,#field-case3-selected-add-more-wrapper .form-item {
 	width: 400px;
 	margin: 0 auto;
 }
 
-#field-case1-selected-add-more-wrapper .form-item input[type=text],#field-case2-selected-add-more-wrapper .form-item input[type=text] {
+#field-case1-selected-add-more-wrapper .form-item input[type=text],#field-case2-selected-add-more-wrapper .form-item input[type=text],#field-case3-selected-add-more-wrapper .form-item input[type=text] {
 	background-color: transparent;
 	border: none;
 	border-bottom: 3px dashed lightgray;
@@ -1383,24 +1400,36 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	margin-top: 3px;
 }
 
-#edit-field-case1-selected,#edit-field-case2-selected {
+#field-case3-selected-add-more-wrapper .form-item input[type=text] {
+	margin-bottom: 0px !important;
+}
+
+#edit-field-case1-selected,#edit-field-case2-selected,#edit-field-case3-selected {
 	height: 328px;
 }
 
-#field-case1-selected-add-more-wrapper .story,#field-case2-selected-add-more-wrapper .story {
+#field-case1-selected-add-more-wrapper .story,#field-case2-selected-add-more-wrapper .story,#field-case3-selected-add-more-wrapper .story {
 	font-size:18px;
 }
 
-#field-case1-selected-add-more-wrapper .story span,#field-case2-selected-add-more-wrapper .story span.name {
+#field-case3-selected-add-more-wrapper .slogan {
+	font-size:18px;
+}
+
+#field-case3-selected-add-more-wrapper .slogan span {
 	color:red;
 }
 
-#field-case2-selected-add-more-wrapper .story span.a {
+#field-case1-selected-add-more-wrapper .story span,#field-case2-selected-add-more-wrapper .story span.name,#field-case3-selected-add-more-wrapper .story span.name {
+	color:red;
+}
+
+#field-case2-selected-add-more-wrapper .story span.a,#field-case3-selected-add-more-wrapper .story span.a {
 	font-style:italic;
 	font-weight:bold;
 }
 
-#edit-field-case1-selected .number-question,#edit-field-case2-selected .number-question {
+#edit-field-case1-selected .number-question,#edit-field-case2-selected .number-question,#edit-field-case3-selected .number-question {
 	width: 100px;
   margin: 0 auto;
   text-align: center;
@@ -1422,4 +1451,49 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
   background-size: 47px 45px;
 	background-color:transparent;
 	border:none;
+}
+
+.step-story-up-picture ~ #edit-actions {
+	text-align:center;
+	position:relative;
+}
+
+.step-story-up-picture ~ #edit-actions #edit-next {
+	background-image: url(../images/buttonplay.png);
+	background-repeat: no-repeat;
+	background-size: 185px 50px;
+	width: 185px;
+	height: 50px;
+	border: none;
+	background-color: transparent;
+	color: yellow;
+	font-size: 16px;
+	text-transform: uppercase;
+	font-weight: bold;
+	z-index: 0;
+	position:relative;
+	top: 336px;
+}
+
+.step-story-summary ~ #edit-actions #edit-next {
+	top: 223px !important;
+}
+
+.female .step-story-up-picture ~ #edit-field-gaming-image .jcrop-preview-wrapper {
+	margin-top: 176px !important;
+	border-radius: 0 25px 38px 9px;
+}
+
+.male .step-story-up-picture ~ #edit-field-gaming-image .jcrop-preview-wrapper {
+	margin-top: 218px !important;
+  border-radius: 0 0 49px 47px;
+}
+
+#wrapper-center-summary .story {
+	line-height: 35px;
+	font-size: 17px;
+}
+
+#wrapper-center-summary .story span.name {
+	color:red;
 }

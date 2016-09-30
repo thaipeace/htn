@@ -338,7 +338,7 @@
 				});
 			}
 			
-			//Get class case 1
+			//Get class case 2
 			var classstepstoryfillcase2 = $('.step-story-fill-case-2').attr('class');
 			
 			if(classstepstoryfillcase2){
@@ -352,6 +352,34 @@
 				$('#button-back').click(function(e){
 					window.history.back();
 				});
+			}
+			
+			//Get class case 3
+			var classstepstoryfillcase3 = $('.step-story-fill-case-3').attr('class');
+			
+			if(classstepstoryfillcase3){
+				//Append
+				$('#edit-field-case3-selected').prepend('<div class="number-question"></div>');
+				$('#edit-field-case3-selected .number-question').html('3/3');
+				
+				$('.page-node-add-story #field-case3-selected-add-more-wrapper').append('<input id="button-back" type="button" >');
+				
+				//Back 
+				$('#button-back').click(function(e){
+					window.history.back();
+				});
+				
+				//AppendTo slogan
+				$('.step-story-fill-case-3 ~ .slogan').appendTo('#field-case3-selected-add-more-wrapper');
+			}
+			
+			//Get class case summary
+			var classstepstoryfillcasesummary = $('.step-story-summary').attr('class');
+			
+			if(classstepstoryfillcasesummary){
+				$('.step-story-summary ~ #edit-actions').before($('<div id="wrapper-center-summary"></div>'));
+				
+				$('.step-story-summary ~ .story').appendTo('#wrapper-center-summary');
 			}
 		}
   };  
