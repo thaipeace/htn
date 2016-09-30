@@ -134,14 +134,16 @@ function htn_form_alter(&$form, &$form_state, $form_id) {
     $b = isset($form_state['values']['field_case2_selected']['und'][0]['value']) ? '<span class="b">' . $form_state['values']['field_case2_selected']['und'][0]['value'] . '</span>' : '';
     $c = isset($form_state['values']['field_case3_selected']['und'][0]['value']) ? '<span class="c">' . $form_state['values']['field_case3_selected']['und'][0]['value'] . '</span>' : '';
     
-    if ($form_state['storage']['step'] == 'step_story_choose_gender' && !user_is_logged_in()) {
+    if (isset($form_state['values']['field_gender'])) {
+      // Add gender class to form
+      $form['#attributes']['class'][] = $gender;
+    }
+    
+    if ($form_state['storage']['step'] == 'step_story_choose_gender') {
       $intro = '<div class="intro">
 <div class="title">Trổ tài sáng tạo,<br/>Video bá đạo</div>
 <div class="desc">Để có video hoạt hình chất như Phở, cool như Phi Nhung, <br/>hãy trổ tài viết truyện và kêu gọi bạn bè like cùng share mạnh tay nhé !!!</div>
 <div class="foot">Trà thảo mộc Dr Thanh, <br/>thanh lọc bên trong, tươi trẻ bên ngoài</div>
-</div>
-<div class="login">
-Mời bạn đăng nhập bằng Facebook <a href="' . $base_url . '/user/simple-fb-connect?node/add/story">Đăng nhập bằng Facebook</a>
 </div>';
       
       $form['intro'] = [
@@ -151,6 +153,20 @@ Mời bạn đăng nhập bằng Facebook <a href="' . $base_url . '/user/simple
       ];
       $form['#steps']['step_story_choose_gender']->children[] = 'intro';
       $form['#step_children']['intro'] = 'step_story_choose_gender';
+      
+      if (!user_is_logged_in()) {
+        $login = '<div class="login">
+Mời bạn đăng nhập bằng Facebook <a href="' . $base_url . '/user/simple-fb-connect?node/add/story">Đăng nhập bằng Facebook</a>
+</div>';
+        $form['login'] = [
+          '#type' => 'markup',
+          '#markup' => $login,
+          '#weight' => 9
+        ];
+        $form['#steps']['step_story_choose_gender']->children[] = 'login';
+        $form['#step_children']['login'] = 'step_story_choose_gender';
+      }
+      
     }
     
     if ($form_state['storage']['step'] == 'step_story_fill_case_1') {
@@ -248,7 +264,10 @@ Mời bạn đăng nhập bằng Facebook <a href="' . $base_url . '/user/simple
       
       $form['title']['#default_value'] = 'Story of ' . $form_state['values']['field_name']['und'][0]['value'] . '-' . time();
       $form['body']['und'][0]['#default_value'] = 
-          '<div class="story">Khi $name được thanh lọc bên trong, $name sẽ rạng rỡ bên ngoài. Khi $name rạng rỡ bên ngoài, $name sẽ được $a. Khi $name được $a, $name sẽ được $b. Khi $name được $b, $name sẽ được $c<div class="sign">$name</div></div>'
+          str_replace(
+                  ['$name', '$a', '$b', '$c'],
+                  [$name, $a, $b, $c],
+                  '<div class="story">Khi $name được thanh lọc bên trong, $name sẽ rạng rỡ bên ngoài. Khi $name rạng rỡ bên ngoài, $name sẽ được $a. Khi $name được $a, $name sẽ được $b. Khi $name được $b, $name sẽ được $c<div class="sign">$name</div></div>')
           . '<div class="fb">
               <div class="fb-like" 
                 data-href="'. $base_url . '" 
@@ -327,6 +346,9 @@ function htn_preprocess_node(&$vars) {
   if ($vars['type'] == 'gaming') {
     $vars['classes_array'][] = $vars['field_gender']['und'][0]['value'];
     $vars['classes_array'][] = $vars['field_situation']['und'][0]['value'];
+  }
+  if ($vars['type'] == 'story') {
+    $vars['classes_array'][] = $vars['field_gender']['und'][0]['value'];
   }
 }
 
