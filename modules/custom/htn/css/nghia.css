@@ -12,20 +12,6 @@ html{
 	background-size: cover;
 }
 
-/*
-.page-node-8 .layout-center{
-	background:url(../images/backgroundvideo.png) no-repeat center center fixed;
-	background-size: cover;
-	position: fixed;
-	z-index: 1;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	overflow: auto;
-	overflow-x: hidden;
-}*/
-
 .node-type-page .layout-center {
 	background:url(../images/homeslogan.png) no-repeat center 0 fixed;
 	background-size: 1155px;
@@ -266,30 +252,30 @@ html{
   position: relative;
 }
 
-.page-node-add-gaming #edit-field-gender .form-item label {
+.page-node-add-gaming #edit-field-gender .form-item label,.page-node-add-story #edit-field-gender .form-item label {
 	text-align:center;
 	text-transform: uppercase;
 	font-size:20px;
 	margin-top: 115px;
 }
 
-.page-node-add-gaming #edit-field-gender-und .form-item {
+.page-node-add-gaming #edit-field-gender-und .form-item,.page-node-add-story #edit-field-gender-und .form-item {
 	position: absolute;
   top: 170px;
 }
 
-.page-node-add-gaming #edit-field-gender-und .form-item:nth-child(2) {
+.page-node-add-gaming #edit-field-gender-und .form-item:nth-child(2),.page-node-add-story #edit-field-gender-und .form-item:nth-child(2) {
 	left:160px;
 }
 
-.page-node-add-gaming #edit-field-gender-und .form-item input[type=radio]{
+.page-node-add-gaming #edit-field-gender-und .form-item input[type=radio],.page-node-add-story #edit-field-gender-und .form-item input[type=radio] {
 	position: absolute;
 	visibility: hidden;
 	top: 30px;
   left: 9px;
 }
 
-.page-node-add-gaming #edit-field-gender-und {
+.page-node-add-gaming #edit-field-gender-und,.page-node-add-story #edit-field-gender-und {
 	width: 190px;
   margin: 0 auto;
 	position: relative;
@@ -309,13 +295,14 @@ html{
 	width: 35px;
 	top: 30px;
 	left: -3px;
-	z-index: 5;
+	z-index: 0;
 	transition: border .25s linear;
 	-webkit-transition: border .25s linear;
 	background-color:white;
+	cursor: pointer;
 }
 
-.page-node-add-gaming #edit-field-gender-und .form-item:nth-child(2) #check-radio {
+.page-node-add-gaming #edit-field-gender-und .form-item:nth-child(2) #check-radio,.page-node-add-story #edit-field-gender-und .form-item:nth-child(2) #check-radio {
 	left:3px;
 }
 
@@ -333,7 +320,7 @@ html{
 	-webkit-transition: background 0.25s linear;
 }
 
-.page-node-add-gaming #edit-field-gender-und .form-item input[type=radio]:checked ~ #check-radio::before {
+.page-node-add-gaming #edit-field-gender-und .form-item input[type=radio]:checked ~ #check-radio::before,.page-node-add-story #edit-field-gender-und .form-item input[type=radio]:checked ~ #check-radio::before {
 	background: yellow;
 }
 
@@ -1026,4 +1013,413 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	0% {transform: scale(1.0);}
 	50% {transform: scale(1.1);}
 	100% {transform: scale(1.0);}
+}
+
+/*Send story*/
+.page-node-add-story {
+	background:url(../images/background.png) no-repeat center center fixed;
+	background-size: cover;
+}
+
+.page-node-add-story .step-story-choose-gender {
+	background:url(../images/centerstoryselect.png) no-repeat center 0 fixed;
+	background-size: 1155px;
+	position: fixed;
+	z-index: -1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	overflow-x: hidden;
+}
+
+.page-node-add-story .step-story-fill-name {
+	background:url(../images/centername.png) no-repeat center 0 fixed;
+	background-size: 1155px;
+	position: fixed;
+	z-index: -1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	overflow-x: hidden;
+}
+
+.page-node-add-story .step-story-fill-name ~ #edit-field-name #field-name-add-more-wrapper .form-item label {
+	display:none;
+}
+
+.page-node-add-story .step-story-fill-name ~ #edit-field-name {
+	height:445px;
+}
+
+.page-node-add-story .step-story-fill-name ~ #edit-field-name #field-name-add-more-wrapper {
+	text-align: center;
+	width: 800px;
+	margin: 0 auto;
+	height: 445px;
+	padding-top: 215px;
+	position:relative;
+}
+
+.page-node-add-story .step-story-fill-name ~ #edit-field-name #field-name-add-more-wrapper .form-item input[type=text] {
+	background-color: transparent;
+	border: none;
+	border-bottom: 3px dashed white;
+	width: 355px;
+	text-align: center;
+	margin-bottom: 15px;
+	text-transform: uppercase;
+	color: red;
+	font-weight: bold;
+	font-size: 77px;
+}
+
+.page-node-add-story .step-story-fill-name ~ #edit-actions {
+	text-align:center;
+}
+
+.page-node-add-story .step-story-fill-name ~ #edit-actions #edit-next {
+	background-image: url(../images/buttonplay.png);
+	background-repeat: no-repeat;
+	background-size: 185px 50px;
+	width: 185px;
+	height: 50px;
+	border: none;
+	background-color: transparent;
+	color: yellow;
+	font-size: 16px;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+#mask-choose-gender {
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgb(0,0,0);
+	background-color: rgba(0,0,0,0.8);
+}
+
+#mask-case-1 {
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgb(0,0,0);
+	background-color: rgba(0,0,0,0.8);
+}
+
+.step-story-choose-gender ~ .intro {
+	position: relative;
+	background-image: url(../images/centerstory.png);
+	background-repeat: no-repeat;
+	background-size:600px 400px;
+	margin: auto;
+	top:-80px;
+	padding: 0;
+	width: 600px;
+	height:400px;
+	border-radius:15px;
+	text-align:center;
+	padding-top:20px;
+	z-index:2;
+	animation-name: animatetopstory;
+	animation-duration: 2s;
+}
+
+@keyframes animatetopstory {
+	from {top:-300px; opacity:0}
+	to {top:-80px; opacity:1}
+}
+
+.step-story-choose-gender ~ .intro .foot {
+	display:none;
+}
+
+.step-story-choose-gender ~ .intro .title {
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 24px;
+	line-height: 30px;
+	margin-bottom:7px;
+}
+
+.step-story-choose-gender ~ .intro .desc {
+	opacity:0.8;
+}
+
+.step-story-choose-gender ~ .intro .close-intro {
+	position: absolute;
+	background-image: url(../images/buttonclose.png);
+	background-repeat: no-repeat;
+	background-size:28px 28px;
+	width: 28px;
+	height:28px;
+	right: -10px;
+  top: -10px;
+	cursor:pointer;
+}
+
+.step-story-choose-gender ~ #edit-actions {
+	margin: 0 auto;
+	position: relative;
+	width: 300px;
+	height: 50px;
+}
+
+.step-story-choose-gender ~ #edit-actions #edit-next {
+	background-image: url(../images/buttonplay.png);
+	background-repeat: no-repeat;
+	background-size: 185px 50px;
+	width: 185px;
+	height: 50px;
+	border: none;
+	background-color: transparent;
+	color: yellow;
+	font-size: 16px;
+	text-transform: uppercase;
+	font-weight: bold;
+	z-index: 0;
+	position:absolute;
+	left: 18%;
+	top: 287px;
+}
+
+.step-story-choose-gender ~ .login {
+	position: relative;
+	background-color: #fefefe;
+	margin: auto;
+	top: 0px;
+	padding: 20px;
+	text-transform: uppercase;
+	border: 2px solid lightgray;
+	width: 300px;
+	height: 145px;
+	border-radius: 10px;
+	text-align: center;
+	display: none;
+	z-index: 1;
+	font-weight: bold;
+	animation-name: animatebottonlogin;
+	animation-duration: 2s;
+}
+
+@keyframes animatebottonlogin {
+	from {top:300px; opacity:0}
+	to {top:0px; opacity:1}
+}
+
+.step-story-choose-gender ~ .login .close-login {
+	position: absolute;
+	background-image: url(../images/buttonclose.png);
+	background-repeat: no-repeat;
+	background-size:28px 28px;
+	width: 28px;
+	height:28px;
+	right: -10px;
+  top: -10px;
+	cursor:pointer;
+}
+
+.page-node-add-story .step-story-fill-case-1,.page-node-add-story .step-story-fill-case-2 {
+	background:url(../images/centerinputstory.png) no-repeat center 0 fixed;
+	background-size: 1155px;
+	position: fixed;
+	z-index: -1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	overflow-x: hidden;
+}
+
+.page-node-add-story .step-story-fill-case-1 ~ #edit-field-case1-selected #field-case1-selected-add-more-wrapper .form-item label,.page-node-add-story .step-story-fill-case-1 ~ #edit-field-case2-selected #field-case2-selected-add-more-wrapper .form-item label {
+	display:none;
+}
+
+#story-main {
+	position: relative;
+	background-color: #e9ebee;
+	margin: auto;
+	top:-250px;
+	border: 3px solid white;
+	width: 600px;
+	height:360px;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+	animation-name: animatetopstorymain;
+	animation-duration: 2s;
+	border-radius:15px;
+	text-align:center;
+	z-index:2;
+	padding:30px;
+}
+
+#story-main-left {
+	float: left;
+	text-align: left;
+	width: 340px;
+	background-color: white;
+	height: 300px;
+	overflow: auto;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	border-radius:10px;
+	padding: 25px;
+}
+
+@keyframes animatetopstorymain {
+	from {top:-400px; opacity:0}
+	to {top:-250px; opacity:1}
+}
+
+.page-node-add-story .step-story-fill-case-1 ~ #story-main .close-storymain {
+	position: absolute;
+	background-image: url(../images/buttonclose.png);
+	background-repeat: no-repeat;
+	background-size:28px 28px;
+	width: 28px;
+	height:28px;
+	right: -10px;
+  top: -10px;
+	cursor:pointer;
+}
+
+#story-main-left h4 {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	text-transform:uppercase;
+	font-size:18px;
+}
+
+#story-main-left div {
+	margin-left:10px;
+}
+
+#story-main-left div:first-of-type {
+	margin-bottom:10px;
+}
+
+#story-main-left div span {
+	color:red;
+}
+
+#story-main-right {
+	float:right;
+	background-image: url(../images/phinhung.png);
+	background-repeat: no-repeat;
+	background-size:150px 300px;
+	width: 150px;
+	height:300px;
+}
+
+.step-story-fill-case-1 ~ #edit-actions,.step-story-fill-case-2 ~ #edit-actions {
+	margin: 0 auto;
+	position: relative;
+	width: 300px;
+	height: 50px;
+}
+
+.step-story-fill-case-1 ~ #edit-actions #edit-next,.step-story-fill-case-2 ~ #edit-actions #edit-next {
+	background-image: url(../images/buttonplay.png);
+	background-repeat: no-repeat;
+	background-size: 185px 50px;
+	width: 185px;
+	height: 50px;
+	border: none;
+	background-color: transparent;
+	color: yellow;
+	font-size: 16px;
+	text-transform: uppercase;
+	font-weight: bold;
+	z-index: 0;
+	position:absolute;
+	left: 18%;
+	top: 117px;
+}
+
+#field-case1-selected-add-more-wrapper,#field-case2-selected-add-more-wrapper {
+	text-align: center;
+	width: 540px;
+	margin: 0 auto;
+	position: relative;
+	background-color: white;
+	height: 150px;
+	padding-top: 45px;
+	top: 190px;
+	border-radius:10px;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	font-size: 0;
+}
+
+#field-case1-selected-add-more-wrapper #button-back,#field-case2-selected-add-more-wrapper #button-back {
+	left:-58px;
+	top: -150px;
+}
+
+#field-case1-selected-add-more-wrapper .form-item,#field-case2-selected-add-more-wrapper .form-item {
+	width: 400px;
+	margin: 0 auto;
+}
+
+#field-case1-selected-add-more-wrapper .form-item input[type=text],#field-case2-selected-add-more-wrapper .form-item input[type=text] {
+	background-color: transparent;
+	border: none;
+	border-bottom: 3px dashed lightgray;
+	text-align: center;
+	margin-bottom: 15px;
+	color: red;
+	font-weight: bold;
+	font-size: 18px;
+	margin-top: 3px;
+}
+
+#edit-field-case1-selected,#edit-field-case2-selected {
+	height: 328px;
+}
+
+#field-case1-selected-add-more-wrapper .story,#field-case2-selected-add-more-wrapper .story {
+	font-size:18px;
+}
+
+#field-case1-selected-add-more-wrapper .story span,#field-case2-selected-add-more-wrapper .story span.name {
+	color:red;
+}
+
+#field-case2-selected-add-more-wrapper .story span.a {
+	font-style:italic;
+	font-weight:bold;
+}
+
+#edit-field-case1-selected .number-question,#edit-field-case2-selected .number-question {
+	width: 100px;
+  margin: 0 auto;
+  text-align: center;
+	opacity: 0.4;
+	font-weight: bold;
+	font-size: 21px;
+	position: relative;
+	top: 127px;
+}
+
+#button-back-fill-name {
+	width:47px;
+	height:45px;
+	position: absolute;
+	top: 60px;
+	left: 75px;
+	background-image: url(../images/arrowback.png);
+  background-repeat: no-repeat;
+  background-size: 47px 45px;
+	background-color:transparent;
+	border:none;
 }

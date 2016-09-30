@@ -69,7 +69,6 @@
 			}
 			
 			//Append mask of radio
-			//$('.page-node-add-gaming #edit-field-gender-und .form-item').append('<label for="edit-field-gender-und-female" id="check-radio"></label>');
 			$('.page-node-add-gaming #edit-field-gender-und .form-item:nth-child(1)').append('<label for="edit-field-gender-und-female" id="check-radio"></label>');
 			$('.page-node-add-gaming #edit-field-gender-und .form-item:nth-child(2)').append('<label for="edit-field-gender-und-male" id="check-radio"></label>');
 		
@@ -262,6 +261,98 @@
 				
 				$('article.node-gaming .field-name-field-gaming-image .field-items .field-item img').css('z-index','-1');
 			});
+			
+			//Prepend button close
+			$('.step-story-choose-gender ~ .intro').prepend('<div class="close-intro"></div>');
+			
+			//Click button close
+			$('.close-intro').click(function(e) {
+				$('.step-story-choose-gender ~.intro').fadeOut();
+				//$('.step-story-choose-gender').fadeOut();
+				$('.step-story-choose-gender ~.login').css('display','block');
+			});
+			
+			//Append mask radio 
+			$('.page-node-add-story #edit-field-gender-und .form-item:nth-child(1)').append('<label for="edit-field-gender-und-female" id="check-radio"></label>');
+			$('.page-node-add-story #edit-field-gender-und .form-item:nth-child(2)').append('<label for="edit-field-gender-und-male" id="check-radio"></label>');
+			
+			//Prepend button close
+			$('.step-story-choose-gender ~ .login').prepend('<div class="close-login"></div>');
+		
+			//Click button close
+			$('.close-login').click(function(e) {
+				$('#mask-choose-gender').fadeOut();
+				$('.step-story-choose-gender ~.login').fadeOut();
+			});
+			
+			//Append tag br
+			$('.step-story-choose-gender ~ .login .close-login ~ a').before($('<br />'));
+			
+			//Get class
+			var classstepstorychoosegender = $('.step-story-choose-gender').attr('class');
+			
+			if(classstepstorychoosegender){
+				$('.step-story-choose-gender ~ #edit-field-gender').before($('<div id="mask-choose-gender"></div>'));
+			}
+			
+			$('.page-node-add-story #field-name-add-more-wrapper').append('<input id="button-back-fill-name" type="button" >');
+			
+			//Back 
+			$('#button-back-fill-name').click(function(e){
+				window.history.back();
+			});
+		
+			//Get class case 1
+			var classstepstoryfillcase1 = $('.step-story-fill-case-1').attr('class');
+			
+			if(classstepstoryfillcase1){
+				//Append
+				$('.step-story-fill-case-1 ~ #edit-field-case1-selected').before($('<div id="mask-case-1"></div>'));
+				$('.step-story-fill-case-1 ~ #edit-field-case1-selected ~ #edit-actions').before($('<div id="story-main"></div>'));
+				
+				$('#story-main').append('<div id="story-main-left"></div>');
+				
+				$('.page-node-add-story .step-story-fill-case-1 ~ h4:first-of-type').appendTo('#story-main-left');
+				$('.page-node-add-story .step-story-fill-case-1 ~ div:nth-of-type(4)').appendTo('#story-main-left');
+				$('.page-node-add-story .step-story-fill-case-1 ~ h4:last-of-type').appendTo('#story-main-left');
+				$('.page-node-add-story .step-story-fill-case-1 ~ div:nth-of-type(4)').appendTo('#story-main-left');
+				$('.page-node-add-story .step-story-fill-case-1 ~ div:nth-of-type(4)').appendTo('#story-main-left');
+				
+				$('#story-main').prepend('<div class="close-storymain"></div>');
+				$('#edit-field-case1-selected').prepend('<div class="number-question"></div>');
+				$('#edit-field-case1-selected .number-question').html('1/3');
+				
+				$('#story-main').append('<div id="story-main-right"></div>');
+				
+				//Click button close
+				$('.close-storymain').click(function(e) {
+					$('#story-main').fadeOut();
+					$('#mask-case-1').fadeOut();
+				});
+				
+				$('.page-node-add-story #field-case1-selected-add-more-wrapper').append('<input id="button-back" type="button" >');
+				
+				//Back 
+				$('#button-back').click(function(e){
+					window.history.back();
+				});
+			}
+			
+			//Get class case 1
+			var classstepstoryfillcase2 = $('.step-story-fill-case-2').attr('class');
+			
+			if(classstepstoryfillcase2){
+				//Append
+				$('#edit-field-case2-selected').prepend('<div class="number-question"></div>');
+				$('#edit-field-case2-selected .number-question').html('2/3');
+				
+				$('.page-node-add-story #field-case2-selected-add-more-wrapper').append('<input id="button-back" type="button" >');
+				
+				//Back 
+				$('#button-back').click(function(e){
+					window.history.back();
+				});
+			}
 		}
   };  
 })(jQuery, Drupal, this, this.document);
