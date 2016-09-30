@@ -12,6 +12,20 @@ html{
 	background-size: cover;
 }
 
+/*
+.page-node-8 .layout-center{
+	background:url(../images/backgroundvideo.png) no-repeat center center fixed;
+	background-size: cover;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	overflow-x: hidden;
+}*/
+
 .node-type-page .layout-center {
 	background:url(../images/homeslogan.png) no-repeat center 0 fixed;
 	background-size: 1155px;
@@ -40,6 +54,30 @@ html{
 .page-node-add-gaming .layout-center .layout-3col .layout-3col__full .female .step-fill-name,.page-node-add-gaming .layout-center .layout-3col .layout-3col__full .male .step-fill-name,.page-node-add-gaming .layout-center .layout-3col .layout-3col__full .male .step-up-picture,.page-node-add-gaming .layout-center .layout-3col .layout-3col__full .female .step-up-picture {
 	background:url(../images/centeravatar.png) no-repeat center 0 fixed;
 	background-size: 1155px;
+	position: fixed;
+	z-index: -1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+}
+
+.male .step-select-situation {
+	background:url(../images/backgroundsituation.png) no-repeat center center fixed;
+	background-size: cover;
+	position: fixed;
+	z-index: -1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+}
+
+.female .step-select-situation {
+	background:url(../images/backgroundsituationgirl.png) no-repeat center center fixed;
+	background-size: cover;
 	position: fixed;
 	z-index: -1;
 	left: 0;
@@ -100,7 +138,7 @@ html{
 .img-arrowheader {
 	background:url(../images/arrowtop.png) no-repeat center center;
 	width: 120px;
-  height: 33px;
+  height: 35px;
   margin: 0 auto;
 }
 
@@ -151,7 +189,7 @@ html{
 
 #story-now {
 	position: absolute;
-  top: 415px;
+  top: 470px;
 	right: -11px;
 }
 
@@ -164,7 +202,7 @@ html{
 
 #play-now {
 	position: absolute;
-  top: 415px;
+  top: 470px;
   left: 15px;
 }
 
@@ -526,14 +564,15 @@ html{
 }
 
 .step-select-situation ~ .situa .fresh {
-	width: 300px;
+	width: 500px;
   float: left;
+	margin-top:215px;
 }
 
 .step-select-situation ~ .situa .hot {
-	width: 300px;
-  float: right;
-	margin-top: 350px;
+	width: 675px;
+	float: right;
+	margin-top: 465px;
 }
 
 .step-select-situation ~ #edit-field-situation .form-item label, .step-select-situation ~ #edit-field-situation .form-item select {
@@ -723,7 +762,15 @@ html{
 }
 
 .female #edit-field-case3-aaa ~ .option,.female #edit-field-case3-aba ~ .option {
-	top: -10px;
+	top: -11px;
+}
+
+.female #edit-field-case3-aac ~ .option {
+	top: 1px !important;
+}
+
+.female #edit-field-case3-abc ~ .option,.female #edit-field-case3-acc ~ .option {
+	top: 0px !important;
 }
 
 #edit-field-case2-ba ~ .option {
@@ -731,7 +778,7 @@ html{
 }
 
 #edit-field-case2-bb ~ .option {
-	top:14px;
+	top:11px;
 }
 
 #edit-field-case2-bc ~ .option {
@@ -751,7 +798,7 @@ html{
 }
 
 #edit-field-case2-bc ~ #question-radio {
-	margin-bottom:42px !important;
+	margin-bottom:45px !important;
 }
 
 .step-select-case-2 ~ #edit-actions {
@@ -761,6 +808,11 @@ html{
 #edit-field-case2 #question-radio {
 	top:-15px;
 	margin-bottom: 20px;
+}
+
+.female #edit-field-case2-bb ~ #question-radio {
+	margin-bottom:-1px !important;
+	top:-15px !important;
 }
 
 #edit-field-case2-aa ~ #question-radio,#edit-field-case2-ab ~ #question-radio,#edit-field-case2-ac ~ #question-radio {
@@ -810,8 +862,12 @@ html{
 	top:8px;
 }
 
-.female #edit-field-case3-cac ~ .option,.female #edit-field-case3-cbc ~ .option {
-	top:3px !important;
+.female #edit-field-case3-cac ~ .option {
+	top:0px !important;
+}
+
+.female #edit-field-case3-cbc ~ .option {
+	top:0px !important;
 }
 
 .female #edit-field-case3-cbb ~ #question-radio {
@@ -838,6 +894,10 @@ html{
 	top:-29px;
 }
 
+.male #edit-field-case3-bbc ~ #question-radio {
+	top:-21px !important;
+}
+
 .male #edit-field-case3-bcc ~ #question-radio {
 	top:-21px !important;
 }
@@ -846,14 +906,124 @@ html{
 	top:3px !important;
 }
 
+.male #edit-field-case3-aaa ~ .option,.male #edit-field-case3-aba ~ .option {
+	top:-11px !important;
+}
+
 .male #edit-field-case3-cab ~ #question-radio,.male #edit-field-case3-cbb ~ #question-radio,.male #edit-field-case3-ccb ~ #question-radio {
 	top:-47px;
 }
 
-.male #edit-field-case3-cac ~ #question-radio,.male #edit-field-case3-ccc ~ #question-radio {
+.male #edit-field-case3-cac ~ #question-radio {
+	top:-29px !important;
+}
+
+.male #edit-field-case3-ccc ~ #question-radio {
 	top:-42px !important;
 }
 
 .male #edit-field-case3-cbc ~ #question-radio {
 	top:-31px !important;
+}
+
+article.male .field-name-field-gaming-image .field-label,article.male .field-name-field-background-video .field-label,article.female .field-name-field-gaming-image .field-label,article.female .field-name-field-background-video .field-label {
+	display:none;
+}
+
+article.male .field-name-field-gaming-image .field-items .field-item,article.female .field-name-field-gaming-image .field-items .field-item {
+	width: 100%;
+	margin: 0 auto;
+	position: relative;
+}
+
+/*Images for body video*/
+#img-bodyvideo {
+	background-repeat: no-repeat;
+	background-size:190px 375px;
+	width:190px;
+	height:375px;
+	left: 50px;
+  top: 170px;
+	position: relative;
+	z-index:1;
+}
+
+.male-fresh-img {
+	background-image: url(../images/male-fresh.png);
+}
+
+.male-hot-img {
+	background-image: url(../images/male-hot.png);
+}
+
+.female-fresh-img {
+	background-image: url(../images/female-fresh.png);
+}
+
+.female-hot-img {
+	background-image: url(../images/female-hot.png);
+}
+
+article.male .field-name-field-gaming-image .field-items .field-item img {
+	position: absolute;
+  top: 216px;
+  left: 99px;
+  width: 76px;
+  height: 80px;
+  border-radius: 0 0 110px 110px;
+  z-index: 1;
+}
+
+article.female .field-name-field-gaming-image .field-items .field-item img {
+	position: absolute;
+  top: 212px;
+  left: 97px;
+  width: 76px;
+	height: 85px;
+	border-radius: 0 0 110px 110px;
+  z-index: 1;
+}
+
+.fconnect a {
+	float:right;
+	background-image: url(../images/buttonshare.png);
+	background-repeat: no-repeat;
+	background-size:133px 51px;
+	width:133px !important;
+	height:51px !important;
+	margin-right: 110px;
+	margin-top: 100px;
+}
+
+#video-complete {
+	position:fixed;
+	top: 50%;
+	left: 50%;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	z-index: -1;
+	transform: translateX(-50%) translateY(-50%);
+}
+
+#button-playvideo {
+	background-image: url(../images/buttonplayvideo.png);
+	background-repeat: no-repeat;
+	background-size:131px 130px;
+	width:131px;
+	height:130px;
+	position:absolute;
+	position: absolute;
+	top: 50%;
+	left: 45%;
+	cursor:pointer;
+	-webkit-animation: zoombutton 1s infinite;
+  animation: zoombutton 1s infinite;
+}
+
+@keyframes zoombutton {
+	0% {transform: scale(1.0);}
+	50% {transform: scale(1.1);}
+	100% {transform: scale(1.0);}
 }
