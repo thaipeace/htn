@@ -1856,10 +1856,10 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 }
 
 .step-story-fill-case-1 ~ #story-main #story-main-left::-webkit-scrollbar-thumb {
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-    background: rgba(255,0,0,0.8); 
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	background: rgba(255,0,0,0.8); 
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
 }
 .step-story-fill-case-1 ~ #story-main #story-main-left::-webkit-scrollbar-thumb:window-inactive {
 	background: rgba(255,0,0,0.4); 
