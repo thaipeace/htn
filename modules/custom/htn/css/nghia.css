@@ -79,7 +79,7 @@ html{
 	margin: 0 0 30px;
 	height:46px;
 	position:relative;
-	top:-126px;
+	top:-97px;
 }
 
 #block-block-1 ul {
@@ -175,7 +175,7 @@ html{
 
 #story-now {
 	position: absolute;
-  top: 370px;
+  top: 415px;
 	right: -11px;
 }
 
@@ -188,7 +188,7 @@ html{
 
 #play-now {
 	position: absolute;
-  top: 370px;
+  top: 415px;
   left: 15px;
 }
 
@@ -233,7 +233,7 @@ html{
 
 .page-node-add-gaming #edit-actions {
 	text-align:center;
-	margin-top: 309px;
+	margin-top: 326px;
 }
 
 .page-node-add-gaming #edit-next,#fresh-play,#hot-play {
@@ -256,7 +256,7 @@ html{
 	text-align:center;
 	text-transform: uppercase;
 	font-size:20px;
-	margin-top: -5px;
+	margin-top: 52px;
 }
 
 .page-node-add-gaming #edit-field-gender-und .form-item,.page-node-add-story #edit-field-gender-und .form-item {
@@ -328,7 +328,7 @@ html{
 	width:47px;
 	height:45px;
 	position: absolute;
-	top: -45px;
+	top: 5px;
 	left: 355px;
 	background-image: url(../images/arrowback.png);
   background-repeat: no-repeat;
@@ -347,7 +347,6 @@ html{
   text-align: center;
 	position:relative;
 	height:110px;
-
 }
 
 .female #edit-field-gaming-image div:nth-child(1) .form-item input[type=file] {
@@ -383,7 +382,7 @@ html{
 #edit-field-gaming-image div:nth-child(1) .form-item .description {
   text-transform: uppercase;
 	position: absolute;
-	top: 0px;
+	top: 35px;
 	font-weight: bold;
 	left: 23%;
 }
@@ -414,7 +413,7 @@ html{
 .actor {
 	width: 600px;
   margin: 0 auto;
-	margin-top: 0px;
+	margin-top: 30px;
 	position:relative;
 }
 
@@ -423,7 +422,7 @@ html{
 }
 
 .step-fill-name ~ #edit-actions {
-	margin-top:-42px;
+	margin-top:-14px;
 }
 
 .step-fill-name ~ #edit-field-name #field-name-add-more-wrapper {
@@ -553,13 +552,13 @@ html{
 .step-select-situation ~ .situa .fresh {
 	width: 500px;
   float: left;
-	margin-top:115px;
+	margin-top:165px;
 }
 
 .step-select-situation ~ .situa .hot {
 	width: 675px;
 	float: right;
-	margin-top: 365px;
+	margin-top: 410px;
 }
 
 .step-select-situation ~ #edit-field-situation .form-item label, .step-select-situation ~ #edit-field-situation .form-item select {
@@ -623,6 +622,7 @@ html{
 
 .step-select-case-1 ~ .intro,.step-select-case-2 ~ .intro,.step-select-case-3 ~ .intro {
 	text-align:center;
+	margin-top:50px;
 }
 
 .step-select-case-1 ~ .intro .hello,.step-select-case-2 ~ .intro .hello,.step-select-case-3 ~ .intro .hello {
@@ -722,7 +722,7 @@ html{
 }
 
 .step-complete ~ #edit-actions {
-	margin-top:-10px;
+	margin-top:30px;
 }
 
 .step-complete ~ #edit-actions #edit-submit {
@@ -929,7 +929,7 @@ article.male .field-name-field-gaming-image .field-items .field-item,article.fem
 	width:190px;
 	height:375px;
 	left: 50px;
-  top: 70px;
+  top: 120px;
 	position: relative;
 	z-index:1;
 }
@@ -952,8 +952,8 @@ article.male .field-name-field-gaming-image .field-items .field-item,article.fem
 
 article.male .field-name-field-gaming-image .field-items .field-item img {
 	position: absolute;
-  top: 117px;
-  left: 99px;
+	top: 166px;
+	left: 98px;
   width: 76px;
   height: 80px;
   border-radius: 0 0 110px 110px;
@@ -962,7 +962,7 @@ article.male .field-name-field-gaming-image .field-items .field-item img {
 
 article.female .field-name-field-gaming-image .field-items .field-item img {
 	position: absolute;
-  top: 111px;
+  top: 162px;
   left: 97px;
   width: 76px;
 	height: 85px;
@@ -978,7 +978,7 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	width:133px !important;
 	height:51px !important;
 	margin-right: 60px;
-  margin-top: -10px;
+  margin-top: 35px;
 }
 
 #video-complete {
@@ -1001,7 +1001,7 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	height:130px;
 	position:absolute;
 	position: absolute;
-	top: 20%;
+	top: 30%;
 	left: 45%;
 	cursor:pointer;
 	-webkit-animation: zoombutton 1s infinite;
@@ -1074,6 +1074,7 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	color: red;
 	font-weight: bold;
 	font-size: 77px;
+	margin-top:40px;
 }
 
 .page-node-add-story .step-story-fill-name ~ #edit-actions {
@@ -1092,7 +1093,7 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	font-size: 16px;
 	text-transform: uppercase;
 	font-weight: bold;
-	top: -100px;
+	top: -50px;
 	position: relative;
 }
 
@@ -1193,7 +1194,7 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	z-index: 0;
 	position:absolute;
 	left: 18%;
-	top: 287px;
+	top: 303px;
 }
 
 .step-story-choose-gender ~ .login {
@@ -1345,7 +1346,7 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	z-index: 0;
 	position:absolute;
 	left: 18%;
-	top: 117px;
+	top: 166px;
 }
 
 #field-case1-selected-add-more-wrapper,#field-case2-selected-add-more-wrapper,#field-case3-selected-add-more-wrapper {
@@ -1356,7 +1357,7 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	background-color: white;
 	height: 150px;
 	padding-top: 45px;
-	top: 90px;
+	top: 120px;
 	border-radius:10px;
 	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 	font-size: 0;
@@ -1370,7 +1371,7 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	background-color: white;
 	height: 225px;
   padding-top: 45px;
-  top:65px;
+  top:100px;
 	border-radius:10px;
 	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
@@ -1381,7 +1382,7 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 
 #field-case1-selected-add-more-wrapper #button-back,#field-case2-selected-add-more-wrapper #button-back,#field-case3-selected-add-more-wrapper #button-back {
 	left:-58px;
-	top: -150px;
+	top: -130px;
 }
 
 #field-case1-selected-add-more-wrapper .form-item,#field-case2-selected-add-more-wrapper .form-item,#field-case3-selected-add-more-wrapper .form-item {
@@ -1438,14 +1439,14 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	font-weight: bold;
 	font-size: 21px;
 	position: relative;
-	top: 30px;
+	top: 75px;
 }
 
 #button-back-fill-name {
 	width:47px;
 	height:45px;
 	position: absolute;
-	top: -45px;
+	top: 5px;
 	left: 75px;
 	background-image: url(../images/arrowback.png);
   background-repeat: no-repeat;
@@ -1473,11 +1474,11 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	font-weight: bold;
 	z-index: 0;
 	position:relative;
-	top: 237px;
+	top: 286px;
 }
 
 .step-story-summary ~ #edit-actions #edit-next {
-	top: 123px !important;
+	top: 172px !important;
 }
 
 .female .step-story-up-picture ~ #edit-field-gaming-image .jcrop-preview-wrapper {
@@ -1811,4 +1812,24 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 
 .node-story .fb {
 	margin-top:25px;
+}
+
+.logo-haytuoi ~ .story .name {
+	color:red;
+}
+
+.logo-haytuoi ~ .story .sign .name {
+	color:black;
+}
+
+#block-block-3 .block-wrapper a {
+	float: right;
+	background-image: url(../images/buttonlogin.png);
+	background-repeat: no-repeat;
+	background-size: 185px 41px;
+	width: 185px;
+	height: 51px;
+	position: absolute;
+	right: 20px;
+	top: -41px;
 }
