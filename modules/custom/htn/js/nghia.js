@@ -277,6 +277,8 @@
 			//Prepend button close
 			$('.step-story-choose-gender ~ .intro').prepend('<div class="close-intro"></div>');
 			
+			$('.step-story-choose-gender ~ .login a').text('');
+			
 			//Click button close
 			$('.close-intro').click(function(e) {
 				$('.step-story-choose-gender ~.intro').fadeOut();
