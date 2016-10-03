@@ -4,17 +4,20 @@
  * and open the template in the editor.
  */
 
-
 (function ($, Drupal, window, document) {
 
   'use strict';
 
   // To understand behaviors, see https://drupal.org/node/756722#behaviors
-  Drupal.behaviors.mobile = {
+  Drupal.behaviors.services = {
     attach: function (context, settings) {
-      // Code here
-      
-			
-		}
+      $('#fb-share-button').click(function() {
+        FB.ui({
+          method: 'share',
+          display: 'popup',
+          href: 'http://localhost/htn/thai-1474449168',
+        }, function(response){});
+      });
+    }
   };  
 })(jQuery, Drupal, this, this.document);

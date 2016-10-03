@@ -1,5 +1,5 @@
-name = Dr Thanh mobile custom
-description = "Mobile custom for dr Thanh"
+name = Dr Thanh custom
+description = "Custom for dr Thanh"
 core = 7.x
 package = Custom
 

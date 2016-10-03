@@ -1,46 +1,433 @@
 <?php
 
 /*
- * Implement hook_preprocess_page
+ * hook_init()
  */
-function mobile_preprocess_page(&$vars) {
-  if ($vars['directory'] == 'sites/default/themes/mobile') {
-    if ($vars['is_front']) {
-      drupal_goto('home');
+function htn_init() {
+  drupal_add_js(drupal_get_path('module', 'htn') . '/js/fb.js');
+  if (!user_is_logged_in()) {
+    global $base_url;
+    $destination = drupal_get_destination();
+    drupal_add_js(array('url' => array(
+        'base' => $base_url,
+        'des' => $destination['destination']
+      )), 'setting');
+  }
+}
+
+/*
+ * Implement hook_form_after
+ */
+function htn_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == 'gaming_node_form') {
+    
+    drupal_add_js(drupal_get_path('module', 'htn') . '/js/gaming.js');
+    drupal_add_css(drupal_get_path('module', 'htn') . '/css/gaming.css');
+    
+    $form_state['rebuild'] = TRUE;
+    
+    global $base_url;
+    $data = [];
+    $request = drupal_http_request($base_url . '/' . drupal_get_path('module', 'htn') . '/data.json');
+    $data = drupal_json_decode($request->data);
+    $alter_steps = ['step_select_case_1','step_select_case_2','step_select_case_3'];
+    $state = isset($form_state['values']['field_situation']['und'][0]['value']) ? $form_state['values']['field_situation']['und'][0]['value'] : '';
+    $gender = isset($form_state['values']['field_gender']['und'][0]['value']) ? $form_state['values']['field_gender']['und'][0]['value'] : '';
+    $name = isset($form_state['values']['field_name']) ? '<span class="name">' . $form_state['values']['field_name']['und'][0]['value'] . '</span>' : '';
+    $class_2nd = [];
+    $chose_class_2nd = isset($form_state['values']['field_case1_selected']) ? $form_state['values']['field_case1_selected']['und'][0]['value'] : [];
+    $class_3rd = [];
+    $chose_class_3rd = isset($form_state['values']['field_case2_selected']) ? $form_state['values']['field_case2_selected']['und'][0]['value'] : [];
+    
+    if (isset($form_state['values']['field_gender'])) {
+      // Add gender class to form
+      $form['#attributes']['class'][] = $gender;
     }
     
-    drupal_add_css(drupal_get_path('module', 'mobile') . '/css/mobile.css');
-    drupal_add_js(drupal_get_path('module', 'mobile') . '/js/mobile.js');
+    if ($form_state['storage']['step'] === 'step_choose_gender') {
+      $intro = '<div class="intro">
+<div class="title">Trổ tài sáng tạo,<br/>Video bá đạo</div>
+<div class="desc">Để có video hoạt hình chất như Phở, cool như Phi Nhung, <br/>hãy trổ tài viết truyện và kêu gọi bạn bè like cùng share mạnh tay nhé !!!</div>
+<div class="foot">Trà thảo mộc Dr Thanh, <br/>thanh lọc bên trong, tươi trẻ bên ngoài</div>
+</div>';
+      
+      $form['intro'] = [
+        '#type' => 'markup',
+        '#markup' => $intro,
+        '#weight' => 9
+      ];
+      $form['#steps']['step_choose_gender']->children[] = 'intro';
+      $form['#step_children']['intro'] = 'step_choose_gender';
+      
+      if (!user_is_logged_in()) {
+        $login = '<div class="login">
+Mời bạn đăng nhập bằng Facebook <a href="' . $base_url . '/user/simple-fb-connect?url=node/add/gaming">Đăng nhập bằng Facebook</a>
+</div>';
+        $form['login'] = [
+          '#type' => 'markup',
+          '#markup' => $login,
+          '#weight' => 9
+        ];
+        $form['#steps']['step_choose_gender']->children[] = 'login';
+        $form['#step_children']['login'] = 'step_choose_gender';
+      }
+    }
+    
+    if ($form_state['storage']['step'] === 'step_fill_name') {
+      $face = file_create_url(file_load($form_state['values']['field_gaming_image']['und'][0]['fid'])->uri);
+      $body = file_create_url('public://model') . '/' . $gender . '.png';
+      $form['field_name']['#prefix'] = '<div class="actor"><img class="face" src="' . $face . '" /><img class="body" src="' . $body . '" /></div>';
+    }
+    
+    if ($form_state['storage']['step'] === 'step_select_situation') {
+      $form['field_situation']['#prefix'] = '<div class="situa"><div class="fresh"></div><div class="hot"></div></div>';
+    }
+    
+    
+    if (isset($form_state['storage']) && in_array($form_state['storage']['step'], $alter_steps)) {
+      //dsm($data);
+      // Build class 1st
+      if ($state == 'fresh') {
+        $class_1st = [];
+        foreach($data['fresh'] as $key => $value) {
+          $class_1st[$key] = str_replace('$name', $name, $value['title']);
+        }
+        $form['field_case1'] = [
+          '#type' => 'radios',
+          '#title' => t('Case 1'),
+          '#options' => $class_1st,
+          '#description' => t(''),
+          '#access' => TRUE,
+          '#default_value' => $form_state['values']['field_case1_selected']['und'][0]['value'],
+          '#prefix' => str_replace('$name', $name, '<div class="intro"><div class="hello">Xin chào $name </div>'
+            . '<div class="desc">Khi $name được thanh lọc bên trong, $name sẽ tươi trẻ bên ngoài.'
+            . '<br/>Khi $name tươi trẻ bên ngoài, $name sẽ:</div></div>')
+        ];
+        $form['#steps']['step_select_case_1']->children[] = 'field_case1';
+        $form['#step_children']['field_case1'] = 'step_select_case_1';
+      }
+      
+      // Build class 2nd
+      if (!empty($form_state['values']['field_case1_selected']['und'][0]['value'])) {
+
+        foreach($data['fresh'][$chose_class_2nd]['sub'] as $key => $value) {
+          $class_2nd[$key] = str_replace('$name', $name, $value['title']);
+        }
+        $form['field_case2'] = [
+          '#type' => 'radios',
+          '#title' => t('Case 2'),
+          '#options' => $class_2nd,
+          '#description' => t(''),
+          '#access' => TRUE,
+          '#default_value' => $form_state['values']['field_case2_selected']['und'][0]['value'],
+          '#prefix' => str_replace('$name', $name, '<div class="intro"><div class="hello">Xin chào $name </div>'
+            . '<div class="desc">Khi $name được thanh lọc bên trong, $name sẽ tươi trẻ bên ngoài.'
+            . '<br/>Khi $name tươi trẻ bên ngoài, $name sẽ:</div></div>')
+        ];
+        $form['#steps']['step_select_case_2']->children[] = 'field_case2';
+        $form['#step_children']['field_case2'] = 'step_select_case_2';
+      }
+      
+      // Build class 3rd
+      if (!empty($form_state['values']['field_case2_selected']['und'][0]['value'])) {
+
+        foreach($data['fresh'][$chose_class_2nd]['sub'][$chose_class_3rd]['sub'] as $key => $value) {
+          $class_3rd[$key] = str_replace('$name', $name, $value['title']);
+        }
+        $form['field_case3'] = [
+          '#type' => 'radios',
+          '#title' => t('Case 3'),
+          '#options' => $class_3rd,
+          '#description' => t(''),
+          '#access' => TRUE,
+          '#default_value' => $form_state['values']['field_case3_selected']['und'][0]['value'],
+          '#prefix' => str_replace('$name', $name, '<div class="intro"><div class="hello">Xin chào $name </div>'
+            . '<div class="desc">Khi $name được thanh lọc bên trong, $name sẽ tươi trẻ bên ngoài.'
+            . '<br/>Khi $name tươi trẻ bên ngoài, $name sẽ:</div></div>')
+        ];
+        $form['#steps']['step_select_case_3']->children[] = 'field_case3';
+        $form['#step_children']['field_case3'] = 'step_select_case_3';
+      }
+    }
+    
+    if ($form_state['storage']['step'] === 'step_complete') {
+      if (empty($form_state['values']['title'])) {
+        $form['title']['#default_value'] = $form_state['values']['field_name']['und'][0]['value'] . '-' . time();
+      }
+      
+      $video_url = file_create_url('public://bgvideo') . '/' . $data['fresh'][$chose_class_2nd]['sub'][$chose_class_3rd]['sub'][$form_state['values']['field_case3_selected']['und'][0]['value']]['video'];
+      $form['field_background_video']['und'][0]['value']['#default_value'] = $video_url;
+
+    }
+    
+    
+  }
+  
+  // Story
+  if ($form_id == 'story_node_form') {
+    
+    drupal_add_js(drupal_get_path('module', 'htn') . '/js/story.js');
+    drupal_add_css(drupal_get_path('module', 'htn') . '/css/story.css');
+    
+    $form_state['rebuild'] = TRUE;
+    
+    global $base_url;
+    
+    $gender = isset($form_state['values']['field_gender']['und'][0]['value']) ? $form_state['values']['field_gender']['und'][0]['value'] : '';
+    $name = isset($form_state['values']['field_name']) ? '<span class="name">' . $form_state['values']['field_name']['und'][0]['value'] . '</span>' : '';
+    $a = isset($form_state['values']['field_case1_selected']['und'][0]['value']) ? '<span class="a">' . $form_state['values']['field_case1_selected']['und'][0]['value'] . '</span>' : '';
+    $b = isset($form_state['values']['field_case2_selected']['und'][0]['value']) ? '<span class="b">' . $form_state['values']['field_case2_selected']['und'][0]['value'] . '</span>' : '';
+    $c = isset($form_state['values']['field_case3_selected']['und'][0]['value']) ? '<span class="c">' . $form_state['values']['field_case3_selected']['und'][0]['value'] . '</span>' : '';
+    
+    if (isset($form_state['values']['field_gender'])) {
+      // Add gender class to form
+      $form['#attributes']['class'][] = $gender;
+    }
+    
+    if ($form_state['storage']['step'] == 'step_story_choose_gender') {
+      $intro = '<div class="intro">
+<div class="title">Trổ tài sáng tạo,<br/>Video bá đạo</div>
+<div class="desc">Để có video hoạt hình chất như Phở, cool như Phi Nhung, <br/>hãy trổ tài viết truyện và kêu gọi bạn bè like cùng share mạnh tay nhé !!!</div>
+<div class="foot">Trà thảo mộc Dr Thanh, <br/>thanh lọc bên trong, tươi trẻ bên ngoài</div>
+</div>';
+      
+      $form['intro'] = [
+        '#type' => 'markup',
+        '#markup' => $intro,
+        '#weight' => 9
+      ];
+      $form['#steps']['step_story_choose_gender']->children[] = 'intro';
+      $form['#step_children']['intro'] = 'step_story_choose_gender';
+      
+      if (!user_is_logged_in()) {
+        $login = '<div class="login">
+Mời bạn đăng nhập bằng Facebook <a href="' . $base_url . '/user/simple-fb-connect?url=node/add/story">Đăng nhập bằng Facebook</a>
+</div>';
+        $form['login'] = [
+          '#type' => 'markup',
+          '#markup' => $login,
+          '#weight' => 9
+        ];
+        $form['#steps']['step_story_choose_gender']->children[] = 'login';
+        $form['#step_children']['login'] = 'step_story_choose_gender';
+      }
+      
+    }
+    
+    if ($form_state['storage']['step'] == 'step_story_fill_case_1') {
+          $htp = "<h4>Cách tham gia</h4>
+<div>Hãy sáng tạo những lợi ích khi bạn được thanh lọc bên trong, tươi trẻ bên ngoài và điền vào chỗ trống.</div>
+<h4>Câu chuyện của Phi Nhung</h4>
+<div>Khi <span>Nhung</span> được thanh lọc bên trong tươi trẻ bên ngoài, <span>Nhung</span> <u>sẽ được đóng phim bom tấn đình đám</u>. Khi <span>Nhung</span> <u>được đóng phim bom tấn đình đám,</u> <span>Nhung</span> sẽ <u>được mọi người hâm mộ</u>. Khi <span>Nhung</span> <u>được mọi người hâm mộ</u>, <span>Nhung</span> sẽ <u>được đúc tượng vàng</u></div>
+<div>Hãy để mình <u>được đúc tượng vàng</u>, hãy tươi như <span>Nhung</span></div>";
+          
+      $form['htp'] = [
+        '#type' => 'markup',
+        '#markup' => $htp,
+        '#weight' => 9
+      ];
+      $form['#steps']['step_story_fill_case_1']->children[] = 'htp';
+      $form['#step_children']['htp'] = 'step_story_fill_case_1';
+      
+      $form['field_case1_selected']['und'][0]['#prefix'] = str_replace('$name', $name, '<div class="story">Khi $name được tươi trẻ bên ngoài, $name sẽ được</div>');
+      $form['field_case1_selected']['und'][0]['#suffix'] = '1/3';
+      $form['field_case1_selected']['und'][0]['value']['#title'] = 'Nhập nội dung câu chuyện của bạn';
+              
+    }
+    
+    if ($form_state['storage']['step'] == 'step_story_fill_case_2') {
+      
+      $form['field_case2_selected']['und'][0]['#prefix'] = str_replace(
+              ['$name', '$a'], 
+              [$name, $a], 
+              '<div class="story">Khi $name được $a, $name sẽ được</div>');
+      
+      $form['field_case2_selected']['und'][0]['#suffix'] = '2/3';
+      $form['field_case2_selected']['und'][0]['value']['#title'] = 'Nhập nội dung câu chuyện của bạn';
+              
+    }
+    
+    if ($form_state['storage']['step'] == 'step_story_fill_case_3') {
+      
+      $form['field_case3_selected']['und'][0]['#prefix'] = str_replace(
+              ['$name', '$b'], 
+              [$name, $b], 
+              '<div class="story">Khi $name được $b, $name sẽ được</div>');
+      
+      $form['field_case3_selected']['und'][0]['#suffix'] = '3/3';
+      $form['field_case3_selected']['und'][0]['value']['#title'] = 'Nhập nội dung câu chuyện của bạn';
+      
+      $form['slogan'] = [
+        '#type' => 'markup',
+        '#markup' => str_replace('$name', $name, '<div class="slogan">Hãy để mình được <span id="c"></span><br/>Hãy tươi như $name</div>'),
+        '#weight' => 11
+      ];
+      $form['#steps']['step_story_fill_case_3']->children[] = 'slogan';
+      $form['#step_children']['slogan'] = 'step_story_fill_case_3';
+    }
+    
+    if ($form_state['storage']['step'] == 'step_story_summary') {
+      $form['situa'] = [
+        '#type' => 'markup',
+        '#markup' => str_replace(
+            ['$name', '$a', '$b', '$c'],
+            [$name, $a, $b, $c],
+            '<div class="story">Khi $name được tươi trẻ bên ngoài, $name sẽ được $a.</br>Khi $name được $a, $name sẽ được $b.<br/>Khi $name được $b, $name sẽ được $c.<br/><b>Hãy để mình được $c, hãy tươi như $name</b></div>'),
+        '#weight' => 11
+      ];
+      $form['#steps']['step_story_summary']->children[] = 'situa';
+      $form['#step_children']['situa'] = 'step_story_summary';
+    }
+    
+    if ($form_state['storage']['step'] == 'step_story_complete') {
+      $form['thanks'] = [
+        '#type' => 'markup',
+        '#markup' => str_replace('$name', $name,
+            '<div class="intro">
+<div class="title">Cảm ơn $name,<br/>đã gửi câu chuyện hài hước<br/>của mình về cho ban tổ chức</div>
+<div class="desc">Nội dung sẽ được duyệt trong 12h, sau đó câu chuyện sẽ được đăng lên Thư viện ảnh cuộc thi trên website của chương trình.</div>
+<div class="foot">Trà thảo mộc Dr Thanh, <br/>thanh lọc bên trong, tươi trẻ bên ngoài</div>
+</div>'),
+        '#weight' => 8
+      ];
+      
+      $form['links'] = [
+        '#type' => 'markup',
+        '#markup' => '<div class="fb-share-button" 
+                        data-href="' . $base_url . '" 
+                        data-layout="button_count">Share
+                      </div>'
+                      . '<div class="links"><a href="' . $base_url . '">Trang chủ</a></div>',
+        '#weight' => 9
+      ];
+      
+      $form['#steps']['step_story_complete']->children[] = 'thanks';
+      $form['#step_children']['thanks'] = 'step_story_complete';
+      
+      $form['#steps']['step_story_complete']->children[] = 'links';
+      $form['#step_children']['links'] = 'step_story_complete';
+      
+      $form['title']['#default_value'] = 'Story of ' . $form_state['values']['field_name']['und'][0]['value'] . '-' . time();
+      $form['body']['und'][0]['#default_value'] = 
+          str_replace(
+                  ['$name', '$a', '$b', '$c'],
+                  [$name, $a, $b, $c],
+                  '<div class="story">Khi $name được thanh lọc bên trong, $name sẽ rạng rỡ bên ngoài. Khi $name rạng rỡ bên ngoài, $name sẽ được $a. Khi $name được $a, $name sẽ được $b. Khi $name được $b, $name sẽ được $c<div class="sign">$name</div></div>')
+          . '<div class="fb">
+              <div class="fb-like" 
+                data-href="'. $base_url . '" 
+                data-layout="standard" 
+                data-action="like" 
+                data-show-faces="true">Like
+              </div>
+              <div class="fb-share-button" 
+                data-href="' . $base_url . '" 
+                data-layout="button_count">Share
+              </div>
+            </div>';
+      
+    }
+
+//    dsm($form);
+//    dsm($form_state);
+  }
+}
+
+/*
+ * Implement hook_preprocess_page
+ */
+function htn_preprocess_page(&$vars) {
+  if ($vars['directory'] == 'sites/default/themes/STARTERKIT') {
+    drupal_add_js(drupal_get_path('module', 'htn') . '/js/nghia.js');
+    drupal_add_css(drupal_get_path('module', 'htn') . '/css/nghia.css');
+    drupal_add_js(drupal_get_path('module', 'htn') . '/js/htn.js');
+    drupal_add_css(drupal_get_path('module', 'htn') . '/css/htn.css');
+    
+    if (isset($vars['node']->type)) {
+      $vars['theme_hook_suggestions'][] = 'page__' . $vars['node']->type;
+    }
   }
 }
 
 /**
- * Implements template_preprocess_views_view_unformatted.
+ * Implements hook_theme_registry_alter().
  */
-function mobile_preprocess_views_view_unformatted(&$vars) {
-  $view = $vars['view'];
-  if ($view->name == 'aseptic' && ($view->current_display == 'block' || $view->current_display == 'block_2') 
-          || $view->name == 'bottle' && ($view->current_display == 'block')
-          || $view->name == 'label' && ($view->current_display == 'block' || $view->current_display == 'block_2')) {
-    $classes_array = $vars['classes_array'];
-    $types = ['field_fix_background', 'field_drag_background', 'field_270_background'];
-    foreach($classes_array as $key => $classes) {
-      $bg_type = '';
-      foreach($types as $type) {
-        if (!empty($view->result[$key]->_field_data['nid']['entity']->$type)) {
-          $bg_type = $type;
-          break;
-        }
-      }
-      if (!empty($view->result[$key]->_field_data['nid']['entity']->field_follow_with)) {
-        $vars['classes_array'][$key] = $classes
-                . ' aseptic nid-' . $view->result[$key]->_field_data['nid']['entity']->nid
-                . ' follow follow-nid-' . $view->result[$key]->_field_data['nid']['entity']->field_follow_with['und'][0]['target_id']
-                . ' ' . $bg_type;
-      } 
-      else {
-        $vars['classes_array'][$key] = $classes . ' aseptic nid-' . $view->result[$key]->_field_data['nid']['entity']->nid . ' ' . $bg_type;
-      }
+function htn_theme_registry_alter(&$theme_registry) {
+	// Defined path to the current module.
+	$module_path = drupal_get_path('module', 'htn');
+	// Find all .tpl.php files in this module's folder recursively.
+	$template_file_objects = drupal_find_theme_templates($theme_registry, '.tpl.php', $module_path);
+	// Iterate through all found template file objects.
+	foreach ($template_file_objects as $key => $template_file_object) {
+		// If the template has not already been overridden by a theme.
+		if (!isset($theme_registry[$key]['theme path']) || !preg_match('#/themes/#', $theme_registry[$key]['theme path'])) {
+			// Alter the theme path and template elements.
+			$theme_registry[$key]['theme path'] = $module_path;
+			$theme_registry[$key] = array_merge($theme_registry[$key], $template_file_object);
+			$theme_registry[$key]['type'] = 'module';
+      //kpr($theme_registry);
+		}
+	}
+}
+
+/**
+ * Implements hook_theme().
+ */
+function htn_theme($existing, $type, $theme, $path) {
+ $theme = array();
+ $theme['node__gaming'] = array(
+   'render element' => 'content',
+   'base hook' => 'node',
+   'template' => 'node--gaming',
+   'path' => drupal_get_path('module', 'htn') . '/templates',
+  );
+ return $theme;
+}
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function htn_preprocess_node(&$vars) {
+  if ($vars['type'] == 'gaming') {
+    $vars['classes_array'][] = $vars['field_gender']['und'][0]['value'];
+    $vars['classes_array'][] = $vars['field_situation']['und'][0]['value'];
+  }
+  if ($vars['type'] == 'story') {
+    $vars['classes_array'][] = $vars['field_gender']['und'][0]['value'];
+  }
+}
+
+/**
+* Preprocesses the wrapping HTML.
+*
+* @param array &$variables
+*   Template variables.
+*/
+function htn_preprocess_html(&$vars) {
+  $node = menu_get_object();
+  if (isset($node) && $node->type == 'gaming') {
+    // Setup Sharing Meta Tag
+    $fb_proes = array(
+      'og:url' => current_path(),
+      'og:type' => 'website',
+      'og:title' => 'HTN',
+      'og:description' => 'Come and see my video',
+      'og:image' => file_create_url('public://model') . '/' . $node->field_gender['und'][0]['value'] . '-' . $node->field_situation['und'][0]['value'] . '.png',
+    );
+
+    foreach ($fb_proes as $key => $fb_pro) {
+      // Setup Sharing Meta Tag
+      $fb_meta_sharing = array(
+        '#type' => 'html_tag',
+        '#tag' => 'meta',
+        '#attributes' => array(
+          'property' => $key,
+          'content' => $fb_pro,
+        )
+      );
+
+      // Add FB sharing Meta Tag to head
+      drupal_add_html_head($fb_meta_sharing, $key);
     }
   }
 }
