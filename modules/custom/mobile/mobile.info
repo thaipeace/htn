@@ -1,5 +1,5 @@
-name = Dr Thanh custom
-description = "Custom for dr Thanh"
+name = Dr Thanh mobile custom
+description = "Custom mobile for dr Thanh"
 core = 7.x
 package = Custom
 
@@ -8,4 +8,3 @@ version = "7.x-1.0"
 core = "7.x"
 project = "custom"
 datestamp = "1462454772"
-

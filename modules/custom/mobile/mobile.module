@@ -3,8 +3,8 @@
 /*
  * hook_init()
  */
-function htn_init() {
-  drupal_add_js(drupal_get_path('module', 'htn') . '/js/fb.js');
+function mobile_init() {
+  drupal_add_js(drupal_get_path('module', 'mobile') . '/js/fb.js');
   if (!user_is_logged_in()) {
     global $base_url;
     $destination = drupal_get_destination();
@@ -18,17 +18,17 @@ function htn_init() {
 /*
  * Implement hook_form_after
  */
-function htn_form_alter(&$form, &$form_state, $form_id) {
+function mobile_form_alter(&$form, &$form_state, $form_id) {
   if ($form_id == 'gaming_node_form') {
     
-    drupal_add_js(drupal_get_path('module', 'htn') . '/js/gaming.js');
-    drupal_add_css(drupal_get_path('module', 'htn') . '/css/gaming.css');
+    drupal_add_js(drupal_get_path('module', 'mobile') . '/js/gaming.js');
+    drupal_add_css(drupal_get_path('module', 'mobile') . '/css/gaming.css');
     
     $form_state['rebuild'] = TRUE;
     
     global $base_url;
     $data = [];
-    $request = drupal_http_request($base_url . '/' . drupal_get_path('module', 'htn') . '/data.json');
+    $request = drupal_http_request($base_url . '/' . drupal_get_path('module', 'mobile') . '/data.json');
     $data = drupal_json_decode($request->data);
     $alter_steps = ['step_select_case_1','step_select_case_2','step_select_case_3'];
     $state = isset($form_state['values']['field_situation']['und'][0]['value']) ? $form_state['values']['field_situation']['und'][0]['value'] : '';
@@ -166,8 +166,8 @@ Mời bạn đăng nhập bằng Facebook <a href="' . $base_url . '/user/simple
   // Story
   if ($form_id == 'story_node_form') {
     
-    drupal_add_js(drupal_get_path('module', 'htn') . '/js/story.js');
-    drupal_add_css(drupal_get_path('module', 'htn') . '/css/story.css');
+    drupal_add_js(drupal_get_path('module', 'mobile') . '/js/story.js');
+    drupal_add_css(drupal_get_path('module', 'mobile') . '/css/story.css');
     
     $form_state['rebuild'] = TRUE;
     
@@ -336,12 +336,12 @@ Mời bạn đăng nhập bằng Facebook <a href="' . $base_url . '/user/simple
 /*
  * Implement hook_preprocess_page
  */
-function htn_preprocess_page(&$vars) {
-  if ($vars['directory'] == 'sites/default/themes/STARTERKIT') {
-    drupal_add_js(drupal_get_path('module', 'htn') . '/js/nghia.js');
-    drupal_add_css(drupal_get_path('module', 'htn') . '/css/nghia.css');
-    drupal_add_js(drupal_get_path('module', 'htn') . '/js/htn.js');
-    drupal_add_css(drupal_get_path('module', 'htn') . '/css/htn.css');
+function mobile_preprocess_page(&$vars) {
+  if ($vars['directory'] == 'sites/default/themes/mobile') {
+    drupal_add_js(drupal_get_path('module', 'mobile') . '/js/nghia.js');
+    drupal_add_css(drupal_get_path('module', 'mobile') . '/css/nghia.css');
+    drupal_add_js(drupal_get_path('module', 'mobile') . '/js/mobile.js');
+    drupal_add_css(drupal_get_path('module', 'mobile') . '/css/mobile.css');
     
     if (isset($vars['node']->type)) {
       $vars['theme_hook_suggestions'][] = 'page__' . $vars['node']->type;
@@ -352,9 +352,9 @@ function htn_preprocess_page(&$vars) {
 /**
  * Implements hook_theme_registry_alter().
  */
-function htn_theme_registry_alter(&$theme_registry) {
+function mobile_theme_registry_alter(&$theme_registry) {
 	// Defined path to the current module.
-	$module_path = drupal_get_path('module', 'htn');
+	$module_path = drupal_get_path('module', 'mobile');
 	// Find all .tpl.php files in this module's folder recursively.
 	$template_file_objects = drupal_find_theme_templates($theme_registry, '.tpl.php', $module_path);
 	// Iterate through all found template file objects.
@@ -373,13 +373,13 @@ function htn_theme_registry_alter(&$theme_registry) {
 /**
  * Implements hook_theme().
  */
-function htn_theme($existing, $type, $theme, $path) {
+function mobile_theme($existing, $type, $theme, $path) {
  $theme = array();
  $theme['node__gaming'] = array(
    'render element' => 'content',
    'base hook' => 'node',
    'template' => 'node--gaming',
-   'path' => drupal_get_path('module', 'htn') . '/templates',
+   'path' => drupal_get_path('module', 'mobile') . '/templates',
   );
  return $theme;
 }
@@ -387,7 +387,7 @@ function htn_theme($existing, $type, $theme, $path) {
 /**
  * Implements hook_preprocess_node().
  */
-function htn_preprocess_node(&$vars) {
+function mobile_preprocess_node(&$vars) {
   if ($vars['type'] == 'gaming') {
     $vars['classes_array'][] = $vars['field_gender']['und'][0]['value'];
     $vars['classes_array'][] = $vars['field_situation']['und'][0]['value'];
@@ -403,7 +403,7 @@ function htn_preprocess_node(&$vars) {
 * @param array &$variables
 *   Template variables.
 */
-function htn_preprocess_html(&$vars) {
+function mobile_preprocess_html(&$vars) {
   $node = menu_get_object();
   if (isset($node) && $node->type == 'gaming') {
     // Setup Sharing Meta Tag
