@@ -41,7 +41,7 @@
 			//Open menu
 			function openmenu(){
 				$('#block-block-1 .block-wrapper').animate({
-					top:0
+					top:'-80px'
 				},250,function(){
 					
 				});
@@ -56,7 +56,7 @@
 			//Close menu
 			function closemenu(){
 				$('#block-block-1 .block-wrapper').animate({
-					top:'-46px'
+					top:'-126px'
 				},250,function(){
 					
 				});
@@ -97,7 +97,7 @@
 					$('.page-node-add-gaming .node-form .step-up-picture ~ #edit-actions #edit-next').css('display','inline-block');
 			
 					//Set style when upload
-					$('.page-node-add-gaming .node-form .step-up-picture ~ #edit-actions').css('margin-top','333px','important');
+					$('.page-node-add-gaming .node-form .step-up-picture ~ #edit-actions').css('margin-top','236px','important');
 					
 			});
 			
@@ -190,7 +190,7 @@
 			$('.female #edit-field-case3-cba').parents('#edit-field-case3').css('margin-top','-17px');
 			$('.female #edit-field-case3-cca').parents('#edit-field-case3').css('margin-top','-37px');
 			$('.male #edit-field-case3-aba').parents('#edit-field-case3').css('margin-top','65px');
-			$('.male #edit-field-case3-aaa').parents('#edit-field-case3').css('margin-top','64px');
+			$('.male #edit-field-case3-aaa').parents('#edit-field-case3').css('margin-top','46px');
 			$('.male #edit-field-case3-bca').parents('#edit-field-case3').css('margin-top','64px');
 			$('.male #edit-field-case3-caa').parents('#edit-field-case3').css('margin-top','-18px');
 			$('.male #edit-field-case3-cba').parents('#edit-field-case3').css('margin-top','27px');
@@ -432,7 +432,7 @@
 					'margin':'0 auto',
 					'width':'305px',
 					'position':'relative',
-					'height':'200px'
+					'height':'85px'
 				});
 			}
 			

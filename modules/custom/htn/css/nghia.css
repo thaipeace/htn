@@ -79,7 +79,7 @@ html{
 	margin: 0 0 30px;
 	height:46px;
 	position:relative;
-	top:-46px;
+	top:-126px;
 }
 
 #block-block-1 ul {
@@ -175,7 +175,7 @@ html{
 
 #story-now {
 	position: absolute;
-  top: 470px;
+  top: 370px;
 	right: -11px;
 }
 
@@ -188,7 +188,7 @@ html{
 
 #play-now {
 	position: absolute;
-  top: 470px;
+  top: 370px;
   left: 15px;
 }
 
@@ -256,7 +256,7 @@ html{
 	text-align:center;
 	text-transform: uppercase;
 	font-size:20px;
-	margin-top: 115px;
+	margin-top: -5px;
 }
 
 .page-node-add-gaming #edit-field-gender-und .form-item,.page-node-add-story #edit-field-gender-und .form-item {
@@ -328,7 +328,7 @@ html{
 	width:47px;
 	height:45px;
 	position: absolute;
-	top: 60px;
+	top: -45px;
 	left: 355px;
 	background-image: url(../images/arrowback.png);
   background-repeat: no-repeat;
@@ -357,7 +357,7 @@ html{
   background-repeat: no-repeat;
   background-size: 54px 54px;
 	margin: 0 auto;
-	top: 210px;
+	top: 112px;
   left: 0px;
 	position:relative;
 	border: none;
@@ -372,7 +372,7 @@ html{
   background-repeat: no-repeat;
   background-size: 54px 54px;
 	margin: 0 auto;
-	top: 250px;
+	top: 143px;
   left: 2px;
 	position:relative;
 	border: none;
@@ -383,7 +383,7 @@ html{
 #edit-field-gaming-image div:nth-child(1) .form-item .description {
   text-transform: uppercase;
 	position: absolute;
-	top: 100px;
+	top: 0px;
 	font-weight: bold;
 	left: 23%;
 }
@@ -391,7 +391,7 @@ html{
 #edit-field-gaming-image div:nth-child(1) .form-item label {
 	text-transform: uppercase;
 	position: relative;
-	top: 415px;
+	top: 290px;
 	font-weight: bold;
 }
 
@@ -414,7 +414,7 @@ html{
 .actor {
 	width: 600px;
   margin: 0 auto;
-	margin-top: 105px;
+	margin-top: 0px;
 	position:relative;
 }
 
@@ -469,12 +469,12 @@ html{
 }
 
 .male .step-up-picture ~ #edit-field-gaming-image .jcrop-preview-wrapper {
-	margin-top: 198px !important;
+	margin-top: 94px !important;
 	border-radius: 0 0 49px 47px;
 }
 
 .female .step-up-picture ~ #edit-field-gaming-image .jcrop-preview-wrapper {
-	margin-top: 155px !important;
+	margin-top: 53px !important;
 	border-radius: 0 25px 38px 9px;
 }
 
@@ -506,7 +506,7 @@ html{
 	height: 187px;
 	position: absolute;
 	left: 279px;
-	top: 169px;
+	top: 65px;
 	z-index: 0;
 }
 
@@ -518,7 +518,7 @@ html{
 	height: 187px;
 	position: absolute;
 	left: 279px;
-	top: 169px;
+	top: 70px;
 	z-index: 0;
 }
 
@@ -532,7 +532,7 @@ html{
 
 .throbber {
 	position:absolute;
-	top:250px;
+	top:150px;
 	left:49%;
 }
 
@@ -553,13 +553,13 @@ html{
 .step-select-situation ~ .situa .fresh {
 	width: 500px;
   float: left;
-	margin-top:215px;
+	margin-top:115px;
 }
 
 .step-select-situation ~ .situa .hot {
 	width: 675px;
 	float: right;
-	margin-top: 465px;
+	margin-top: 365px;
 }
 
 .step-select-situation ~ #edit-field-situation .form-item label, .step-select-situation ~ #edit-field-situation .form-item select {
@@ -623,7 +623,6 @@ html{
 
 .step-select-case-1 ~ .intro,.step-select-case-2 ~ .intro,.step-select-case-3 ~ .intro {
 	text-align:center;
-	margin-top: 100px;
 }
 
 .step-select-case-1 ~ .intro .hello,.step-select-case-2 ~ .intro .hello,.step-select-case-3 ~ .intro .hello {
@@ -723,7 +722,7 @@ html{
 }
 
 .step-complete ~ #edit-actions {
-	margin-top:85px;
+	margin-top:-10px;
 }
 
 .step-complete ~ #edit-actions #edit-submit {
@@ -741,11 +740,11 @@ html{
 }
 
 .female .step-select-case-3 ~ .form-item-field-case3 #edit-field-case3 .form-item {
-	top:21px;
+	top:0px;
 }
 
 .female .step-select-case-3 ~ #edit-actions {
-	margin-top:26px;
+	margin-top:-16px;
 }
 
 .female #edit-field-case3-aaa ~ .option,.female #edit-field-case3-aba ~ .option {
@@ -930,7 +929,7 @@ article.male .field-name-field-gaming-image .field-items .field-item,article.fem
 	width:190px;
 	height:375px;
 	left: 50px;
-  top: 170px;
+  top: 70px;
 	position: relative;
 	z-index:1;
 }
@@ -953,7 +952,7 @@ article.male .field-name-field-gaming-image .field-items .field-item,article.fem
 
 article.male .field-name-field-gaming-image .field-items .field-item img {
 	position: absolute;
-  top: 216px;
+  top: 117px;
   left: 99px;
   width: 76px;
   height: 80px;
@@ -963,7 +962,7 @@ article.male .field-name-field-gaming-image .field-items .field-item img {
 
 article.female .field-name-field-gaming-image .field-items .field-item img {
 	position: absolute;
-  top: 212px;
+  top: 111px;
   left: 97px;
   width: 76px;
 	height: 85px;
@@ -978,8 +977,8 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	background-size:133px 51px;
 	width:133px !important;
 	height:51px !important;
-	margin-right: 110px;
-	margin-top: 100px;
+	margin-right: 60px;
+  margin-top: -10px;
 }
 
 #video-complete {
@@ -1002,7 +1001,7 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	height:130px;
 	position:absolute;
 	position: absolute;
-	top: 50%;
+	top: 20%;
 	left: 45%;
 	cursor:pointer;
 	-webkit-animation: zoombutton 1s infinite;
@@ -1060,7 +1059,7 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	width: 800px;
 	margin: 0 auto;
 	height: 445px;
-	padding-top: 215px;
+	padding-top: 90px;
 	position:relative;
 }
 
@@ -1093,6 +1092,8 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	font-size: 16px;
 	text-transform: uppercase;
 	font-weight: bold;
+	top: -100px;
+	position: relative;
 }
 
 #mask-choose-gender {
@@ -1355,7 +1356,7 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	background-color: white;
 	height: 150px;
 	padding-top: 45px;
-	top: 190px;
+	top: 90px;
 	border-radius:10px;
 	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 	font-size: 0;
@@ -1369,7 +1370,7 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	background-color: white;
 	height: 225px;
   padding-top: 45px;
-  top: 160px;
+  top:65px;
 	border-radius:10px;
 	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
@@ -1405,7 +1406,7 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 }
 
 #edit-field-case1-selected,#edit-field-case2-selected,#edit-field-case3-selected {
-	height: 328px;
+	height: 231px;
 }
 
 #field-case1-selected-add-more-wrapper .story,#field-case2-selected-add-more-wrapper .story,#field-case3-selected-add-more-wrapper .story {
@@ -1437,14 +1438,14 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	font-weight: bold;
 	font-size: 21px;
 	position: relative;
-	top: 127px;
+	top: 30px;
 }
 
 #button-back-fill-name {
 	width:47px;
 	height:45px;
 	position: absolute;
-	top: 60px;
+	top: -45px;
 	left: 75px;
 	background-image: url(../images/arrowback.png);
   background-repeat: no-repeat;
@@ -1472,20 +1473,20 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	font-weight: bold;
 	z-index: 0;
 	position:relative;
-	top: 336px;
+	top: 237px;
 }
 
 .step-story-summary ~ #edit-actions #edit-next {
-	top: 223px !important;
+	top: 123px !important;
 }
 
 .female .step-story-up-picture ~ #edit-field-gaming-image .jcrop-preview-wrapper {
-	margin-top: 176px !important;
+	margin-top: 57px !important;
 	border-radius: 0 25px 38px 9px;
 }
 
 .male .step-story-up-picture ~ #edit-field-gaming-image .jcrop-preview-wrapper {
-	margin-top: 218px !important;
+	margin-top: 93px !important;
   border-radius: 0 0 49px 47px;
 }
 
@@ -1524,7 +1525,7 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	background-repeat: no-repeat;
 	background-size:600px 400px;
 	margin: auto;
-	top:30px;
+	top:0px;
 	padding: 0;
 	width: 600px;
 	height:400px;
@@ -1539,7 +1540,7 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 
 @keyframes animatetopstorycomplete {
 	from {top:-300px; opacity:0}
-	to {top:30px; opacity:1}
+	to {top:0px; opacity:1}
 }
 
 .step-story-complete ~ #popup-share {
