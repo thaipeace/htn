@@ -1,4 +1,20 @@
 <?php
+
+/*
+ * hook_init()
+ */
+function htn_init() {
+  drupal_add_js(drupal_get_path('module', 'htn') . '/js/fb.js');
+  if (!user_is_logged_in()) {
+    global $base_url;
+    $destination = drupal_get_destination();
+    drupal_add_js(array('url' => array(
+        'base' => $base_url,
+        'des' => $destination['destination']
+      )), 'setting');
+  }
+}
+
 /*
  * Implement hook_form_after
  */
@@ -26,6 +42,35 @@ function htn_form_alter(&$form, &$form_state, $form_id) {
     if (isset($form_state['values']['field_gender'])) {
       // Add gender class to form
       $form['#attributes']['class'][] = $gender;
+    }
+    
+    if ($form_state['storage']['step'] === 'step_choose_gender') {
+      $intro = '<div class="intro">
+<div class="title">Trổ tài sáng tạo,<br/>Video bá đạo</div>
+<div class="desc">Để có video hoạt hình chất như Phở, cool như Phi Nhung, <br/>hãy trổ tài viết truyện và kêu gọi bạn bè like cùng share mạnh tay nhé !!!</div>
+<div class="foot">Trà thảo mộc Dr Thanh, <br/>thanh lọc bên trong, tươi trẻ bên ngoài</div>
+</div>';
+      
+      $form['intro'] = [
+        '#type' => 'markup',
+        '#markup' => $intro,
+        '#weight' => 9
+      ];
+      $form['#steps']['step_choose_gender']->children[] = 'intro';
+      $form['#step_children']['intro'] = 'step_choose_gender';
+      
+      if (!user_is_logged_in()) {
+        $login = '<div class="login">
+Mời bạn đăng nhập bằng Facebook <a href="' . $base_url . '/user/simple-fb-connect?url=node/add/gaming">Đăng nhập bằng Facebook</a>
+</div>';
+        $form['login'] = [
+          '#type' => 'markup',
+          '#markup' => $login,
+          '#weight' => 9
+        ];
+        $form['#steps']['step_choose_gender']->children[] = 'login';
+        $form['#step_children']['login'] = 'step_choose_gender';
+      }
     }
     
     if ($form_state['storage']['step'] === 'step_fill_name') {
@@ -156,7 +201,7 @@ function htn_form_alter(&$form, &$form_state, $form_id) {
       
       if (!user_is_logged_in()) {
         $login = '<div class="login">
-Mời bạn đăng nhập bằng Facebook <a href="' . $base_url . '/user/simple-fb-connect?node/add/story">Đăng nhập bằng Facebook</a>
+Mời bạn đăng nhập bằng Facebook <a href="' . $base_url . '/user/simple-fb-connect?url=node/add/story">Đăng nhập bằng Facebook</a>
 </div>';
         $form['login'] = [
           '#type' => 'markup',

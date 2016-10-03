@@ -41,7 +41,7 @@
   
   <div class="fconnect">
     <?php if (!user_is_logged_in()) {?>
-      <a href="user/simple-fb-connect?node=<?php print($nid) ?>">Share</a>
+      <a href="user/simple-fb-connect?url=node/<?php print($nid) ?>">Đăng nhập bằng Facebook</a>
     <?php }else { ?>
       <div id="fb-share-button">Share</div>
     <?php } ?>

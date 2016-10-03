@@ -787,12 +787,8 @@ function simple_fb_connect_get_post_login_url() {
  */
 function simple_fb_connect_go_to_redirect_url($post_login_url) {
   // Extract url parts and use it to redirect to the post login url.
-//  kpr($post_login_url);
   $url_parts = drupal_parse_url($post_login_url);
-//  kpr($url_parts);
-//  exit();
-  //drupal_goto($url_parts['path'], array('query' => $url_parts['query']));
-  drupal_goto('node/' . $url_parts['query']['node']);
+  drupal_goto($url_parts['query']['url']);
 }
 
 /**
