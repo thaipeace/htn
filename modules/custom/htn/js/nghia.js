@@ -268,7 +268,7 @@
 			//Click button close
 			$('.close-intro').click(function(e) {
 				$('.step-story-choose-gender ~.intro').fadeOut();
-				//$('.step-story-choose-gender').fadeOut();
+				
 				$('.step-story-choose-gender ~.login').css('display','block');
 			});
 			
@@ -380,6 +380,120 @@
 				$('.step-story-summary ~ #edit-actions').before($('<div id="wrapper-center-summary"></div>'));
 				
 				$('.step-story-summary ~ .story').appendTo('#wrapper-center-summary');
+			}
+			
+			//Get class case complete
+			var classstepstoryfillcasecmplete = $('.step-story-complete').attr('class');
+			
+			if(classstepstoryfillcasecmplete){
+				$('.step-story-complete ~ .intro').before($('<div id="mask-complete"></div>'));
+				
+				$('.step-story-complete ~ .intro').prepend('<div class="close-intro"></div>');
+				
+				//Click close button popup
+				$('.step-story-complete ~ .intro .close-intro').click(function(e){
+					$('.step-story-complete ~ .intro').fadeOut();
+					$('.step-story-complete ~ #mask-complete').fadeOut();
+				});
+				
+				//Append
+				$('.step-story-complete ~ #mask-complete ~ .intro').before($('<div id="popup-share"></div>'));
+				
+				$('.step-story-complete ~ #popup-share').append('<div class="close-share"></div>');
+				
+				//Click button share
+				$('.fb-share-button').click(function(e){
+					var hrefshare = $('.fb-share-button').attr('data-href');
+					
+					FB.ui({
+						method: 'share',
+						href: hrefshare,
+					}, function(response){
+						if (response && !response.error_code) {
+							$('.step-story-complete ~ #mask-complete').fadeIn(100);
+							
+							$('.step-story-complete ~ #popup-share').css('display','block');
+							
+            } else {
+              
+            }
+					});
+				});
+				
+				//Click button home
+				$('.step-story-complete ~ .links').click(function(e){
+					//var hrefhome = $('.step-story-complete ~ .links a').attr('href');
+					
+					$('.step-story-complete ~ #edit-actions #edit-submit').click();
+				});
+				
+				//Css
+				$('.step-story-complete').parent().css({
+					'margin':'0 auto',
+					'width':'305px',
+					'position':'relative',
+					'height':'200px'
+				});
+			}
+			
+			//Get class female
+			var classnodestoryfemale = $('.female.node-story').attr('class');
+			
+			if(classnodestoryfemale){
+				$('.female.node-story .field-name-body .field-items .field-item').prepend('<div class="logo-haytuoi"></div>');
+			
+				$('.female.node-story .field-name-body .field-items').prepend('<div class="close-intro"></div>');
+			
+				//Click close button popup
+				$('.female.node-story .field-name-body .field-items .close-intro').click(function(e){
+					$('.female.node-story .field-name-body').fadeOut();
+				});
+				
+				//Append image body
+				$('.female.node-story .field-name-body .field-items').append('<div class="body-female"></div>');
+				
+				//Append to
+				$('.female.node-story .field-name-field-gaming-image .field-items .field-item img').appendTo('.female.node-story .field-name-body .field-items');
+			
+				//Click button share
+				$('.fb-share-button').click(function(e){
+					var hrefshare = $('.fb-share-button').attr('data-href');
+					
+					FB.ui({
+						method: 'share',
+						href: hrefshare,
+					}, function(response){});
+				});
+			}
+			
+			//Get class male
+			var classnodestorymale = $('.male.node-story').attr('class');
+			
+			if(classnodestorymale){
+				$('.male.node-story .field-name-body .field-items .field-item').prepend('<div class="logo-haytuoi"></div>');
+			
+				$('.male.node-story .field-name-body .field-items').prepend('<div class="close-intro"></div>');
+			
+				//Click close button popup
+				$('.male.node-story .field-name-body .field-items .close-intro').click(function(e){
+					$('.male.node-story .field-name-body').fadeOut();
+				});
+				
+				//Append image body
+				$('.male.node-story .field-name-body .field-items').append('<div class="body-male"></div>');
+				
+				//Append to
+				$('.male.node-story .field-name-field-gaming-image .field-items .field-item img').appendTo('.male.node-story .field-name-body .field-items');
+				
+				//Click button share
+				$('.fb-share-button').click(function(e){
+					var hrefshare = $('.fb-share-button').attr('data-href');
+					
+					FB.ui({
+						method: 'share',
+						href: hrefshare,
+					}, function(response){});
+				});
 			}
 		}
   };  
