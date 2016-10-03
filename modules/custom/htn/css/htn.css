@@ -55,3 +55,29 @@ main.layout-3col__full {
   height: 50px;
   display: block;
 }
+
+.imagefield-crop-widget img {
+  max-width: none;
+}
+
+.imagefield-crop-preview {
+  padding: 20px;
+}
+
+.header__logo {
+  position: relative;
+  z-index: 1;
+  top: 20px;
+  left: 60px;
+}
+
+.region-bottom {
+  color: #ffffff;
+  text-align: center;
+  text-transform: uppercase;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+    
