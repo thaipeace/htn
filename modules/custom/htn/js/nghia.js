@@ -13,6 +13,8 @@
   Drupal.behaviors.nghia = {
     attach: function (context, settings) {
       // Code here
+			//Check status login
+			var classnamebody = $('body').attr('class');
 			
 			//boolean menuba
 			var checkmenu = true;
@@ -78,7 +80,7 @@
 				checkmenu = true;
 			}
 			
-			$('#block-block-3 .block-wrapper a').text('');
+			//$('#block-block-3 .block-wrapper a').text('');
 			
 			//Append mask of radio
 			$('.page-node-add-gaming #edit-field-gender-und .form-item:nth-child(1)').append('<label for="edit-field-gender-und-female" id="check-radio"></label>');
@@ -281,9 +283,13 @@
 			
 			//Click button close
 			$('.close-intro').click(function(e) {
-				$('.step-story-choose-gender ~.intro').fadeOut();
+				$('.step-story-choose-gender ~ .intro').fadeOut();
 				
-				$('.step-story-choose-gender ~.login').css('display','block');
+				if(classnamebody.split(" ")[2] == "logged-in"){
+					$('.step-story-choose-gender ~ #mask-choose-gender').fadeOut();
+				}else{
+					$('.step-story-choose-gender ~.login').css('display','block');
+				}
 			});
 			
 			//Append mask radio 
@@ -513,6 +519,62 @@
 						method: 'share',
 						href: hrefshare,
 					}, function(response){});
+				});
+			}
+			
+			$('.step-choose-gender ~ #edit-field-gender').before('<div id="mask-choose-gender"></div>');
+			
+			$('.step-choose-gender ~ .intro').prepend('<div class="close-intro-gender"></div>');
+			
+			$('.step-choose-gender ~ .login').prepend('<div class="close-login"></div>');
+			
+			//Click close button popup
+			$('.step-choose-gender ~ .intro .close-intro-gender').click(function(e){
+				$('.step-choose-gender ~ .intro').fadeOut();
+				
+				if(classnamebody.split(" ")[2] == "logged-in"){
+					$('.step-choose-gender ~ #mask-choose-gender').fadeOut();
+				}else{
+					$('.step-choose-gender ~ .login .close-login ~ a').before($('<br />'));
+					$('.step-choose-gender ~ .login').css('display','block');
+				}
+			});
+			
+			//Get class lib media
+			var classmedia = $('.page-views').attr('class');
+			
+			if(classmedia){
+				//Append some item
+				$('.page-views .view-media-library .view-content .views-row .views-field-field-gaming-image .field-content').append('<div class="background-main"></div>');
+				
+				$('.page-views .view-media-library .view-content .views-row .views-field-field-gaming-image .field-content').append('<div class="body-background"></div>');
+				
+				$('.page-views .view-media-library .view-content .views-row').append('<div class="view-play"></div>');
+			
+				$('.page-views .view-media-library .views-exposed-form .clearfix').prepend('<div class="tab-top"><input type="button" value="XEM VIDEO" class="seevideo"><input type="button" value="XEM CÂU CHUYỆN" class="seestory"></div>');
+				
+				//Click button tab-top
+				$('.seevideo').click(function(e){
+					$('#edit-type-wrapper #edit-type').val('gaming').change();
+					
+					$('#edit-submit-media-library').trigger('click');
+				});
+				
+				$('.seestory').click(function(e){
+					$('#edit-type-wrapper #edit-type').val('story').change();
+					
+					$('#edit-submit-media-library').trigger('click');
+				});
+				
+				//Enter when search
+				$('.page-views .view-media-library #edit-field-name-value-wrapper input[type=text]').bind("enterKey",function(e){
+					$('#edit-submit-media-library').trigger('click');
+				});
+				
+				$('.page-views .view-media-library #edit-field-name-value-wrapper input[type=text]').keyup(function(e){
+					if(e.keyCode == 13){
+						$(this).trigger("enterKey");
+					}
 				});
 			}
 		}

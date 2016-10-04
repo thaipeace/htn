@@ -1832,7 +1832,7 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	color:black;
 }
 
-#block-block-3 .block-wrapper a {
+#block-block-3 .block-wrapper a:first-of-type {
 	float: right;
 	background-image: url(../images/buttonlogin.png);
 	background-repeat: no-repeat;
@@ -1842,6 +1842,7 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	position: absolute;
 	right: 20px;
 	top: -41px;
+	text-indent:-9999px;
 }
 
 /*Custom scrollbar*/
@@ -1863,4 +1864,398 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 }
 .step-story-fill-case-1 ~ #story-main #story-main-left::-webkit-scrollbar-thumb:window-inactive {
 	background: rgba(255,0,0,0.4); 
+}
+
+.step-choose-gender ~ .intro {
+	position: relative;
+	background-image: url(../images/centerstory.png);
+	background-repeat: no-repeat;
+	background-size: 600px 400px;
+	margin: auto;
+	top: -80px;
+	padding: 0;
+	width: 600px;
+	height: 400px;
+	border-radius: 15px;
+	text-align: center;
+	padding-top: 20px;
+	z-index: 2;
+	animation-name: animatetopstory;
+	animation-duration: 2s;
+}
+
+.step-choose-gender ~ .intro .foot {
+	display:none;
+}
+
+.step-choose-gender ~ .intro .title {
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 24px;
+	line-height: 30px;
+	margin-bottom: 7px;
+}
+
+.step-choose-gender ~ .intro .desc {
+	opacity:0.8;
+}
+
+.step-choose-gender ~ .intro .close-intro-gender {
+	position: absolute;
+	background-image: url(../images/buttonclose.png);
+	background-repeat: no-repeat;
+	background-size: 28px 28px;
+	width: 28px;
+	height: 28px;
+	right: -10px;
+	top: -10px;
+	cursor: pointer;
+}
+
+.step-choose-gender ~ .login {
+	position: relative;
+	background-color: #fefefe;
+	margin: auto;
+	top: 0px;
+	padding: 20px;
+	text-transform: uppercase;
+	border: 2px solid lightgray;
+	width: 300px;
+	height: 145px;
+	border-radius: 10px;
+	text-align: center;
+	display: none;
+	z-index: 1;
+	font-weight: bold;
+	animation-name: animatebottonlogin;
+	animation-duration: 2s;
+}
+
+/*Css lib*/
+.page-views {
+	background:url(../images/background.png) no-repeat center center fixed;
+	background-size: cover;
+}
+
+.page-views .view-media-library .view-content {
+	margin: 0 auto;
+  width: 900px;
+	height: 300px;
+	padding-left:25px;
+}
+
+.page-views .view-media-library .view-content .views-row.male.fresh,.page-views .view-media-library .view-content .views-row.female.fresh {
+	float: left;
+	width: 200px;
+	height: 200px;
+	background-color: white;
+	margin-right: 15px;
+	margin-bottom: 15px;
+	border-radius: 7px;
+	padding:15px !important;
+	position:relative;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.page-views .view-media-library .view-content .views-row.male.fresh:hover,.page-views .view-media-library .view-content .views-row.female.fresh:hover {
+	background-color:#ffd204;
+	cursor:pointer;
+}
+
+.page-views .view-media-library .view-content .views-row.male:hover,.page-views .view-media-library .view-content .views-row.female:hover {
+	background-color:rgba(229, 0, 0, 0.79);
+	cursor:pointer;
+}
+
+.page-views .view-media-library .view-content .views-row.male:hover .views-field-field-name,.page-views .view-media-library .view-content .views-row.female:hover .views-field-field-name {
+	color:white;
+}
+
+.page-views .view-media-library .view-content .views-row.male:hover .views-field-body,.page-views .view-media-library .view-content .views-row.female:hover .views-field-body {
+	color:white;
+}
+
+.page-views .view-media-library .view-content .views-row.male.fresh .views-field-field-gaming-image,.page-views .view-media-library .view-content .views-row.female.fresh .views-field-field-gaming-image {
+	width: 50px;
+	height: 120px;
+}
+
+.page-views .view-media-library .view-content .views-row.male .views-field-field-gaming-image,.page-views .view-media-library .view-content .views-row.female .views-field-field-gaming-image {
+	width: 50px;
+	height: 105px;
+}
+
+.page-views .view-media-library .view-content .views-row .views-field-field-gaming-image .field-content {
+	width: 50px;
+	height: 50px;
+	position:relative;
+}
+
+.page-views .view-media-library .view-content .views-row.male.fresh .views-field-field-gaming-image .field-content img {
+	border-radius: 0 0 49px 47px;
+	width: 48px;
+	height: 46px;
+	position: absolute;
+	z-index: 2;
+	left: 24px;
+	top: 27px;
+}
+
+.page-views .view-media-library .view-content .views-row.female.fresh .views-field-field-gaming-image .field-content img {
+	border-radius: 0 25px 38px 9px;
+	width: 48px;
+	height: 46px;
+	position: absolute;
+	z-index: 2;
+	left: 30px;
+	top: 27px;
+}
+
+.page-views .view-media-library .view-content .views-row .views-field-field-background-video {
+	display:none;
+}
+
+.page-views .view-media-library .view-content .views-row.male.fresh .views-field-picture,.page-views .view-media-library .view-content .views-row.female.fresh .views-field-picture {
+	width: 50px;
+	height: 50px;
+	background-color: white;
+	border-radius: 30px;
+	float:left;
+	float: left;
+	border: #9e9999 solid 1px;
+}
+
+.page-views .view-media-library .view-content .views-row .views-field-picture .field-content img {
+	width: 50px;
+	height: 50px;
+	border-radius: 30px;
+}
+
+.page-views .view-media-library .view-content .views-row.male.fresh .views-field-field-name,.page-views .view-media-library .view-content .views-row.female.fresh .views-field-field-name {
+	float:right;
+	font-weight: bold;
+	font-size: 15px;
+	text-transform: uppercase;
+	text-align:left;
+	width:115px;
+	position:relative !important;
+	bottom:0px !important;
+	left:0px !important;
+}
+
+.page-views .view-media-library .view-content .views-row.fresh .views-field-field-name .field-content {
+	width: 65px;
+  height: 50px;
+}
+
+.views-row.male.fresh .background-main,.views-row.female.fresh .background-main {
+	background-image: url(../images/backgroundvideo.png);
+	background-repeat: no-repeat;
+	background-size: 170px 105px;
+	width: 170px;
+	height: 105px;
+	position:absolute;
+	z-index:1;
+	border-radius: 7px;
+}
+
+.views-row.male .background-main,.views-row.female .background-main {
+	background-image: url(../images/backgroundvideo.png);
+	background-repeat: no-repeat;
+	background-size: 200px 105px;
+	width: 200px;
+	height: 105px;
+	position:absolute;
+	z-index:1;
+	border-radius: 7px;
+}
+
+.page-views .view-media-library .view-content .views-row.male.fresh .body-background {
+	background-image: url(../images/male.png);
+	background-repeat: no-repeat;
+	background-size: 120px 200px;
+  background-position-y: 5px;
+	background-position-x: -6px;
+	width: 170px;
+	height: 105px;
+	position: absolute;
+	z-index: 3;
+}
+
+.page-views .view-media-library .view-content .views-row.female.fresh .body-background {
+	background-image: url(../images/female.png);
+	background-repeat: no-repeat;
+	background-size: 120px 200px;
+  background-position-y: 5px;
+	background-position-x: 0px;
+	width: 170px;
+	height: 105px;
+	position: absolute;
+	z-index: 3;
+}
+
+.page-views .view-media-library .view-content .views-row.male.fresh .view-play,.page-views .view-media-library .view-content .views-row.female.fresh .view-play {
+	background-image: url(../images/buttonplayvideo.png);
+	background-repeat: no-repeat;
+	background-size: 50px 50px;
+	width: 50px;
+  height: 50px;
+	position:absolute;
+	right:15px;
+	cursor:pointer;
+}
+
+.page-views .view-media-library .views-exposed-form .views-submit-button {
+	display:none;
+}
+
+.page-views .view-media-library #edit-type-wrapper {
+	display:none;
+}
+
+.page-views .view-media-library #edit-field-name-value-wrapper {
+	position: absolute;
+	right: 0;
+	top: -75px;
+}
+
+.page-views .view-media-library #edit-field-name-value-wrapper input[type=text] {
+	width: 250px;
+	background-image: url(../images/iconsearch.png);
+	background-size: 20px;
+	box-sizing: border-box;
+	border: 1px solid #840000;
+	border-radius: 20px;
+	font-size: 16px;
+	background-position: 95% 5px;
+	background-repeat: no-repeat;
+	padding: 5px 40px 5px 20px;
+	background-color:#bd0606;
+	color:white;
+}
+
+.tab-top {
+	background-image: url(../images/tab-top.png);
+	background-repeat: no-repeat;
+	background-size: 400px 50px;
+	width: 400px;
+  height: 50px;
+	position:absolute;
+	left: 35%;
+	top: -70px;
+}
+
+.tab-top .seevideo {
+	background-image: url(../images/buttonplay.png);
+  background-repeat: no-repeat;
+  background-size: 185px 40px;
+	width:185px;
+	height:40px;
+	border:none;
+	border-radius:10px;
+	color:yellow;
+	font-size:18px;
+	font-weight:bold;
+	margin-left: 10px;
+  margin-top: 5px;
+}
+
+.tab-top .seevideo:hover {
+	color:yellow;
+}
+
+.tab-top .seestory {
+	background-image: url(../images/buttonplay.png);
+  background-repeat: no-repeat;
+  background-size: 185px 40px;
+	width:185px;
+	height:40px;
+	border:none;
+	border-radius:10px;
+	color:yellow;
+	font-size:18px;
+	font-weight:bold;
+	margin-left:10px;
+}
+
+.tab-top .seestory:hover {
+	color:yellow;
+}
+
+.page-views .view-media-library .views-row.female .views-field-field-gaming-image img {
+	border-radius: 0 25px 38px 9px;
+	width: 48px;
+	height: 46px;
+	position: absolute;
+	z-index: 2;
+	left: 30px;
+	top: 27px;
+}
+
+.page-views .view-media-library .views-row.male .views-field-field-gaming-image img {
+	border-radius: 0 0 49px 47px;
+	width: 48px;
+	height: 46px;
+	position: absolute;
+	z-index: 2;
+	left: 24px;
+	top: 27px;
+}
+
+.page-views .view-media-library .view-content .views-row.male .body-background {
+	background-image: url(../images/male.png);
+	background-repeat: no-repeat;
+	background-size: 120px 200px;
+  background-position-y: 5px;
+	background-position-x: -6px;
+	width: 170px;
+	height: 105px;
+	position: absolute;
+	z-index: 3;
+}
+
+.page-views .view-media-library .view-content .views-row.female .body-background {
+	background-image: url(../images/female.png);
+	background-repeat: no-repeat;
+	background-size: 120px 200px;
+  background-position-y: 5px;
+	background-position-x: 0px;
+	width: 170px;
+	height: 105px;
+	position: absolute;
+	z-index: 3;
+}
+
+.page-views .view-media-library .view-content .views-row.female .views-field-field-name,.page-views .view-media-library .view-content .views-row.male .views-field-field-name {
+	font-weight: bold;
+	font-size: 15px;
+	text-transform: uppercase;
+	position:absolute;
+	bottom:-1px;
+	left:10px;
+}
+
+.page-views .view-media-library .view-content .views-row.male,.page-views .view-media-library .view-content .views-row.female {
+	float: left;
+	width: 200px;
+	height: 200px;
+	background-color: white;
+	margin-right: 15px;
+	margin-bottom: 15px;
+	border-radius: 7px;
+	position:relative;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.page-views .view-media-library .view-content .views-row.male .views-field-body,.page-views .view-media-library .view-content .views-row.female .views-field-body {
+	padding-left: 12px;
+	padding-right: 12px;
+	text-align: justify;
+}
+
+.page-views .view-media-library .view-content .views-row .views-field-body .story a {
+	position: absolute;
+	bottom: 1px;
+	right: 6px;
+	text-decoration: none;
 }
