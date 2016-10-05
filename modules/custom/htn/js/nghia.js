@@ -546,15 +546,18 @@
 			});
 			
 			//Get class lib media
-			var classmedia = $('.page-views').attr('class');
+			var classmedia = $('.page-thu-vien').attr('class');
+			var linkvideo = '';
 			
 			if(classmedia){
 				//Append some item
-				$('.page-views .view-media-library .view-content .views-row .views-field-field-gaming-image .field-content').append('<div class="background-main"></div>');
+				$('.page-thu-vien .view-media-library .view-content .views-row .views-field-field-gaming-image .field-content').append('<div class="background-main"></div>');
 				
-				$('.page-views .view-media-library .view-content .views-row .views-field-field-gaming-image .field-content').append('<div class="body-background"></div>');
+				$('.page-thu-vien .view-media-library .view-content .views-row .views-field-field-gaming-image .field-content').append('<div class="body-background"></div>');
 				
-				$('.page-views .view-media-library .views-exposed-form .clearfix').prepend('<div class="tab-top"><input type="button" value="XEM VIDEO" class="seevideo"><input type="button" value="XEM CÂU CHUYỆN" class="seestory"></div>');
+				$('.page-thu-vien .view-media-library .views-exposed-form .clearfix').prepend('<div class="tab-top"><input type="button" value="XEM VIDEO" class="seevideo"><input type="button" value="XEM CÂU CHUYỆN" class="seestory"></div>');
+				
+				console.log(window.location.href);
 				
 				//Click button tab-top
 				$('.seevideo').click(function(e){
@@ -576,18 +579,18 @@
 				});
 				
 				//Enter when search
-				$('.page-views .view-media-library #edit-field-name-value-wrapper input[type=text]').bind("enterKey",function(e){
+				$('.page-thu-vien .view-media-library #edit-field-name-value-wrapper input[type=text]').bind("enterKey",function(e){
 					$('#edit-submit-media-library').trigger('click');
 				});
 				
-				$('.page-views .view-media-library #edit-field-name-value-wrapper input[type=text]').keyup(function(e){
+				$('.page-thu-vien .view-media-library #edit-field-name-value-wrapper input[type=text]').keyup(function(e){
 					if(e.keyCode == 13){
 						$(this).trigger("enterKey");
 					}
 				});
 				
 				//Append mask 
-				$('.page-views .view-media-library').append('<div class="mask-view"><div class="video-mask-wrapper"><div class="close-button"></div><div class="video-main"></div></div>');
+				$('.page-thu-vien .view-media-library').append('<div class="mask-view"><div class="video-mask-wrapper"><div class="close-button"></div><div class="video-main"></div></div>');
 				
 				//Array color
 				var back = ["#1abc9c", "#2ecc71", "#3498db", "#9b59b6", "#f1c40f", "#e67e22", "#e67e22"];
@@ -596,15 +599,15 @@
 				for(var i = 1; i<= 8;i++){
 					var rand = back[Math.floor(Math.random() * back.length)];
 					
-					$('.page-views .view-media-library .view-content .views-row:nth-child('+i+').fresh').append('<div id="view-play" class="play-'+i+'"></div>');
+					$('.page-thu-vien .view-media-library .view-content .views-row:nth-child('+i+').fresh').append('<div id="view-play" class="play-'+i+'"></div>');
 					
 					//Get link video
-					var linkvideo = $('.page-views .view-media-library .view-content .views-row:nth-child('+i+').fresh .views-field-field-background-video .field-content').text();
+					linkvideo = $('.page-thu-vien .view-media-library .view-content .views-row:nth-child('+i+').fresh .views-field-field-background-video .field-content').text();
 					
-					if($('.page-views .view-media-library .view-content .views-row:nth-child('+i+').fresh .views-field-picture .field-content').children().size() == 0){
-						$('.page-views .view-media-library .view-content .views-row:nth-child('+i+').fresh .views-field-picture .field-content').html($('.page-views .view-media-library .view-content .views-row:nth-child('+i+') .views-field-field-name .field-content').text()[0]);
+					if($('.page-thu-vien .view-media-library .view-content .views-row:nth-child('+i+').fresh .views-field-picture .field-content').children().size() == 0){
+						$('.page-thu-vien .view-media-library .view-content .views-row:nth-child('+i+').fresh .views-field-picture .field-content').html($('.page-thu-vien .view-media-library .view-content .views-row:nth-child('+i+') .views-field-field-name .field-content').text()[0]);
 						
-						$('.page-views .view-media-library .view-content .views-row:nth-child('+i+').fresh .views-field-picture .field-content').css({
+						$('.page-thu-vien .view-media-library .view-content .views-row:nth-child('+i+').fresh .views-field-picture .field-content').css({
 						  'font-size': '25px',
 							'font-weight': 'bold',
 							'text-align': 'center',
