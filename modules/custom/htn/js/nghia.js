@@ -540,6 +540,11 @@
 				}
 			});
 			
+			$('.step-choose-gender ~ .login .close-login').click(function(e){
+				$('.step-choose-gender ~ #mask-choose-gender').fadeOut();
+				$('.step-choose-gender ~ .login').fadeOut();
+			});
+			
 			//Get class lib media
 			var classmedia = $('.page-views').attr('class');
 			
@@ -549,8 +554,8 @@
 				
 				$('.page-views .view-media-library .view-content .views-row .views-field-field-gaming-image .field-content').append('<div class="body-background"></div>');
 				
-				$('.page-views .view-media-library .view-content .views-row').append('<div class="view-play"></div>');
-			
+				$('.page-views .view-media-library .view-content .views-row').append('<div id="view-play"></div>');
+				
 				$('.page-views .view-media-library .views-exposed-form .clearfix').prepend('<div class="tab-top"><input type="button" value="XEM VIDEO" class="seevideo"><input type="button" value="XEM CÂU CHUYỆN" class="seestory"></div>');
 				
 				//Click button tab-top
@@ -576,6 +581,41 @@
 						$(this).trigger("enterKey");
 					}
 				});
+				
+				//Append mask 
+				$('.page-views .view-media-library #view-play').append('<div class="mask-view"><div class="video-mask-wrapper"><div class="close-button"></div><div class="video-main"><video width="560" height="310" controls><source src="http://localhost/htn/sites/default/files/samplevideo_1280x720_1mb.mp4" type="video/mp4"></video></div></div>');
+				
+				//Click button-play
+				$('#view-play').click(function(e){
+					$('.mask-view').fadeIn();
+				});
+				
+				$('.video-mask-wrapper .close-button').click(function(e){
+					$('.mask-view').fadeOut();
+				});
+				
+				//Array color
+				var back = ["#1abc9c", "#2ecc71", "#3498db", "#9b59b6", "#f1c40f", "#e67e22", "#e67e22"];
+				
+				//Get first char in name
+				for(var i = 1; i<= 8;i++){
+					var rand = back[Math.floor(Math.random() * back.length)];
+					
+					if($('.page-views .view-media-library .view-content .views-row:nth-child('+i+').fresh .views-field-picture .field-content').children().size() == 0){
+						$('.page-views .view-media-library .view-content .views-row:nth-child('+i+').fresh .views-field-picture .field-content').html($('.page-views .view-media-library .view-content .views-row:nth-child('+i+') .views-field-field-name .field-content').text()[0]);
+						
+						$('.page-views .view-media-library .view-content .views-row:nth-child('+i+').fresh .views-field-picture .field-content').css({
+						  'font-size': '25px',
+							'font-weight': 'bold',
+							'text-align': 'center',
+							'margin-top': '13px',
+							'text-transform':'uppercase',
+							'color':rand
+						});
+						
+					}
+				}
+				
 			}
 		}
   };  
