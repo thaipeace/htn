@@ -450,7 +450,7 @@
 				$('.step-story-complete ~ .links').click(function(e){
 					//var hrefhome = $('.step-story-complete ~ .links a').attr('href');
 					
-					$('.step-story-complete ~ #edit-actions #edit-submit').click();
+					$('.step-story-complete ~ #edit-actions #edit-submit').trigger('click');
 				});
 				
 				//Css
@@ -554,19 +554,25 @@
 				
 				$('.page-views .view-media-library .view-content .views-row .views-field-field-gaming-image .field-content').append('<div class="body-background"></div>');
 				
-				$('.page-views .view-media-library .view-content .views-row').append('<div id="view-play"></div>');
+				$('.page-views .view-media-library .views-exposed-form .clearfix').prepend('<div class="tab-top"><input type="button" value="XEM VIDEO" class="seevideo active"><input type="button" value="XEM CÂU CHUYỆN" class="seestory"></div>');
 				
-				$('.page-views .view-media-library .views-exposed-form .clearfix').prepend('<div class="tab-top"><input type="button" value="XEM VIDEO" class="seevideo"><input type="button" value="XEM CÂU CHUYỆN" class="seestory"></div>');
+				//var getclassactive = $('.tab-top .seevideo').attr('class').split(" ")[1];
 				
 				//Click button tab-top
 				$('.seevideo').click(function(e){
 					$('#edit-type-wrapper #edit-type').val('gaming').change();
+					
+					$('.seestory').removeClass('active');
+					$('.seevideo').addClass('active');
 					
 					$('#edit-submit-media-library').trigger('click');
 				});
 				
 				$('.seestory').click(function(e){
 					$('#edit-type-wrapper #edit-type').val('story').change();
+					
+					$('.seevideo').removeClass('active');
+					$('.seestory').addClass('active');
 					
 					$('#edit-submit-media-library').trigger('click');
 				});
@@ -583,16 +589,7 @@
 				});
 				
 				//Append mask 
-				$('.page-views .view-media-library #view-play').append('<div class="mask-view"><div class="video-mask-wrapper"><div class="close-button"></div><div class="video-main"><video width="560" height="310" controls><source src="http://localhost/htn/sites/default/files/samplevideo_1280x720_1mb.mp4" type="video/mp4"></video></div></div>');
-				
-				//Click button-play
-				$('#view-play').click(function(e){
-					$('.mask-view').fadeIn();
-				});
-				
-				$('.video-mask-wrapper .close-button').click(function(e){
-					$('.mask-view').fadeOut();
-				});
+				$('.page-views .view-media-library').append('<div class="mask-view"><div class="video-mask-wrapper"><div class="close-button"></div><div class="video-main"></div></div>');
 				
 				//Array color
 				var back = ["#1abc9c", "#2ecc71", "#3498db", "#9b59b6", "#f1c40f", "#e67e22", "#e67e22"];
@@ -600,6 +597,11 @@
 				//Get first char in name
 				for(var i = 1; i<= 8;i++){
 					var rand = back[Math.floor(Math.random() * back.length)];
+					
+					$('.page-views .view-media-library .view-content .views-row:nth-child('+i+').fresh').append('<div id="view-play" class="play-'+i+'"></div>');
+					
+					//Get link video
+					var linkvideo = $('.page-views .view-media-library .view-content .views-row:nth-child('+i+').fresh .views-field-field-background-video .field-content').text();
 					
 					if($('.page-views .view-media-library .view-content .views-row:nth-child('+i+').fresh .views-field-picture .field-content').children().size() == 0){
 						$('.page-views .view-media-library .view-content .views-row:nth-child('+i+').fresh .views-field-picture .field-content').html($('.page-views .view-media-library .view-content .views-row:nth-child('+i+') .views-field-field-name .field-content').text()[0]);
@@ -612,9 +614,20 @@
 							'text-transform':'uppercase',
 							'color':rand
 						});
-						
 					}
+					
+					//Click button-play
+					$('.play-'+i).click(function(e){
+						//HTML video and link all of case
+						$('.page-views .view-media-library .mask-view .video-mask-wrapper .video-main').html('<video width="560" height="310" controls><source src="'+linkvideo+'"></video>');
+						
+						$('.mask-view').fadeIn();
+					});
 				}
+				
+				$('.video-mask-wrapper .close-button').click(function(e){
+					$('.mask-view').fadeOut();
+				});
 				
 			}
 		}

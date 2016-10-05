@@ -119,6 +119,7 @@ html{
 	height:33px;
 	position: absolute;
   top: 0;
+	z-index:1;
 }
 
 .img-arrowheader {
@@ -1665,6 +1666,7 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	position:absolute;
 	right: 0;
 	bottom: 0;
+	text-indent:-9999px;
 }
 
 .step-story-complete ~ .links a {
@@ -1843,6 +1845,11 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	right: 20px;
 	top: -41px;
 	text-indent:-9999px;
+}
+
+.logged-in #block-block-3 {
+	position:absolute;
+	right:0;
 }
 
 /*Custom scrollbar*/
@@ -2123,12 +2130,12 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 
 .page-views .view-media-library #edit-field-name-value-wrapper {
 	position: absolute;
-	right: 0;
-	top: -75px;
+	right: 248px;
+	top: -62px;
 }
 
 .page-views .view-media-library #edit-field-name-value-wrapper input[type=text] {
-	width: 250px;
+	width: 190px;
 	background-image: url(../images/iconsearch.png);
 	background-size: 20px;
 	box-sizing: border-box;
@@ -2150,7 +2157,8 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
   height: 50px;
 	position:absolute;
 	left: 35%;
-	top: -47px;
+	top: -66px;
+	z-index:0;
 }
 
 .tab-top .seevideo {
@@ -2166,6 +2174,11 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	font-weight:bold;
 	margin-left: 10px;
   margin-top: 5px;
+	opacity:0.5;
+}
+
+.tab-top .active {
+	opacity:1;
 }
 
 .tab-top .seevideo:hover {
@@ -2184,6 +2197,7 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	font-size:18px;
 	font-weight:bold;
 	margin-left:10px;
+	opacity:0.5;
 }
 
 .tab-top .seestory:hover {
@@ -2300,7 +2314,7 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	height: 100%;
 	overflow: auto;
 	background-color: rgb(0,0,0);
-	background-color: rgba(0,0,0,0.2);
+	background-color: rgba(0,0,0,0.8);
 	display:none;
 }
 
