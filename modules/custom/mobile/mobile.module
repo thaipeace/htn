@@ -342,6 +342,8 @@ function mobile_preprocess_page(&$vars) {
     drupal_add_css(drupal_get_path('module', 'mobile') . '/css/nghia.css');
     drupal_add_js(drupal_get_path('module', 'mobile') . '/js/mobile.js');
     drupal_add_css(drupal_get_path('module', 'mobile') . '/css/mobile.css');
+    drupal_add_js(drupal_get_path('module', 'mobile') . '/js/le.js');
+    drupal_add_css(drupal_get_path('module', 'mobile') . '/css/le.css');
     
     if (isset($vars['node']->type)) {
       $vars['theme_hook_suggestions'][] = 'page__' . $vars['node']->type;
