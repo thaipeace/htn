@@ -32,9 +32,11 @@ Drupal.behaviors.imagefield_crop = {
               $('.preview-existing', widget).css({display: 'none'});
               $('.jcrop-preview', widget).css({display: 'block'});
           }
-
+        
+        
         $(this).Jcrop({
-          onChange: function(c) {
+          onSelect: function(c) {
+            console.log('a');
             $('.preview-existing', widget).css({display: 'none'});
             var preview = $('.imagefield-crop-preview', widget);
             // skip newly added blank fields
@@ -58,14 +60,14 @@ Drupal.behaviors.imagefield_crop = {
             if (c.h) $(widget).siblings(".edit-image-crop-height").val(c.h);
             $(widget).siblings(".edit-image-crop-changed").val(1);
           },
-          onSelect: function(c) {
-            $(widget).siblings('.preview-existing').css({display: 'none'});
-            $(widget).siblings(".edit-image-crop-x").val(c.x);
-            $(widget).siblings(".edit-image-crop-y").val(c.y);
-            if (c.w) $(widget).siblings(".edit-image-crop-width").val(c.w);
-            if (c.h) $(widget).siblings(".edit-image-crop-height").val(c.h);
-            $(widget).siblings(".edit-image-crop-changed").val(1);
-          },
+//          onSelect: function(c) {
+//            $(widget).siblings('.preview-existing').css({display: 'none'});
+//            $(widget).siblings(".edit-image-crop-x").val(c.x);
+//            $(widget).siblings(".edit-image-crop-y").val(c.y);
+//            if (c.w) $(widget).siblings(".edit-image-crop-width").val(c.w);
+//            if (c.h) $(widget).siblings(".edit-image-crop-height").val(c.h);
+//            $(widget).siblings(".edit-image-crop-changed").val(1);
+//          },
           aspectRatio: settings.imagefield_crop[id].box.ratio,
           boxWidth: settings.imagefield_crop[id].box.box_width,
           boxHeight: settings.imagefield_crop[id].box.box_height,

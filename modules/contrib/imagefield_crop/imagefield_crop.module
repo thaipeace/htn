@@ -198,10 +198,15 @@ function imagefield_crop_widget_process($element, &$form_state, $form) {
   $element['#description'] = t('Đăng hình xinh đẹp nhất hoặc selfie để tham gia');
 
   $path = drupal_get_path('module', 'imagefield_crop');
-  $element['#attached']['js'][] = "$path/Jcrop/js/Jcrop.js";
-  // We must define Drupal.behaviors for ahah to work, even if there is no file
-  $element['#attached']['js'][] = "$path/imagefield_crop.js";
+  drupal_add_js(drupal_get_path('module', 'imagefield_crop') . '/Jcrop/js/Jcrop.js',
+               array('weight' => 48));
+  drupal_add_js(drupal_get_path('module', 'imagefield_crop') . '/imagefield_crop.js',
+               array('weight' => 49));
   $element['#attached']['css'][] = "$path/Jcrop/css/Jcrop.css";
+  //$element['#attached']['js'][] = "$path/Jcrop/js/Jcrop.js";
+  // We must define Drupal.behaviors for ahah to work, even if there is no file
+  //$element['#attached']['js'][] = "$path/imagefield_crop.js";
+  //$element['#attached']['css'][] = "$path/Jcrop/css/jquery.Jcrop.css";
 
   if ($element['#file']) {
     $file_to_crop = _imagefield_crop_file_to_crop($element['#file']->fid);

@@ -21,7 +21,6 @@ function htn_init() {
 function htn_form_alter(&$form, &$form_state, $form_id) {
   if ($form_id == 'gaming_node_form') {
     
-    drupal_add_js(drupal_get_path('module', 'imagefield_crop') . '/Jcrop/js/jquery.min.js');
     drupal_add_js(drupal_get_path('module', 'htn') . '/js/gaming.js');
     drupal_add_css(drupal_get_path('module', 'htn') . '/css/gaming.css');
     
@@ -73,6 +72,12 @@ Mời bạn đăng nhập bằng Facebook <a href="' . $base_url . '/user/simple
         $form['#step_children']['login'] = 'step_choose_gender';
       }
     }
+    
+    if ($form_state['storage']['step'] === 'step_up_picture') {
+      drupal_add_js(drupal_get_path('module', 'imagefield_crop') . '/Jcrop/js/jquery.min.js',
+               array('weight' => 47));
+    }
+    
     
     if ($form_state['storage']['step'] === 'step_fill_name') {
       $face = file_create_url(file_load($form_state['values']['field_gaming_image']['und'][0]['fid'])->uri);
