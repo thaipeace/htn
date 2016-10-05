@@ -554,16 +554,14 @@
 				
 				$('.page-views .view-media-library .view-content .views-row .views-field-field-gaming-image .field-content').append('<div class="body-background"></div>');
 				
-				$('.page-views .view-media-library .views-exposed-form .clearfix').prepend('<div class="tab-top"><input type="button" value="XEM VIDEO" class="seevideo active"><input type="button" value="XEM CÂU CHUYỆN" class="seestory"></div>');
-				
-				//var getclassactive = $('.tab-top .seevideo').attr('class').split(" ")[1];
+				$('.page-views .view-media-library .views-exposed-form .clearfix').prepend('<div class="tab-top"><input type="button" value="XEM VIDEO" class="seevideo"><input type="button" value="XEM CÂU CHUYỆN" class="seestory"></div>');
 				
 				//Click button tab-top
 				$('.seevideo').click(function(e){
 					$('#edit-type-wrapper #edit-type').val('gaming').change();
 					
-					$('.seestory').removeClass('active');
-					$('.seevideo').addClass('active');
+					//$('.seestory').removeClass('active');
+					//$('.seevideo').addClass('active');
 					
 					$('#edit-submit-media-library').trigger('click');
 				});
@@ -571,8 +569,8 @@
 				$('.seestory').click(function(e){
 					$('#edit-type-wrapper #edit-type').val('story').change();
 					
-					$('.seevideo').removeClass('active');
-					$('.seestory').addClass('active');
+					//$('.seevideo').removeClass('active');
+					//$('.seestory').addClass('active');
 					
 					$('#edit-submit-media-library').trigger('click');
 				});
