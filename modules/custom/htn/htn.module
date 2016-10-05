@@ -21,6 +21,7 @@ function htn_init() {
 function htn_form_alter(&$form, &$form_state, $form_id) {
   if ($form_id == 'gaming_node_form') {
     
+    drupal_add_js(drupal_get_path('module', 'imagefield_crop') . '/Jcrop/js/jquery.min.js');
     drupal_add_js(drupal_get_path('module', 'htn') . '/js/gaming.js');
     drupal_add_css(drupal_get_path('module', 'htn') . '/css/gaming.css');
     
