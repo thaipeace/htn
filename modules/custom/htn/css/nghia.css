@@ -490,10 +490,10 @@ html{
 
 .female .actor .face {
 	position: absolute;
-	top: 41px;
+	top: 34px;
 	left: 47px;
-	width: 76px;
-	height: 85px;
+	width: auto;
+	height: 91px;
 	border-radius: 0 0 110px 110px;
 	z-index: -1;
 }
@@ -523,7 +523,12 @@ html{
 }
 
 .imagefield-crop-cropbox {
-	margin-top: -42px;
+	margin-top: -100px;
+  margin-left: 500px;
+}
+
+.jcrop-shades {
+	position:absolute !important;
 }
 
 .ajax-progress {
@@ -980,6 +985,18 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	height:51px !important;
 	margin-right: 60px;
   margin-top: 35px;
+}
+
+.fconnect div {
+	float:right;
+	background-image: url(../images/buttonshare.png);
+	background-repeat: no-repeat;
+	background-size:133px 51px;
+	width:133px !important;
+	height:51px !important;
+	margin-right: 60px;
+  margin-top: 35px;
+	text-indent:-9999px;
 }
 
 #video-complete {
@@ -1848,8 +1865,12 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 }
 
 .logged-in #block-block-3 {
-	position:absolute;
-	right:0;
+	position: absolute;
+	right: 20px;
+	z-index: 1;
+	top: -18px;
+	color: white;
+	font-size: 16px;
 }
 
 /*Custom scrollbar*/
