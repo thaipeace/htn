@@ -608,6 +608,20 @@
 				//Append mask 
 				$('.page-thu-vien .view-media-library').append('<div class="mask-view"><div class="video-mask-wrapper"><div class="close-button"></div><div class="video-main"></div></div>');
 				
+				var maskviewchitiet = '<div class="mask-view-chitiet">'
+																+'<div class="chitiet-wrapper">'
+																	+'<div class="close-chitiet"></div>'
+																	+'<div class="chitiet-content">'
+																	+'</div>'
+																	+'<div id="chitiet-body"></div>'
+																	+'<img id="chitiet-face" src="" width="100" height="115" >'
+																+'</div>'
+															+'</div>';
+				
+				$('.page-thu-vien .view-media-library').append(maskviewchitiet);
+				
+				$('.page-thu-vien .view-media-library .fresh').parent().siblings('.mask-view-chitiet').css('display','none');
+				
 				//Array color
 				var back = ["#1abc9c", "#2ecc71", "#3498db", "#9b59b6", "#f1c40f", "#e67e22", "#e67e22"];
 				
@@ -618,7 +632,6 @@
 					$('.page-thu-vien .view-media-library .view-content .views-row:nth-child('+i+').fresh').append('<div id="view-play" class="play-'+i+'"></div>');
 					
 					//Get link video
-					
 					
 					if($('.page-thu-vien .view-media-library .view-content .views-row:nth-child('+i+').fresh .views-field-picture .field-content').children().size() == 0){
 						$('.page-thu-vien .view-media-library .view-content .views-row:nth-child('+i+').fresh .views-field-picture .field-content').html($('.page-thu-vien .view-media-library .view-content .views-row:nth-child('+i+') .views-field-field-name .field-content').text()[0]);
@@ -636,15 +649,40 @@
 					//Click button-play
 					$('.play-'+i).click(function(e){
 						//HTML video and link all of case
-						//var getclassclick = $(this).attr('class');
-						
-						//console.log(getclassclick);
-						
 						var linkvideo = $(this).siblings('div:nth-child(3)').text();
 						
 						$('.page-thu-vien .view-media-library .mask-view .video-mask-wrapper .video-main').html('<video width="560" height="310" controls><source src="'+linkvideo+'"></video>');
 						
 						$('.mask-view').fadeIn();
+					});
+					
+					//Append button chitiet
+					$('.page-thu-vien .view-media-library .view-content .views-row-'+i+' .views-field-body').append('<a class="xemchitiet-'+i+'">Xem chi tiết</a>');
+				
+					//Click xem chi tiet
+					$('.xemchitiet-'+i).click(function(e){
+						var chitietclass = $(this).parents('.views-row').attr('class').split(" ");
+						
+						var linkimage = $(this).parent().siblings('.views-field-field-gaming-image').children();
+						
+						//Add body click chi tiet
+						if(chitietclass[chitietclass.length-2] == "male"){
+							$('#chitiet-body').addClass('chitiet-body-male');
+							
+							$('#chitiet-face').removeClass('chitiet-face-female').addClass('chitiet-face-male');
+						}else{
+							if(chitietclass[chitietclass.length-2] == "female"){
+								$('#chitiet-body').addClass('chitiet-body-female');
+								
+								$('#chitiet-face').removeClass('chitiet-face-male').addClass('chitiet-face-female');
+							}
+						}
+						
+						$('#chitiet-face').attr('src',$('img', linkimage).attr('src'));
+						
+						$('.chitiet-content').html('<div class="logo-haytuoi"></div>'+$(this).parent().siblings('.views-field-body-1').html());
+						
+						$('.mask-view-chitiet').css('display','block');
 					});
 				}
 				
@@ -652,6 +690,18 @@
 					$('.mask-view').fadeOut();
 				});
 				
+				$('.close-chitiet').click(function(e){
+					$('.mask-view-chitiet').fadeOut();
+				});
+				
+				$('.chitiet-content .fb-share-button').click(function(e){
+					var hrefshare = $('.chitiet-content .fb-share-button').attr('data-href');
+					
+					FB.ui({
+						method: 'share',
+						href: hrefshare,
+					}, function(response){});
+				});
 			}
 		}
   };  

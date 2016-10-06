@@ -1359,7 +1359,7 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	height: 50px;
 }
 
-.step-story-fill-case-1 ~ #edit-actions #edit-next,.step-story-fill-case-2 ~ #edit-actions #edit-next,.step-story-fill-case-3 ~ #edit-actions #edit-next,.step-story-summary ~ #edit-actions #edit-next {
+.step-story-fill-case-1 ~ #edit-actions #edit-next,.step-story-fill-case-2 ~ #edit-actions #edit-next,.step-story-fill-case-3 ~ #edit-actions #edit-next,.step-story-summary ~ #edit-actions #edit-submit {
 	background-image: url(../images/buttonplay.png);
 	background-repeat: no-repeat;
 	background-size: 185px 50px;
@@ -2006,7 +2006,7 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	color:white;
 }
 
-.page-thu-vien .view-media-library .view-content .views-row.male:hover .views-field-body,.page-thu-vien .view-media-library .view-content .views-row.female:hover .views-field-body {
+.page-thu-vien .view-media-library .view-content .views-row.male:hover .views-field-body div:nth-of-type(1),.page-thu-vien .view-media-library .view-content .views-row.female:hover .views-field-body div:nth-of-type(1) {
 	color:white;
 }
 
@@ -2518,3 +2518,176 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 .node-type-news article .field-name-body .field-item {
 	text-align:justify;
 }
+
+.mask-view-chitiet {
+	position: fixed;
+	z-index: 3;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgb(0,0,0);
+	background-color: rgba(0,0,0,0.8);
+	display:none;
+	overflow-x:hidden;
+}
+
+.mask-view-chitiet .chitiet-wrapper {
+	position: relative;
+	background-color: #fefefe;
+	margin: auto;
+	top: 100px;
+	padding: 0;
+	width: 650px;
+	height: 400px;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+	animation-name: animatetopnodestory;
+	animation-duration: 2s;
+	border-radius: 10px;
+	text-align: center;
+}
+
+.mask-view-chitiet .chitiet-wrapper .close-chitiet {
+	position: absolute;
+	background-image: url(../images/buttonclose.png);
+	background-repeat: no-repeat;
+	background-size: 28px 28px;
+	width: 28px;
+	height: 28px;
+	right: -10px;
+	top: -10px;
+	cursor: pointer;
+}
+
+.mask-view-chitiet .chitiet-wrapper .chitiet-content {
+	float: left;
+	width: 400px;
+	background-color: #ffe958;
+	height: 100%;
+	padding: 50px;
+	text-align: justify;
+	border-radius: 10px 0px 0px 10px;
+}
+
+.page-thu-vien .view-media-library .view-content .views-row .views-field-body-1 {
+	display:none;
+}
+
+.page-thu-vien .view-media-library .view-content .views-row .views-field-body-1 ~ .views-field-picture {
+	display:none;
+} 
+
+.page-thu-vien .view-media-library .view-content .views-row .views-field-body a {
+	position: absolute;
+	right: 5px;
+	bottom: 0px;
+}
+
+.page-thu-vien .view-media-library .view-content .views-row.fresh .views-field-body a {
+	display:none;
+}
+
+.chitiet-body-female {
+	background-image: url(../images/female.png);
+	background-repeat: no-repeat;
+	background-size: 200px 350px;
+	width: 200px;
+	height: 350px;
+	float: right;
+	margin-top: 30px;
+	margin-right: 20px;
+	position: relative;
+	z-index: 2;
+}
+
+.chitiet-body-male {
+	background-image: url(../images/male.png);
+	background-repeat: no-repeat;
+	background-size: 200px 350px;
+	width: 200px;
+	height: 350px;
+	float: right;
+	margin-top: 30px;
+	margin-right: 20px;
+	position: relative;
+	z-index: 2;
+}
+
+.step-story-summary ~ .form-type-textfield,
+.step-story-summary ~ #edit-body {
+	display:none;
+}
+
+.chitiet-content .story {
+	margin-top: 20px;
+}
+
+.page-thu-vien .view-media-library .view-content .views-row .views-field-body .field-content .story {
+	line-height:17px;
+}
+
+.chitiet-content .story .name {
+	color:red;
+}
+
+.chitiet-content .story .sign {
+	margin-top: 10px;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.chitiet-content .story .sign .name {
+	color:black;
+}
+
+.chitiet-content .fb {
+	margin-top:25px;
+}
+
+.chitiet-content .fb .fb-like {
+	background-image: url(../images/buttonshare.png);
+	background-repeat: no-repeat;
+	background-size: 125px 40px;
+	width: 125px;
+	height: 40px;
+	border: none;
+	background-color: transparent;
+	text-indent: 9999px;
+	cursor: pointer;
+	float: left;
+}
+
+.chitiet-content .fb .fb-share-button {
+	background-image: url(../images/buttonshare.png);
+	background-repeat: no-repeat;
+	background-size: 125px 40px;
+	width: 125px;
+	height: 40px;
+	border: none;
+	background-color: transparent;
+	text-indent: 9999px;
+	cursor: pointer;
+	float: right;
+}
+
+.chitiet-face-female {
+	position: absolute;
+	top: 67px;
+	right: 91px;
+	width: 79px;
+	height: 80px;
+	border-radius: 0 0 110px 110px;
+	z-index: 1;
+}
+
+.chitiet-face-male {
+	position: absolute;
+	top: 68px;
+	right: 89px;
+	width: 83px;
+	height: 80px;
+	border-radius: 0 0 110px 110px;
+	z-index: 1;
+}
+
