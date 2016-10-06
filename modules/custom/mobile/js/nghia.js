@@ -13,6 +13,8 @@
   Drupal.behaviors.nghia = {
     attach: function (context, settings) {
       // Code here
+			//Check status login
+			var classnamebody = $('body').attr('class');
 			
 			//boolean menuba
 			var checkmenu = true;
@@ -55,6 +57,11 @@
 				},250,function(){
 					
 				});
+				$('.logged-in #block-block-3').animate({
+					top:'14px'
+				},250,function(){
+					
+				});
 				checkmenu = false;
 			}
 			
@@ -75,10 +82,15 @@
 				},250,function(){
 					
 				});
+				$('.logged-in #block-block-3').animate({
+					top:'-18px'
+				},250,function(){
+					
+				});
 				checkmenu = true;
 			}
 			
-			$('#block-block-3 .block-wrapper a').text('');
+			//$('#block-block-3 .block-wrapper a').text('');
 			
 			//Append mask of radio
 			$('.page-node-add-gaming #edit-field-gender-und .form-item:nth-child(1)').append('<label for="edit-field-gender-und-female" id="check-radio"></label>');
@@ -269,9 +281,9 @@
 				
 				$(this).fadeOut(500);
 				
-				$('#img-bodyvideo').css('z-index','-1');
+				//$('#img-bodyvideo').css('z-index','-1');
 				
-				$('article.node-gaming .field-name-field-gaming-image .field-items .field-item img').css('z-index','-1');
+				//$('article.node-gaming .field-name-field-gaming-image .field-items .field-item img').css('z-index','-1');
 			});
 			
 			//Prepend button close
@@ -281,9 +293,13 @@
 			
 			//Click button close
 			$('.close-intro').click(function(e) {
-				$('.step-story-choose-gender ~.intro').fadeOut();
+				$('.step-story-choose-gender ~ .intro').fadeOut();
 				
-				$('.step-story-choose-gender ~.login').css('display','block');
+				if(classnamebody.split(" ")[2] == "logged-in"){
+					$('.step-story-choose-gender ~ #mask-choose-gender').fadeOut();
+				}else{
+					$('.step-story-choose-gender ~.login').css('display','block');
+				}
 			});
 			
 			//Append mask radio 
@@ -397,23 +413,23 @@
 			}
 			
 			//Get class case complete
-			var classstepstoryfillcasecmplete = $('.step-story-complete').attr('class');
+			var classstepstoryfillcasecmplete = $('.page-story-thanks').attr('class');
 			
 			if(classstepstoryfillcasecmplete){
-				$('.step-story-complete ~ .intro').before($('<div id="mask-complete"></div>'));
+				$('.page-story-thanks .intro').before($('<div id="mask-complete"></div>'));
 				
-				$('.step-story-complete ~ .intro').prepend('<div class="close-intro"></div>');
+				$('.page-story-thanks #mask-complete ~ .intro').prepend('<div class="close-intro"></div>');
 				
 				//Click close button popup
-				$('.step-story-complete ~ .intro .close-intro').click(function(e){
-					$('.step-story-complete ~ .intro').fadeOut();
-					$('.step-story-complete ~ #mask-complete').fadeOut();
+				$('.page-story-thanks .intro .close-intro').click(function(e){
+					$('.page-story-thanks .intro').fadeOut();
+					$('.page-story-thanks #mask-complete').fadeOut();
 				});
 				
 				//Append
-				$('.step-story-complete ~ #mask-complete ~ .intro').before($('<div id="popup-share"></div>'));
+				$('.page-story-thanks #mask-complete ~ .intro').before($('<div id="popup-share"></div>'));
 				
-				$('.step-story-complete ~ #popup-share').append('<div class="close-share"></div>');
+				$('.page-story-thanks #mask-complete ~ #popup-share').append('<div class="close-share"></div>');
 				
 				//Click button share
 				$('.fb-share-button').click(function(e){
@@ -424,9 +440,9 @@
 						href: hrefshare,
 					}, function(response){
 						if (response && !response.error_code) {
-							$('.step-story-complete ~ #mask-complete').fadeIn(100);
+							$('.page-story-thanks #mask-complete').fadeIn(100);
 							
-							$('.step-story-complete ~ #popup-share').css('display','block');
+							$('.page-story-thanks #popup-share').css('display','block');
 							
             } else {
               
@@ -435,24 +451,16 @@
 				});
 				
 				//Click close button popup
-				$('.step-story-complete ~ #popup-share .close-share').click(function(e){
-					$('.step-story-complete ~ #mask-complete').fadeOut();
-					$('.step-story-complete ~ #popup-share').fadeOut();
+				$('.page-story-thanks #popup-share .close-share').click(function(e){
+					$('.page-story-thanks #mask-complete').fadeOut();
+					$('.page-story-thanks #popup-share').fadeOut();
 				});
 				
 				//Click button home
-				$('.step-story-complete ~ .links').click(function(e){
-					//var hrefhome = $('.step-story-complete ~ .links a').attr('href');
+				$('.page-story-thanks .links').click(function(e){
+					var hrefhome = $('.page-story-thanks .links a').attr('href');
 					
-					$('.step-story-complete ~ #edit-actions #edit-submit').click();
-				});
-				
-				//Css
-				$('.step-story-complete').parent().css({
-					'margin':'0 auto',
-					'width':'305px',
-					'position':'relative',
-					'height':'130px'
+					location = hrefhome;
 				});
 			}
 			
@@ -508,6 +516,178 @@
 				//Click button share
 				$('.fb-share-button').click(function(e){
 					var hrefshare = $('.fb-share-button').attr('data-href');
+					
+					FB.ui({
+						method: 'share',
+						href: hrefshare,
+					}, function(response){});
+				});
+			}
+			
+			$('.step-choose-gender ~ #edit-field-gender').before('<div id="mask-choose-gender"></div>');
+			
+			$('.step-choose-gender ~ .intro').prepend('<div class="close-intro-gender"></div>');
+			
+			$('.step-choose-gender ~ .login').prepend('<div class="close-login"></div>');
+			
+			//Click close button popup
+			$('.step-choose-gender ~ .intro .close-intro-gender').click(function(e){
+				$('.step-choose-gender ~ .intro').fadeOut();
+				
+				if(classnamebody.split(" ")[2] == "logged-in"){
+					$('.step-choose-gender ~ #mask-choose-gender').fadeOut();
+				}else{
+					$('.step-choose-gender ~ .login .close-login ~ a').before($('<br />'));
+					$('.step-choose-gender ~ .login').css('display','block');
+				}
+			});
+			
+			$('.step-choose-gender ~ .login .close-login').click(function(e){
+				$('.step-choose-gender ~ #mask-choose-gender').fadeOut();
+				$('.step-choose-gender ~ .login').fadeOut();
+			});
+			
+			//Get class lib media
+			var classmedia = $('.page-thu-vien').attr('class');
+			
+			if(classmedia){
+				//Append some item
+				$('.page-thu-vien .view-media-library .view-content .views-row .views-field-field-gaming-image .field-content').append('<div class="background-main"></div>');
+				
+				$('.page-thu-vien .view-media-library .view-content .views-row .views-field-field-gaming-image .field-content').append('<div class="body-background"></div>');
+				
+				$('.page-thu-vien .views-field-body-1').siblings('.views-field-body').children().prepend('<div class="title-haytuoinhu">HÃY TƯƠI NHƯ</div>');
+				
+				//Get url page
+				var urlpagethuvien = window.location.href;
+				
+				var urlfirst = urlpagethuvien.split("&");
+				
+				var urlsecond = urlfirst[0].split("?");
+				
+				if(urlsecond[1] == "type=story"){
+					$('.page-thu-vien .view-media-library .views-exposed-form .clearfix').prepend('<div class="tab-top"><input type="button" value="XEM VIDEO" class="seevideo"><input type="button" value="XEM CÂU CHUYỆN" class="seestory active"></div>');
+				}else{
+					if(urlsecond[1] == "type=gaming"){
+						$('.page-thu-vien .view-media-library .views-exposed-form .clearfix').prepend('<div class="tab-top"><input type="button" value="XEM VIDEO" class="seevideo active"><input type="button" value="XEM CÂU CHUYỆN" class="seestory"></div>');
+					}else{
+						$('.page-thu-vien .view-media-library .views-exposed-form .clearfix').prepend('<div class="tab-top"><input type="button" value="XEM VIDEO" class="seevideo active"><input type="button" value="XEM CÂU CHUYỆN" class="seestory"></div>');
+					}
+				}
+				
+				//Click button tab-top
+				$('.seevideo').click(function(e){
+					$('#edit-type-wrapper #edit-type').val('gaming').change();
+					
+					$('#edit-submit-media-library').trigger('click');
+				});
+				
+				$('.seestory').click(function(e){
+					$('#edit-type-wrapper #edit-type').val('story').change();
+					
+					$('#edit-submit-media-library').trigger('click');
+				});
+				
+				//Enter when search
+				$('.page-thu-vien .view-media-library #edit-field-name-value-wrapper input[type=text]').bind("enterKey",function(e){
+					$('#edit-submit-media-library').trigger('click');
+				});
+				
+				$('.page-thu-vien .view-media-library #edit-field-name-value-wrapper input[type=text]').keyup(function(e){
+					if(e.keyCode == 13){
+						$(this).trigger("enterKey");
+					}
+				});
+				
+				//Append mask 
+				$('.page-thu-vien .view-media-library').append('<div class="mask-view"><div class="video-mask-wrapper"><div class="close-button"></div><div class="video-main"></div></div>');
+				
+				var maskviewchitiet = '<div class="mask-view-chitiet">'
+																+'<div class="chitiet-wrapper">'
+																	+'<div class="close-chitiet"></div>'
+																	+'<div class="chitiet-content">'
+																	+'</div>'
+																	+'<div id="chitiet-body"></div>'
+																	+'<img id="chitiet-face" src="" width="100" height="115" >'
+																+'</div>'
+															+'</div>';
+				
+				$('.page-thu-vien .view-media-library').append(maskviewchitiet);
+				
+				$('.page-thu-vien .view-media-library .fresh').parent().siblings('.mask-view-chitiet').css('display','none');
+				
+				//Array color
+				var back = ["#1abc9c", "#2ecc71", "#3498db", "#9b59b6", "#f1c40f", "#e67e22", "#e67e22"];
+				
+				//Get first char in name
+				for(var i = 1; i<= 8;i++){
+					var rand = back[Math.floor(Math.random() * back.length)];
+					
+					$('.page-thu-vien .view-media-library .view-content .views-row:nth-child('+i+').fresh').append('<div id="view-play" class="play-'+i+'"></div>');
+					
+					//Get link video
+					
+					if($('.page-thu-vien .view-media-library .view-content .views-row:nth-child('+i+').fresh .views-field-picture .field-content').children().size() == 0){
+						$('.page-thu-vien .view-media-library .view-content .views-row:nth-child('+i+').fresh .views-field-picture .field-content').html($('.page-thu-vien .view-media-library .view-content .views-row:nth-child('+i+') .views-field-field-name .field-content').text()[0]);
+						
+						$('.page-thu-vien .view-media-library .view-content .views-row:nth-child('+i+').fresh .views-field-picture .field-content').css({
+						  'font-size': '25px',
+							'font-weight': 'bold',
+							'text-align': 'center',
+							'margin-top': '13px',
+							'text-transform':'uppercase',
+							'color':rand
+						});
+					}
+					
+					//Click button-play
+					$('.play-'+i).click(function(e){
+						//HTML video and link all of case
+						var linkvideo = $(this).siblings('div:nth-child(3)').text();
+						
+						$('.page-thu-vien .view-media-library .mask-view .video-mask-wrapper .video-main').html('<video width="560" height="310" controls><source src="'+linkvideo+'"></video>');
+						
+						$('.mask-view').fadeIn();
+					});
+					
+					//Append button chitiet
+					$('.page-thu-vien .view-media-library .view-content .views-row-'+i+' .views-field-body').append('<a class="xemchitiet-'+i+'">xem chi tiết ►</a>');
+				
+					//Click xem chi tiet
+					$('.xemchitiet-'+i).click(function(e){
+						var chitietclass = $(this).parents('.views-row').attr('class').split(" ");
+						
+						var linkimage = $(this).parent().siblings('.views-field-field-gaming-image').children();
+						
+						//Add body click chi tiet
+						if(chitietclass[chitietclass.length-2] == "male"){
+							$('#chitiet-face').removeClass('chitiet-face-female').addClass('chitiet-face-male');
+							$('#chitiet-body').removeClass('chitiet-body-female').addClass('chitiet-body-male');
+						}else{
+							if(chitietclass[chitietclass.length-2] == "female"){
+								$('#chitiet-face').removeClass('chitiet-face-male').addClass('chitiet-face-female');
+								$('#chitiet-body').removeClass('chitiet-body-male').addClass('chitiet-body-female');
+							}
+						}
+						
+						$('#chitiet-face').attr('src',$('img', linkimage).attr('src'));
+						
+						$('.chitiet-content').html('<div class="logo-haytuoi"></div>'+$(this).parent().siblings('.views-field-body-1').html());
+						
+						$('.mask-view-chitiet').css('display','block');
+					});
+				}
+				
+				$('.video-mask-wrapper .close-button').click(function(e){
+					$('.mask-view').fadeOut();
+				});
+				
+				$('.close-chitiet').click(function(e){
+					$('.mask-view-chitiet').fadeOut();
+				});
+				
+				$('.chitiet-content .fb-share-button').click(function(e){
+					var hrefshare = $('.chitiet-content .fb-share-button').attr('data-href');
 					
 					FB.ui({
 						method: 'share',

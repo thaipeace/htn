@@ -16,6 +16,37 @@ function mobile_init() {
 }
 
 /*
+ * hook_menu()
+ */
+function mobile_menu() {
+  $items['story/thanks/%'] = array(
+    'page callback' => 'mobile_story_thanks',
+    'page arguments' => array(2),
+    'access callback' => TRUE,
+  );
+  return $items;
+}
+
+function mobile_story_thanks($name) {
+  global $base_url;
+  
+  $mess = str_replace('$name', $name,
+            '<div class="intro">
+<div class="title">Cảm ơn $name,<br/>đã gửi câu chuyện hài hước<br/>của mình về cho ban tổ chức</div>
+<div class="desc">Nội dung sẽ được duyệt trong 12h, sau đó câu chuyện sẽ được đăng lên Thư viện ảnh cuộc thi trên website của chương trình.</div>
+<div class="foot">Trà thảo mộc Dr Thanh, <br/>thanh lọc bên trong, tươi trẻ bên ngoài</div>
+</div>');
+  
+  $soc = '<div class="fb-share-button" 
+            data-href="' . $base_url . '" 
+            data-layout="button_count">Share
+          </div>'
+          . '<div class="links"><a href="' . $base_url . '">Trang chủ</a></div>';
+  
+  return $mess . $soc;
+}
+
+/*
  * Implement hook_form_after
  */
 function mobile_form_alter(&$form, &$form_state, $form_id) {
@@ -71,6 +102,11 @@ Mời bạn đăng nhập bằng Facebook <a href="' . $base_url . '/user/simple
         $form['#steps']['step_choose_gender']->children[] = 'login';
         $form['#step_children']['login'] = 'step_choose_gender';
       }
+    }
+    
+    if ($form_state['storage']['step'] === 'step_up_picture') {
+      drupal_add_js(drupal_get_path('module', 'imagefield_crop') . '/Jcrop/js/jquery.min.js',
+               array('weight' => 47));
     }
     
     if ($form_state['storage']['step'] === 'step_fill_name') {
@@ -214,6 +250,11 @@ Mời bạn đăng nhập bằng Facebook <a href="' . $base_url . '/user/simple
       
     }
     
+    if ($form_state['storage']['step'] === 'step_story_up_picture') {
+      drupal_add_js(drupal_get_path('module', 'imagefield_crop') . '/Jcrop/js/jquery.min.js',
+               array('weight' => 47));
+    }
+    
     if ($form_state['storage']['step'] == 'step_story_fill_case_1') {
           $htp = "<h4>Cách tham gia</h4>
 <div>Hãy sáng tạo những lợi ích khi bạn được thanh lọc bên trong, tươi trẻ bên ngoài và điền vào chỗ trống.</div>
@@ -277,35 +318,6 @@ Mời bạn đăng nhập bằng Facebook <a href="' . $base_url . '/user/simple
       ];
       $form['#steps']['step_story_summary']->children[] = 'situa';
       $form['#step_children']['situa'] = 'step_story_summary';
-    }
-    
-    if ($form_state['storage']['step'] == 'step_story_complete') {
-      $form['thanks'] = [
-        '#type' => 'markup',
-        '#markup' => str_replace('$name', $name,
-            '<div class="intro">
-<div class="title">Cảm ơn $name,<br/>đã gửi câu chuyện hài hước<br/>của mình về cho ban tổ chức</div>
-<div class="desc">Nội dung sẽ được duyệt trong 12h, sau đó câu chuyện sẽ được đăng lên Thư viện ảnh cuộc thi trên website của chương trình.</div>
-<div class="foot">Trà thảo mộc Dr Thanh, <br/>thanh lọc bên trong, tươi trẻ bên ngoài</div>
-</div>'),
-        '#weight' => 8
-      ];
-      
-      $form['links'] = [
-        '#type' => 'markup',
-        '#markup' => '<div class="fb-share-button" 
-                        data-href="' . $base_url . '" 
-                        data-layout="button_count">Share
-                      </div>'
-                      . '<div class="links"><a href="' . $base_url . '">Trang chủ</a></div>',
-        '#weight' => 9
-      ];
-      
-      $form['#steps']['step_story_complete']->children[] = 'thanks';
-      $form['#step_children']['thanks'] = 'step_story_complete';
-      
-      $form['#steps']['step_story_complete']->children[] = 'links';
-      $form['#step_children']['links'] = 'step_story_complete';
       
       $form['title']['#default_value'] = 'Story of ' . $form_state['values']['field_name']['und'][0]['value'] . '-' . time();
       $form['body']['und'][0]['#default_value'] = 
@@ -325,12 +337,17 @@ Mời bạn đăng nhập bằng Facebook <a href="' . $base_url . '/user/simple
                 data-layout="button_count">Share
               </div>
             </div>';
-      
     }
 
 //    dsm($form);
 //    dsm($form_state);
+    
+    $form['#submit'][] = 'mobile_story_thanks_submit';
   }
+}
+
+function mobile_story_thanks_submit($form, &$form_state) {
+  drupal_goto('story/thanks/' . $form_state['values']['field_name']['und'][0]['value']);
 }
 
 /*
@@ -342,8 +359,6 @@ function mobile_preprocess_page(&$vars) {
     drupal_add_css(drupal_get_path('module', 'mobile') . '/css/nghia.css');
     drupal_add_js(drupal_get_path('module', 'mobile') . '/js/mobile.js');
     drupal_add_css(drupal_get_path('module', 'mobile') . '/css/mobile.css');
-    drupal_add_js(drupal_get_path('module', 'mobile') . '/js/le.js');
-    drupal_add_css(drupal_get_path('module', 'mobile') . '/css/le.css');
     
     if (isset($vars['node']->type)) {
       $vars['theme_hook_suggestions'][] = 'page__' . $vars['node']->type;
@@ -376,14 +391,20 @@ function mobile_theme_registry_alter(&$theme_registry) {
  * Implements hook_theme().
  */
 function mobile_theme($existing, $type, $theme, $path) {
- $theme = array();
- $theme['node__gaming'] = array(
-   'render element' => 'content',
-   'base hook' => 'node',
-   'template' => 'node--gaming',
-   'path' => drupal_get_path('module', 'mobile') . '/templates',
+  $theme = array();
+  $theme['node__gaming'] = array(
+    'render element' => 'content',
+    'base hook' => 'node',
+    'template' => 'node--gaming',
+    'path' => drupal_get_path('module', 'mobile') . '/templates',
   );
- return $theme;
+  $theme['node__story'] = array(
+    'render element' => 'content',
+    'base hook' => 'node',
+    'template' => 'node--story',
+    'path' => drupal_get_path('module', 'mobile') . '/templates',
+  );
+  return $theme;
 }
 
 /**
@@ -415,6 +436,32 @@ function mobile_preprocess_html(&$vars) {
       'og:title' => 'HTN',
       'og:description' => 'Come and see my video',
       'og:image' => file_create_url('public://model') . '/' . $node->field_gender['und'][0]['value'] . '-' . $node->field_situation['und'][0]['value'] . '.png',
+    );
+
+    foreach ($fb_proes as $key => $fb_pro) {
+      // Setup Sharing Meta Tag
+      $fb_meta_sharing = array(
+        '#type' => 'html_tag',
+        '#tag' => 'meta',
+        '#attributes' => array(
+          'property' => $key,
+          'content' => $fb_pro,
+        )
+      );
+
+      // Add FB sharing Meta Tag to head
+      drupal_add_html_head($fb_meta_sharing, $key);
+    }
+  }
+  
+  if (isset($node) && $node->type == 'story') {
+    // Setup Sharing Meta Tag
+    $fb_proes = array(
+      'og:url' => current_path(),
+      'og:type' => 'website',
+      'og:title' => 'HTN',
+      'og:description' => 'Come and see my video',
+      'og:image' => file_create_url('public://model') . '/' . $node->field_gender['und'][0]['value'] . '.png',
     );
 
     foreach ($fb_proes as $key => $fb_pro) {
