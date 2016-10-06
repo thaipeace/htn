@@ -556,6 +556,8 @@
 				
 				$('.page-thu-vien .view-media-library .view-content .views-row .views-field-field-gaming-image .field-content').append('<div class="body-background"></div>');
 				
+				$('.page-thu-vien .views-field-body-1').siblings('.views-field-body').children().prepend('<div class="title-haytuoinhu">HÃY TƯƠI NHƯ</div>');
+				
 				//Get url page
 				var urlpagethuvien = window.location.href;
 				
@@ -649,7 +651,7 @@
 					});
 					
 					//Append button chitiet
-					$('.page-thu-vien .view-media-library .view-content .views-row-'+i+' .views-field-body').append('<a class="xemchitiet-'+i+'">Xem chi tiết</a>');
+					$('.page-thu-vien .view-media-library .view-content .views-row-'+i+' .views-field-body').append('<a class="xemchitiet-'+i+'">xem chi tiết ►</a>');
 				
 					//Click xem chi tiet
 					$('.xemchitiet-'+i).click(function(e){

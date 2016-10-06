@@ -2272,7 +2272,7 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	font-size: 15px;
 	text-transform: uppercase;
 	position:absolute;
-	bottom:-1px;
+	bottom:6px;
 	left:10px;
 }
 
@@ -2291,7 +2291,7 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 .page-thu-vien .view-media-library .view-content .views-row.male .views-field-body,.page-thu-vien .view-media-library .view-content .views-row.female .views-field-body {
 	padding-left: 12px;
 	padding-right: 12px;
-	text-align: justify;
+	text-align:left;
 }
 
 .page-thu-vien .view-media-library .view-content .views-row .views-field-body .story a {
@@ -2578,8 +2578,11 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 
 .page-thu-vien .view-media-library .view-content .views-row .views-field-body a {
 	position: absolute;
-	right: 5px;
-	bottom: 0px;
+	right: 13px;
+	bottom: 7px;
+	color: black;
+	font-style: italic;
+	font-size:12px;
 }
 
 .page-thu-vien .view-media-library .view-content .views-row.fresh .views-field-body a {
@@ -2623,6 +2626,7 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 
 .page-thu-vien .view-media-library .view-content .views-row .views-field-body .field-content .story {
 	line-height:17px;
+	font-size:12px;
 }
 
 .chitiet-content .story .name {
@@ -2698,4 +2702,9 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	width: 310px;
 	height: 130px;
 	margin: 0 auto !important;
+}
+
+.title-haytuoinhu {
+	font-weight:bold;
+	color:#f52216;
 }
