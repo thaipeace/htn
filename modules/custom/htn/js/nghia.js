@@ -57,6 +57,11 @@
 				},250,function(){
 					
 				});
+				$('.logged-in #block-block-3').animate({
+					top:'14px'
+				},250,function(){
+					
+				});
 				checkmenu = false;
 			}
 			
@@ -74,6 +79,11 @@
 				});
 				$('#block-block-3 .block-wrapper a').animate({
 					top:'-41px'
+				},250,function(){
+					
+				});
+				$('.logged-in #block-block-3').animate({
+					top:'-18px'
 				},250,function(){
 					
 				});
