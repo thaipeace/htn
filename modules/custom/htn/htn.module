@@ -16,6 +16,37 @@ function htn_init() {
 }
 
 /*
+ * hook_menu()
+ */
+function htn_menu() {
+  $items['story/thanks/%'] = array(
+    'page callback' => 'htn_story_thanks',
+    'page arguments' => array(2),
+    'access callback' => TRUE,
+  );
+  return $items;
+}
+
+function htn_story_thanks($name) {
+  global $base_url;
+  
+  $mess = str_replace('$name', $name,
+            '<div class="intro">
+<div class="title">Cảm ơn $name,<br/>đã gửi câu chuyện hài hước<br/>của mình về cho ban tổ chức</div>
+<div class="desc">Nội dung sẽ được duyệt trong 12h, sau đó câu chuyện sẽ được đăng lên Thư viện ảnh cuộc thi trên website của chương trình.</div>
+<div class="foot">Trà thảo mộc Dr Thanh, <br/>thanh lọc bên trong, tươi trẻ bên ngoài</div>
+</div>');
+  
+  $soc = '<div class="fb-share-button" 
+            data-href="' . $base_url . '" 
+            data-layout="button_count">Share
+          </div>'
+          . '<div class="links"><a href="' . $base_url . '">Trang chủ</a></div>';
+  
+  return $mess . $soc;
+}
+
+/*
  * Implement hook_form_after
  */
 function htn_form_alter(&$form, &$form_state, $form_id) {
@@ -307,42 +338,16 @@ Mời bạn đăng nhập bằng Facebook <a href="' . $base_url . '/user/simple
               </div>
             </div>';
     }
-    
-//    if ($form_state['storage']['step'] == 'step_story_complete') {
-//      $form['thanks'] = [
-//        '#type' => 'markup',
-//        '#markup' => str_replace('$name', $name,
-//            '<div class="intro">
-//<div class="title">Cảm ơn $name,<br/>đã gửi câu chuyện hài hước<br/>của mình về cho ban tổ chức</div>
-//<div class="desc">Nội dung sẽ được duyệt trong 12h, sau đó câu chuyện sẽ được đăng lên Thư viện ảnh cuộc thi trên website của chương trình.</div>
-//<div class="foot">Trà thảo mộc Dr Thanh, <br/>thanh lọc bên trong, tươi trẻ bên ngoài</div>
-//</div>'),
-//        '#weight' => 8
-//      ];
-//      
-//      $form['links'] = [
-//        '#type' => 'markup',
-//        '#markup' => '<div class="fb-share-button" 
-//                        data-href="' . $base_url . '" 
-//                        data-layout="button_count">Share
-//                      </div>'
-//                      . '<div class="links"><a href="' . $base_url . '">Trang chủ</a></div>',
-//        '#weight' => 9
-//      ];
-//      
-//      $form['#steps']['step_story_complete']->children[] = 'thanks';
-//      $form['#step_children']['thanks'] = 'step_story_complete';
-//      
-//      $form['#steps']['step_story_complete']->children[] = 'links';
-//      $form['#step_children']['links'] = 'step_story_complete';
-//      
-//      
-//      
-//    }
 
 //    dsm($form);
 //    dsm($form_state);
+    
+    $form['#submit'][] = 'htn_story_thanks_submit';
   }
+}
+
+function htn_story_thanks_submit($form, &$form_state) {
+  drupal_goto('story/thanks/' . $form_state['values']['field_name']['und'][0]['value']);
 }
 
 /*
