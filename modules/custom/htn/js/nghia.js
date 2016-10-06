@@ -271,9 +271,9 @@
 				
 				$(this).fadeOut(500);
 				
-				$('#img-bodyvideo').css('z-index','-1');
+				//$('#img-bodyvideo').css('z-index','-1');
 				
-				$('article.node-gaming .field-name-field-gaming-image .field-items .field-item img').css('z-index','-1');
+				//$('article.node-gaming .field-name-field-gaming-image .field-items .field-item img').css('z-index','-1');
 			});
 			
 			//Prepend button close
@@ -547,7 +547,6 @@
 			
 			//Get class lib media
 			var classmedia = $('.page-thu-vien').attr('class');
-			var linkvideo = '';
 			
 			if(classmedia){
 				//Append some item
@@ -555,25 +554,32 @@
 				
 				$('.page-thu-vien .view-media-library .view-content .views-row .views-field-field-gaming-image .field-content').append('<div class="body-background"></div>');
 				
-				$('.page-thu-vien .view-media-library .views-exposed-form .clearfix').prepend('<div class="tab-top"><input type="button" value="XEM VIDEO" class="seevideo"><input type="button" value="XEM CÂU CHUYỆN" class="seestory"></div>');
+				//Get url page
+				var urlpagethuvien = window.location.href;
 				
-				console.log(window.location.href);
+				var urlfirst = urlpagethuvien.split("&");
+				
+				var urlsecond = urlfirst[0].split("?");
+				
+				if(urlsecond[1] == "type=story"){
+					$('.page-thu-vien .view-media-library .views-exposed-form .clearfix').prepend('<div class="tab-top"><input type="button" value="XEM VIDEO" class="seevideo"><input type="button" value="XEM CÂU CHUYỆN" class="seestory active"></div>');
+				}else{
+					if(urlsecond[1] == "type=gaming"){
+						$('.page-thu-vien .view-media-library .views-exposed-form .clearfix').prepend('<div class="tab-top"><input type="button" value="XEM VIDEO" class="seevideo active"><input type="button" value="XEM CÂU CHUYỆN" class="seestory"></div>');
+					}else{
+						$('.page-thu-vien .view-media-library .views-exposed-form .clearfix').prepend('<div class="tab-top"><input type="button" value="XEM VIDEO" class="seevideo active"><input type="button" value="XEM CÂU CHUYỆN" class="seestory"></div>');
+					}
+				}
 				
 				//Click button tab-top
 				$('.seevideo').click(function(e){
 					$('#edit-type-wrapper #edit-type').val('gaming').change();
-					
-					//$('.seestory').removeClass('active');
-					//$('.seevideo').addClass('active');
 					
 					$('#edit-submit-media-library').trigger('click');
 				});
 				
 				$('.seestory').click(function(e){
 					$('#edit-type-wrapper #edit-type').val('story').change();
-					
-					//$('.seevideo').removeClass('active');
-					//$('.seestory').addClass('active');
 					
 					$('#edit-submit-media-library').trigger('click');
 				});
@@ -602,7 +608,7 @@
 					$('.page-thu-vien .view-media-library .view-content .views-row:nth-child('+i+').fresh').append('<div id="view-play" class="play-'+i+'"></div>');
 					
 					//Get link video
-					linkvideo = $('.page-thu-vien .view-media-library .view-content .views-row:nth-child('+i+').fresh .views-field-field-background-video .field-content').text();
+					
 					
 					if($('.page-thu-vien .view-media-library .view-content .views-row:nth-child('+i+').fresh .views-field-picture .field-content').children().size() == 0){
 						$('.page-thu-vien .view-media-library .view-content .views-row:nth-child('+i+').fresh .views-field-picture .field-content').html($('.page-thu-vien .view-media-library .view-content .views-row:nth-child('+i+') .views-field-field-name .field-content').text()[0]);
@@ -620,7 +626,13 @@
 					//Click button-play
 					$('.play-'+i).click(function(e){
 						//HTML video and link all of case
-						$('.page-views .view-media-library .mask-view .video-mask-wrapper .video-main').html('<video width="560" height="310" controls><source src="'+linkvideo+'"></video>');
+						//var getclassclick = $(this).attr('class');
+						
+						//console.log(getclassclick);
+						
+						var linkvideo = $(this).siblings('div:nth-child(3)').text();
+						
+						$('.page-thu-vien .view-media-library .mask-view .video-mask-wrapper .video-main').html('<video width="560" height="310" controls><source src="'+linkvideo+'"></video>');
 						
 						$('.mask-view').fadeIn();
 					});

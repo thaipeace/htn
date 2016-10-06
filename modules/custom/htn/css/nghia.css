@@ -2174,10 +2174,11 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	font-weight:bold;
 	margin-left: 10px;
   margin-top: 5px;
+	opacity:0.5;
 }
 
 .tab-top .active {
-	opacity:1;
+	opacity:1 !important;
 }
 
 .tab-top .seevideo:hover {
@@ -2196,6 +2197,7 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	font-size:18px;
 	font-weight:bold;
 	margin-left:10px;
+	opacity:0.5;
 }
 
 .tab-top .seestory:hover {
@@ -2468,4 +2470,30 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 .page-news .view-display-id-page ~ #block-views-news-block .pager-item a {
 	text-decoration:none;
 	color:white;
+}
+
+.node-type-news {
+	overflow:auto !important;
+	background:url(../images/background.png) no-repeat center center fixed;
+	background-size: cover;
+}
+
+.node-type-news #block-block-2 {
+	display:none;
+}
+
+.node-type-news article {
+	width: 900px;
+	margin: 0 auto;
+	background-color: white;
+	padding: 30px;
+	margin-bottom: 30px;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+	position: relative;
+	z-index: 1;
+	padding-right:200px;
+}
+
+.node-type-news article .field-name-body .field-item {
+	text-align:justify;
 }
