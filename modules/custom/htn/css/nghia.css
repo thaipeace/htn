@@ -1528,15 +1528,15 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	color:red;
 }
 
-.step-story-complete ~ #edit-body {
+.page-story-thanks #edit-body {
 	display:none;
 }
 
-.step-story-complete ~ .form-type-textfield {
+.page-story-thanks .form-type-textfield {
 	display:none;
 }
 
-.step-story-complete ~ #mask-complete {
+.page-story-thanks #mask-complete {
 	position: fixed;
 	z-index: 1;
 	left: 0;
@@ -1548,7 +1548,7 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	background-color: rgba(0,0,0,0.8);
 }
 
-.step-story-complete ~ .intro {
+.page-story-thanks .intro {
 	position: relative;
 	background-image: url(../images/centerstory.png);
 	background-repeat: no-repeat;
@@ -1561,7 +1561,7 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	border-radius:15px;
 	text-align:center;
 	padding-top:20px;
-	left: -150px;
+	left:-150px;
 	z-index:2;
 	animation-name: animatetopstorycomplete;
 	animation-duration: 2s;
@@ -1572,7 +1572,7 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	to {top:0px; opacity:1}
 }
 
-.step-story-complete ~ #popup-share {
+.page-story-thanks #popup-share {
 	position: relative;
 	background-image: url(../images/successshare.png);
 	background-repeat: no-repeat;
@@ -1592,7 +1592,7 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	display:none;
 }
 
-.step-story-complete ~ #popup-share .close-share {
+.page-story-thanks #popup-share .close-share {
 	position: absolute;
 	background-image: url(../images/buttonclose.png);
 	background-repeat: no-repeat;
@@ -1609,7 +1609,7 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	to {top:30px; opacity:1}
 }
 
-.step-story-complete ~ .intro .close-intro {
+.page-story-thanks .intro .close-intro {
 	position: absolute;
 	background-image: url(../images/buttonclose.png);
 	background-repeat: no-repeat;
@@ -1621,11 +1621,11 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	cursor: pointer;
 }
 
-.step-story-complete ~ .intro .foot {
+.page-story-thanks .intro .foot {
 	display:none;
 }
 
-.step-story-complete ~ .intro .desc {
+.page-story-thanks .intro .desc {
 	text-align: center;
 	width: 403px;
 	margin: 0 auto;
@@ -1633,30 +1633,28 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	margin-top: 4px;
 }
 
-.step-story-complete ~ .intro .title {
+.page-story-thanks .intro .title {
 	text-transform: uppercase;
 	font-size: 20px;
 	line-height: 24px;
 	margin-top: -10px;
 }
 
-.step-story-complete ~ .intro .title .name {
+.page-story-thanks .intro .title .name {
 	color:red;
 }
 
-.step-story-complete {
+.page-story-thanks .layout-center {
 	background:url(../images/centercompletestory.png) no-repeat center 0 fixed;
 	background-size: 1155px;
 	position: fixed;
-	z-index: -1;
 	left: 0;
 	top: 0;
 	width: 100%;
 	height: 100%;
-	overflow: auto;
 }
 
-.step-story-complete ~ .fb-share-button {
+.page-story-thanks .fb-share-button {
 	background-image: url(../images/buttonsharefb.png);
 	background-repeat: no-repeat;
 	background-size: 145px 38px;
@@ -1671,7 +1669,7 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	bottom:0;
 }
 
-.step-story-complete ~ .links {
+.page-story-thanks .links {
 	background-image: url(../images/buttonhome.png);
 	background-repeat: no-repeat;
 	background-size: 145px 38px;
@@ -1686,11 +1684,11 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	text-indent:-9999px;
 }
 
-.step-story-complete ~ .links a {
+.page-story-thanks .links a {
 	font-size:0px;
 }
 
-.step-story-complete ~ #edit-actions #edit-submit {
+.page-story-thanks #edit-actions #edit-submit {
 	display:none;
 }
 
@@ -2691,3 +2689,13 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	z-index: 1;
 }
 
+.page-story-thanks {
+	background:url(../images/background.png) no-repeat center center fixed;
+	background-size: cover;
+}
+
+.page-story-thanks .layout-swap {
+	width: 310px;
+	height: 130px;
+	margin: 0 auto !important;
+}

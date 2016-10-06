@@ -413,23 +413,23 @@
 			}
 			
 			//Get class case complete
-			var classstepstoryfillcasecmplete = $('.step-story-complete').attr('class');
+			var classstepstoryfillcasecmplete = $('.page-story-thanks').attr('class');
 			
 			if(classstepstoryfillcasecmplete){
-				$('.step-story-complete ~ .intro').before($('<div id="mask-complete"></div>'));
+				$('.page-story-thanks .intro').before($('<div id="mask-complete"></div>'));
 				
-				$('.step-story-complete ~ .intro').prepend('<div class="close-intro"></div>');
+				$('.page-story-thanks #mask-complete ~ .intro').prepend('<div class="close-intro"></div>');
 				
 				//Click close button popup
-				$('.step-story-complete ~ .intro .close-intro').click(function(e){
-					$('.step-story-complete ~ .intro').fadeOut();
-					$('.step-story-complete ~ #mask-complete').fadeOut();
+				$('.page-story-thanks .intro .close-intro').click(function(e){
+					$('.page-story-thanks .intro').fadeOut();
+					$('.page-story-thanks #mask-complete').fadeOut();
 				});
 				
 				//Append
-				$('.step-story-complete ~ #mask-complete ~ .intro').before($('<div id="popup-share"></div>'));
+				$('.page-story-thanks #mask-complete ~ .intro').before($('<div id="popup-share"></div>'));
 				
-				$('.step-story-complete ~ #popup-share').append('<div class="close-share"></div>');
+				$('.page-story-thanks #mask-complete ~ #popup-share').append('<div class="close-share"></div>');
 				
 				//Click button share
 				$('.fb-share-button').click(function(e){
@@ -440,9 +440,9 @@
 						href: hrefshare,
 					}, function(response){
 						if (response && !response.error_code) {
-							$('.step-story-complete ~ #mask-complete').fadeIn(100);
+							$('.page-story-thanks #mask-complete').fadeIn(100);
 							
-							$('.step-story-complete ~ #popup-share').css('display','block');
+							$('.page-story-thanks #popup-share').css('display','block');
 							
             } else {
               
@@ -451,24 +451,16 @@
 				});
 				
 				//Click close button popup
-				$('.step-story-complete ~ #popup-share .close-share').click(function(e){
-					$('.step-story-complete ~ #mask-complete').fadeOut();
-					$('.step-story-complete ~ #popup-share').fadeOut();
+				$('.page-story-thanks #popup-share .close-share').click(function(e){
+					$('.page-story-thanks #mask-complete').fadeOut();
+					$('.page-story-thanks #popup-share').fadeOut();
 				});
 				
 				//Click button home
-				$('.step-story-complete ~ .links').click(function(e){
-					//var hrefhome = $('.step-story-complete ~ .links a').attr('href');
+				$('.page-story-thanks .links').click(function(e){
+					var hrefhome = $('.page-story-thanks .links a').attr('href');
 					
-					$('.step-story-complete ~ #edit-actions #edit-submit').trigger('click');
-				});
-				
-				//Css
-				$('.step-story-complete').parent().css({
-					'margin':'0 auto',
-					'width':'305px',
-					'position':'relative',
-					'height':'130px'
+					location = hrefhome;
 				});
 			}
 			
@@ -667,14 +659,12 @@
 						
 						//Add body click chi tiet
 						if(chitietclass[chitietclass.length-2] == "male"){
-							$('#chitiet-body').addClass('chitiet-body-male');
-							
 							$('#chitiet-face').removeClass('chitiet-face-female').addClass('chitiet-face-male');
+							$('#chitiet-body').removeClass('chitiet-body-female').addClass('chitiet-body-male');
 						}else{
 							if(chitietclass[chitietclass.length-2] == "female"){
-								$('#chitiet-body').addClass('chitiet-body-female');
-								
 								$('#chitiet-face').removeClass('chitiet-face-male').addClass('chitiet-face-female');
+								$('#chitiet-body').removeClass('chitiet-body-male').addClass('chitiet-body-female');
 							}
 						}
 						
