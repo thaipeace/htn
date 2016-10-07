@@ -338,16 +338,12 @@ Mời bạn đăng nhập bằng Facebook <a href="' . $base_url . '/user/simple
               </div>
             </div>';
     }
-
-//    dsm($form);
-//    dsm($form_state);
-    
-    $form['#submit'][] = 'htn_story_thanks_submit';
+    $form['actions']['submit']['#submit'][] = 'htn_story_thanks_submit';
   }
 }
 
 function htn_story_thanks_submit($form, &$form_state) {
-  drupal_goto('story/thanks/' . $form_state['values']['field_name']['und'][0]['value']);
+  $form_state['redirect'] = 'story/thanks/' . $form_state['values']['field_name']['und'][0]['value'];
 }
 
 /*
