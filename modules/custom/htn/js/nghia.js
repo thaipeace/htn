@@ -271,7 +271,7 @@
 			//Append video
 			var srcvideo = $('article.node-gaming .field-name-field-background-video .field-items .field-item').text();
 			
-			$('article.node-gaming .field-name-field-background-video .field-items .field-item').html('<video id="video-complete" width="100%" height="100%" ><source src="'+srcvideo+'" type="video/mp4"></video>');
+			$('article.node-gaming .field-name-field-background-video .field-items .field-item').html('<video id="video-complete" width="100%" height="100%"><source src="'+srcvideo+'" type="video/mp4"></video>');
 			
 			$('article.node-gaming .field-name-field-gaming-image .field-items .field-item').append('<div id="button-playvideo"></div>');
 			
@@ -280,10 +280,11 @@
 				$('#video-complete').get(0).play();
 				
 				$(this).fadeOut(500);
-				
-				//$('#img-bodyvideo').css('z-index','-1');
-				
-				//$('article.node-gaming .field-name-field-gaming-image .field-items .field-item img').css('z-index','-1');
+			});
+			
+			//Replay
+			$('#video-complete').bind('ended',function(){
+				$('#button-playvideo').fadeIn(100);
 			});
 			
 			//Prepend button close
@@ -417,6 +418,8 @@
 				$('.step-story-summary ~ #edit-actions').before($('<div id="wrapper-center-summary"></div>'));
 				
 				$('.step-story-summary ~ .story').appendTo('#wrapper-center-summary');
+				
+				$('.step-story-summary ~ #edit-actions #edit-submit').attr('value','GỬI CÂU CHUYỆN');
 			}
 			
 			//Get class case complete
