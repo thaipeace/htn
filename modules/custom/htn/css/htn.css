@@ -71,6 +71,10 @@ main.layout-3col__full {
   left: 60px;
 }
 
+.page-trang-ca-nhan .header__logo {
+  left: 165px;
+}
+
 .region-bottom {
   color: #ffffff;
   text-align: center;
@@ -91,6 +95,41 @@ main.layout-3col__full {
   float: left;
   background: #FFF;
   height: 100%;
+  display: table;
+}
+
+.view-id-game_summary .view-header .inner {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.view-id-game_summary .view-header .user-image img {
+  border: 2px solid #000000; 
+  border-radius: 10px;
+}
+
+.view-id-game_summary .view-header .user-name {
+  text-transform: uppercase;
+  font-weight: bold;
+  margin: 0 0 20px 0;
+}
+
+.view-id-game_summary .view-header .user-btn a {
+  display: block;
+  margin: 10px auto;
+  color: yellow;
+  background-image: url(../images/buttonplay.png);
+  background-repeat: no-repeat;
+  background-size: 185px 50px;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: bold;
+  width: 185px;
+  border-radius: 10px;
 }
 
 .view-id-game_summary .view-content {
@@ -105,10 +144,10 @@ main.layout-3col__full {
 }
 
 .view-id-game_summary .views-row {
-  float: left;
+  display: inline-block;
   width: 266px;
   height: 146px;
-  margin: 0 15px 0 0;
+  margin: 0 43px 0 0;
   border-radius: 10px;
   box-shadow: 1px 1px 1px #000000;
   padding: 15px;
@@ -116,6 +155,46 @@ main.layout-3col__full {
 
 .view-id-game_summary .views-row-first {
   margin: 0 15px 0 50px;
+}
+
+.view-id-game_summary .view-content .view-grouping {
+  overflow: hidden;
+  position: relative;
+}
+
+.view-id-game_summary .view-content .view-grouping .row.right {
+  background: url('../images/row-right.png') center center no-repeat;
+  width: 12px;
+  height: 25px;
+  right: 10px;
+}
+
+.view-id-game_summary .view-content .view-grouping .row.left {
+  background: url('../images/row-left.png') center center no-repeat;
+  width: 12px;
+  height: 25px;
+  left: 10px;
+  display: none;
+}
+
+.view-id-game_summary .view-content .view-grouping .row {
+  position: absolute;
+  top: 160px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.view-id-game_summary .view-content .view-grouping-content {
+  width: 9999px;
+  position: relative;
+}
+
+.view-id-game_summary .view-content .view-grouping .view-grouping-header {
+  display: none;
+}
+
+.view-id-game_summary .views-row .views-field-field-background-video {
+  display: none;
 }
 
 .page-trang-ca-nhan .layout-swap {
