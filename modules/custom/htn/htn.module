@@ -300,7 +300,7 @@ Mời bạn đăng nhập bằng Facebook <a href="' . $base_url . '/user/simple
       
       $form['slogan'] = [
         '#type' => 'markup',
-        '#markup' => str_replace('$name', $name, '<div class="slogan">Hãy để mình được <span class="getc"></span><br/>Hãy tươi như $name</div>'),
+        '#markup' => str_replace('$name', $name, '<div class="slogan">Hãy để mình được <span id="c"></span><br/>Hãy tươi như $name</div>'),
         '#weight' => 11
       ];
       $form['#steps']['step_story_fill_case_3']->children[] = 'slogan';
