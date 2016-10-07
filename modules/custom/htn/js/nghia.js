@@ -600,7 +600,7 @@
 				});
 				
 				//Append mask 
-				$('.page-thu-vien .view-media-library').append('<div class="mask-view"><div class="video-mask-wrapper"><div class="close-button"></div><div class="video-main"></div></div>');
+				$('.page-thu-vien .view-media-library').append('<div class="mask-view"><div class="video-mask-wrapper"><div class="close-button"></div><div class="video-main"></div><div id="body-video"></div><img id="face-video" src="" ></div>');
 				
 				var maskviewchitiet = '<div class="mask-view-chitiet">'
 																+'<div class="chitiet-wrapper">'
@@ -634,7 +634,7 @@
 						  'font-size': '25px',
 							'font-weight': 'bold',
 							'text-align': 'center',
-							'margin-top': '13px',
+							'margin-top': '11px',
 							'text-transform':'uppercase',
 							'color':rand
 						});
@@ -642,16 +642,36 @@
 					
 					//Click button-play
 					$('.play-'+i).click(function(e){
+						//Get gender to set image body
+						var genderclick = $(this).parent().attr("class").split(" ");
+						
+						if(genderclick[genderclick.length-2] == "male"){
+							$('#body-video').removeClass().addClass('body-male-video');
+							
+							$('#face-video').removeClass().addClass('face-male-video');
+						}else{
+							if(genderclick[genderclick.length-2] == "female"){
+								$('#body-video').removeClass().addClass('body-female-video');
+								
+								$('#face-video').removeClass().addClass('face-female-video');
+							}
+						}
+						
+						//Get gender to set image face
+						var genderfaceclick = $(this).siblings('.views-field-field-gaming-image').children();
+						
+						$('#face-video').attr('src',$('img',genderfaceclick).attr('src'));
+						
 						//HTML video and link all of case
 						var linkvideo = $(this).siblings('div:nth-child(3)').text();
 						
-						$('.page-thu-vien .view-media-library .mask-view .video-mask-wrapper .video-main').html('<video width="560" height="310" controls><source src="'+linkvideo+'"></video>');
+						$('.page-thu-vien .view-media-library .mask-view .video-mask-wrapper .video-main').html('<video width="660" height="370" controls><source src="'+linkvideo+'"></video>');
 						
 						$('.mask-view').fadeIn();
 					});
 					
 					//Append button chitiet
-					$('.page-thu-vien .view-media-library .view-content .views-row-'+i+' .views-field-body').append('<a class="xemchitiet-'+i+'">xem chi tiết ►</a>');
+					$('.page-thu-vien .view-media-library .view-content .views-row-'+i+' .views-field-body').append('<a id="chitiet-click" class="xemchitiet-'+i+'">xem chi tiết ►</a>');
 				
 					//Click xem chi tiet
 					$('.xemchitiet-'+i).click(function(e){

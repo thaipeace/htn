@@ -37,7 +37,11 @@ html{
 	overflow: auto;
 }
 
-.page-node-add-gaming .layout-center .layout-3col .layout-3col__full .female .step-fill-name,.page-node-add-gaming .layout-center .layout-3col .layout-3col__full .male .step-fill-name,.page-node-add-gaming .layout-center .layout-3col .layout-3col__full .male .step-up-picture,.page-node-add-gaming .layout-center .layout-3col .layout-3col__full .female .step-up-picture,.page-node-add-story .female .step-story-up-picture,.page-node-add-story .male .step-story-up-picture {
+.page-node-add-gaming .layout-center .layout-3col .layout-3col__full .female .step-fill-name,
+.page-node-add-gaming .layout-center .layout-3col .layout-3col__full .male .step-fill-name,
+.page-node-add-gaming .layout-center .layout-3col .layout-3col__full .male .step-up-picture,
+.page-node-add-gaming .layout-center .layout-3col .layout-3col__full .female .step-up-picture,
+.page-node-add-story .female .step-story-up-picture,.page-node-add-story .male .step-story-up-picture {
 	background:url(../images/centeravatar.png) no-repeat center 0 fixed;
 	background-size: 1155px;
 	position: fixed;
@@ -1871,6 +1875,18 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	font-size: 16px;
 }
 
+.step-complete ~ #edit-actions #button-back {
+	display:none;
+}
+
+.female .step-select-situation ~ .situa .fresh {
+	margin-top:175px;
+}
+
+.female .step-select-situation ~ .situa .hot {
+	margin-top:390px;
+}
+
 /*Custom scrollbar*/
 .step-story-fill-case-1 ~ #story-main #story-main-left::-webkit-scrollbar {
 	width: 12px;
@@ -1983,7 +1999,8 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
-.page-thu-vien .view-media-library .view-content .views-row.male.fresh:hover,.page-thu-vien .view-media-library .view-content .views-row.female.fresh:hover {
+.page-thu-vien .view-media-library .view-content .views-row.male.fresh:hover,
+.page-thu-vien .view-media-library .view-content .views-row.female.fresh:hover {
 	background-color:#ffd204;
 	cursor:pointer;
 	-webkit-box-shadow:inset 1px 1px 10px 1px #0C0D0A;
@@ -1993,14 +2010,29 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	transform: scale(1.05);
 }
 
-.page-thu-vien .view-media-library .view-content .views-row.male:hover,.page-thu-vien .view-media-library .view-content .views-row.female:hover {
+.page-thu-vien .view-media-library .view-content .views-row.male:hover,
+.page-thu-vien .view-media-library .view-content .views-row.female:hover {
 	background-color:rgba(229, 0, 0, 0.79);
 	cursor:pointer;
 	-webkit-box-shadow:inset 1px 1px 10px 1px #0C0D0A;
 	box-shadow:inset 1px 1px 10px 1px #0C0D0A;
+	transition: all 0.5s linear;
+	-webkit-transition: all 0.5s linear;
+	transform: scale(1.05);
 }
 
-.page-thu-vien .view-media-library .view-content .views-row.male:hover .views-field-field-name,.page-thu-vien .view-media-library .view-content .views-row.female:hover .views-field-field-name {
+.page-thu-vien .view-media-library .view-content .views-row.male:hover #chitiet-click,
+.page-thu-vien .view-media-library .view-content .views-row.female:hover #chitiet-click {
+	color:white;
+}
+
+.page-thu-vien .view-media-library .view-content .views-row.male:hover .title-haytuoinhu,
+.page-thu-vien .view-media-library .view-content .views-row.female:hover .title-haytuoinhu {
+	color:yellow !important;
+}
+
+.page-thu-vien .view-media-library .view-content .views-row.male:hover .views-field-field-name,
+.page-thu-vien .view-media-library .view-content .views-row.female:hover .views-field-field-name {
 	color:white;
 }
 
@@ -2049,8 +2081,8 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 }
 
 .page-thu-vien .view-media-library .view-content .views-row.male.fresh .views-field-picture,.page-thu-vien .view-media-library .view-content .views-row.female.fresh .views-field-picture {
-	width: 50px;
-	height: 50px;
+	width: 45px;
+	height: 45px;
 	background-color: white;
 	border-radius: 30px;
 	float:left;
@@ -2131,9 +2163,9 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 .page-thu-vien .view-media-library .view-content .views-row.male.fresh #view-play,.page-thu-vien .view-media-library .view-content .views-row.female.fresh #view-play {
 	background-image: url(../images/buttonplayvideo.png);
 	background-repeat: no-repeat;
-	background-size: 50px 50px;
-	width: 50px;
-  height: 50px;
+	background-size: 45px 45px;
+	width: 45px;
+  height: 45px;
 	position:absolute;
 	right:15px;
 	cursor:pointer;
@@ -2341,11 +2373,11 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	position: relative;
 	background-color: #fefefe;
 	margin: auto;
-	top: 170px;
+	top: 100px;
 	padding: 0;
 	border: 3px solid lightgray;
-	width: 600px;
-	height: 350px;
+	width: 700px;
+	height: 415px;
 	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
 	border-radius: 15px;
 	text-align: center;
@@ -2383,7 +2415,10 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	color: white;
 }
 
-.page-thu-vien .view-media-library .pager-next,.page-thu-vien .view-media-library .pager-last,.page-thu-vien .view-media-library .pager-previous,.page-thu-vien .view-media-library .pager-first {
+.page-thu-vien .view-media-library .pager-next,
+.page-thu-vien .view-media-library .pager-last,
+.page-thu-vien .view-media-library .pager-previous,
+.page-thu-vien .view-media-library .pager-first {
 	display:none;
 }
 
@@ -2405,6 +2440,13 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	width: 510px;
 	height: 300px;
 	margin-right:35px;
+}
+
+.page-news .view-display-id-page .views-row-first .views-field-body .field-content p a {
+	text-decoration:none;
+	text-transform:uppercase;
+	color:black;
+	font-size:15px;
 }
 
 .page-news .view-display-id-page .views-row-first .views-field-field-image img {
@@ -2468,7 +2510,10 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	font-weight:bold;
 }
 
-.page-news .view-display-id-page ~ #block-views-news-block .pager-next,.page-news .view-display-id-page ~ #block-views-news-block .pager-last,.page-news .view-display-id-page ~ #block-views-news-block .pager-previous,.page-news .view-display-id-page ~ #block-views-news-block .pager-first {
+.page-news .view-display-id-page ~ #block-views-news-block .pager-next,
+.page-news .view-display-id-page ~ #block-views-news-block .pager-last,
+.page-news .view-display-id-page ~ #block-views-news-block .pager-previous,
+.page-news .view-display-id-page ~ #block-views-news-block .pager-first {
 	display:none;
 }
 
@@ -2707,4 +2752,48 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 .title-haytuoinhu {
 	font-weight:bold;
 	color:#f52216;
+}
+
+.body-female-video {
+	background-image: url(../images/female.png);
+	background-repeat: no-repeat;
+	background-size: 170px 350px;
+	width: 170px;
+	height: 350px;
+	position:absolute;
+	z-index:2;
+	top: 39px;
+	left: 43px;
+}
+
+.body-male-video {
+	background-image: url(../images/male.png);
+	background-repeat: no-repeat;
+	background-size: 170px 350px;
+	width: 170px;
+	height: 350px;
+	position:absolute;
+	z-index:2;
+	top: 36px;
+	left: 43px;
+}
+
+.face-male-video {
+	border-radius: 0 0 49px 47px;
+	width: 69px;
+	height: 74px;
+	position: absolute;
+	z-index: 1;
+	left: 85px;
+	top: 80px;
+}
+
+.face-female-video {
+	border-radius: 0 0 49px 47px;
+	width: 69px;
+	height: 86px;
+	position: absolute;
+	z-index: 1;
+	left: 85px;
+	top: 71px;
 }
