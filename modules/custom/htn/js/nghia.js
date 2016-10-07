@@ -433,21 +433,12 @@
 				
 				//Click button share
 				$('.fb-share-button').click(function(e){
-					var hrefshare = $('.fb-share-button').attr('data-href');
+					//var hrefshare = $('.fb-share-button').attr('data-href');
 					
-					FB.ui({
-						method: 'share',
-						href: hrefshare,
-					}, function(response){
-						if (response && !response.error_code) {
-							$('.page-story-thanks #mask-complete').fadeIn(100);
+					$('.page-story-thanks #mask-complete').fadeIn(100);
 							
-							$('.page-story-thanks #popup-share').css('display','block');
-							
-            } else {
-              
-            }
-					});
+					$('.page-story-thanks #popup-share').css('display','block');
+					
 				});
 				
 				//Click close button popup
@@ -486,11 +477,6 @@
 				//Click button share
 				$('.fb-share-button').click(function(e){
 					var hrefshare = $('.fb-share-button').attr('data-href');
-					
-					FB.ui({
-						method: 'share',
-						href: hrefshare,
-					}, function(response){});
 				});
 			}
 			
@@ -516,11 +502,6 @@
 				//Click button share
 				$('.fb-share-button').click(function(e){
 					var hrefshare = $('.fb-share-button').attr('data-href');
-					
-					FB.ui({
-						method: 'share',
-						href: hrefshare,
-					}, function(response){});
 				});
 			}
 			
@@ -708,12 +689,113 @@
 				
 				$('.chitiet-content .fb-share-button').click(function(e){
 					var hrefshare = $('.chitiet-content .fb-share-button').attr('data-href');
-					
-					FB.ui({
-						method: 'share',
-						href: hrefshare,
-					}, function(response){});
 				});
+			}
+			
+			//Get class page profile
+			var classpagecanhan = $('.page-trang-ca-nhan').attr('class');
+				
+			if(classpagecanhan){
+				$('.view-id-game_summary div:first-of-type.view-grouping .views-row .views-field-field-gaming-image .field-content').append('<div id="body-profile-game"></div>');
+				
+				$('.view-id-game_summary div:nth-child(2).view-grouping .views-row .views-field-field-gaming-image .field-content').append('<div class="body-background"></div>');
+			
+				$('.view-id-game_summary .views-field-body-1').siblings('.views-field-body').children().prepend('<div class="title-haytuoinhu">HÃY TƯƠI NHƯ</div>');
+			
+				//Append mask 
+				$('.page-trang-ca-nhan .view-game-summary').append('<div class="mask-view"><div class="video-mask-wrapper"><div class="close-button"></div><div class="video-main"></div><div id="body-video"></div><img id="face-video" src="" ></div>');
+				
+				var maskviewchitiet = '<div class="mask-view-chitiet">'
+																+'<div class="chitiet-wrapper">'
+																	+'<div class="close-chitiet"></div>'
+																	+'<div class="chitiet-content">'
+																	+'</div>'
+																	+'<div id="chitiet-body"></div>'
+																	+'<img id="chitiet-face" src="" width="100" height="115" >'
+																+'</div>'
+															+'</div>';
+				
+				$('.page-trang-ca-nhan .view-game-summary').append(maskviewchitiet);
+				
+				//Count child
+				var countchild = $('.view-id-game_summary div:first-of-type.view-grouping .view-grouping-content').children().length;
+			
+				for(var i = 1;i<=countchild-1;i++){
+					$('.view-id-game_summary div:first-of-type.view-grouping .views-row-'+i).append('<div id="view-game" class="view-game-'+i+'"></div>');
+				
+					//Click button-play
+					$('.view-game-'+i).click(function(e){
+						//Get gender to set image body
+						var genderprofilegame = $(this).parent().attr('class').split(" ");
+					
+						if(genderprofilegame[genderprofilegame.length-2] == "male"){
+							$('#body-video').removeClass().addClass('body-male-video');
+							
+							$('#face-video').removeClass().addClass('face-male-video');
+						}else{
+							if(genderprofilegame[genderprofilegame.length-2] == "female"){
+								$('#body-video').removeClass().addClass('body-female-video');
+								
+								$('#face-video').removeClass().addClass('face-female-video');
+							}
+						}
+						
+						//Get gender to set image face
+						var genderfaceclick = $(this).siblings('.views-field-field-gaming-image').children();
+						
+						$('#face-video').attr('src',$('img',genderfaceclick).attr('src'));
+						
+						//HTML video and link all of case
+						var linkvideo = $(this).siblings('div:nth-child(2)').text();
+						
+						$('.mask-view .video-mask-wrapper .video-main').html('<video width="660" height="370" controls><source src="'+linkvideo+'"></video>');
+						
+						$('.mask-view').fadeIn();
+						
+					});
+					
+					
+				}
+				
+				var countchildstory = $('.view-id-game_summary div:nth-child(2).view-grouping .view-grouping-content').children().length;
+				
+				for(var i = 1;i<=countchildstory-1;i++){
+					//Append button chitiet
+					$('.view-id-game_summary .views-row-'+i+' .views-field-body').append('<a id="chitiet-click" class="xemchitiet-'+i+'">xem chi tiết ►</a>');
+					
+					//Click xem chi tiet
+					$('.xemchitiet-'+i).click(function(e){
+						var chitietclass = $(this).parents('.views-row').attr('class').split(" ");
+						
+						var linkimage = $(this).parent().siblings('.views-field-field-gaming-image').children();
+						
+						//Add body click chi tiet
+						if(chitietclass[chitietclass.length-2] == "male"){
+							$('#chitiet-face').removeClass('chitiet-face-female').addClass('chitiet-face-male');
+							$('#chitiet-body').removeClass('chitiet-body-female').addClass('chitiet-body-male');
+						}else{
+							if(chitietclass[chitietclass.length-2] == "female"){
+								$('#chitiet-face').removeClass('chitiet-face-male').addClass('chitiet-face-female');
+								$('#chitiet-body').removeClass('chitiet-body-male').addClass('chitiet-body-female');
+							}
+						}
+						
+						$('#chitiet-face').attr('src',$('img', linkimage).attr('src'));
+						
+						$('.chitiet-content').html('<div class="logo-haytuoi"></div>'+$(this).parent().siblings('.views-field-body-1').html());
+						
+						$('.mask-view-chitiet').css('display','block');
+					});
+				}
+				
+				$('.video-mask-wrapper .close-button').click(function(e){
+					$('.mask-view').fadeOut();
+				});
+				
+				$('.close-chitiet').click(function(e){
+					$('.mask-view-chitiet').fadeOut();
+				});
+				
 			}
 		}
   };  

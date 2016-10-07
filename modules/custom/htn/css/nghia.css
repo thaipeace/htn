@@ -84,6 +84,7 @@ html{
 	height:46px;
 	position:relative;
 	top:-97px;
+	z-index:1;
 }
 
 #block-block-1 ul {
@@ -199,7 +200,7 @@ html{
 
 .field-name-field-material {
 	position: fixed;
-	z-index: 1;
+	z-index: 2;
 	left: 0;
 	top: 0;
 	width: 100%;
@@ -1121,7 +1122,7 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 
 #mask-choose-gender {
 	position: fixed;
-	z-index: 1;
+	z-index: 2;
 	left: 0;
 	top: 0;
 	width: 100%;
@@ -1133,7 +1134,7 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 
 #mask-case-1 {
 	position: fixed;
-	z-index: 1;
+	z-index: 2;
 	left: 0;
 	top: 0;
 	width: 100%;
@@ -1542,7 +1543,7 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 
 .page-story-thanks #mask-complete {
 	position: fixed;
-	z-index: 1;
+	z-index: 2;
 	left: 0;
 	top: 0;
 	width: 100%;
@@ -1582,7 +1583,7 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	background-repeat: no-repeat;
 	background-size:600px 400px;
 	margin: auto;
-	top:30px;
+	top:0px;
 	padding: 0;
 	width: 600px;
 	height:400px;
@@ -1610,7 +1611,7 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 
 @keyframes animatetopstoryshare {
 	from {top:-300px; opacity:0}
-	to {top:30px; opacity:1}
+	to {top:0px; opacity:1}
 }
 
 .page-story-thanks .intro .close-intro {
@@ -1818,9 +1819,9 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 .node-story .fb-share-button {
 	background-image: url(../images/buttonshare.png);
 	background-repeat: no-repeat;
-	background-size: 125px 40px;
-	width: 125px;
-	height: 40px;
+	background-size: 100px 30px;
+	width: 100px;
+	height: 30px;
 	border: none;
 	background-color: transparent;
 	text-indent:9999px;
@@ -1829,11 +1830,11 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 }
 
 .node-story .fb-like {
-	background-image: url(../images/buttonshare.png);
+	background-image: url(../images/buttonlike.png);
 	background-repeat: no-repeat;
-	background-size: 125px 40px;
-	width: 125px;
-	height: 40px;
+	background-size: 100px 30px;
+	width: 100px;
+	height: 30px;
 	border: none;
 	background-color: transparent;
 	text-indent:9999px;
@@ -2693,11 +2694,11 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 }
 
 .chitiet-content .fb .fb-like {
-	background-image: url(../images/buttonshare.png);
+	background-image: url(../images/buttonlike.png);
 	background-repeat: no-repeat;
-	background-size: 125px 40px;
-	width: 125px;
-	height: 40px;
+	background-size: 100px 30px;
+	width: 100px;
+	height: 30px;
 	border: none;
 	background-color: transparent;
 	text-indent: 9999px;
@@ -2708,9 +2709,9 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 .chitiet-content .fb .fb-share-button {
 	background-image: url(../images/buttonshare.png);
 	background-repeat: no-repeat;
-	background-size: 125px 40px;
-	width: 125px;
-	height: 40px;
+	background-size: 100px 30px;
+	width: 100px;
+	height: 30px;
 	border: none;
 	background-color: transparent;
 	text-indent: 9999px;
@@ -2796,4 +2797,162 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	z-index: 1;
 	left: 85px;
 	top: 71px;
+}
+
+.view-game-summary .view-header {
+	margin-left:-36px;
+	position: relative;
+  z-index: 0;
+}
+
+.view-id-game_summary div:first-of-type.view-grouping .views-row {
+	background-image: url(../images/profile.png);
+	background-repeat: no-repeat;
+	background-size: 266px 146px;
+	position:relative;
+}
+
+.view-id-game_summary div:first-of-type.view-grouping .views-row.male #body-profile-game {
+	background-image: url(../images/male.png);
+	background-repeat: no-repeat;
+	background-size: 70px 125px;
+	width: 70px;
+	height: 125px;
+	position: absolute;
+	z-index: 1;
+	top: 15px;
+}
+
+.view-id-game_summary div:first-of-type.view-grouping .views-row.male .views-field-field-gaming-image img {
+	border-radius: 0 0 49px 47px;
+	width: 29px;
+	height: 29px;
+	position: absolute;
+	z-index: 1;
+	left: 32px;
+	top: 28px;
+}
+
+.view-id-game_summary div:first-of-type.view-grouping .views-row.female .views-field-field-gaming-image img {
+	border-radius: 0 0 49px 47px;
+	width: 29px;
+	height: 30px;
+	position: absolute;
+	z-index: 1;
+	left: 30px;
+	top: 27px;
+}
+
+.view-id-game_summary div:first-of-type.view-grouping #view-game {
+	background-image: url(../images/buttonplayvideo.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: 34px;
+	height: 34px;
+	position: absolute;
+	right: 42%;
+	top: 35%;
+	cursor: pointer;
+}
+
+.view-id-game_summary div:first-of-type.view-grouping .views-row.female #body-profile-game {
+	background-image: url(../images/female.png);
+	background-repeat: no-repeat;
+	background-size: 65px 125px;
+	width: 65px;
+	height: 125px;
+	position: absolute;
+	z-index: 1;
+	top: 15px;
+}
+
+.view-id-game_summary .view-grouping .view-grouping-content h3 {
+	color:white;
+}
+
+.view-id-game_summary div:nth-child(2).view-grouping .views-row {
+	background-image: url(../images/profilestory.png);
+	background-repeat: no-repeat;
+	background-size: 266px 90px;
+	position:relative;
+	background-color:#f1efef;
+}
+
+.view-id-game_summary .views-row {
+	margin-right:15px !important;
+}
+
+.view-id-game_summary div:nth-child(2).view-grouping .views-row.male .views-field-field-gaming-image img{
+	border-radius: 0 0 49px 47px;
+	width: 29px;
+	height: 32px;
+	position: absolute;
+	z-index: 1;
+	left: 39px;
+	top: 31px;
+}
+
+.view-id-game_summary div:nth-child(2).view-grouping .views-row.female .views-field-field-gaming-image img{
+	border-radius: 0 0 49px 47px;
+	width: 29px;
+	height: 34px;
+	position: absolute;
+	z-index: 1;
+	left: 40px;
+	top: 29px;
+}
+
+.view-id-game_summary .view-content .views-row .views-field-body-1 {
+	display:none;
+}
+
+.view-id-game_summary div:nth-child(2).view-grouping .views-row.male .views-field-field-gaming-image .body-background {
+	background-image: url(../images/male.png);
+	background-repeat: no-repeat;
+	background-size: 70px 150px;
+	background-position-y: 5px;
+	background-position-x: -6px;
+	width: 170px;
+	height: 84px;
+	position: absolute;
+	z-index: 1;
+	top: 7px;
+	left: 28px;
+}
+
+.view-id-game_summary div:nth-child(2).view-grouping .views-row.female .views-field-field-gaming-image .body-background {
+	background-image: url(../images/female.png);
+	background-repeat: no-repeat;
+	background-size: 70px 150px;
+	background-position-y: 5px;
+	background-position-x: -6px;
+	width: 170px;
+	height: 84px;
+	position: absolute;
+	z-index: 1;
+	top: 7px;
+	left: 28px;
+}
+
+.view-id-game_summary .view-content .views-row .views-field-body .field-content .story {
+	line-height: 17px;
+  font-size: 12px;
+}
+
+.view-id-game_summary .view-content .views-row .views-field-body {
+	margin-top:75px;
+}
+
+.view-id-game_summary .view-content .views-row .views-field-body a {
+	position: absolute;
+	right: 10px;
+	bottom: 1px;
+	color: black;
+	font-style: italic;
+	font-size: 11px;
+	cursor:pointer;
+}
+
+.header__logo {
+	z-index:2 !important;
 }
