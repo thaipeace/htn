@@ -401,6 +401,13 @@
 				
 				//AppendTo slogan
 				$('.step-story-fill-case-3 ~ .slogan').appendTo('#field-case3-selected-add-more-wrapper');
+				
+				$('.step-story-fill-case-3 ~ #edit-field-case3-selected input').keyup(function(){
+						var textinput = $(this).val();
+						
+						$('.step-story-fill-case-3 ~ #edit-field-case3-selected #field-case3-selected-add-more-wrapper .slogan #c').text(textinput);
+				});
+				
 			}
 			
 			//Get class case summary
