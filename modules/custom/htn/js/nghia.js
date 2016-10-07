@@ -109,7 +109,7 @@
 			$('.female div:nth-child(1) #edit-field-gaming-image div:nth-child(1) .form-item').append('<div id="img-head"></div>');
 			
 			//Upload image
-			$('#edit-field-gaming-image-und-0-upload').change(function() {
+			$('#edit-field-gaming-image-und-0-upload').change(function(event) {
 					//Upload image
 					event.preventDefault();
 					$(this).next('input[type="submit"]').mousedown();
