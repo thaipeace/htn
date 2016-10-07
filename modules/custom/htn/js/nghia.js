@@ -706,6 +706,9 @@
 			var classpagecanhan = $('.page-trang-ca-nhan').attr('class');
 				
 			if(classpagecanhan){
+				$('.view-id-game_summary div:first-of-type.view-grouping .view-grouping-content h3').text('VIDEO ĐÃ CHƠI');
+				$('.view-id-game_summary div:nth-child(2).view-grouping .view-grouping-content h3').text('CÂU CHUYỆN ĐÃ GỬI');
+				
 				$('.view-id-game_summary div:first-of-type.view-grouping .views-row .views-field-field-gaming-image .field-content').append('<div id="body-profile-game"></div>');
 				
 				$('.view-id-game_summary div:nth-child(2).view-grouping .views-row .views-field-field-gaming-image .field-content').append('<div class="body-background"></div>');

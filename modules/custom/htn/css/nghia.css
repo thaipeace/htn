@@ -497,7 +497,7 @@ html{
 	position: absolute;
 	top: 34px;
 	left: 47px;
-	width: auto;
+	width: 75px;
 	height: 91px;
 	border-radius: 0 0 110px 110px;
 	z-index: -1;
@@ -1002,6 +1002,7 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	margin-right: 60px;
   margin-top: 35px;
 	text-indent:-9999px;
+	cursor:pointer;
 }
 
 #video-complete {
@@ -2862,6 +2863,10 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	position: absolute;
 	z-index: 1;
 	top: 15px;
+}
+
+.view-id-game_summary .view-content .view-grouping .row.left {
+	z-index:2;
 }
 
 .view-id-game_summary .view-grouping .view-grouping-content h3 {
