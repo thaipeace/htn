@@ -121,27 +121,24 @@ Mời bạn đăng nhập bằng Facebook <a href="' . $base_url . '/user/simple
     
     
     if (isset($form_state['storage']) && in_array($form_state['storage']['step'], $alter_steps)) {
-      //dsm($data);
       // Build class 1st
-      if ($state == 'fresh') {
-        $class_1st = [];
-        foreach($data['fresh'] as $key => $value) {
-          $class_1st[$key] = str_replace('$name', $name, $value['title']);
-        }
-        $form['field_case1'] = [
-          '#type' => 'radios',
-          '#title' => t('Case 1'),
-          '#options' => $class_1st,
-          '#description' => t(''),
-          '#access' => TRUE,
-          '#default_value' => $form_state['values']['field_case1_selected']['und'][0]['value'],
-          '#prefix' => str_replace('$name', $name, '<div class="intro"><div class="hello">Xin chào $name </div>'
-            . '<div class="desc">Khi $name được thanh lọc bên trong, $name sẽ tươi trẻ bên ngoài.'
-            . '<br/>Khi $name tươi trẻ bên ngoài, $name sẽ:</div></div>')
-        ];
-        $form['#steps']['step_select_case_1']->children[] = 'field_case1';
-        $form['#step_children']['field_case1'] = 'step_select_case_1';
+      $class_1st = [];
+      foreach($data[$state] as $key => $value) {
+        $class_1st[$key] = str_replace('$name', $name, $value['title']);
       }
+      $form['field_case1'] = [
+        '#type' => 'radios',
+        '#title' => t('Case 1'),
+        '#options' => $class_1st,
+        '#description' => t(''),
+        '#access' => TRUE,
+        '#default_value' => $form_state['values']['field_case1_selected']['und'][0]['value'],
+        '#prefix' => str_replace('$name', $name, '<div class="intro"><div class="hello">Xin chào $name </div>'
+          . '<div class="desc">Khi $name được thanh lọc bên trong, $name sẽ tươi trẻ bên ngoài.'
+          . '<br/>Khi $name tươi trẻ bên ngoài, $name sẽ:</div></div>')
+      ];
+      $form['#steps']['step_select_case_1']->children[] = 'field_case1';
+      $form['#step_children']['field_case1'] = 'step_select_case_1';
       
       // Build class 2nd
       if (!empty($form_state['values']['field_case1_selected']['und'][0]['value'])) {
