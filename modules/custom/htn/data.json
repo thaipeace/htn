@@ -1,6 +1,6 @@
 {
-	"fresh": {
-		"a": {
+  "fresh": {
+    "a": {
       "title": "$name sẽ được đóng quảng cáo xuất hiện trên tivi",
       "sub": {
         "aa": {
@@ -8,15 +8,15 @@
           "sub": {
             "aaa": {
               "title": "$name sẽ được ăn mỳ cay miễn phí",
-              "video": "samplevideo_1280x720_1mb.mp4"
+              "video": "Mycay_B1_160929.mov"
             },
             "aab": {
               "title": "Món mỳ cay đặc biệt sẽ được đặt tên là mỳ $name cay",
-              "video": ""
+              "video": "Mycay_B2_160929.mov"
             },
             "aac": {
               "title": "$name sẽ được công ty mỳ mời làm đại sứ thương hiệu",
-              "video": ""
+              "video": "Mycay_B3_160929.mov"
             }
           }
         },
@@ -25,15 +25,15 @@
           "sub": {
             "aba": {
               "title": "$name sẽ được mai mối, $name hết ế",
-              "video": ""
+              "video": "HangXom_B1_160929.mov"
             },
             "abb": {
               "title": "$name sẽ được đề cử đi thi siêu mẫu quốc tế",
-              "video": ""
+              "video": "HangXom_B2_160929.mov"
             },
             "abc": {
               "title": "Tranh chân dung $name sẽ là mặt hàng bán chạy nhất khu phố",
-              "video": ""
+              "video": "HangXom_B3_160929.mov"
             }
           }
         },
@@ -42,7 +42,7 @@
           "sub": {
             "aca": {
               "title": "Các họa sĩ sẽ lấy $name làm chân dung hội họa kiểu mẫu",
-              "video": ""
+              "video": "ChanDung_B1_160930.mp4"
             },
             "acb": {
               "title": "Chân dung $name sẽ được in trong sách mỹ thuật",
@@ -55,8 +55,8 @@
           }
         }
       }
-		},
-		"b": {
+    },
+    "b": {
       "title": "$name sẽ được đóng phim bom tấn đình đám",
       "sub": {
         "ba": {
@@ -111,7 +111,7 @@
           }
         }
       }
-		},
+    },
     "c": {
       "title": "Facebook $name có hàng tỷ người theo dõi",
       "sub": {
@@ -167,7 +167,175 @@
           }
         }
       }
-		}
-	},
-	"hot": {}
+    }
+  },
+  "hot": {    
+    "a": {
+      "title": "$name sẽ lên mạng tìm giải pháp",
+      "sub": {
+        "aa": {
+          "title": "$name vô tình mua về một chiếc tivi cũ giá hời",
+          "sub": {
+            "aaa": {
+              "title": "$name làm cả nhà bị mất điện",
+              "video": "Mycay_B1_160929.mov"
+            },
+            "aab": {
+              "title": "$name tức điên đá vào tivi và bị đau chân",
+              "video": "Mycay_B2_160929.mov"
+            },
+            "aac": {
+              "title": "$name sẽ bị người yêu mắng vì mang rác về nhà",
+              "video": "Mycay_B3_160929.mov"
+            }
+          }
+        },
+        "ab": {
+          "title": "$name sẽ vô tình đọc phải truyện ma",
+          "sub": {
+            "aba": {
+              "title": "$name khóc lóc um sùm giữa đêm khuya thanh vắng",
+              "video": "HangXom_B1_160929.mov"
+            },
+            "abb": {
+              "title": "$name sẽ hoảng sợ xô đổ máy tính",
+              "video": "HangXom_B2_160929.mov"
+            },
+            "abc": {
+              "title": "$name sẽ bị ám ảnh và mất ngủ suốt cả tuần",
+              "video": "HangXom_B3_160929.mov"
+            }
+          }
+        },
+        "ac": {
+          "title": "$name sẽ bị hacker để ý",
+          "sub": {
+            "aca": {
+              "title": "$name sẽ bị mất tài khoản chơi game yêu thích",
+              "video": "ChanDung_B1_160930.mp4"
+            },
+            "acb": {
+              "title": "$name sẽ phải nhận hàng trăm email quảng cáo mỗi ngày",
+              "video": ""
+            },
+            "acc": {
+              "title": "$name sẽ bị người lạ mặt tỏ tình",
+              "video": ""
+            }
+          }
+        }
+      }
+    },
+    "b": {
+      "title": "$name sẽ  bị mất ngủ và tỉnh dậy lúc 3 giờ sáng",
+      "sub": {
+        "ba": {
+          "title": "$name lọ mọ đi tìm nước uống giữa đêm khuya",
+          "sub": {
+            "baa": {
+              "title": "$name đạp phải đuôi chó cưng nên bị nó cắn",
+              "video": ""
+            },
+            "bab": {
+              "title": "$name thấy thứ không nên thấy nên ngất xỉu",
+              "video": ""
+            },
+            "bac": {
+              "title": "Người nhà sẽ tưởng nhầm $name là ăn trộm và cầm chổi rượt $name khắp xóm",
+              "video": ""
+            }
+          }
+        },
+        "bb": {
+          "title": "$name ra sông để hóng gió",
+          "sub": {
+            "bba": {
+              "title": "$name mất ngủ cả đêm khiến mặt bi ̣nổi đầy mụn",
+              "video": ""
+            },
+            "bbb": {
+              "title": "Hàng xóm nghi ngờ $name làm chuyện mờ ám",
+              "video": ""
+            },
+            "bbc": {
+              "title": "$name bị trúng gió và sốt li bì 1 tuần",
+              "video": ""
+            }
+          }
+        },
+        "bc": {
+          "title": "$name sẽ thường xuyên mất tập trung vào buổi sáng",
+          "sub": {
+            "bca": {
+              "title": "$name bị bồ bỏ vì đầu óc lúc nhớ lúc quên",
+              "video": ""
+            },
+            "bcb": {
+              "title": "$name bắt nhầm xe buýt nên bị lạc đến tận biên giới",
+              "video": ""
+            },
+            "bcc": {
+              "title": "người nhà tưởng $name bị trầm cảm và bắt $name đi bác sĩ tâm lý",
+              "video": ""
+            }
+          }
+        }
+      }
+    },
+    "c": {
+      "title": "$name sẽ gắt gỏng với những người xung quanh",
+      "sub": {
+        "ca": {
+          "title": "Mọi người khuyên $name đi tắm biển",
+          "sub": {
+            "caa": {
+              "title": "$name bị sóng đánh trôi và mất đồ bơi giữa biển",
+              "video": ""
+            },
+            "cab": {
+              "title": "$name bị sứa cắn ngứa ngáy khắp người",
+              "video": ""
+            },
+            "cac": {
+              "title": "$name bị trái dừa rớt trúng đầu khi nằm hóng gió",
+              "video": ""
+            }
+          }
+        },
+        "cb": {
+          "title": "$name lái thuyền ra biển dạo chơi cho mát",
+          "sub": {
+            "cba": {
+              "title": "$name sẽ bị bão cuốn kẹt trên một đảo hoang",
+              "video": ""
+            },
+            "cbb": {
+              "title": "Thuyền của $name bị chết máy giữa biển và phải tự chèo thuyền về bờ",
+              "video": ""
+            },
+            "cbc": {
+              "title": "$name bị cá mập vây quanh thuyền",
+              "video": ""
+            }
+          }
+        },
+        "cc": {
+          "title": "$name lên núi tìm thảo dược trị nóng",
+          "sub": {
+            "cca": {
+              "title": "$name vấp phải bẫy thú nên bị treo ngược lên cây",
+              "video": ""
+            },
+            "ccb": {
+              "title": "$name bị heo rừng rượt chạy tóe khói",
+              "video": ""
+            },
+            "ccc": {
+              "title": "$name sẽ bị người rừng bắt",
+              "video": ""
+            }
+          }
+        }
+      }
+    }}
 }
