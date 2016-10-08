@@ -65,6 +65,48 @@
     right: 32vw;
   }
 }
+@media only screen
+  and (min-device-width: 768px)
+  and (max-device-width: 1024px)
+  and (-webkit-min-device-pixel-ratio: 1)
+  and (orientation: portrait) {
+    .home-bnt{
+      max-width: 100px;
+    }
+    #play-now a, #story-now a{
+      font-size: 9px;
+      max-width: 100px;
+    }
+    #play-now{
+      top: 68vh;
+      left: 32vw;
+    }
+    #story-now{
+      top: 68vh;
+      right: 32vw;
+    }
+}
+@media only screen
+  and (min-device-width: 768px)
+  and (max-device-width: 1024px)
+  and (-webkit-min-device-pixel-ratio: 1)
+  and (orientation: landscape) {
+    .home-bnt{
+      max-width: 100px;
+    }
+    #play-now a, #story-now a{
+      font-size: 9px;
+      max-width: 100px;
+    }
+    #play-now{
+      top: 80vh;
+      left: 32vw;
+    }
+    #story-now{
+      top: 80vh;
+      right: 32vw;
+    }
+}
 .wrap-img-arrowheader{
   display: none;
 }
@@ -114,6 +156,14 @@
   .hamburger-btn{
     left: 10vw;
   }
+}
+@media only screen
+  and (min-device-width: 768px)
+  and (max-device-width: 1024px)
+  and (-webkit-min-device-pixel-ratio: 1) {
+    .hamburger-btn{
+      left: 10vw;
+    }
 }
 .hamburger-btn img{
   width: 35px;

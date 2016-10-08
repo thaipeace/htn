@@ -531,8 +531,9 @@
         }
       })
       var screenHeight = $( window ).height();
-      // if(screenHeight <=)
-      $('article.node.node-1 .field-name-field-material .field-items .field-item video').attr('height', screenHeight*0.87);
+      if(screenHeight <= 375){
+        $('article.node.node-1 .field-name-field-material .field-items .field-item video').attr('height', screenHeight*0.87);
+      }
 		}
   };
 })(jQuery, Drupal, this, this.document);
