@@ -14,8 +14,8 @@
 }
 @media (max-height: 414px) {
   .node-type-page .layout-center {
-    background:url(../images/homeslogan.png) no-repeat center bottom fixed;
-    background-size: cover;
+    background:url(../images/homeslogan.png) no-repeat center top fixed;
+    background-size: contain;
   }
 }
 
@@ -48,7 +48,104 @@
   top: 58vh;
   right: 10vw;
 }
+@media (max-height: 414px) {
+  .home-bnt{
+    max-width: 100px;
+  }
+  #play-now a, #story-now a{
+    font-size: 9px;
+    max-width: 100px;
+  }
+  #play-now{
+    top: 85vh;
+    left: 32vw;
+  }
+  #story-now{
+    top: 85vh;
+    right: 32vw;
+  }
+}
 .wrap-img-arrowheader{
+  display: none;
+}
+#block-block-1{
+  position: relative;
+  z-index: 2;
+  opacity: 0.9;
+}
+#block-block-1 .block-wrapper{
+  top: 0;
+  height: 100vh;
+  left: -90vw;
+  transition: .5s;
+}
+#block-block-1 .block-wrapper.active{
+  top: 0;
+  height: 100vh;
+  transition: .5s;
+  left: 0;
+}
+#block-block-1 .block-wrapper{
+  width: 90vw;
+  height: 100vh;
+}
+#block-block-1 ul{
+  width: 90vw;
+  height: 100vh;
+  padding-left: 11vw;
+  padding-top: 15vh;
+}
+#block-block-1 ul li{
+  float: none;
+  margin-bottom: 15px;
+}
+#block-block-1 ul li a {
+  font-size: 12px;
+  margin-left: 0;
+  padding-left: 0;
+  text-align: left;
+}
+.hamburger-btn{
+  position: absolute;
+  top: 2vh;
+  left: 15vw;
+}
+@media (max-height: 414px) {
+  .hamburger-btn{
+    left: 10vw;
+  }
+}
+.hamburger-btn img{
+  width: 35px;
+}
+.drthanh-logo{
+  position: absolute;
+  top: 2vh;
+  left: 3vw;
+  z-index: 1;
+}
+.drthanh-logo img{
+  width: 35px;
+}
+article.node.node-1 .field-name-field-material{
+  z-index: 3;
+}
+article.node.node-1 .field-name-field-material .field-items .field-item{
+  width: 100vw;
+  max-width: 500px;
+  max-height: 96vh;
+  top: calc((100vh - 350px)/2);
+}
+@media (max-height: 320px) {
+  article.node.node-1 .field-name-field-material .field-items .field-item{
+    top: 2vh;
+  }
+}
+article.node.node-1 .field-name-field-material .field-items .field-item video{
+  width: 94vw;
+  max-width: 460px;
+}
+#block-block-2 .block-wrapper{
   display: none;
 }
 /* Homepage */

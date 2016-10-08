@@ -1,4 +1,4 @@
-/* 
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -13,23 +13,21 @@
   Drupal.behaviors.nghia = {
     attach: function (context, settings) {
       // Code here
-			//Check status login
-			var classnamebody = $('body').attr('class');
-			
+
 			//boolean menuba
 			var checkmenu = true;
-			
+
 			//Set video
 			$('.front .field-name-field-material .field-items .field-item').html('<video width="560" height="310" controls><source src="http://localhost/htn/sites/default/files/samplevideo_1280x720_1mb.mp4" type="video/mp4"></video>');
-			
+
 			//Click window to close video
 			$(window).click(function(e) {
 				$('.front .field-name-field-material').fadeOut();
 			});
-			
+
 			//Append image arrow to header
 			$('#block-block-1').append('<div class="wrap-img-arrowheader"><div class="img-arrowheader"></div></div>');
-			
+
 			//Click arrow
 			$('.img-arrowheader').click(function(e){
 				//Check status menu
@@ -39,116 +37,106 @@
 					closemenu();
 				}
 			});
-			
+
 			//Open menu
 			function openmenu(){
 				$('#block-block-1 .block-wrapper').animate({
 					top:'-51px'
 				},250,function(){
-					
+
 				});
 				$('.wrap-img-arrowheader').animate({
 					top:'46px'
 				},250,function(){
-					
+
 				});
 				$('#block-block-3 .block-wrapper a').animate({
 					top:'3px'
 				},250,function(){
-					
-				});
-				$('.logged-in #block-block-3').animate({
-					top:'14px'
-				},250,function(){
-					
+
 				});
 				checkmenu = false;
 			}
-			
+
 			//Close menu
 			function closemenu(){
 				$('#block-block-1 .block-wrapper').animate({
 					top:'-97px'
 				},250,function(){
-					
+
 				});
 				$('.wrap-img-arrowheader').animate({
 					top:0
 				},250,function(){
-					
+
 				});
 				$('#block-block-3 .block-wrapper a').animate({
 					top:'-41px'
 				},250,function(){
-					
-				});
-				$('.logged-in #block-block-3').animate({
-					top:'-18px'
-				},250,function(){
-					
+
 				});
 				checkmenu = true;
 			}
-			
-			//$('#block-block-3 .block-wrapper a').text('');
-			
+
+			$('#block-block-3 .block-wrapper a').text('');
+
 			//Append mask of radio
 			$('.page-node-add-gaming #edit-field-gender-und .form-item:nth-child(1)').append('<label for="edit-field-gender-und-female" id="check-radio"></label>');
 			$('.page-node-add-gaming #edit-field-gender-und .form-item:nth-child(2)').append('<label for="edit-field-gender-und-male" id="check-radio"></label>');
-		
+
 			//Append button back
 			$('.page-node-add-gaming #edit-actions').append('<input id="button-back" type="button" >');
-			
-			//Back 
+
+			//Back
 			$('#button-back').click(function(e){
 				window.history.back();
 			});
-			
-			//Append image head 
+
+			//Append image head
 			$('.male div:nth-child(1) #edit-field-gaming-image div:nth-child(1) .form-item').append('<div id="img-head"></div>');
 			$('.female div:nth-child(1) #edit-field-gaming-image div:nth-child(1) .form-item').append('<div id="img-head"></div>');
-			
+
 			//Upload image
 			$('#edit-field-gaming-image-und-0-upload').change(function() {
 					//Upload image
 					event.preventDefault();
 					$(this).next('input[type="submit"]').mousedown();
-					
+
 					//Hide button add
 					$(this).css('display','none');
-				
+
 					//Show button next
 					$('.page-node-add-gaming .node-form .step-up-picture ~ #edit-actions #edit-next').css('display','inline-block');
-			
+
 					//Set style when upload
 					$('.page-node-add-gaming .node-form .step-up-picture ~ #edit-actions').css('margin-top','286px','important');
-					
+
 			});
-			
+
 			//Append button
 			$('.step-select-situation ~ .situa .fresh').append('<input type="button" id="fresh-play" name="play" value="CHƠI NGAY">');
 			$('.step-select-situation ~ .situa .hot').append('<input type="button" id="hot-play" name="play" value="CHƠI NGAY">');
-		
+
 			//Click button play
 			$('#fresh-play').click(function(e){
 				//Select item option
 				$('#edit-field-situation-und').val('fresh').change();
 				//alert($('#edit-field-situation-und option:selected').text());
-				
+
 				//Auto next when click
 				$('#edit-next').click();
 			});
-			
+
 			$('#hot-play').click(function(e){
 				$('#edit-field-situation-und').val('hot').change();
-				
+
 				//Auto next when click
 				$('#edit-next').click();
 			});
-			
+
 			//Mask auto fadeout
 			$('.step-select-situation ~ #edit-field-situation').fadeOut(3000);
-			
+
 			//Hide another item
 			$('.step-select-case-1 ~ .form-item-field-case1 label:nth-child(1)').css('display','none');
 			$('.step-select-case-1 ~ #edit-field-case1-selected').css('display','none');
@@ -159,13 +147,13 @@
 			$('.step-complete ~ .form-type-textfield').css('display','none');
 			$('.step-complete ~ #edit-field-background-video').css('display','none');
 			$('.step-complete ~ #edit-actions #edit-submit').attr('value','');
-		
+
 			//Append mask radio question
 			$('.step-select-case-1 ~ .form-item-field-case1 #edit-field-case1 .form-item').append('<label class="mask-select" id="question-radio"></label>');
 			$('#edit-field-case1-a ~ .mask-select').attr('for','edit-field-case1-a');
 			$('#edit-field-case1-b ~ .mask-select').attr('for','edit-field-case1-b');
 			$('#edit-field-case1-c ~ .mask-select').attr('for','edit-field-case1-c');
-			
+
 			$('.step-select-case-2 ~ .form-item-field-case2 #edit-field-case2 .form-item').append('<label class="mask-select" id="question-radio"></label>');
 			$('#edit-field-case2-aa ~ .mask-select').attr('for','edit-field-case2-aa');
 			$('#edit-field-case2-ab ~ .mask-select').attr('for','edit-field-case2-ab');
@@ -176,7 +164,7 @@
 			$('#edit-field-case2-ca ~ .mask-select').attr('for','edit-field-case2-ca');
 			$('#edit-field-case2-cb ~ .mask-select').attr('for','edit-field-case2-cb');
 			$('#edit-field-case2-cc ~ .mask-select').attr('for','edit-field-case2-cc');
-			
+
 			$('.step-select-case-3 ~ .form-item-field-case3 #edit-field-case3 .form-item').append('<label class="mask-select" id="question-radio"></label>');
 			$('#edit-field-case3-aaa ~ .mask-select').attr('for','edit-field-case3-aaa');
 			$('#edit-field-case3-aab ~ .mask-select').attr('for','edit-field-case3-aab');
@@ -205,8 +193,8 @@
 			$('#edit-field-case3-cca ~ .mask-select').attr('for','edit-field-case3-cca');
 			$('#edit-field-case3-ccb ~ .mask-select').attr('for','edit-field-case3-ccb');
 			$('#edit-field-case3-ccc ~ .mask-select').attr('for','edit-field-case3-ccc');
-			
-			//Css 
+
+			//Css
 			$('.female #edit-field-case3-aca').parents('#edit-field-case3').css('margin-top','26px');
 			$('.female #edit-field-case3-baa').parents('#edit-field-case3').css('margin-top','26px');
 			$('.female #edit-field-case3-bca').parents('#edit-field-case3').css('margin-top','0px');
@@ -239,16 +227,16 @@
 			$('.male #edit-field-case3-cca').parent().css('top','38px');
 			$('.male #edit-field-case3-ccb').parent().css('top','30px');
 			$('.male #edit-field-case3-ccc').parent().css('top','3px');
-			
-			
+
+
 			//Case of video
 			var nameclass = $('article.node-gaming').attr('class');
-			
+
 			if(nameclass){
 				var arraynameclass = [];
-			
+
 				arraynameclass = nameclass.split(" ");
-				
+
 				if(arraynameclass[2] == "male" && arraynameclass[3] == "fresh"){
 					$('article.node-gaming .field-name-field-gaming-image .field-items .field-item').append('<div class="male-fresh-img" id="img-bodyvideo"></div>');
 				}else{
@@ -265,436 +253,286 @@
 					}
 				}
 			}
-			
+
 			$('.fconnect a').text('');
-			
+
 			//Append video
 			var srcvideo = $('article.node-gaming .field-name-field-background-video .field-items .field-item').text();
-			
+
 			$('article.node-gaming .field-name-field-background-video .field-items .field-item').html('<video id="video-complete" width="100%" height="100%" ><source src="'+srcvideo+'" type="video/mp4"></video>');
-			
+
 			$('article.node-gaming .field-name-field-gaming-image .field-items .field-item').append('<div id="button-playvideo"></div>');
-			
+
 			//Click button play video
 			$('#button-playvideo').click(function(e){
 				$('#video-complete').get(0).play();
-				
+
 				$(this).fadeOut(500);
-				
-				//$('#img-bodyvideo').css('z-index','-1');
-				
-				//$('article.node-gaming .field-name-field-gaming-image .field-items .field-item img').css('z-index','-1');
+
+				$('#img-bodyvideo').css('z-index','-1');
+
+				$('article.node-gaming .field-name-field-gaming-image .field-items .field-item img').css('z-index','-1');
 			});
-			
+
 			//Prepend button close
 			$('.step-story-choose-gender ~ .intro').prepend('<div class="close-intro"></div>');
-			
+
 			$('.step-story-choose-gender ~ .login a').text('');
-			
+
 			//Click button close
 			$('.close-intro').click(function(e) {
-				$('.step-story-choose-gender ~ .intro').fadeOut();
-				
-				if(classnamebody.split(" ")[2] == "logged-in"){
-					$('.step-story-choose-gender ~ #mask-choose-gender').fadeOut();
-				}else{
-					$('.step-story-choose-gender ~.login').css('display','block');
-				}
+				$('.step-story-choose-gender ~.intro').fadeOut();
+
+				$('.step-story-choose-gender ~.login').css('display','block');
 			});
-			
-			//Append mask radio 
+
+			//Append mask radio
 			$('.page-node-add-story #edit-field-gender-und .form-item:nth-child(1)').append('<label for="edit-field-gender-und-female" id="check-radio"></label>');
 			$('.page-node-add-story #edit-field-gender-und .form-item:nth-child(2)').append('<label for="edit-field-gender-und-male" id="check-radio"></label>');
-			
+
 			//Prepend button close
 			$('.step-story-choose-gender ~ .login').prepend('<div class="close-login"></div>');
-		
+
 			//Click button close
 			$('.close-login').click(function(e) {
 				$('#mask-choose-gender').fadeOut();
 				$('.step-story-choose-gender ~.login').fadeOut();
 			});
-			
+
 			//Append tag br
 			$('.step-story-choose-gender ~ .login .close-login ~ a').before($('<br />'));
-			
+
 			//Get class
 			var classstepstorychoosegender = $('.step-story-choose-gender').attr('class');
-			
+
 			if(classstepstorychoosegender){
 				$('.step-story-choose-gender ~ #edit-field-gender').before($('<div id="mask-choose-gender"></div>'));
 			}
-			
+
 			$('.page-node-add-story #field-name-add-more-wrapper').append('<input id="button-back-fill-name" type="button" >');
-			
-			//Back 
+
+			//Back
 			$('#button-back-fill-name').click(function(e){
 				window.history.back();
 			});
-		
+
 			//Get class case 1
 			var classstepstoryfillcase1 = $('.step-story-fill-case-1').attr('class');
-			
+
 			if(classstepstoryfillcase1){
 				//Append
 				$('.step-story-fill-case-1 ~ #edit-field-case1-selected').before($('<div id="mask-case-1"></div>'));
 				$('.step-story-fill-case-1 ~ #edit-field-case1-selected ~ #edit-actions').before($('<div id="story-main"></div>'));
-				
+
 				$('#story-main').append('<div id="story-main-left"></div>');
-				
+
 				$('.page-node-add-story .step-story-fill-case-1 ~ h4:first-of-type').appendTo('#story-main-left');
 				$('.page-node-add-story .step-story-fill-case-1 ~ div:nth-of-type(4)').appendTo('#story-main-left');
 				$('.page-node-add-story .step-story-fill-case-1 ~ h4:last-of-type').appendTo('#story-main-left');
 				$('.page-node-add-story .step-story-fill-case-1 ~ div:nth-of-type(4)').appendTo('#story-main-left');
 				$('.page-node-add-story .step-story-fill-case-1 ~ div:nth-of-type(4)').appendTo('#story-main-left');
-				
+
 				$('#story-main').prepend('<div class="close-storymain"></div>');
 				$('#edit-field-case1-selected').prepend('<div class="number-question"></div>');
 				$('#edit-field-case1-selected .number-question').html('1/3');
-				
+
 				$('#story-main').append('<div id="story-main-right"></div>');
-				
+
 				//Click button close
 				$('.close-storymain').click(function(e) {
 					$('#story-main').fadeOut();
 					$('#mask-case-1').fadeOut();
 				});
-				
+
 				$('.page-node-add-story #field-case1-selected-add-more-wrapper').append('<input id="button-back" type="button" >');
-				
-				//Back 
+
+				//Back
 				$('#button-back').click(function(e){
 					window.history.back();
 				});
 			}
-			
+
 			//Get class case 2
 			var classstepstoryfillcase2 = $('.step-story-fill-case-2').attr('class');
-			
+
 			if(classstepstoryfillcase2){
 				//Append
 				$('#edit-field-case2-selected').prepend('<div class="number-question"></div>');
 				$('#edit-field-case2-selected .number-question').html('2/3');
-				
+
 				$('.page-node-add-story #field-case2-selected-add-more-wrapper').append('<input id="button-back" type="button" >');
-				
-				//Back 
+
+				//Back
 				$('#button-back').click(function(e){
 					window.history.back();
 				});
 			}
-			
+
 			//Get class case 3
 			var classstepstoryfillcase3 = $('.step-story-fill-case-3').attr('class');
-			
+
 			if(classstepstoryfillcase3){
 				//Append
 				$('#edit-field-case3-selected').prepend('<div class="number-question"></div>');
 				$('#edit-field-case3-selected .number-question').html('3/3');
-				
+
 				$('.page-node-add-story #field-case3-selected-add-more-wrapper').append('<input id="button-back" type="button" >');
-				
-				//Back 
+
+				//Back
 				$('#button-back').click(function(e){
 					window.history.back();
 				});
-				
+
 				//AppendTo slogan
 				$('.step-story-fill-case-3 ~ .slogan').appendTo('#field-case3-selected-add-more-wrapper');
 			}
-			
+
 			//Get class case summary
 			var classstepstoryfillcasesummary = $('.step-story-summary').attr('class');
-			
+
 			if(classstepstoryfillcasesummary){
 				$('.step-story-summary ~ #edit-actions').before($('<div id="wrapper-center-summary"></div>'));
-				
+
 				$('.step-story-summary ~ .story').appendTo('#wrapper-center-summary');
 			}
-			
+
 			//Get class case complete
-			var classstepstoryfillcasecmplete = $('.page-story-thanks').attr('class');
-			
+			var classstepstoryfillcasecmplete = $('.step-story-complete').attr('class');
+
 			if(classstepstoryfillcasecmplete){
-				$('.page-story-thanks .intro').before($('<div id="mask-complete"></div>'));
-				
-				$('.page-story-thanks #mask-complete ~ .intro').prepend('<div class="close-intro"></div>');
-				
+				$('.step-story-complete ~ .intro').before($('<div id="mask-complete"></div>'));
+
+				$('.step-story-complete ~ .intro').prepend('<div class="close-intro"></div>');
+
 				//Click close button popup
-				$('.page-story-thanks .intro .close-intro').click(function(e){
-					$('.page-story-thanks .intro').fadeOut();
-					$('.page-story-thanks #mask-complete').fadeOut();
+				$('.step-story-complete ~ .intro .close-intro').click(function(e){
+					$('.step-story-complete ~ .intro').fadeOut();
+					$('.step-story-complete ~ #mask-complete').fadeOut();
 				});
-				
+
 				//Append
-				$('.page-story-thanks #mask-complete ~ .intro').before($('<div id="popup-share"></div>'));
-				
-				$('.page-story-thanks #mask-complete ~ #popup-share').append('<div class="close-share"></div>');
-				
+				$('.step-story-complete ~ #mask-complete ~ .intro').before($('<div id="popup-share"></div>'));
+
+				$('.step-story-complete ~ #popup-share').append('<div class="close-share"></div>');
+
 				//Click button share
 				$('.fb-share-button').click(function(e){
 					var hrefshare = $('.fb-share-button').attr('data-href');
-					
+
 					FB.ui({
 						method: 'share',
 						href: hrefshare,
 					}, function(response){
 						if (response && !response.error_code) {
-							$('.page-story-thanks #mask-complete').fadeIn(100);
-							
-							$('.page-story-thanks #popup-share').css('display','block');
-							
+							$('.step-story-complete ~ #mask-complete').fadeIn(100);
+
+							$('.step-story-complete ~ #popup-share').css('display','block');
+
             } else {
-              
+
             }
 					});
 				});
-				
+
 				//Click close button popup
-				$('.page-story-thanks #popup-share .close-share').click(function(e){
-					$('.page-story-thanks #mask-complete').fadeOut();
-					$('.page-story-thanks #popup-share').fadeOut();
+				$('.step-story-complete ~ #popup-share .close-share').click(function(e){
+					$('.step-story-complete ~ #mask-complete').fadeOut();
+					$('.step-story-complete ~ #popup-share').fadeOut();
 				});
-				
+
 				//Click button home
-				$('.page-story-thanks .links').click(function(e){
-					var hrefhome = $('.page-story-thanks .links a').attr('href');
-					
-					location = hrefhome;
+				$('.step-story-complete ~ .links').click(function(e){
+					//var hrefhome = $('.step-story-complete ~ .links a').attr('href');
+
+					$('.step-story-complete ~ #edit-actions #edit-submit').click();
+				});
+
+				//Css
+				$('.step-story-complete').parent().css({
+					'margin':'0 auto',
+					'width':'305px',
+					'position':'relative',
+					'height':'130px'
 				});
 			}
-			
+
 			//Get class female
 			var classnodestoryfemale = $('.female.node-story').attr('class');
-			
+
 			if(classnodestoryfemale){
 				$('.female.node-story .field-name-body .field-items .field-item').prepend('<div class="logo-haytuoi"></div>');
-			
+
 				$('.female.node-story .field-name-body .field-items').prepend('<div class="close-intro"></div>');
-			
+
 				//Click close button popup
 				$('.female.node-story .field-name-body .field-items .close-intro').click(function(e){
 					$('.female.node-story .field-name-body').fadeOut();
 				});
-				
+
 				//Append image body
 				$('.female.node-story .field-name-body .field-items').append('<div class="body-female"></div>');
-				
+
 				//Append to
 				$('.female.node-story .field-name-field-gaming-image .field-items .field-item img').appendTo('.female.node-story .field-name-body .field-items');
-			
+
 				//Click button share
 				$('.fb-share-button').click(function(e){
 					var hrefshare = $('.fb-share-button').attr('data-href');
-					
+
 					FB.ui({
 						method: 'share',
 						href: hrefshare,
 					}, function(response){});
 				});
 			}
-			
+
 			//Get class male
 			var classnodestorymale = $('.male.node-story').attr('class');
-			
+
 			if(classnodestorymale){
 				$('.male.node-story .field-name-body .field-items .field-item').prepend('<div class="logo-haytuoi"></div>');
-			
+
 				$('.male.node-story .field-name-body .field-items').prepend('<div class="close-intro"></div>');
-			
+
 				//Click close button popup
 				$('.male.node-story .field-name-body .field-items .close-intro').click(function(e){
 					$('.male.node-story .field-name-body').fadeOut();
 				});
-				
+
 				//Append image body
 				$('.male.node-story .field-name-body .field-items').append('<div class="body-male"></div>');
-				
+
 				//Append to
 				$('.male.node-story .field-name-field-gaming-image .field-items .field-item img').appendTo('.male.node-story .field-name-body .field-items');
-				
+
 				//Click button share
 				$('.fb-share-button').click(function(e){
 					var hrefshare = $('.fb-share-button').attr('data-href');
-					
+
 					FB.ui({
 						method: 'share',
 						href: hrefshare,
 					}, function(response){});
 				});
 			}
-			
-			$('.step-choose-gender ~ #edit-field-gender').before('<div id="mask-choose-gender"></div>');
-			
-			$('.step-choose-gender ~ .intro').prepend('<div class="close-intro-gender"></div>');
-			
-			$('.step-choose-gender ~ .login').prepend('<div class="close-login"></div>');
-			
-			//Click close button popup
-			$('.step-choose-gender ~ .intro .close-intro-gender').click(function(e){
-				$('.step-choose-gender ~ .intro').fadeOut();
-				
-				if(classnamebody.split(" ")[2] == "logged-in"){
-					$('.step-choose-gender ~ #mask-choose-gender').fadeOut();
-				}else{
-					$('.step-choose-gender ~ .login .close-login ~ a').before($('<br />'));
-					$('.step-choose-gender ~ .login').css('display','block');
-				}
-			});
-			
-			$('.step-choose-gender ~ .login .close-login').click(function(e){
-				$('.step-choose-gender ~ #mask-choose-gender').fadeOut();
-				$('.step-choose-gender ~ .login').fadeOut();
-			});
-			
-			//Get class lib media
-			var classmedia = $('.page-thu-vien').attr('class');
-			
-			if(classmedia){
-				//Append some item
-				$('.page-thu-vien .view-media-library .view-content .views-row .views-field-field-gaming-image .field-content').append('<div class="background-main"></div>');
-				
-				$('.page-thu-vien .view-media-library .view-content .views-row .views-field-field-gaming-image .field-content').append('<div class="body-background"></div>');
-				
-				$('.page-thu-vien .views-field-body-1').siblings('.views-field-body').children().prepend('<div class="title-haytuoinhu">HÃY TƯƠI NHƯ</div>');
-				
-				//Get url page
-				var urlpagethuvien = window.location.href;
-				
-				var urlfirst = urlpagethuvien.split("&");
-				
-				var urlsecond = urlfirst[0].split("?");
-				
-				if(urlsecond[1] == "type=story"){
-					$('.page-thu-vien .view-media-library .views-exposed-form .clearfix').prepend('<div class="tab-top"><input type="button" value="XEM VIDEO" class="seevideo"><input type="button" value="XEM CÂU CHUYỆN" class="seestory active"></div>');
-				}else{
-					if(urlsecond[1] == "type=gaming"){
-						$('.page-thu-vien .view-media-library .views-exposed-form .clearfix').prepend('<div class="tab-top"><input type="button" value="XEM VIDEO" class="seevideo active"><input type="button" value="XEM CÂU CHUYỆN" class="seestory"></div>');
-					}else{
-						$('.page-thu-vien .view-media-library .views-exposed-form .clearfix').prepend('<div class="tab-top"><input type="button" value="XEM VIDEO" class="seevideo active"><input type="button" value="XEM CÂU CHUYỆN" class="seestory"></div>');
-					}
-				}
-				
-				//Click button tab-top
-				$('.seevideo').click(function(e){
-					$('#edit-type-wrapper #edit-type').val('gaming').change();
-					
-					$('#edit-submit-media-library').trigger('click');
-				});
-				
-				$('.seestory').click(function(e){
-					$('#edit-type-wrapper #edit-type').val('story').change();
-					
-					$('#edit-submit-media-library').trigger('click');
-				});
-				
-				//Enter when search
-				$('.page-thu-vien .view-media-library #edit-field-name-value-wrapper input[type=text]').bind("enterKey",function(e){
-					$('#edit-submit-media-library').trigger('click');
-				});
-				
-				$('.page-thu-vien .view-media-library #edit-field-name-value-wrapper input[type=text]').keyup(function(e){
-					if(e.keyCode == 13){
-						$(this).trigger("enterKey");
-					}
-				});
-				
-				//Append mask 
-				$('.page-thu-vien .view-media-library').append('<div class="mask-view"><div class="video-mask-wrapper"><div class="close-button"></div><div class="video-main"></div></div>');
-				
-				var maskviewchitiet = '<div class="mask-view-chitiet">'
-																+'<div class="chitiet-wrapper">'
-																	+'<div class="close-chitiet"></div>'
-																	+'<div class="chitiet-content">'
-																	+'</div>'
-																	+'<div id="chitiet-body"></div>'
-																	+'<img id="chitiet-face" src="" width="100" height="115" >'
-																+'</div>'
-															+'</div>';
-				
-				$('.page-thu-vien .view-media-library').append(maskviewchitiet);
-				
-				$('.page-thu-vien .view-media-library .fresh').parent().siblings('.mask-view-chitiet').css('display','none');
-				
-				//Array color
-				var back = ["#1abc9c", "#2ecc71", "#3498db", "#9b59b6", "#f1c40f", "#e67e22", "#e67e22"];
-				
-				//Get first char in name
-				for(var i = 1; i<= 8;i++){
-					var rand = back[Math.floor(Math.random() * back.length)];
-					
-					$('.page-thu-vien .view-media-library .view-content .views-row:nth-child('+i+').fresh').append('<div id="view-play" class="play-'+i+'"></div>');
-					
-					//Get link video
-					
-					if($('.page-thu-vien .view-media-library .view-content .views-row:nth-child('+i+').fresh .views-field-picture .field-content').children().size() == 0){
-						$('.page-thu-vien .view-media-library .view-content .views-row:nth-child('+i+').fresh .views-field-picture .field-content').html($('.page-thu-vien .view-media-library .view-content .views-row:nth-child('+i+') .views-field-field-name .field-content').text()[0]);
-						
-						$('.page-thu-vien .view-media-library .view-content .views-row:nth-child('+i+').fresh .views-field-picture .field-content').css({
-						  'font-size': '25px',
-							'font-weight': 'bold',
-							'text-align': 'center',
-							'margin-top': '13px',
-							'text-transform':'uppercase',
-							'color':rand
-						});
-					}
-					
-					//Click button-play
-					$('.play-'+i).click(function(e){
-						//HTML video and link all of case
-						var linkvideo = $(this).siblings('div:nth-child(3)').text();
-						
-						$('.page-thu-vien .view-media-library .mask-view .video-mask-wrapper .video-main').html('<video width="560" height="310" controls><source src="'+linkvideo+'"></video>');
-						
-						$('.mask-view').fadeIn();
-					});
-					
-					//Append button chitiet
-					$('.page-thu-vien .view-media-library .view-content .views-row-'+i+' .views-field-body').append('<a class="xemchitiet-'+i+'">xem chi tiết ►</a>');
-				
-					//Click xem chi tiet
-					$('.xemchitiet-'+i).click(function(e){
-						var chitietclass = $(this).parents('.views-row').attr('class').split(" ");
-						
-						var linkimage = $(this).parent().siblings('.views-field-field-gaming-image').children();
-						
-						//Add body click chi tiet
-						if(chitietclass[chitietclass.length-2] == "male"){
-							$('#chitiet-face').removeClass('chitiet-face-female').addClass('chitiet-face-male');
-							$('#chitiet-body').removeClass('chitiet-body-female').addClass('chitiet-body-male');
-						}else{
-							if(chitietclass[chitietclass.length-2] == "female"){
-								$('#chitiet-face').removeClass('chitiet-face-male').addClass('chitiet-face-female');
-								$('#chitiet-body').removeClass('chitiet-body-male').addClass('chitiet-body-female');
-							}
-						}
-						
-						$('#chitiet-face').attr('src',$('img', linkimage).attr('src'));
-						
-						$('.chitiet-content').html('<div class="logo-haytuoi"></div>'+$(this).parent().siblings('.views-field-body-1').html());
-						
-						$('.mask-view-chitiet').css('display','block');
-					});
-				}
-				
-				$('.video-mask-wrapper .close-button').click(function(e){
-					$('.mask-view').fadeOut();
-				});
-				
-				$('.close-chitiet').click(function(e){
-					$('.mask-view-chitiet').fadeOut();
-				});
-				
-				$('.chitiet-content .fb-share-button').click(function(e){
-					var hrefshare = $('.chitiet-content .fb-share-button').attr('data-href');
-					
-					FB.ui({
-						method: 'share',
-						href: hrefshare,
-					}, function(response){});
-				});
-			}
+
+      // if($('#block-block-1 .block-wrapper')){
+      //   $('#block-block-1 .block-wrapper ul li:eq(0)').before("<li class='hamburger-btn'>phoho</li>");
+      // }
+      if($('#block-block-1')){
+        $('#block-block-1').append('<div class="drthanh-logo"><img src="sites/default/modules/custom/mobile/images/logodrthanh.png"></div><div class="hamburger-btn"><img src="sites/default/modules/custom/mobile/images/hamburger.png"></div>');
+      }
+      $('#block-block-1 .hamburger-btn img').click(function(){
+        if($('#block-block-1 .block-wrapper').attr('class').indexOf('active') === -1){
+          $('#block-block-1 .block-wrapper').addClass('active');
+        }
+        else{
+            $('#block-block-1 .block-wrapper').removeClass('active');
+        }
+      })
+      var screenHeight = $( window ).height();
+      // if(screenHeight <=)
+      $('article.node.node-1 .field-name-field-material .field-items .field-item video').attr('height', screenHeight*0.87);
 		}
-  };  
+  };
 })(jQuery, Drupal, this, this.document);

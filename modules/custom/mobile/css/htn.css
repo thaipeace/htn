@@ -80,46 +80,4 @@ main.layout-3col__full {
   width: 100%;
 }
 
-.view-id-game_summary {
-  width: 1280px;
-  height: 100vh;
-  margin: 0 auto;
-}
-
-.view-id-game_summary .view-header {
-  width: 325px;
-  float: left;
-  background: #FFF;
-  height: 100%;
-}
-
-.view-id-game_summary .view-content {
-  width: 955px;
-  float: left;
-}
-
-.view-id-game_summary .view-content h3 {
-  width: 100%;
-  margin: 50px 0 20px 50px;
-  float: left;
-}
-
-.view-id-game_summary .views-row {
-  float: left;
-  width: 266px;
-  height: 146px;
-  margin: 0 15px 0 0;
-  border-radius: 10px;
-  box-shadow: 1px 1px 1px #000000;
-  padding: 15px;
-}
-
-.view-id-game_summary .views-row-first {
-  margin: 0 15px 0 50px;
-}
-
-.page-trang-ca-nhan .layout-swap {
-  position: absolute;
-  top: 0;
-  width: 100%;
-}
+    
