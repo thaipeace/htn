@@ -19,6 +19,12 @@
 			//boolean menuba
 			var checkmenu = true;
 			
+			//Set text play-now
+			$('.front #play-now a').text('NHÀO DZÔ !!');
+			
+			//Set text button next
+			$('#edit-next').attr('value','TIẾP TỤC');
+			
 			//Set video
 			$('.front .field-name-field-material .field-items .field-item').html('<video width="560" height="310" controls><source src="http://localhost/htn/sites/default/files/samplevideo_1280x720_1mb.mp4" type="video/mp4"></video>');
 			
@@ -517,21 +523,16 @@
 			
 			$('.step-choose-gender ~ #edit-field-gender').before('<div id="mask-choose-gender"></div>');
 			
-			$('.step-choose-gender ~ .intro').prepend('<div class="close-intro-gender"></div>');
+			$('.step-choose-gender ~ .intro').css('display','none');
 			
 			$('.step-choose-gender ~ .login').prepend('<div class="close-login"></div>');
 			
-			//Click close button popup
-			$('.step-choose-gender ~ .intro .close-intro-gender').click(function(e){
-				$('.step-choose-gender ~ .intro').fadeOut();
-				
-				if(classnamebody.split(" ")[2] == "logged-in"){
-					$('.step-choose-gender ~ #mask-choose-gender').fadeOut();
-				}else{
-					$('.step-choose-gender ~ .login .close-login ~ a').before($('<br />'));
-					$('.step-choose-gender ~ .login').css('display','block');
-				}
-			});
+			if(classnamebody.split(" ")[2] == "logged-in"){
+				$('.step-choose-gender ~ #mask-choose-gender').fadeOut();
+			}else{
+				$('.step-choose-gender ~ .login .close-login ~ a').before($('<br />'));
+				$('.step-choose-gender ~ .login').css('display','block');
+			}
 			
 			$('.step-choose-gender ~ .login .close-login').click(function(e){
 				$('.step-choose-gender ~ #mask-choose-gender').fadeOut();
