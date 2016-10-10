@@ -50,6 +50,12 @@
 				}
 			});
 			
+			$('.wrap-img-arrowheader').css('top','46px');
+			
+			setTimeout(function(){
+				closemenu();
+			},3000);
+			
 			//Open menu
 			function openmenu(){
 				$('#block-block-1 .block-wrapper').animate({
