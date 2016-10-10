@@ -52,6 +52,7 @@
 			
 			$('.wrap-img-arrowheader').css('top','46px');
 			
+			//Auto slide up in 3s
 			setTimeout(function(){
 				closemenu();
 			},3000);
@@ -292,6 +293,7 @@
 			$('.page-node-add-story #edit-field-gender-und .form-item:nth-child(1)').append('<label for="edit-field-gender-und-female" id="check-radio"></label>');
 			$('.page-node-add-story #edit-field-gender-und .form-item:nth-child(2)').append('<label for="edit-field-gender-und-male" id="check-radio"></label>');
 			
+			/*
 			//Prepend button close
 			$('.step-story-choose-gender ~ .login').prepend('<div class="close-login"></div>');
 		
@@ -299,7 +301,7 @@
 			$('.close-login').click(function(e) {
 				$('#mask-choose-gender').fadeOut();
 				$('.step-story-choose-gender ~.login').fadeOut();
-			});
+			});*/
 			
 			//Append tag br
 			$('.step-story-choose-gender ~ .login .close-login ~ a').before($('<br />'));
