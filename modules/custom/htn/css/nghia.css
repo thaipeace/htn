@@ -448,7 +448,7 @@ html{
 	text-transform: uppercase;
   color: red;
   font-size: 60px;
-	margin-bottom: 15px;
+	margin-bottom: 22px;
 }
 
 .step-fill-name ~ #edit-field-name #field-name-add-more-wrapper .form-item label .form-required {
@@ -466,6 +466,7 @@ html{
   color: red;
 	font-weight: bold;
 	font-size: 77px;
+	height:100px;
 }
 
 .step-fill-name ~ #edit-field-name #field-name-add-more-wrapper .form-item .description {
@@ -567,13 +568,13 @@ html{
 .step-select-situation ~ .situa .fresh {
 	width: 500px;
   float: left;
-	margin-top:165px;
+	margin-top:175px;
 }
 
 .step-select-situation ~ .situa .hot {
 	width: 675px;
 	float: right;
-	margin-top: 410px;
+	margin-top: 420px;
 }
 
 .step-select-situation ~ #edit-field-situation .form-item label, .step-select-situation ~ #edit-field-situation .form-item select {
@@ -631,38 +632,64 @@ html{
 	overflow-x: hidden;
 }
 
-.step-select-case-1 ~ #edit-actions,.step-select-case-3 ~ #edit-actions {
+.step-select-case-1 ~ #edit-actions,
+.step-select-case-3 ~ #edit-actions {
 	margin-top:-17px;
 }
 
-.step-select-case-1 ~ .intro,.step-select-case-2 ~ .intro,.step-select-case-3 ~ .intro {
+.step-select-case-1 ~ .intro,
+.step-select-case-2 ~ .intro,
+.step-select-case-3 ~ .intro {
 	text-align:center;
 	margin-top:50px;
 }
 
-.step-select-case-1 ~ .intro .hello,.step-select-case-2 ~ .intro .hello,.step-select-case-3 ~ .intro .hello {
+.step-select-case-1 ~ .intro .hello,
+.step-select-case-2 ~ .intro .hello,
+.step-select-case-3 ~ .intro .hello {
 	font-size: 40px;
 	text-transform: uppercase;
 	font-weight: bold;
 	margin-bottom: 10px;
 }
 
-.step-select-case-1 ~ .intro .hello .name,.step-select-case-2 ~ .intro .hello .name,.step-select-case-3 ~ .intro .hello .name {
+.step-select-case-1 ~ .intro .hello .name,
+.step-select-case-2 ~ .intro .hello .name,
+.step-select-case-3 ~ .intro .hello .name {
 	color:red;
+	text-transform:initial;
 }
 
-.step-select-case-1 ~ .intro .desc,.step-select-case-2 ~ .intro .desc,.step-select-case-3 ~ .intro .desc {
+.step-select-case-1 ~ .intro .desc,
+.step-select-case-2 ~ .intro .desc,
+.step-select-case-3 ~ .intro .desc {
 	font-family: time-new-roman;
   font-size: 16px;
 }
 
-.step-select-case-1 ~ .form-item-field-case1 #edit-field-case1,.step-select-case-2 ~ .form-item-field-case2 #edit-field-case2,.step-select-case-3 ~ .form-item-field-case3 #edit-field-case3 {
-	width:205px;
+.step-select-case-1 ~ #edit-actions #edit-next-replace,
+.step-select-case-2 ~ #edit-actions #edit-next-replace,
+.step-select-case-3 ~ #edit-actions #edit-next-replace {
+	top: 395px;
+  left: 43%;
+	display:none;
+}
+
+.step-complete ~ #edit-actions #edit-next-replace {
+	display:none;
+}
+
+.step-select-case-1 ~ .form-item-field-case1 #edit-field-case1,
+.step-select-case-2 ~ .form-item-field-case2 #edit-field-case2,
+.step-select-case-3 ~ .form-item-field-case3 #edit-field-case3 {
+	width:260px;
 	margin:0 auto;
 	margin-top: 45px;
 }
 
-.step-select-case-1 ~ .form-item-field-case1 label:nth-child(1),.step-select-case-1 ~ .form-item-field-case1 label:nth-child(1),.step-select-case-3 ~ .form-item-field-case3 label:nth-child(1) {
+.step-select-case-1 ~ .form-item-field-case1 label:nth-child(1),
+.step-select-case-1 ~ .form-item-field-case1 label:nth-child(1),
+.step-select-case-3 ~ .form-item-field-case3 label:nth-child(1) {
 	font-size:20px;
 }
 
@@ -671,9 +698,11 @@ html{
 	position: relative;
 	border-radius: 100%;
 	height: 35px;
-	width: 35px;
-	top: -38px;
-	left: -55px;
+	width: 53px;
+	/*top: -38px;
+	left: -55px;*/
+	margin-right:20px;
+	float:left;
 	z-index: 5;
 	transition: border .25s linear;
 	-webkit-transition: border .25s linear;
@@ -681,10 +710,6 @@ html{
 	background-repeat: no-repeat;
 	background-size:35px 35px;
 	cursor:pointer;
-}
-
-.step-select-case-1 ~ .form-item-field-case1 #edit-field-case1 div:nth-child(3) #question-radio,.step-select-case-3 ~ .form-item-field-case3 #edit-field-case3 div:nth-child(3) #question-radio {
-	top: -36px;
 }
 
 #question-radio::before {
@@ -702,25 +727,24 @@ html{
 	transform: scale(0);
 }
 
-.step-select-case-1 ~ .form-item-field-case1 #edit-field-case1 .form-item input[type=radio]:checked ~ #question-radio::before,.step-select-case-2 ~ .form-item-field-case2 #edit-field-case2 .form-item input[type=radio]:checked ~ #question-radio::before,.step-select-case-3 ~ .form-item-field-case3 #edit-field-case3 .form-item input[type=radio]:checked ~ #question-radio::before {
+.step-select-case-1 ~ .form-item-field-case1 #edit-field-case1 .form-item input[type=radio]:checked ~ #question-radio::before,
+.step-select-case-2 ~ .form-item-field-case2 #edit-field-case2 .form-item input[type=radio]:checked ~ #question-radio::before,
+.step-select-case-3 ~ .form-item-field-case3 #edit-field-case3 .form-item input[type=radio]:checked ~ #question-radio::before {
 	background-image: url(../images/insideradio.png);
 	background-repeat: no-repeat;
 	background-size:19px 19px;
 	transform: scale(1);
 }
 
-.step-select-case-1 ~ .form-item-field-case1 #edit-field-case1 .form-item input[type=radio],.step-select-case-2 ~ .form-item-field-case2 #edit-field-case2 .form-item input[type=radio],.step-select-case-3 ~ .form-item-field-case3 #edit-field-case3 .form-item input[type=radio] {
+label.option {
+	width:264px;
+}
+
+.step-select-case-1 ~ .form-item-field-case1 #edit-field-case1 .form-item input[type=radio],
+.step-select-case-2 ~ .form-item-field-case2 #edit-field-case2 .form-item input[type=radio],
+.step-select-case-3 ~ .form-item-field-case3 #edit-field-case3 .form-item input[type=radio] {
 	position: absolute;
 	visibility: hidden;
-}
-
-.step-select-case-1 ~ .form-item-field-case1 #edit-field-case1 .form-item .option,.step-select-case-2 ~ .form-item-field-case2 #edit-field-case2 .form-item .option,.step-select-case-3 ~ .form-item-field-case3 #edit-field-case3 .form-item .option {
-	position: relative;
-	left: 20px;
-}
-
-.step-select-case-1 ~ .form-item-field-case1 #edit-field-case1 div:nth-child(3) .option,.step-select-case-3 ~ .form-item-field-case3 #edit-field-case3 div:nth-child(3) .option {
-	top: 6px;
 }
 
 .step-complete {
@@ -750,188 +774,31 @@ html{
 	background-color: transparent;
 }
 
-.step-select-case-1 ~ .form-item-field-case1 #edit-field-case1 .form-item,.step-select-case-2 ~ .form-item-field-case2 #edit-field-case2 .form-item,.step-select-case-3 ~ .form-item-field-case3 #edit-field-case3 .form-item {
+.step-select-case-1 ~ .form-item-field-case1 #edit-field-case1 .form-item,
+.step-select-case-2 ~ .form-item-field-case2 #edit-field-case2 .form-item,
+.step-select-case-3 ~ .form-item-field-case3 #edit-field-case3 .form-item {
 	position:relative;
+	display: -webkit-flexbox;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-align: center;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+	justify-content: center;
+	height:65px;
 }
 
-.female .step-select-case-3 ~ .form-item-field-case3 #edit-field-case3 .form-item {
-	top:0px;
-}
-
-.female .step-select-case-3 ~ #edit-actions {
-	margin-top:-16px;
-}
-
-.female #edit-field-case3-aaa ~ .option,.female #edit-field-case3-aba ~ .option {
-	top: -11px;
-}
-
-.female #edit-field-case3-aac ~ .option {
-	top: 1px !important;
-}
-
-.female #edit-field-case3-abc ~ .option,.female #edit-field-case3-acc ~ .option {
-	top: 0px !important;
-}
-
-#edit-field-case2-ba ~ .option {
-	top:10px;
-}
-
-#edit-field-case2-bb ~ .option {
-	top:11px;
-}
-
-#edit-field-case2-bc ~ .option {
-	top:13px;
-}
-
-#edit-field-case2-ca ~ .option {
-	top:-12px;
-}
-
-#edit-field-case2-cb ~ .option {
-	top:-19px;
-}
-
-#edit-field-case2-cc ~ .option {
-	top:-18px;
-}
-
-#edit-field-case2-bc ~ #question-radio {
-	margin-bottom:45px !important;
-}
-
-.step-select-case-2 ~ #edit-actions {
-	margin-top:-17px;
-}
-
-#edit-field-case2 #question-radio {
-	top:-15px;
-	margin-bottom: 20px;
-}
-
-.female #edit-field-case2-bb ~ #question-radio {
-	margin-bottom:-1px !important;
-	top:-15px !important;
-}
-
-#edit-field-case2-aa ~ #question-radio,#edit-field-case2-ab ~ #question-radio,#edit-field-case2-ac ~ #question-radio {
-	top:-38px;
-	margin-bottom:0px;
-}
-
-#edit-field-case2-ca ~ #question-radio,#edit-field-case2-cb ~ #question-radio {
-	top:-57px;
-	margin-bottom:0px;
-}
-
-#edit-field-case2-cc ~ #question-radio {
-	top:-57px;
-	margin-bottom:-37px;
-}
-
-.female #edit-field-case3-bba ~ .option,#edit-field-case3-bbb ~ .option {
-	top:-20px;
-}
-
-.female #edit-field-case3-bbc ~ .option {
-	top:-10px !important;
-}
-
-.female #edit-field-case3-bba ~ #question-radio,#edit-field-case3-bbb ~ #question-radio {
-	top:-58px;
-}
-
-.female #edit-field-case3-bcc ~ #question-radio {
-	top:-38px;
-}
-
-.female #edit-field-case3-bca ~ #question-radio,#edit-field-case3-bcb ~ #question-radio {
-	margin-bottom:22px;
-}
-
-.female #edit-field-case3-bcb ~ .option {
-	top:-11px;
-}
-
-.female #edit-field-case3-bcc ~ .option {
-	top:-9px !important;
-}
-
-.female #edit-field-case3-cab ~ .option {
-	top:8px;
-}
-
-.female #edit-field-case3-cac ~ .option {
-	top:0px !important;
-}
-
-.female #edit-field-case3-cbc ~ .option {
-	top:0px !important;
-}
-
-.female #edit-field-case3-cbb ~ #question-radio {
-	top:-46px;
-}
-
-.female #edit-field-case3-ccb ~ #question-radio {
-	top:-45px;
-}
-
-.female #edit-field-case3-ccc ~ #question-radio {
-	top:-41px;
-}
-
-.male #edit-field-case3-aac ~ .option,.male #edit-field-case3-abc ~ .option,.male #edit-field-case3-acc ~ .option,.male #edit-field-case3-bbc ~ .option {
-	top:2px !important;
-}
-
-.male #edit-field-case3-bac ~ .option {
-	top:3px !important;
-}
-
-.male #edit-field-case3-bcb ~ #question-radio {
-	top:-29px;
-}
-
-.male #edit-field-case3-bbc ~ #question-radio {
-	top:-21px !important;
-}
-
-.male #edit-field-case3-bcc ~ #question-radio {
-	top:-21px !important;
-}
-
-.male #edit-field-case1-c ~ .option {
-	top:3px !important;
-}
-
-.male #edit-field-case3-aaa ~ .option,.male #edit-field-case3-aba ~ .option {
-	top:-11px !important;
-}
-
-.male #edit-field-case3-cab ~ #question-radio,.male #edit-field-case3-cbb ~ #question-radio,.male #edit-field-case3-ccb ~ #question-radio {
-	top:-47px;
-}
-
-.male #edit-field-case3-cac ~ #question-radio {
-	top:-29px !important;
-}
-
-.male #edit-field-case3-ccc ~ #question-radio {
-	top:-42px !important;
-}
-
-.male #edit-field-case3-cbc ~ #question-radio {
-	top:-31px !important;
-}
-
-article.male .field-name-field-gaming-image .field-label,article.male .field-name-field-background-video .field-label,article.female .field-name-field-gaming-image .field-label,article.female .field-name-field-background-video .field-label {
+article.male .field-name-field-gaming-image .field-label,
+article.male .field-name-field-background-video .field-label,
+article.female .field-name-field-gaming-image .field-label,
+article.female .field-name-field-background-video .field-label {
 	display:none;
 }
 
-article.male .field-name-field-gaming-image .field-items .field-item,article.female .field-name-field-gaming-image .field-items .field-item {
+article.male .field-name-field-gaming-image .field-items .field-item,
+article.female .field-name-field-gaming-image .field-items .field-item {
 	width: 100%;
 	margin: 0 auto;
 	position: relative;
@@ -1172,7 +1039,10 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 }
 
 .step-story-choose-gender ~ .intro .foot {
-	display:none;
+	text-transform: uppercase;
+	margin-top: 5px;
+	font-weight: bold;
+	color: red;
 }
 
 .step-story-choose-gender ~ .intro .title {
@@ -1206,7 +1076,11 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	height: 50px;
 }
 
-.step-story-choose-gender ~ #edit-actions #edit-next {
+#edit-next {
+	display:none !important;
+}
+
+#edit-next-replace {
 	background-image: url(../images/buttonplay.png);
 	background-repeat: no-repeat;
 	background-size: 185px 50px;
@@ -1220,8 +1094,46 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	font-weight: bold;
 	z-index: 0;
 	position:absolute;
+}
+
+.step-story-choose-gender ~ #edit-actions #edit-next-replace {
 	left: 18%;
 	top: 303px;
+}
+
+.step-story-fill-name ~ #edit-actions #edit-next-replace {
+	top: 395px;
+  left: 43%;
+}
+
+.step-story-up-picture ~ #edit-actions #edit-next-replace {
+	top: 284px;
+  left: 43%;
+}
+
+.step-story-fill-case-1 ~ #edit-actions #edit-next-replace,
+.step-story-fill-case-2 ~ #edit-actions #edit-next-replace,
+.step-story-fill-case-3 ~ #edit-actions #edit-next-replace {
+	top: 165px;
+  left: 21%;
+}
+
+.step-choose-gender ~ #edit-actions #edit-next-replace {
+	left:44%;
+}
+
+.step-up-picture ~ #edit-actions #edit-next-replace {
+	top: 394px;
+  left: 43%;
+}
+
+.step-fill-name ~ #edit-actions #edit-next-replace {
+	left:44%;
+}
+
+.step-story-summary ~ #edit-actions #edit-next-replace,
+.step-select-situation ~ #edit-actions #edit-next-replace {
+	display:none;
 }
 
 .step-story-choose-gender ~ .login {
@@ -2097,7 +2009,7 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 
 .page-thu-vien .view-media-library .view-content .views-row .views-field-picture .field-content img {
 	width: 50px;
-	height: 50px;
+	height: 43px;
 	border-radius: 30px;
 }
 
@@ -2698,7 +2610,7 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 }
 
 .chitiet-content .fb .fb-like {
-	background-image: url(../images/buttonlike.png);
+	background-image: url(../images/likebutton.png);
 	background-repeat: no-repeat;
 	background-size: 100px 30px;
 	width: 100px;

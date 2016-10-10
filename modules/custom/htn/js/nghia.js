@@ -22,8 +22,12 @@
 			//Set text play-now
 			$('.front #play-now a').text('NHÀO DZÔ !!');
 			
-			//Set text button next
-			$('#edit-next').attr('value','TIẾP TỤC');
+			//Append button
+			$('#edit-actions').append('<input id="edit-next-replace" type="button" value="TIẾP TỤC" >');
+			
+			$('#edit-next-replace:last-of-type').click(function(e){
+				$('#edit-next').trigger('click');
+			});
 			
 			//Set video
 			$('.front .field-name-field-material .field-items .field-item').html('<video width="560" height="310" controls><source src="http://localhost/htn/sites/default/files/samplevideo_1280x720_1mb.mp4" type="video/mp4"></video>');
@@ -106,7 +110,7 @@
 			$('.page-node-add-gaming #edit-actions').append('<input id="button-back" type="button" >');
 			
 			//Back 
-			$('#button-back').click(function(e){
+			$('#button-back:last-of-type').click(function(e){
 				window.history.back();
 			});
 			
@@ -132,8 +136,8 @@
 			});
 			
 			//Append button
-			$('.step-select-situation ~ .situa .fresh').append('<input type="button" id="fresh-play" name="play" value="CHƠI NGAY">');
-			$('.step-select-situation ~ .situa .hot').append('<input type="button" id="hot-play" name="play" value="CHƠI NGAY">');
+			$('.step-select-situation ~ .situa .fresh').append('<input type="button" id="fresh-play" name="play" value="TẠO VIDEO">');
+			$('.step-select-situation ~ .situa .hot').append('<input type="button" id="hot-play" name="play" value="TẠO VIDEO">');
 		
 			//Click button play
 			$('#fresh-play').click(function(e){
@@ -167,85 +171,54 @@
 			$('.step-complete ~ #edit-actions #edit-submit').attr('value','');
 		
 			//Append mask radio question
-			$('.step-select-case-1 ~ .form-item-field-case1 #edit-field-case1 .form-item').append('<label class="mask-select" id="question-radio"></label>');
-			$('#edit-field-case1-a ~ .mask-select').attr('for','edit-field-case1-a');
-			$('#edit-field-case1-b ~ .mask-select').attr('for','edit-field-case1-b');
-			$('#edit-field-case1-c ~ .mask-select').attr('for','edit-field-case1-c');
+			$('.step-select-case-1 ~ .form-item-field-case1 #edit-field-case1 .form-item label.option').before('<label class="mask-select" id="question-radio"></label>');
+			$('#edit-field-case1-a').siblings('.mask-select').attr('for','edit-field-case1-a');
+			$('#edit-field-case1-b').siblings('.mask-select').attr('for','edit-field-case1-b');
+			$('#edit-field-case1-c').siblings('.mask-select').attr('for','edit-field-case1-c');
 			
-			$('.step-select-case-2 ~ .form-item-field-case2 #edit-field-case2 .form-item').append('<label class="mask-select" id="question-radio"></label>');
-			$('#edit-field-case2-aa ~ .mask-select').attr('for','edit-field-case2-aa');
-			$('#edit-field-case2-ab ~ .mask-select').attr('for','edit-field-case2-ab');
-			$('#edit-field-case2-ac ~ .mask-select').attr('for','edit-field-case2-ac');
-			$('#edit-field-case2-ba ~ .mask-select').attr('for','edit-field-case2-ba');
-			$('#edit-field-case2-bb ~ .mask-select').attr('for','edit-field-case2-bb');
-			$('#edit-field-case2-bc ~ .mask-select').attr('for','edit-field-case2-bc');
-			$('#edit-field-case2-ca ~ .mask-select').attr('for','edit-field-case2-ca');
-			$('#edit-field-case2-cb ~ .mask-select').attr('for','edit-field-case2-cb');
-			$('#edit-field-case2-cc ~ .mask-select').attr('for','edit-field-case2-cc');
+			$('.step-select-case-2 ~ .form-item-field-case2 #edit-field-case2 .form-item label.option').before('<label class="mask-select" id="question-radio"></label>');
+			$('#edit-field-case2-aa').siblings('.mask-select').attr('for','edit-field-case2-aa');
+			$('#edit-field-case2-ab').siblings('.mask-select').attr('for','edit-field-case2-ab');
+			$('#edit-field-case2-ac').siblings('.mask-select').attr('for','edit-field-case2-ac');
+			$('#edit-field-case2-ba').siblings('.mask-select').attr('for','edit-field-case2-ba');
+			$('#edit-field-case2-bb').siblings('.mask-select').attr('for','edit-field-case2-bb');
+			$('#edit-field-case2-bc').siblings('.mask-select').attr('for','edit-field-case2-bc');
+			$('#edit-field-case2-ca').siblings('.mask-select').attr('for','edit-field-case2-ca');
+			$('#edit-field-case2-cb').siblings('.mask-select').attr('for','edit-field-case2-cb');
+			$('#edit-field-case2-cc').siblings('.mask-select').attr('for','edit-field-case2-cc');
 			
-			$('.step-select-case-3 ~ .form-item-field-case3 #edit-field-case3 .form-item').append('<label class="mask-select" id="question-radio"></label>');
-			$('#edit-field-case3-aaa ~ .mask-select').attr('for','edit-field-case3-aaa');
-			$('#edit-field-case3-aab ~ .mask-select').attr('for','edit-field-case3-aab');
-			$('#edit-field-case3-aac ~ .mask-select').attr('for','edit-field-case3-aac');
-			$('#edit-field-case3-aba ~ .mask-select').attr('for','edit-field-case3-aba');
-			$('#edit-field-case3-abb ~ .mask-select').attr('for','edit-field-case3-abb');
-			$('#edit-field-case3-abc ~ .mask-select').attr('for','edit-field-case3-abc');
-			$('#edit-field-case3-aca ~ .mask-select').attr('for','edit-field-case3-aca');
-			$('#edit-field-case3-acb ~ .mask-select').attr('for','edit-field-case3-acb');
-			$('#edit-field-case3-acc ~ .mask-select').attr('for','edit-field-case3-acc');
-			$('#edit-field-case3-baa ~ .mask-select').attr('for','edit-field-case3-baa');
-			$('#edit-field-case3-bab ~ .mask-select').attr('for','edit-field-case3-bab');
-			$('#edit-field-case3-bac ~ .mask-select').attr('for','edit-field-case3-bac');
-			$('#edit-field-case3-bba ~ .mask-select').attr('for','edit-field-case3-bba');
-			$('#edit-field-case3-bbb ~ .mask-select').attr('for','edit-field-case3-bbb');
-			$('#edit-field-case3-bbc ~ .mask-select').attr('for','edit-field-case3-bbc');
-			$('#edit-field-case3-bca ~ .mask-select').attr('for','edit-field-case3-bca');
-			$('#edit-field-case3-bcb ~ .mask-select').attr('for','edit-field-case3-bcb');
-			$('#edit-field-case3-bcc ~ .mask-select').attr('for','edit-field-case3-bcc');
-			$('#edit-field-case3-caa ~ .mask-select').attr('for','edit-field-case3-caa');
-			$('#edit-field-case3-cab ~ .mask-select').attr('for','edit-field-case3-cab');
-			$('#edit-field-case3-cac ~ .mask-select').attr('for','edit-field-case3-cac');
-			$('#edit-field-case3-cba ~ .mask-select').attr('for','edit-field-case3-cba');
-			$('#edit-field-case3-cbb ~ .mask-select').attr('for','edit-field-case3-cbb');
-			$('#edit-field-case3-cbc ~ .mask-select').attr('for','edit-field-case3-cbc');
-			$('#edit-field-case3-cca ~ .mask-select').attr('for','edit-field-case3-cca');
-			$('#edit-field-case3-ccb ~ .mask-select').attr('for','edit-field-case3-ccb');
-			$('#edit-field-case3-ccc ~ .mask-select').attr('for','edit-field-case3-ccc');
+			$('.step-select-case-3 ~ .form-item-field-case3 #edit-field-case3 .form-item label.option').before('<label class="mask-select" id="question-radio"></label>');
+			$('#edit-field-case3-aaa').siblings('.mask-select').attr('for','edit-field-case3-aaa');
+			$('#edit-field-case3-aab').siblings('.mask-select').attr('for','edit-field-case3-aab');
+			$('#edit-field-case3-aac').siblings('.mask-select').attr('for','edit-field-case3-aac');
+			$('#edit-field-case3-aba').siblings('.mask-select').attr('for','edit-field-case3-aba');
+			$('#edit-field-case3-abb').siblings('.mask-select').attr('for','edit-field-case3-abb');
+			$('#edit-field-case3-abc').siblings('.mask-select').attr('for','edit-field-case3-abc');
+			$('#edit-field-case3-aca').siblings('.mask-select').attr('for','edit-field-case3-aca');
+			$('#edit-field-case3-acb').siblings('.mask-select').attr('for','edit-field-case3-acb');
+			$('#edit-field-case3-acc').siblings('.mask-select').attr('for','edit-field-case3-acc');
+			$('#edit-field-case3-baa').siblings('.mask-select').attr('for','edit-field-case3-baa');
+			$('#edit-field-case3-bab').siblings('.mask-select').attr('for','edit-field-case3-bab');
+			$('#edit-field-case3-bac').siblings('.mask-select').attr('for','edit-field-case3-bac');
+			$('#edit-field-case3-bba').siblings('.mask-select').attr('for','edit-field-case3-bba');
+			$('#edit-field-case3-bbb').siblings('.mask-select').attr('for','edit-field-case3-bbb');
+			$('#edit-field-case3-bbc').siblings('.mask-select').attr('for','edit-field-case3-bbc');
+			$('#edit-field-case3-bca').siblings('.mask-select').attr('for','edit-field-case3-bca');
+			$('#edit-field-case3-bcb').siblings('.mask-select').attr('for','edit-field-case3-bcb');
+			$('#edit-field-case3-bcc').siblings('.mask-select').attr('for','edit-field-case3-bcc');
+			$('#edit-field-case3-caa').siblings('.mask-select').attr('for','edit-field-case3-caa');
+			$('#edit-field-case3-cab').siblings('.mask-select').attr('for','edit-field-case3-cab');
+			$('#edit-field-case3-cac').siblings('.mask-select').attr('for','edit-field-case3-cac');
+			$('#edit-field-case3-cba').siblings('.mask-select').attr('for','edit-field-case3-cba');
+			$('#edit-field-case3-cbb').siblings('.mask-select').attr('for','edit-field-case3-cbb');
+			$('#edit-field-case3-cbc').siblings('.mask-select').attr('for','edit-field-case3-cbc');
+			$('#edit-field-case3-cca').siblings('.mask-select').attr('for','edit-field-case3-cca');
+			$('#edit-field-case3-ccb').siblings('.mask-select').attr('for','edit-field-case3-ccb');
+			$('#edit-field-case3-ccc').siblings('.mask-select').attr('for','edit-field-case3-ccc');
 			
-			//Css 
-			$('.female #edit-field-case3-aca').parents('#edit-field-case3').css('margin-top','26px');
-			$('.female #edit-field-case3-baa').parents('#edit-field-case3').css('margin-top','26px');
-			$('.female #edit-field-case3-bca').parents('#edit-field-case3').css('margin-top','0px');
-			$('.female #edit-field-case3-caa').parents('#edit-field-case3').css('margin-top','-18px');
-			$('.female #edit-field-case3-cba').parents('#edit-field-case3').css('margin-top','-17px');
-			$('.female #edit-field-case3-cca').parents('#edit-field-case3').css('margin-top','-37px');
-			$('.male #edit-field-case3-aba').parents('#edit-field-case3').css('margin-top','65px');
-			$('.male #edit-field-case3-aaa').parents('#edit-field-case3').css('margin-top','46px');
-			$('.male #edit-field-case3-bca').parents('#edit-field-case3').css('margin-top','64px');
-			$('.male #edit-field-case3-caa').parents('#edit-field-case3').css('margin-top','-18px');
-			$('.male #edit-field-case3-cba').parents('#edit-field-case3').css('margin-top','27px');
-			$('.male #edit-field-case3-cca').parents('#edit-field-case3').css('margin-top','-17px');
-			$('.female #edit-field-case2-bc').parent().css('top','20px');
-			$('.female #edit-field-case3-caa').parent().css('top','40px');
-			$('.female #edit-field-case3-cba').parent().css('top','37px');
-			$('.female #edit-field-case3-cbb').parent().css('top','30px');
-			$('.female #edit-field-case3-cca').parent().css('top','57px');
-			$('.female #edit-field-case3-ccb').parent().css('top','50px');
-			$('.female #edit-field-case3-ccc').parent().css('top','24px');
-			$('.male #edit-field-case3-bbb').parent().css('top','23px');
-			$('.male #edit-field-case3-bca').parent().css('top','-15px');
-			$('.male #edit-field-case3-bcb').parent().css('top','-6px');
-			$('.male #edit-field-case3-bcc').parent().css('top','-19px');
-			$('.male #edit-field-case3-caa').parent().css('top','42px');
-			$('.male #edit-field-case3-cab').parent().css('top','32px');
-			$('.male #edit-field-case3-cac').parent().css('top','6px');
-			$('.male #edit-field-case3-cba').parent().css('top','18px');
-			$('.male #edit-field-case3-cbb').parent().css('top','10px');
-			$('.male #edit-field-case3-cbc').parent().css('top','-8px');
-			$('.male #edit-field-case3-cca').parent().css('top','38px');
-			$('.male #edit-field-case3-ccb').parent().css('top','30px');
-			$('.male #edit-field-case3-ccc').parent().css('top','3px');
-			
+			$('.mask-select').click(function(e){
+				$('#edit-next-replace').css('display','block');
+			});
 			
 			//Case of video
 			var nameclass = $('article.node-gaming').attr('class');
