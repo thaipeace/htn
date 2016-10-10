@@ -506,7 +506,7 @@
 			
 			$('.step-choose-gender ~ .intro').css('display','none');
 			
-			$('.step-choose-gender ~ .login').prepend('<div class="close-login"></div>');
+			//$('.step-choose-gender ~ .login').prepend('<div class="close-login"></div>');
 			
 			if(classnamebody.split(" ")[2] == "logged-in"){
 				$('.step-choose-gender ~ #mask-choose-gender').fadeOut();
@@ -515,10 +515,11 @@
 				$('.step-choose-gender ~ .login').css('display','block');
 			}
 			
+			/*
 			$('.step-choose-gender ~ .login .close-login').click(function(e){
 				$('.step-choose-gender ~ #mask-choose-gender').fadeOut();
 				$('.step-choose-gender ~ .login').fadeOut();
-			});
+			});*/
 			
 			//Get class lib media
 			var classmedia = $('.page-thu-vien').attr('class');
