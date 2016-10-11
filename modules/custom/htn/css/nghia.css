@@ -258,30 +258,35 @@ html{
   position: relative;
 }
 
-.page-node-add-gaming #edit-field-gender .form-item label,.page-node-add-story #edit-field-gender .form-item label {
+.page-node-add-gaming #edit-field-gender .form-item label,
+.page-node-add-story #edit-field-gender .form-item label {
 	text-align:center;
 	text-transform: uppercase;
 	font-size:20px;
 	margin-top: 52px;
 }
 
-.page-node-add-gaming #edit-field-gender-und .form-item,.page-node-add-story #edit-field-gender-und .form-item {
+.page-node-add-gaming #edit-field-gender-und .form-item,
+.page-node-add-story #edit-field-gender-und .form-item {
 	position: absolute;
   top: 170px;
 }
 
-.page-node-add-gaming #edit-field-gender-und .form-item:nth-child(2),.page-node-add-story #edit-field-gender-und .form-item:nth-child(2) {
+.page-node-add-gaming #edit-field-gender-und .form-item:nth-child(2),
+.page-node-add-story #edit-field-gender-und .form-item:nth-child(2) {
 	left:160px;
 }
 
-.page-node-add-gaming #edit-field-gender-und .form-item input[type=radio],.page-node-add-story #edit-field-gender-und .form-item input[type=radio] {
+.page-node-add-gaming #edit-field-gender-und .form-item input[type=radio],
+.page-node-add-story #edit-field-gender-und .form-item input[type=radio] {
 	position: absolute;
 	visibility: hidden;
 	top: 30px;
   left: 9px;
 }
 
-.page-node-add-gaming #edit-field-gender-und,.page-node-add-story #edit-field-gender-und {
+.page-node-add-gaming #edit-field-gender-und,
+.page-node-add-story #edit-field-gender-und {
 	width: 190px;
   margin: 0 auto;
 	position: relative;
@@ -308,7 +313,8 @@ html{
 	cursor: pointer;
 }
 
-.page-node-add-gaming #edit-field-gender-und .form-item:nth-child(2) #check-radio,.page-node-add-story #edit-field-gender-und .form-item:nth-child(2) #check-radio {
+.page-node-add-gaming #edit-field-gender-und .form-item:nth-child(2) #check-radio,
+.page-node-add-story #edit-field-gender-und .form-item:nth-child(2) #check-radio {
 	left:3px;
 }
 
@@ -326,7 +332,8 @@ html{
 	-webkit-transition: background 0.25s linear;
 }
 
-.page-node-add-gaming #edit-field-gender-und .form-item input[type=radio]:checked ~ #check-radio::before,.page-node-add-story #edit-field-gender-und .form-item input[type=radio]:checked ~ #check-radio::before {
+.page-node-add-gaming #edit-field-gender-und .form-item input[type=radio]:checked ~ #check-radio::before,
+.page-node-add-story #edit-field-gender-und .form-item input[type=radio]:checked ~ #check-radio::before {
 	background: yellow;
 }
 
@@ -577,7 +584,8 @@ html{
 	margin-top: 420px;
 }
 
-.step-select-situation ~ #edit-field-situation .form-item label, .step-select-situation ~ #edit-field-situation .form-item select {
+.step-select-situation ~ #edit-field-situation .form-item label, 
+.step-select-situation ~ #edit-field-situation .form-item select {
 	display:none;
 }
 
@@ -1182,7 +1190,8 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	background-position:center center;
 }
 
-.page-node-add-story .step-story-fill-case-1,.page-node-add-story .step-story-fill-case-2,.page-node-add-story .step-story-fill-case-3,.page-node-add-story .step-story-summary {
+.page-node-add-story .step-story-fill-case-1,.page-node-add-story .step-story-fill-case-2,
+.page-node-add-story .step-story-fill-case-3,.page-node-add-story .step-story-summary {
 	background:url(../images/centerinputstory.png) no-repeat center 0 fixed;
 	background-size: 1155px;
 	position: fixed;
@@ -1195,7 +1204,9 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	overflow-x: hidden;
 }
 
-.page-node-add-story .step-story-fill-case-1 ~ #edit-field-case1-selected #field-case1-selected-add-more-wrapper .form-item label,.page-node-add-story .step-story-fill-case-2 ~ #edit-field-case2-selected #field-case2-selected-add-more-wrapper .form-item label,.page-node-add-story .step-story-fill-case-3 ~ #edit-field-case3-selected #field-case3-selected-add-more-wrapper .form-item label {
+.page-node-add-story .step-story-fill-case-1 ~ #edit-field-case1-selected #field-case1-selected-add-more-wrapper .form-item label,
+.page-node-add-story .step-story-fill-case-2 ~ #edit-field-case2-selected #field-case2-selected-add-more-wrapper .form-item label,
+.page-node-add-story .step-story-fill-case-3 ~ #edit-field-case3-selected #field-case3-selected-add-more-wrapper .form-item label {
 	display:none;
 }
 
@@ -1273,14 +1284,20 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	height:300px;
 }
 
-.step-story-fill-case-1 ~ #edit-actions,.step-story-fill-case-2 ~ #edit-actions,.step-story-fill-case-3 ~ #edit-actions,.step-story-summary ~ #edit-actions {
+.step-story-fill-case-1 ~ #edit-actions,
+.step-story-fill-case-2 ~ #edit-actions,
+.step-story-fill-case-3 ~ #edit-actions,
+.step-story-summary ~ #edit-actions {
 	margin: 0 auto;
 	position: relative;
 	width: 300px;
 	height: 50px;
 }
 
-.step-story-fill-case-1 ~ #edit-actions #edit-next,.step-story-fill-case-2 ~ #edit-actions #edit-next,.step-story-fill-case-3 ~ #edit-actions #edit-next,.step-story-summary ~ #edit-actions #edit-submit {
+.step-story-fill-case-1 ~ #edit-actions #edit-next,
+.step-story-fill-case-2 ~ #edit-actions #edit-next,
+.step-story-fill-case-3 ~ #edit-actions #edit-next,
+.step-story-summary ~ #edit-actions #edit-submit {
 	background-image: url(../images/buttonplay.png);
 	background-repeat: no-repeat;
 	background-size: 185px 50px;
@@ -1298,7 +1315,9 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	top: 166px;
 }
 
-#field-case1-selected-add-more-wrapper,#field-case2-selected-add-more-wrapper,#field-case3-selected-add-more-wrapper {
+#field-case1-selected-add-more-wrapper,
+#field-case2-selected-add-more-wrapper,
+#field-case3-selected-add-more-wrapper {
 	text-align: center;
 	width: 540px;
 	margin: 0 auto;
@@ -1329,17 +1348,23 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	height:190px !important;
 }
 
-#field-case1-selected-add-more-wrapper #button-back,#field-case2-selected-add-more-wrapper #button-back,#field-case3-selected-add-more-wrapper #button-back {
+#field-case1-selected-add-more-wrapper #button-back,
+#field-case2-selected-add-more-wrapper #button-back,
+#field-case3-selected-add-more-wrapper #button-back {
 	left:-58px;
 	top: -130px;
 }
 
-#field-case1-selected-add-more-wrapper .form-item,#field-case2-selected-add-more-wrapper .form-item,#field-case3-selected-add-more-wrapper .form-item {
+#field-case1-selected-add-more-wrapper .form-item,
+#field-case2-selected-add-more-wrapper .form-item,
+#field-case3-selected-add-more-wrapper .form-item {
 	width: 400px;
 	margin: 0 auto;
 }
 
-#field-case1-selected-add-more-wrapper .form-item input[type=text],#field-case2-selected-add-more-wrapper .form-item input[type=text],#field-case3-selected-add-more-wrapper .form-item input[type=text] {
+#field-case1-selected-add-more-wrapper .form-item input[type=text],
+#field-case2-selected-add-more-wrapper .form-item input[type=text],
+#field-case3-selected-add-more-wrapper .form-item input[type=text] {
 	background-color: transparent;
 	border: none;
 	border-bottom: 3px dashed lightgray;
@@ -1359,7 +1384,9 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	height: 231px;
 }
 
-#field-case1-selected-add-more-wrapper .story,#field-case2-selected-add-more-wrapper .story,#field-case3-selected-add-more-wrapper .story {
+#field-case1-selected-add-more-wrapper .story,
+#field-case2-selected-add-more-wrapper .story,
+#field-case3-selected-add-more-wrapper .story {
 	font-size:18px;
 }
 
@@ -1371,16 +1398,21 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	color:red;
 }
 
-#field-case1-selected-add-more-wrapper .story span,#field-case2-selected-add-more-wrapper .story span.name,#field-case3-selected-add-more-wrapper .story span.name {
+#field-case1-selected-add-more-wrapper .story span,
+#field-case2-selected-add-more-wrapper .story span.name,
+#field-case3-selected-add-more-wrapper .story span.name {
 	color:red;
 }
 
-#field-case2-selected-add-more-wrapper .story span.a,#field-case3-selected-add-more-wrapper .story span.a {
+#field-case2-selected-add-more-wrapper .story span.a,
+#field-case3-selected-add-more-wrapper .story span.a {
 	font-style:italic;
 	font-weight:bold;
 }
 
-#edit-field-case1-selected .number-question,#edit-field-case2-selected .number-question,#edit-field-case3-selected .number-question {
+#edit-field-case1-selected .number-question,
+#edit-field-case2-selected .number-question,
+#edit-field-case3-selected .number-question {
 	width: 100px;
   margin: 0 auto;
   text-align: center;
@@ -1626,7 +1658,8 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	overflow-x:hidden;
 }
 
-.female.node-story .field-name-body .field-items,.male.node-story .field-name-body .field-items {
+.female.node-story .field-name-body .field-items,
+.male.node-story .field-name-body .field-items {
 	position: relative;
 	background-color: #fefefe;
 	margin: auto;
@@ -1646,7 +1679,8 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	to {top:100px; opacity:1}
 }
 
-.female.node-story .field-name-body .field-items .close-intro,.male.node-story .field-name-body .field-items .close-intro {
+.female.node-story .field-name-body .field-items .close-intro,
+.male.node-story .field-name-body .field-items .close-intro {
 	position: absolute;
 	background-image: url(../images/buttonclose.png);
 	background-repeat: no-repeat;
@@ -1658,7 +1692,8 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	cursor: pointer;
 }
 
-.female.node-story .field-name-body .field-items .field-item,.male.node-story .field-name-body .field-items .field-item {
+.female.node-story .field-name-body .field-items .field-item,
+.male.node-story .field-name-body .field-items .field-item {
 	float: left;
 	width: 400px;
 	background-color: #ffe958;
@@ -1903,7 +1938,8 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	padding-left:25px;
 }
 
-.page-thu-vien .view-media-library .view-content .views-row.male.fresh,.page-thu-vien .view-media-library .view-content .views-row.female.fresh {
+.page-thu-vien .view-media-library .view-content .views-row.male.fresh,
+.page-thu-vien .view-media-library .view-content .views-row.female.fresh {
 	float: left;
 	width: 200px;
 	height: 200px;
@@ -1953,16 +1989,19 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	color:white;
 }
 
-.page-thu-vien .view-media-library .view-content .views-row.male:hover .views-field-body div:nth-of-type(1),.page-thu-vien .view-media-library .view-content .views-row.female:hover .views-field-body div:nth-of-type(1) {
+.page-thu-vien .view-media-library .view-content .views-row.male:hover .views-field-body div:nth-of-type(1),
+.page-thu-vien .view-media-library .view-content .views-row.female:hover .views-field-body div:nth-of-type(1) {
 	color:white;
 }
 
-.page-thu-vien .view-media-library .view-content .views-row.male.fresh .views-field-field-gaming-image,.page-thu-vien .view-media-library .view-content .views-row.female.fresh .views-field-field-gaming-image {
+.page-thu-vien .view-media-library .view-content .views-row.male.fresh .views-field-field-gaming-image,
+.page-thu-vien .view-media-library .view-content .views-row.female.fresh .views-field-field-gaming-image {
 	width: 50px;
 	height: 120px;
 }
 
-.page-thu-vien .view-media-library .view-content .views-row.male .views-field-field-gaming-image,.page-thu-vien .view-media-library .view-content .views-row.female .views-field-field-gaming-image {
+.page-thu-vien .view-media-library .view-content .views-row.male .views-field-field-gaming-image,
+.page-thu-vien .view-media-library .view-content .views-row.female .views-field-field-gaming-image {
 	width: 50px;
 	height: 105px;
 }
@@ -1997,7 +2036,8 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	display:none;
 }
 
-.page-thu-vien .view-media-library .view-content .views-row.male.fresh .views-field-picture,.page-thu-vien .view-media-library .view-content .views-row.female.fresh .views-field-picture {
+.page-thu-vien .view-media-library .view-content .views-row.male.fresh .views-field-picture,
+.page-thu-vien .view-media-library .view-content .views-row.female.fresh .views-field-picture {
 	width: 45px;
 	height: 45px;
 	background-color: white;
@@ -2013,7 +2053,8 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	border-radius: 30px;
 }
 
-.page-thu-vien .view-media-library .view-content .views-row.male.fresh .views-field-field-name,.page-thu-vien .view-media-library .view-content .views-row.female.fresh .views-field-field-name {
+.page-thu-vien .view-media-library .view-content .views-row.male.fresh .views-field-field-name,
+.page-thu-vien .view-media-library .view-content .views-row.female.fresh .views-field-field-name {
 	float:right;
 	font-weight: bold;
 	font-size: 15px;
@@ -2077,7 +2118,8 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	z-index: 3;
 }
 
-.page-thu-vien .view-media-library .view-content .views-row.male.fresh #view-play,.page-thu-vien .view-media-library .view-content .views-row.female.fresh #view-play {
+.page-thu-vien .view-media-library .view-content .views-row.male.fresh #view-play,
+.page-thu-vien .view-media-library .view-content .views-row.female.fresh #view-play {
 	background-image: url(../images/buttonplayvideo.png);
 	background-repeat: no-repeat;
 	background-size: 45px 45px;
@@ -2216,7 +2258,8 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	z-index: 3;
 }
 
-.page-thu-vien .view-media-library .view-content .views-row.female .views-field-field-name,.page-thu-vien .view-media-library .view-content .views-row.male .views-field-field-name {
+.page-thu-vien .view-media-library .view-content .views-row.female .views-field-field-name,
+.page-thu-vien .view-media-library .view-content .views-row.male .views-field-field-name {
 	font-weight: bold;
 	font-size: 15px;
 	text-transform: uppercase;
@@ -2225,7 +2268,8 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	left:10px;
 }
 
-.page-thu-vien .view-media-library .view-content .views-row.male,.page-thu-vien .view-media-library .view-content .views-row.female {
+.page-thu-vien .view-media-library .view-content .views-row.male,
+.page-thu-vien .view-media-library .view-content .views-row.female {
 	float: left;
 	width: 200px;
 	height: 200px;
@@ -2237,7 +2281,8 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
-.page-thu-vien .view-media-library .view-content .views-row.male .views-field-body,.page-thu-vien .view-media-library .view-content .views-row.female .views-field-body {
+.page-thu-vien .view-media-library .view-content .views-row.male .views-field-body,
+.page-thu-vien .view-media-library .view-content .views-row.female .views-field-body {
 	padding-left: 12px;
 	padding-right: 12px;
 	text-align:left;
