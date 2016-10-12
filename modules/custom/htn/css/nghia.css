@@ -1939,7 +1939,9 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 }
 
 .page-thu-vien .view-media-library .view-content .views-row.male.fresh,
-.page-thu-vien .view-media-library .view-content .views-row.female.fresh {
+.page-thu-vien .view-media-library .view-content .views-row.female.fresh,
+.page-thu-vien .view-media-library .view-content .views-row.male.hot,
+.page-thu-vien .view-media-library .view-content .views-row.female.hot {
 	float: left;
 	width: 200px;
 	height: 200px;
@@ -1953,7 +1955,9 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 }
 
 .page-thu-vien .view-media-library .view-content .views-row.male.fresh:hover,
-.page-thu-vien .view-media-library .view-content .views-row.female.fresh:hover {
+.page-thu-vien .view-media-library .view-content .views-row.female.fresh:hover,
+.page-thu-vien .view-media-library .view-content .views-row.male.hot:hover,
+.page-thu-vien .view-media-library .view-content .views-row.female.hot:hover {
 	background-color:#ffd204;
 	cursor:pointer;
 	-webkit-box-shadow:inset 1px 1px 10px 1px #0C0D0A;
@@ -1995,7 +1999,9 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 }
 
 .page-thu-vien .view-media-library .view-content .views-row.male.fresh .views-field-field-gaming-image,
-.page-thu-vien .view-media-library .view-content .views-row.female.fresh .views-field-field-gaming-image {
+.page-thu-vien .view-media-library .view-content .views-row.female.fresh .views-field-field-gaming-image,
+.page-thu-vien .view-media-library .view-content .views-row.male.hot .views-field-field-gaming-image,
+.page-thu-vien .view-media-library .view-content .views-row.female.hot .views-field-field-gaming-image {
 	width: 50px;
 	height: 120px;
 }
@@ -2003,7 +2009,7 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 .page-thu-vien .view-media-library .view-content .views-row.male .views-field-field-gaming-image,
 .page-thu-vien .view-media-library .view-content .views-row.female .views-field-field-gaming-image {
 	width: 50px;
-	height: 105px;
+  height: 105px;
 }
 
 .page-thu-vien .view-media-library .view-content .views-row .views-field-field-gaming-image .field-content {
@@ -2012,7 +2018,8 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	position:relative;
 }
 
-.page-thu-vien .view-media-library .view-content .views-row.male.fresh .views-field-field-gaming-image .field-content img {
+.page-thu-vien .view-media-library .view-content .views-row.male.fresh .views-field-field-gaming-image .field-content img,
+.page-thu-vien .view-media-library .view-content .views-row.male.hot .views-field-field-gaming-image .field-content img {
 	border-radius: 0 0 49px 47px;
 	width: 48px;
 	height: 46px;
@@ -2022,7 +2029,8 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	top: 27px;
 }
 
-.page-thu-vien .view-media-library .view-content .views-row.female.fresh .views-field-field-gaming-image .field-content img {
+.page-thu-vien .view-media-library .view-content .views-row.female.fresh .views-field-field-gaming-image .field-content img,
+.page-thu-vien .view-media-library .view-content .views-row.female.hot .views-field-field-gaming-image .field-content img {
 	border-radius: 0 25px 38px 9px;
 	width: 48px;
 	height: 46px;
@@ -2037,7 +2045,9 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 }
 
 .page-thu-vien .view-media-library .view-content .views-row.male.fresh .views-field-picture,
-.page-thu-vien .view-media-library .view-content .views-row.female.fresh .views-field-picture {
+.page-thu-vien .view-media-library .view-content .views-row.female.fresh .views-field-picture,
+.page-thu-vien .view-media-library .view-content .views-row.male.hot .views-field-picture,
+.page-thu-vien .view-media-library .view-content .views-row.female.hot .views-field-picture {
 	width: 45px;
 	height: 45px;
 	background-color: white;
@@ -2054,7 +2064,9 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 }
 
 .page-thu-vien .view-media-library .view-content .views-row.male.fresh .views-field-field-name,
-.page-thu-vien .view-media-library .view-content .views-row.female.fresh .views-field-field-name {
+.page-thu-vien .view-media-library .view-content .views-row.female.fresh .views-field-field-name,
+.page-thu-vien .view-media-library .view-content .views-row.male.hot .views-field-field-name,
+.page-thu-vien .view-media-library .view-content .views-row.female.hot .views-field-field-name {
 	float:right;
 	font-weight: bold;
 	font-size: 15px;
@@ -2066,12 +2078,16 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	left:0px !important;
 }
 
-.page-thu-vien .view-media-library .view-content .views-row.fresh .views-field-field-name .field-content {
+.page-thu-vien .view-media-library .view-content .views-row.fresh .views-field-field-name .field-content,
+.page-thu-vien .view-media-library .view-content .views-row.hot .views-field-field-name .field-content {
 	width: 65px;
   height: 50px;
 }
 
-.views-row.male.fresh .background-main,.views-row.female.fresh .background-main {
+.views-row.male.fresh .background-main,
+.views-row.female.fresh .background-main,
+.views-row.male.hot .background-main,
+.views-row.female.hot .background-main {
 	background-image: url(../images/backgroundvideo.png);
 	background-repeat: no-repeat;
 	background-size: 170px 105px;
@@ -2094,7 +2110,8 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	background-position:center center;
 }
 
-.page-thu-vien .view-media-library .view-content .views-row.male.fresh .body-background {
+.page-thu-vien .view-media-library .view-content .views-row.male.fresh .body-background,
+.page-thu-vien .view-media-library .view-content .views-row.male.hot .body-background {
 	background-image: url(../images/male.png);
 	background-repeat: no-repeat;
 	background-size: 120px 200px;
@@ -2106,7 +2123,8 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	z-index: 3;
 }
 
-.page-thu-vien .view-media-library .view-content .views-row.female.fresh .body-background {
+.page-thu-vien .view-media-library .view-content .views-row.female.fresh .body-background,
+.page-thu-vien .view-media-library .view-content .views-row.female.hot .body-background {
 	background-image: url(../images/female.png);
 	background-repeat: no-repeat;
 	background-size: 120px 200px;
@@ -2119,7 +2137,9 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 }
 
 .page-thu-vien .view-media-library .view-content .views-row.male.fresh #view-play,
-.page-thu-vien .view-media-library .view-content .views-row.female.fresh #view-play {
+.page-thu-vien .view-media-library .view-content .views-row.female.fresh #view-play,
+.page-thu-vien .view-media-library .view-content .views-row.male.hot #view-play,
+.page-thu-vien .view-media-library .view-content .views-row.female.hot #view-play {
 	background-image: url(../images/buttonplayvideo.png);
 	background-repeat: no-repeat;
 	background-size: 45px 45px;
@@ -2592,7 +2612,8 @@ article.female .field-name-field-gaming-image .field-items .field-item img {
 	font-size:12px;
 }
 
-.page-thu-vien .view-media-library .view-content .views-row.fresh .views-field-body a {
+.page-thu-vien .view-media-library .view-content .views-row.fresh .views-field-body a,
+.page-thu-vien .view-media-library .view-content .views-row.hot .views-field-body a {
 	display:none;
 }
 

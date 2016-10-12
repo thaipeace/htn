@@ -50,6 +50,7 @@
 				}
 			});
 			
+			$('#block-block-1 .block-wrapper').css('top','-51px');
 			$('.wrap-img-arrowheader').css('top','46px');
 			
 			//Auto slide up in 3s
@@ -139,7 +140,6 @@
 			
 					//Set style when upload
 					$('.page-node-add-gaming .node-form .step-up-picture ~ #edit-actions').css('margin-top','286px','important');
-					
 			});
 			
 			//Append button
@@ -598,13 +598,24 @@
 					var rand = back[Math.floor(Math.random() * back.length)];
 					
 					$('.page-thu-vien .view-media-library .view-content .views-row:nth-child('+i+').fresh').append('<div id="view-play" class="play-'+i+'"></div>');
+					$('.page-thu-vien .view-media-library .view-content .views-row:nth-child('+i+').hot').append('<div id="view-play" class="play-'+i+'"></div>');
 					
 					//Get link video
 					
-					if($('.page-thu-vien .view-media-library .view-content .views-row:nth-child('+i+').fresh .views-field-picture .field-content').children().size() == 0){
+					if($('.page-thu-vien .view-media-library .view-content .views-row:nth-child('+i+').fresh .views-field-picture .field-content').children().size() == 0 || $('.page-thu-vien .view-media-library .view-content .views-row:nth-child('+i+').hot .views-field-picture .field-content').children().size() == 0){
 						$('.page-thu-vien .view-media-library .view-content .views-row:nth-child('+i+').fresh .views-field-picture .field-content').html($('.page-thu-vien .view-media-library .view-content .views-row:nth-child('+i+') .views-field-field-name .field-content').text()[0]);
+						$('.page-thu-vien .view-media-library .view-content .views-row:nth-child('+i+').hot .views-field-picture .field-content').html($('.page-thu-vien .view-media-library .view-content .views-row:nth-child('+i+') .views-field-field-name .field-content').text()[0]);
 						
 						$('.page-thu-vien .view-media-library .view-content .views-row:nth-child('+i+').fresh .views-field-picture .field-content').css({
+						  'font-size': '25px',
+							'font-weight': 'bold',
+							'text-align': 'center',
+							'margin-top': '11px',
+							'text-transform':'uppercase',
+							'color':rand
+						});
+						
+						$('.page-thu-vien .view-media-library .view-content .views-row:nth-child('+i+').hot .views-field-picture .field-content').css({
 						  'font-size': '25px',
 							'font-weight': 'bold',
 							'text-align': 'center',
@@ -749,8 +760,6 @@
 						$('.mask-view').fadeIn();
 						
 					});
-					
-					
 				}
 				
 				var countchildstory = $('.view-id-game_summary div:nth-child(2).view-grouping .view-grouping-content').children().length;
